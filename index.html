@@ -3,10 +3,38 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 <title>股票深度分析报告</title>
 <style>
 /* ===== Theme Variables ===== */
-:root, [data-theme="dark"] {
+[data-theme="light"] {
+  --bg: #f5f7fa;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f8fafc;
+  --bg-input: #ffffff;
+  --bg-input-focus: #ffffff;
+  --bg-stat: #ffffff;
+  --bg-glow: #e8ecf1;
+  --text: #2c3e50;
+  --text-dim: #6b7c93;
+  --text-faint: #a0aec0;
+  --text-heading: #1a202c;
+  --border: #e2e8f0;
+  --border-input: #cbd5e0;
+  --accent: #3182ce;
+  --accent2: #2f855a;
+  --badge-code-bg: rgba(49,130,206,0.1);
+  --badge-code-text: #3182ce;
+  --badge-ind-bg: rgba(47,133,90,0.1);
+  --badge-ind-text: #2f855a;
+  --gradient-header: linear-gradient(135deg, #3182ce, #2f855a);
+  --card-accent: linear-gradient(90deg, #38a169, #3182ce);
+  --hover-glow: rgba(49,130,206,0.08);
+  --header-line: linear-gradient(90deg, #38a169, #3182ce);
+}
+[data-theme="dark"] {
   --bg: #0d1117;
   --bg-card: #161b22;
   --bg-card-hover: #1c2129;
@@ -30,31 +58,6 @@
   --card-accent: linear-gradient(90deg, #238636, #58a6ff);
   --hover-glow: rgba(88,166,255,0.12);
   --header-line: linear-gradient(90deg, #238636, #58a6ff);
-}
-[data-theme="light"] {
-  --bg: #f5f7fa;
-  --bg-card: #ffffff;
-  --bg-card-hover: #fafbfc;
-  --bg-input: #ffffff;
-  --bg-input-focus: #ffffff;
-  --bg-stat: #ffffff;
-  --bg-glow: #e8ecf1;
-  --text: #2c3e50;
-  --text-dim: #6b7c93;
-  --text-faint: #a0aec0;
-  --text-heading: #1a202c;
-  --border: #e2e8f0;
-  --border-input: #cbd5e0;
-  --accent: #3182ce;
-  --accent2: #2f855a;
-  --badge-code-bg: rgba(49,130,206,0.1);
-  --badge-code-text: #3182ce;
-  --badge-ind-bg: rgba(47,133,90,0.1);
-  --badge-ind-text: #2f855a;
-  --gradient-header: linear-gradient(135deg, #3182ce, #2f855a);
-  --card-accent: linear-gradient(90deg, #38a169, #3182ce);
-  --hover-glow: rgba(49,130,206,0.1);
-  --header-line: linear-gradient(90deg, #38a169, #3182ce);
 }
 [data-theme="forest"] {
   --bg: #0a1c14;
@@ -136,17 +139,22 @@ body::before {
   z-index: 100;
 }
 .theme-dot {
+  display: inline-block;
   width: 22px; height: 22px;
   border-radius: 50%;
   cursor: pointer;
-  border: 2px solid transparent;
+  border: 2px solid rgba(128,128,128,0.4);
   transition: all 0.25s ease;
   position: relative;
 }
-.theme-dot:hover { transform: scale(1.2); }
-.theme-dot.active { border-color: var(--accent); box-shadow: 0 0 10px var(--accent); }
-.theme-dot.dark { background: linear-gradient(135deg, #0d1117 50%, #58a6ff 50%); }
+.theme-dot:hover { transform: scale(1.25); }
+.theme-dot.active {
+  border-color: var(--accent);
+  box-shadow: 0 0 10px var(--accent);
+  transform: scale(1.15);
+}
 .theme-dot.light { background: linear-gradient(135deg, #f5f7fa 50%, #3182ce 50%); }
+.theme-dot.dark { background: linear-gradient(135deg, #0d1117 50%, #58a6ff 50%); }
 .theme-dot.forest { background: linear-gradient(135deg, #0a1c14 50%, #4ade80 50%); }
 .theme-dot.gold { background: linear-gradient(135deg, #1a1410 50%, #f0b34b 50%); }
 
@@ -334,19 +342,26 @@ body::before {
   font-size: 12px;
 }
 
+/* ===== Responsive ===== */
 @media (max-width: 600px) {
-  .header h1 { font-size: 24px; }
-  .grid { grid-template-columns: 1fr; }
-  .theme-bar { top: 10px; right: 12px; gap: 6px; }
-  .theme-dot { width: 18px; height: 18px; }
+  .header { padding: 50px 16px 24px; }
+  .header h1 { font-size: 22px; }
+  .header .subtitle { font-size: 13px; }
+  .search-wrap input { font-size: 16px; padding: 12px 16px 12px 40px; }
+  .search-icon { left: 32px; }
+  .grid { grid-template-columns: 1fr; gap: 14px; }
+  .card { padding: 18px; }
+  .card .name { font-size: 18px; }
+  .theme-bar { top: 8px; right: 10px; gap: 6px; }
+  .theme-dot { width: 20px; height: 20px; }
 }
 </style>
 </head>
-<body data-theme="dark">
+<body>
 
 <div class="theme-bar" id="themeBar">
-  <span class="theme-dot dark active" data-theme="dark" title="暗色"></span>
-  <span class="theme-dot light" data-theme="light" title="亮白"></span>
+  <span class="theme-dot light active" data-theme="light" title="亮白"></span>
+  <span class="theme-dot dark" data-theme="dark" title="暗色"></span>
   <span class="theme-dot forest" data-theme="forest" title="墨绿"></span>
   <span class="theme-dot gold" data-theme="gold" title="暖金"></span>
 </div>
@@ -373,29 +388,26 @@ body::before {
 </div>
 
 <script>
-// --- Theme switcher ---
 (function() {
-  var saved = localStorage.getItem('stock-theme') || 'dark';
-  document.body.setAttribute('data-theme', saved);
-  document.querySelectorAll('.theme-dot').forEach(function(d) {
-    d.classList.toggle('active', d.dataset.theme === saved);
-  });
+  function applyTheme(t) {
+    document.body.setAttribute('data-theme', t);
+    var dots = document.querySelectorAll('.theme-dot');
+    for (var i = 0; i < dots.length; i++) {
+      dots[i].classList.toggle('active', dots[i].getAttribute('data-theme') === t);
+    }
+  }
+  var saved = localStorage.getItem('stock-theme') || 'light';
+  applyTheme(saved);
+
   document.getElementById('themeBar').addEventListener('click', function(e) {
     var dot = e.target.closest('.theme-dot');
     if (!dot) return;
-    var t = dot.dataset.theme;
-    document.body.setAttribute('data-theme', t);
+    var t = dot.getAttribute('data-theme');
     localStorage.setItem('stock-theme', t);
-    document.querySelectorAll('.theme-dot').forEach(function(d) {
-      d.classList.toggle('active', d.dataset.theme === t);
-    });
+    applyTheme(t);
   });
-})();
 
-// --- Report cards ---
-(async function() {
-  var res = await fetch('data.json');
-  var data = await res.json();
+  var res = fetch('data.json').then(function(r) { return r.json(); });
   var grid = document.getElementById('cardGrid');
   var search = document.getElementById('search');
   var totalEl = document.getElementById('totalCount');
@@ -406,8 +418,10 @@ body::before {
       grid.innerHTML = '<div class="empty"><div class="icon">🔎</div><div class="text">没有匹配的报告，试试其他关键词</div></div>';
       return;
     }
-    grid.innerHTML = list.map(function(r) {
-      return '<a class="card" href="' + r.file + '">'
+    var html = '';
+    for (var i = 0; i < list.length; i++) {
+      var r = list[i];
+      html += '<a class="card" href="' + r.file + '">'
         + '<div class="badge-row">'
         + '<span class="badge badge-code">' + r.code + '</span>'
         + '<span class="badge badge-industry">' + r.industry + '</span>'
@@ -416,22 +430,24 @@ body::before {
         + '<div class="summary">' + r.summary + '</div>'
         + '<div class="date">' + r.date + '</div>'
         + '</a>';
-    }).join('');
+    }
+    grid.innerHTML = html;
   }
 
-  search.addEventListener('input', function() {
-    var q = this.value.trim().toLowerCase();
-    if (!q) { render(data); return; }
-    var filtered = data.filter(function(r) {
-      return r.name.toLowerCase().indexOf(q) !== -1
-        || r.code.toLowerCase().indexOf(q) !== -1
-        || r.industry.toLowerCase().indexOf(q) !== -1
-        || r.summary.toLowerCase().indexOf(q) !== -1;
+  res.then(function(data) {
+    render(data);
+    search.addEventListener('input', function() {
+      var q = this.value.trim().toLowerCase();
+      if (!q) { render(data); return; }
+      var filtered = data.filter(function(r) {
+        return r.name.toLowerCase().indexOf(q) !== -1
+          || r.code.toLowerCase().indexOf(q) !== -1
+          || r.industry.toLowerCase().indexOf(q) !== -1
+          || r.summary.toLowerCase().indexOf(q) !== -1;
+      });
+      render(filtered);
     });
-    render(filtered);
   });
-
-  render(data);
 })();
 </script>
 
