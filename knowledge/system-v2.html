@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>投资知识体系</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Microsoft YaHei","PingFang SC","Helvetica Neue",sans-serif;background:#f5f7fa;color:#2c3e50;min-height:100vh}
+body::before{content:"";position:fixed;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 50% 0%,#e8ecf1 0%,#f5f7fa 60%);z-index:-1}
+.layout{display:flex;min-height:100vh}
+.side{width:260px;min-width:260px;background:#fff;border-right:1px solid #e2e8f0;position:fixed;top:0;left:0;bottom:0;overflow-y:auto;z-index:50;padding-bottom:40px;box-shadow:2px 0 8px rgba(0,0,0,.03)}
+.side-hd{padding:16px;border-bottom:1px solid #e2e8f0;position:sticky;top:0;background:#fff;z-index:5}
+.c-list{list-style:none}
+.c-item{border-bottom:1px solid #f0f0f0}
+.c-toggle{display:block;padding:10px 16px;font-size:13px;font-weight:600;color:#1a202c;text-decoration:none;transition:.2s}
+.c-toggle:hover{background:#f0f6ff;color:#3182ce}
+.sec-list{display:none;list-style:none;padding:0 0 4px;background:#fafbfc}
+.c-item:target .sec-list{display:block}
+.c-item:target > .c-toggle{color:#3182ce;background:#f0f6ff}
+.sec-list li a{display:block;padding:5px 16px 5px 36px;font-size:12px;color:#6b7c93;text-decoration:none;transition:.15s;border-left:2px solid transparent}
+.sec-list li a:hover{color:#3182ce;background:#f0f6ff;border-left-color:#3182ce}
+.sec-list li a:target{color:#3182ce;background:#e8f0fe;border-left-color:#3182ce}
+.main{margin-left:260px;flex:1;padding:30px 40px 60px;max-width:900px}
+.main h2{font-size:26px;color:#1a202c;margin:40px 0 8px;padding-bottom:12px;border-bottom:2px solid #e2e8f0;scroll-margin-top:20px}
+.main h2:first-child{margin-top:0}
+.main h3{font-size:17px;color:#2c3e50;margin:26px 0 10px;padding-left:12px;border-left:3px solid #3182ce;scroll-margin-top:20px}
+.main p{font-size:15px;line-height:1.9;margin-bottom:14px;text-align:justify}
+.main strong{color:#1a202c}
+.main code{background:#f0f0f0;padding:1px 6px;border-radius:3px;font-size:13px}
+.mob-nav{display:none;position:fixed;top:0;left:0;right:0;background:#fff;z-index:60;border-bottom:1px solid #e2e8f0;padding:10px 14px}
+.mob-nav select{width:100%;padding:8px;font-size:14px;border:1px solid #e2e8f0;border-radius:8px;font-family:inherit;background:#fff}
+.to-top{position:fixed;bottom:24px;right:24px;width:40px;height:40px;border-radius:50%;background:#3182ce;color:#fff;border:none;cursor:pointer;font-size:18px;box-shadow:0 4px 12px rgba(0,0,0,.15);z-index:40;display:none}
+.to-top:hover{background:#2c5282}
+@media(max-width:768px){.side{display:none}.main{margin-left:0;padding:80px 16px 40px}.mob-nav{display:block}.main h2{font-size:22px}.main h3{font-size:16px}.main p{font-size:14px}}
+</style>
+</head>
+<body>
+<div class="mob-nav">
+  <select onchange="if(this.value)location.hash=this.value">
+    <option value="">-- 选择章节 --</option>
+<option value='ch0'>01.为什么要学投资</option>
+<option value='ch1'>02.常见的投资品种</option>
+<option value='ch2'>03.股票与交易所起源</option>
+<option value='ch3'>04.公司与行业概述</option>
+<option value='ch4'>05.基础财务指标</option>
+<option value='ch5'>06.从初创公司到IPO</option>
+<option value='ch6'>07.公司商业模式</option>
+<option value='ch7'>08.公司财务管理</option>
+<option value='ch8'>09.财务三表解读</option>
+<option value='ch9'>10.公司估值</option>
+<option value='ch10'>11.市场技术分析</option>
+<option value='ch11'>12.股市交易技巧</option>
+<option value='ch12'>13.金融衍生品</option>
+<option value='ch13'>14.信息技术的应用</option>
+<option value='ch14'>15.行为经济学应用</option>
+<option value='ch15'>16.战略与风险管理</option>
+<option value='ch16'>17.宏观经济周期</option>
+<option value='ch17'>18.地缘政治与经济</option>
+<option value='ch18'>nr投资体系</option>
+  </select>
+</div>
+<div class="layout">
+<div class="side">
+  <div class="side-hd"><a href="../knowledge.html" style="color:#3182ce;text-decoration:none;font-size:13px;">← 知识库</a></div>
+  <h3 style="padding:12px 16px 8px;color:#1a202c;font-size:15px;font-weight:700;">📖 投资知识体系</h3>
+  <ul class="c-list">
+<li class='c-item'><a class='c-toggle' href='#ch0'>01.为什么要学投资</a><ul class='sec-list'><li><a href='#ch0s0'>持有法定货币：需要承担通货膨胀的风险</a></li><li><a href='#ch0s1'>持有资产：获得被动现金流，实现财务自由</a></li></ul></li>
+    <li class='c-item'><a class='c-toggle' href='#ch1'>02.常见的投资品种</a><ul class='sec-list'><li><a href='#ch1s0'>不可能三角</a></li><li><a href='#ch1s1'>主要投资品种</a></li></ul></li>
+    <li class='c-item'><a class='c-toggle' href='#ch2'>03.股票与交易所起源</a><ul class='sec-list'><li><a href='#ch2s0'>起源简述</a></li><li><a href='#ch2s1'>国内交易所与国企改革</a></li><li><a href='#ch2s2'>审核制 → 注册制</a></li><li><a href='#ch2s3'>涨跌停与T+1制度</a></li></ul></li>
+    <li class='c-item'><a class='c-toggle' href='#ch3'>04.公司与行业概述</a><ul class='sec-list'><li><a href='#ch3s0'>公司分类</a></li><li><a href='#ch3s1'>运营与架构</a></li><li><a href='#ch3s2'>产品力与商业模式</a></li><li><a href='#ch3s3'>行业选择</a></li></ul></li>
+    <li class='c-item'><a class='c-toggle' href='#ch4'>05.基础财务指标</a><ul class='sec-list'><li><a href='#ch4s0'>成长类指标</a></li><li><a href='#ch4s1'>资产类指标</a></li><li><a href='#ch4s2'>效率类指标</a></li></ul></li>
+    <li class='c-item'><a class='c-toggle' href='#ch5'>06.从初创公司到IPO</a><ul class='sec-list'><li><a href='#ch5s0'>公司市值</a></li><li><a href='#ch5s1'>融资轮次</a></li><li><a href='#ch5s2'>为什么要上市</a></li><li><a href='#ch5s3'>上市后操作</a></li></ul></li>
+    <li class='c-item'><a class='c-toggle' href='#ch6'>07.公司商业模式</a><ul class='sec-list'><li><a href='#ch6s0'>公司业务分析</a></li><li><a href='#ch6s1'>两个关键点</a></li><li><a href='#ch6s2'>商业模式类型</a></li></ul></li>
+    <li class='c-item'><a class='c-toggle' href='#ch7'>08.公司财务管理</a><ul class='sec-list'><li><a href='#ch7s0'>为什么要学财务知识</a></li><li><a href='#ch7s1'>复式记账法</a></li><li><a href='#ch7s2'>常见业务场景</a></li><li><a href='#ch7s3'>财务造假识别</a></li></ul></li>
+    <li class='c-item'><a class='c-toggle' href='#ch8'>09.财务三表解读</a><ul class='sec-list'><li><a href='#ch8s0'>官方信息发布渠道</a></li><li><a href='#ch8s1'>财报发布节奏</a></li><li><a href='#ch8s2'>审计意见</a></li><li><a href='#ch8s3'>三表核心</a></li></ul></li>
+    <li class='c-item'><a class='c-toggle' href='#ch9'>10.公司估值</a><ul class='sec-list'><li><a href='#ch9s0'>估值的核心作用</a></li><li><a href='#ch9s1'>绝对估值法</a></li><li><a href='#ch9s2'>相对估值法</a></li><li><a href='#ch9s3'>估值注意事项</a></li></ul></li>
+    <li class='c-item'><a class='c-toggle' href='#ch10'>11.市场技术分析</a><ul class='sec-list'><li><a href='#ch10s0'>K线分析</a></li><li><a href='#ch10s1'>推荐书籍</a></li><li><a href='#ch10s2'>最重要理论</a></li></ul></li>
+    <li class='c-item'><a class='c-toggle' href='#ch11'>12.股市交易技巧</a><ul class='sec-list'><li><a href='#ch11s0'>交易时间与时段特性</a></li><li><a href='#ch11s1'>订单类型</a></li><li><a href='#ch11s2'>仓位管理</a></li><li><a href='#ch11s3'>交易心理</a></li></ul></li>
+    <li class='c-item'><a class='c-toggle' href='#ch12'>13.金融衍生品</a><ul class='sec-list'><li><a href='#ch12s0'>期权</a></li><li><a href='#ch12s1'>期货</a></li><li><a href='#ch12s2'>可转债</a></li></ul></li>
+    <li class='c-item'><a class='c-toggle' href='#ch13'>14.信息技术的应用</a><ul class='sec-list'><li><a href='#ch13s0'>量化交易</a></li><li><a href='#ch13s1'>AI在投资中的应用</a></li><li><a href='#ch13s2'>数据来源</a></li></ul></li>
+    <li class='c-item'><a class='c-toggle' href='#ch14'>15.行为经济学应用</a><ul class='sec-list'><li><a href='#ch14s0'>前景理论</a></li><li><a href='#ch14s1'>常见认知偏差</a></li><li><a href='#ch14s2'>市场情绪指标</a></li></ul></li>
+    <li class='c-item'><a class='c-toggle' href='#ch15'>16.战略与风险管理</a><ul class='sec-list'><li><a href='#ch15s0'>投资组合理论</a></li><li><a href='#ch15s1'>止损策略</a></li><li><a href='#ch15s2'>黑天鹅应对</a></li><li><a href='#ch15s3'>凯利公式</a></li></ul></li>
+    <li class='c-item'><a class='c-toggle' href='#ch16'>17.宏观经济周期</a><ul class='sec-list'><li><a href='#ch16s0'>经济周期四阶段</a></li><li><a href='#ch16s1'>货币政策</a></li><li><a href='#ch16s2'>先行指标</a></li></ul></li>
+    <li class='c-item'><a class='c-toggle' href='#ch17'>18.地缘政治与经济</a><ul class='sec-list'><li><a href='#ch17s0'>贸易摩擦</a></li><li><a href='#ch17s1'>地缘冲突</a></li><li><a href='#ch17s2'>制裁风险</a></li></ul></li>
+    <li class='c-item'><a class='c-toggle' href='#ch18'>nr投资体系</a><ul class='sec-list'><li><a href='#ch18s0'>对冲</a></li><li><a href='#ch18s1'>定投策略</a></li><li><a href='#ch18s2'>白水画线</a></li><li><a href='#ch18s3'>仓位动态平衡</a></li><li><a href='#ch18s4'>投资纪律</a></li></ul></li>
+  </ul>
+</div>
+<div class="main">
+<div class='c-block' id='ch0'><h2>01.为什么要学投资</h2><h3 id='ch0s0'>持有法定货币：需要承担通货膨胀的风险</h3>
+<p>适度通胀有利于经济发展（金融学术界共识保持2%-3%）。通货紧缩的问题比通胀严重。CPI可以辅助观察通胀。货币供应量M2是重要参考指标。马克思主义经济理论定义：货币作为一般等价物，其价值随生产力发展而波动。</p>
+<h3 id='ch0s0'>持有资产：获得被动现金流，实现财务自由</h3>
+<p>资产定义：能够持续产生正向现金流的东西。《富爸爸，穷爸爸》中的资产负债理解：资产是把钱放进你口袋的东西，负债是把钱从你口袋拿走的东西。投资的终极目标是建立稳定的被动收入体系。</p></div>
+
+<div class='c-block' id='ch1'><h2>02.常见的投资品种</h2><h3 id='ch1s0'>不可能三角</h3>
+<p>投资品种不可能同时兼顾：<strong>流动性高</strong>、<strong>风险低</strong>、<strong>预期收益高</strong>。任何投资都是在三者之间做取舍。</p>
+<h3 id='ch1s0'>主要投资品种</h3>
+<p><strong>债券</strong>：固定收益，风险较低。<strong>固定资产</strong>：房产等不动产。<strong>REITs</strong>：房地产信托基金。<strong>公司股票</strong>：分享企业成长。<strong>大宗商品</strong>：黄金、原油等。<strong>货币替代物</strong>：数字货币等。一、二级市场各自特点需区分理解。</p></div>
+
+<div class='c-block' id='ch2'><h2>03.股票与交易所起源</h2><h3 id='ch2s0'>起源简述</h3>
+<p>17世纪荷兰大航海时代，为分摊贸易风险而诞生股票。股票投资的核心是<strong>风险共担，收益共享</strong>。金融的本质是<strong>为风险定价</strong>。</p>
+<h3 id='ch2s0'>国内交易所与国企改革</h3>
+<p>国企股份制改革本质上是用资本市场规则把低效国企变成市场化现代企业：既解决融资和治理问题，又为经济转型提供动力。</p>
+<h3 id='ch2s0'>审核制 → 注册制</h3>
+<p>审核制弊端：门槛高、效率低、易滋生腐败。注册制变革：降低上市门槛、强化信息披露、让市场定价。</p>
+<h3 id='ch2s0'>涨跌停与T+1制度</h3>
+<p>A股实行T+1交易制度和涨跌停板限制（主板±10%，创业板/科创板±20%）。这些制度设计影响市场流动性和价格发现效率。</p></div>
+
+<div class='c-block' id='ch3'><h2>04.公司与行业概述</h2><h3 id='ch3s0'>公司分类</h3>
+<p>注册公司的原因：法律保护、融资便利、品牌建设。注册资本的实缴制和认缴制有区别。公司注册信息可在国家企业信用信息公示系统查询。</p>
+<h3 id='ch3s0'>运营与架构</h3>
+<p>公司所有经营围绕产品和服务展开。成熟公司五大业务线：市场、产品、营销、交付、售后。支持部门：人力、行政、财务。</p>
+<h3 id='ch3s0'>产品力与商业模式</h3>
+<p>产品力核心：和行业其他公司比有优先定价权。但单有产品力没有好的商业模式，投资价值有上限。金字塔尖的商业模式最优。</p>
+<h3 id='ch3s0'>行业选择</h3>
+<p>简单策略：尽量选自己能接触到的行业，如手机、汽车等，便于跟踪和理解。</p></div>
+
+<div class='c-block' id='ch4'><h2>05.基础财务指标</h2><h3 id='ch4s0'>成长类指标</h3>
+<p><strong>营业收入</strong>：公司主营业务的收入规模。<strong>利润</strong>：扣除成本后的盈利。关注增长趋势而非单期绝对值。</p>
+<h3 id='ch4s0'>资产类指标</h3>
+<p>现金、短期借款、应收账款等反映公司资产质量。例如：应收账款过高可能意味着回款困难，现金充裕则抗风险能力强。</p>
+<h3 id='ch4s0'>效率类指标</h3>
+<p><strong>净资产收益率ROE</strong>：衡量股东资金使用效率的核心指标。<strong>杜邦分析法</strong>将ROE拆解为利润率×周转率×杠杆倍数，帮我们看清楚盈利到底来自哪里。</p></div>
+
+<div class='c-block' id='ch5'><h2>06.从初创公司到IPO</h2><h3 id='ch5s0'>公司市值</h3>
+<p>公司市值 = 总股本 × 当前股价。市值反映市场对公司的整体定价。</p>
+<h3 id='ch5s0'>融资轮次</h3>
+<p>种子轮→天使轮→A轮→B轮→C轮→Pre-IPO。每一轮代表不同的成长阶段和估值水平。</p>
+<h3 id='ch5s0'>为什么要上市</h3>
+<p>融资扩大规模、提升品牌知名度、提高公司治理水平。IPO正式流程包括：中介机构辅导备案、制作申报材料、发审委审核、路演定价等。</p>
+<h3 id='ch5s0'>上市后操作</h3>
+<p>定向增发与配售、可转债、公司回购（不一定是好事，要实际分析）、高送转等方式影响股本结构。</p></div>
+
+<div class='c-block' id='ch6'><h2>07.公司商业模式</h2><h3 id='ch6s0'>公司业务分析</h3>
+<p>信息来源：年报、招股书、调研纪要。产品维度：竞争力、市占率、定价权。营销维度：渠道效率、品牌力。生产维度：成本控制、产能利用率。</p>
+<h3 id='ch6s0'>两个关键点</h3>
+<p>企业竞争的本质是<strong>效率的竞争</strong>。金融的本质是对<strong>风险进行定价</strong>。理解这两点，才能看懂商业模式的优劣。</p>
+<h3 id='ch6s0'>商业模式类型</h3>
+<p>自身商业模式（如何赚钱）和公司商业模式（如何在行业内定位）。好的商业模式通常具备：高壁垒、可复制、轻资产、强现金流等特点。</p></div>
+
+<div class='c-block' id='ch7'><h2>08.公司财务管理</h2><h3 id='ch7s0'>为什么要学财务知识</h3>
+<p>企业财务常见工作职能：核算、预算、税务、资金管理。常见财务科目：资产、负债、所有者权益、收入、费用、利润。</p>
+<h3 id='ch7s0'>复式记账法</h3>
+<p>个人做账和公司做账的核心区别。复式记账法通过"有借必有贷，借贷必相等"确保账目平衡。</p>
+<h3 id='ch7s0'>常见业务场景</h3>
+<p>拿到投资→购买设备→计提薪酬→计算增值税（进项销项抵扣）。理解这些场景有助于看懂财务报表。</p>
+<h3 id='ch7s0'>财务造假识别</h3>
+<p>如何看待财务造假：保持怀疑，交叉验证。如何识别：关注现金流与利润背离、应收账款异常增长、大额关联交易等。经典案例：乐视网、瑞幸、东方集团。</p></div>
+
+<div class='c-block' id='ch8'><h2>09.财务三表解读</h2><h3 id='ch8s0'>官方信息发布渠道</h3>
+<p><strong>巨潮资讯网</strong>是上市公司官方信息披露平台，所有公告和财报均可免费查阅。</p>
+<h3 id='ch8s0'>财报发布节奏</h3>
+<p>年报（4月30日前）、一季报（4月30日前）、半年报（8月31日前）、三季报（10月31日前）。半年报和三季报间隔近，市场偏理性；三季报后空窗期长达半年，情绪影响较大。</p>
+<h3 id='ch8s0'>审计意见</h3>
+<p>一般是<strong>标准无保留意见</strong>才值得看。保留意见、无法表示意见、否定意见都是危险信号。</p>
+<h3 id='ch8s0'>三表核心</h3>
+<p><strong>资产负债表</strong>：某时点的家底。<strong>利润表</strong>：一段时间的赚钱能力。<strong>现金流量表</strong>：真金白银的进出。三表结合才能看清公司全貌。</p></div>
+
+<div class='c-block' id='ch9'><h2>10.公司估值</h2><h3 id='ch9s0'>估值的核心作用</h3>
+<p>判断出一个相对合理的价格区间，发现市场中的超跌机会。稳定盈利的胜负手，是商业模式分析和预测未来业绩趋势。</p>
+<h3 id='ch9s0'>绝对估值法</h3>
+<p><strong>现金流折现法</strong>：未来现金流按折现率折现到今天的价值。<strong>股利折现模型</strong>：适用于红利类公司。<strong>净资产分析法</strong>：不太适用于上市公司，适用于小生意和重资产公司。</p>
+<h3 id='ch9s0'>相对估值法</h3>
+<p><strong>类比估值法</strong>：跟同类型公司比较估值倍数。<strong>基于乘数的估值法</strong>：和公司自己的历史估值水平比较。市净率(P/B)适用于金融和重资产公司。</p>
+<h3 id='ch9s0'>估值注意事项</h3>
+<p>建议采用多种方法交叉验证。持续性和成长性共同决定估值区间。未来预测直接影响现在估值，悲观和乐观都是合理范围。</p></div>
+
+<div class='c-block' id='ch10'><h2>11.市场技术分析</h2><h3 id='ch10s0'>K线分析</h3>
+<p>二级市场定价大多数情况下不合理。K线分析基于错误价格上的分析，很难得出有效结论。K线主要起辅助作用，不能起主导作用。两个行为经济学理论（支撑位和压力位）有时确实能提高胜率。</p>
+<h3 id='ch10s0'>推荐书籍</h3>
+<p>马丁J·普林格《技术分析》是经典入门教材。</p>
+<h3 id='ch10s0'>最重要理论</h3>
+<p>格雷厄姆的<strong>市场先生理论</strong>：市场先生的情绪不稳定，不能被其情绪左右。决策应基于企业真实价值。甚至可以利用市场不理智——悲观时低价买入，狂热时高价卖出。</p></div>
+
+<div class='c-block' id='ch11'><h2>12.股市交易技巧</h2><h3 id='ch11s0'>交易时间与时段特性</h3>
+<p>A股交易时间为工作日9:30-11:30、13:00-15:00。开盘前15分钟为集合竞价。早盘和尾盘成交量通常较大，午盘相对清淡。</p>
+<h3 id='ch11s0'>订单类型</h3>
+<p><strong>限价单</strong>：指定价格买卖，未成交部分挂单等待。<strong>市价单</strong>：以当前最优价立即成交。<strong>止损单</strong>：股价触及设定价格时自动卖出，用于风险控制。</p>
+<h3 id='ch11s0'>仓位管理</h3>
+<p>单只股票不超过总仓位20%-30%，行业不超过40%。保留现金应对波动。初次建仓分2-3批买入，避免一次性重仓。</p>
+<h3 id='ch11s0'>交易心理</h3>
+<p>克服FOMO和恐慌性卖出。制定计划严格执行，不受盘中情绪影响。亏损时冷静分析，而非急于翻本。</p></div>
+
+<div class='c-block' id='ch12'><h2>13.金融衍生品</h2><h3 id='ch12s0'>期权</h3>
+<p>赋予买方在未来特定时间以特定价格买卖标的资产的权利。<strong>看涨期权</strong>：预期上涨时买入。<strong>看跌期权</strong>：预期下跌时买入或作为持仓保险。期权有杠杆效应，风险较高。</p>
+<h3 id='ch12s0'>期货</h3>
+<p>标准化合约，约定未来交割。<strong>股指期货</strong>可对冲大盘风险。期货采用保证金制度，杠杆倍数高。</p>
+<h3 id='ch12s0'>可转债</h3>
+<p>兼具债券和股票特性。下有债底保护，上有股票上涨弹性。需关注溢价率和强赎条款。</p></div>
+
+<div class='c-block' id='ch13'><h2>14.信息技术的应用</h2><h3 id='ch13s0'>量化交易</h3>
+<p>利用数学模型和计算机程序自动交易。常见策略：趋势跟踪、均值回归、统计套利、因子选股。个人可用Python搭建简易量化系统。</p>
+<h3 id='ch13s0'>AI在投资中的应用</h3>
+<p>自然语言处理分析新闻财报。机器学习识别K线形态、预测波动率。大语言模型辅助基本面分析。</p>
+<h3 id='ch13s0'>数据来源</h3>
+<p>免费：东方财富、同花顺、Tushare、AkShare。付费：Wind、Bloomberg。技术分析用TradingView、通达信。警惕社交媒体荐股信息。</p></div>
+
+<div class='c-block' id='ch14'><h2>15.行为经济学应用</h2><h3 id='ch14s0'>前景理论</h3>
+<p>人们对损失的敏感度远高于收益（约2.5倍）。导致过早卖出盈利股、过久持有亏损股。</p>
+<h3 id='ch14s0'>常见认知偏差</h3>
+<p><strong>锚定效应</strong>：过度依赖买入价。<strong>确认偏误</strong>：只看支持自己的信息。<strong>羊群效应</strong>：盲目跟风。<strong>过度自信</strong>：频繁交易。</p>
+<h3 id='ch14s0'>市场情绪指标</h3>
+<p>恐惧贪婪指数、成交量、融资余额。极度恐惧时可能是买入机会。</p></div>
+
+<div class='c-block' id='ch15'><h2>16.战略与风险管理</h2><h3 id='ch15s0'>投资组合理论</h3>
+<p>配置相关性低的资产降低整体波动。行业和市值分散同样重要。</p>
+<h3 id='ch15s0'>止损策略</h3>
+<p>固定比例止损（-8%）、移动止损、时间止损。关键是止损后不急于翻本。</p>
+<h3 id='ch15s0'>黑天鹅应对</h3>
+<p>保留充足现金、使用对冲工具、控制单一仓位、避免过度杠杆。</p>
+<h3 id='ch15s0'>凯利公式</h3>
+<p>最优仓位 = (胜率×赔率-败率)/赔率。实际中采用半凯利或更保守。</p></div>
+
+<div class='c-block' id='ch16'><h2>17.宏观经济周期</h2><h3 id='ch16s0'>经济周期四阶段</h3>
+<p>复苏期利好股票。过热期利好商品和周期股。衰退期防御性板块更优。萧条期逐步布局股票。</p>
+<h3 id='ch16s0'>货币政策</h3>
+<p>降息降准释放流动性，利好股市。加息提准收紧流动性，压制估值。关注M2增速。</p>
+<h3 id='ch16s0'>先行指标</h3>
+<p>PMI、社融数据、工业用电量等领先GDP约1-2个季度。跟踪这些指标预判经济走向。</p></div>
+
+<div class='c-block' id='ch17'><h2>18.地缘政治与经济</h2><h3 id='ch17s0'>贸易摩擦</h3>
+<p>关税壁垒直接影响出口型企业。关注核心症结而非短期新闻。</p>
+<h3 id='ch17s0'>地缘冲突</h3>
+<p>推高能源和黄金价格。A股受影响程度取决于是否波及中国核心利益。</p>
+<h3 id='ch17s0'>制裁风险</h3>
+<p>技术出口管制影响半导体、AI行业。聚焦内需驱动型公司降低外部依赖。</p></div>
+
+<div class='c-block' id='ch18'><h2>nr投资体系</h2><h3 id='ch18s0'>对冲</h3>
+<p>对冲的核心目的是控制风险而非追求收益。牛市中的对冲方式包括配置反向ETF、买入看跌期权、调仓防御板块。仓位管理是对冲的基础。</p>
+<h3 id='ch18s0'>定投策略</h3>
+<p>选择长期上行或不死的标的。熊市定投、牛市减仓。牛市定投间隔长（≥3个月），熊市看跌幅越跌越重仓。核心是穿越完整周期。</p>
+<h3 id='ch18s0'>白水画线</h3>
+<p>底部进场→建仓→洗盘→拉升，四个阶段的操作逻辑和仓位策略。</p>
+<h3 id='ch18s0'>仓位动态平衡</h3>
+<p>根据估值水平调整股债比例。PE低位提高仓位至70%+，PE高位降至30%-。定期再平衡。</p>
+<h3 id='ch18s0'>投资纪律</h3>
+<p>制定规则严格执行。保持交易日志定期复盘。恐慌时冷静，狂热时警惕。市场永远是最好的老师。</p></div>
+</div>
+</div>
+<button class="to-top" id="toTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script>
+(function(){
+  // Handle hash changes - show sub-sections for active chapter
+  function updateActive(){
+    var h=location.hash.replace('#','');
+    if(!h)return;
+    // Reset all
+    document.querySelectorAll('.c-item').forEach(function(el){el.id=''});
+    // Find the chapter item
+    var link=document.querySelector('.c-toggle[href="#'+h+'"]');
+    if(link){
+      var item=link.closest('.c-item');
+      if(item){item.id=h.replace('ch','citem');}
+    }
+    // Scroll
+    var el=document.getElementById(h);
+    if(el){setTimeout(function(){el.scrollIntoView({behavior:'smooth',block:'start'})},100);}
+  }
+  window.addEventListener('hashchange',updateActive);
+  updateActive();
+  
+  // Click on sub-section links
+  document.querySelector('.c-list').addEventListener('click',function(e){
+    var a=e.target.closest('.sec-list a');
+    if(a){
+      e.preventDefault();
+      var id=a.getAttribute('href').replace('#','');
+      var el=document.getElementById(id);
+      if(el){el.scrollIntoView({behavior:'smooth',block:'start'});history.pushState(null,'','#'+id);}
+    }
+  });
+  
+  // To-top
+  var btn=document.getElementById('toTop');
+  window.addEventListener('scroll',function(){btn.style.display=window.scrollY>400?'block':'none'});
+})();
+</script>
+</body>
+</html>
