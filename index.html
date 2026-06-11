@@ -365,6 +365,12 @@ mark { background: var(--mark-bg); color: var(--mark-text); border-radius: 2px; 
   .theme-bar { top: 8px; right: 10px; gap: 6px; }
   .theme-dot { width: 20px; height: 20px; }
 }
+
+.nav-row{display:flex;justify-content:center;gap:12px;margin-top:16px}
+.nav-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 18px;border-radius:20px;font-size:13px;font-weight:600;text-decoration:none;transition:all .25s ease;color:var(--text-dim);background:var(--bg-card);border:1px solid var(--border)}
+.nav-btn:hover{color:var(--accent);border-color:var(--accent);background:var(--bg-card-hover);transform:translateY(-1px)}
+.nav-btn.active{color:var(--accent);border-color:var(--accent);background:var(--badge-code-bg)}
+@media(max-width:600px){.nav-row{gap:8px}.nav-btn{padding:6px 12px;font-size:12px}}
 </style>
 </head>
 <body>
@@ -376,19 +382,13 @@ mark { background: var(--mark-bg); color: var(--mark-text); border-radius: 2px; 
   <span class="theme-dot gold" data-theme="gold" title="暖金"></span>
 </div>
 
-<style>
-.top-nav { position:fixed; top:16px; left:20px; z-index:100; display:flex; gap:12px; }
-.nav-link { color:var(--accent); text-decoration:none; font-size:14px; font-weight:600; padding:6px 14px; border-radius:8px; background:var(--bg-card); border:1px solid var(--border); transition:all .25s ease; }
-.nav-link:hover { background:var(--bg-card-hover); border-color:var(--accent); }
-@media(max-width:600px){.top-nav{top:8px;left:10px;}.nav-link{font-size:12px;padding:4px 10px;}}
-</style>
-<div class="top-nav">
-  <a href="knowledge.html" class="nav-link">📚 知识库</a>
-</div>
 
-
-  <h1>📊 股票深度分析报告</h1>
+<h1>📊 股票深度分析报告</h1>
   <p class="subtitle">基于财务数据的投资价值研究</p>
+  <div class="nav-row">
+    <a href="index.html" class="nav-btn active">🏠 首页</a>
+    <a href="knowledge.html" class="nav-btn">📚 知识库</a>
+  </div>
 </div>
 
 <div class="search-wrap">
