@@ -376,7 +376,17 @@ mark { background: var(--mark-bg); color: var(--mark-text); border-radius: 2px; 
   <span class="theme-dot gold" data-theme="gold" title="暖金"></span>
 </div>
 
-<div class="header">
+<style>
+.top-nav { position:fixed; top:16px; left:20px; z-index:100; display:flex; gap:12px; }
+.nav-link { color:var(--accent); text-decoration:none; font-size:14px; font-weight:600; padding:6px 14px; border-radius:8px; background:var(--bg-card); border:1px solid var(--border); transition:all .25s ease; }
+.nav-link:hover { background:var(--bg-card-hover); border-color:var(--accent); }
+@media(max-width:600px){.top-nav{top:8px;left:10px;}.nav-link{font-size:12px;padding:4px 10px;}}
+</style>
+<div class="top-nav">
+  <a href="knowledge.html" class="nav-link">📚 知识库</a>
+</div>
+
+
   <h1>📊 股票深度分析报告</h1>
   <p class="subtitle">基于财务数据的投资价值研究</p>
 </div>
