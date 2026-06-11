@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>知识库 - 股票分析</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Microsoft YaHei","PingFang SC","Helvetica Neue",sans-serif;background:#f5f7fa;color:#2c3e50;min-height:100vh}
+body::before{content:"";position:fixed;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 50% 0%,#e8ecf1 0%,#f5f7fa 60%);z-index:-1}
+
+.top-nav{position:fixed;top:16px;left:20px;z-index:100}
+.nav-link{color:#3182ce;text-decoration:none;font-size:14px;font-weight:600;padding:6px 14px;border-radius:8px;background:#fff;border:1px solid #e2e8f0;transition:all .25s ease}
+.nav-link:hover{background:#f8fafc;border-color:#3182ce}
+
+.header{text-align:center;padding:70px 20px 40px}
+.header h1{font-size:32px;font-weight:700;background:linear-gradient(135deg,#3182ce,#2f855a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px}
+.header .subtitle{font-size:14px;color:#6b7c93}
+
+.container{max-width:900px;margin:0 auto;padding:0 20px 60px;display:flex;flex-direction:column;gap:24px}
+.card{display:block;text-decoration:none;color:inherit;background:#fff;border:1px solid #e2e8f0;border-radius:16px;padding:32px;transition:all .3s ease;position:relative;overflow:hidden}
+.card::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#38a169,#3182ce);opacity:0;transition:opacity .3s ease}
+.card:hover{border-color:#3182ce;transform:translateY(-3px);box-shadow:0 12px 40px rgba(49,130,206,.1)}
+.card:hover::before{opacity:1}
+.card .icon{font-size:40px;margin-bottom:12px}
+.card h2{font-size:24px;font-weight:700;color:#1a202c;margin-bottom:8px}
+.card .meta{font-size:13px;color:#a0aec0;margin-bottom:12px}
+.card .desc{font-size:14px;color:#6b7c93;line-height:1.7}
+.card .tag-row{margin-top:14px;display:flex;gap:6px;flex-wrap:wrap}
+.tag{display:inline-block;padding:3px 10px;border-radius:6px;font-size:11px;font-weight:600}
+.tag-blue{background:rgba(49,130,206,.1);color:#3182ce}
+.tag-green{background:rgba(47,133,90,.1);color:#2f855a}
+
+.footer{text-align:center;padding:20px;color:#a0aec0;font-size:12px}
+@media(max-width:600px){.header{padding:60px 16px 30px}.header h1{font-size:24px}.card{padding:24px}.card h2{font-size:20px}}
+</style>
+</head>
+<body>
+
+<div class="top-nav"><a href="index.html" class="nav-link">← 返回首页</a></div>
+
+<div class="header">
+  <h1>📚 投资知识库</h1>
+  <p class="subtitle">系统化学习投资，建立自己的交易体系</p>
+</div>
+
+<div class="container">
+  <a class="card" href="knowledge/nairong.html">
+    <div class="icon">🎓</div>
+    <h2>奶荣投资课程</h2>
+    <div class="meta">25节课 · 约9万字</div>
+    <div class="desc">涵盖对冲、定投、白水画线、逃顶、仓位管理、投资心态等核心内容。从入门到进阶，系统学习投资实操方法论。</div>
+    <div class="tag-row">
+      <span class="tag tag-blue">实操策略</span>
+      <span class="tag tag-green">心态修炼</span>
+      <span class="tag tag-blue">技术分析</span>
+    </div>
+  </a>
+
+  <a class="card" href="knowledge/system.html">
+    <div class="icon">📖</div>
+    <h2>投资知识体系</h2>
+    <div class="meta">18个章节 · 从基础到进阶</div>
+    <div class="desc">系统化投资知识框架：公司估值、财务三表、商业模式、宏观经济、行为经济学等。适合搭建完整的投资认知体系。</div>
+    <div class="tag-row">
+      <span class="tag tag-blue">估值方法</span>
+      <span class="tag tag-green">财务分析</span>
+      <span class="tag tag-blue">宏观视野</span>
+    </div>
+  </a>
+</div>
+
+<div class="footer">© 2026 股票分析报告 · 知识库</div>
+
+</body>
+</html>
