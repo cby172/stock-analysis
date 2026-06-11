@@ -155,10 +155,10 @@ mark{background:var(--mark-bg);color:var(--mark-text);border-radius:2px;padding:
       var code=r.code.toLowerCase();
       var ind=r.industry.toLowerCase();
       var sum=r.summary.toLowerCase();
-      var py=r.pinyin;
-      var ab=r.abbr;
-      var cn=r.codeNum;
-      var aliases=(r.aliases||[]).map(function(a){return a.toLowerCase()});
+      var py=r.pinyin||"";
+      var ab=r.abbr||"";
+      var cn=r.codeNum||"";
+      var aliases=(r.aliases||[])||[]).map(function(a){return a.toLowerCase()});
 
       // Exact matches (highest score)
       if(name===q)score+=100;
@@ -231,7 +231,7 @@ mark{background:var(--mark-bg);color:var(--mark-text);border-radius:2px;padding:
   }
 
   // --- Init ---
-  fetch('data.json').then(function(res){return res.json()}).then(function(data){
+  fetch('data.json?v=2').then(function(res){return res.json()}).then(function(data){
     DATA=data;
     render(DATA.map(function(_,i){return{idx:i,score:0}}),'');
 
