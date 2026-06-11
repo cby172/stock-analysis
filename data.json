@@ -1,0 +1,34 @@
+[
+  {
+    "name": "中信证券",
+    "code": "600030.SH",
+    "industry": "证券",
+    "date": "2026-06-11",
+    "file": "reports/中信证券.html",
+    "summary": "中央国有券商龙头 · P/B估值为主 · 综合型投行"
+  },
+  {
+    "name": "中国中免",
+    "code": "601888.SH",
+    "industry": "免税零售",
+    "date": "2026-06-10",
+    "file": "reports/中国中免.html",
+    "summary": "全球最大免税运营商 · DCF估值 · 消费复苏弹性标的"
+  },
+  {
+    "name": "比亚迪",
+    "code": "002594.SZ",
+    "industry": "新能源汽车",
+    "date": "2026-06-11",
+    "file": "reports/比亚迪.html",
+    "summary": "新能源车全球销冠 · 垂直一体化 · 成长型制造业龙头"
+  },
+  {
+    "name": "贵州茅台",
+    "code": "600519.SH",
+    "industry": "白酒",
+    "date": "2026-06-11",
+    "file": "reports/贵州茅台.html",
+    "summary": "A股价值投资标杆 · 超强品牌护城河 · 稳定现金流"
+  }
+]
