@@ -5,7 +5,11 @@
     "industry": "证券",
     "date": "2026-06-11",
     "file": "reports/中信证券.html",
-    "summary": "中央国有券商龙头 · P/B估值为主 · 综合型投行"
+    "summary": "中央国有券商龙头 · P/B估值为主 · 综合型投行",
+    "pinyin": "zhongxinzhengquan",
+    "abbr": "zxzq",
+    "codeNum": "600030",
+    "aliases": ["citics", "中信", "citic"]
   },
   {
     "name": "中国中免",
@@ -13,7 +17,11 @@
     "industry": "免税零售",
     "date": "2026-06-10",
     "file": "reports/中国中免.html",
-    "summary": "全球最大免税运营商 · DCF估值 · 消费复苏弹性标的"
+    "summary": "全球最大免税运营商 · DCF估值 · 消费复苏弹性标的",
+    "pinyin": "zhongguozhongmian",
+    "abbr": "zgzm",
+    "codeNum": "601888",
+    "aliases": ["cdfg", "中免", "cdf", "中免集团"]
   },
   {
     "name": "比亚迪",
@@ -21,7 +29,11 @@
     "industry": "新能源汽车",
     "date": "2026-06-11",
     "file": "reports/比亚迪.html",
-    "summary": "新能源车全球销冠 · 垂直一体化 · 成长型制造业龙头"
+    "summary": "新能源车全球销冠 · 垂直一体化 · 成长型制造业龙头",
+    "pinyin": "biyadi",
+    "abbr": "byd",
+    "codeNum": "002594",
+    "aliases": ["byd", "比亚迪股份"]
   },
   {
     "name": "贵州茅台",
@@ -29,6 +41,10 @@
     "industry": "白酒",
     "date": "2026-06-11",
     "file": "reports/贵州茅台.html",
-    "summary": "A股价值投资标杆 · 超强品牌护城河 · 稳定现金流"
+    "summary": "A股价值投资标杆 · 超强品牌护城河 · 稳定现金流",
+    "pinyin": "guizhoumaotai",
+    "abbr": "gzmt",
+    "codeNum": "600519",
+    "aliases": ["moutai", "茅台", "maotai", "贵州茅台酒"]
   }
 ]
