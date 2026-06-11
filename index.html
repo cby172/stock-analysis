@@ -5,22 +5,152 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>股票深度分析报告</title>
 <style>
+/* ===== Theme Variables ===== */
+:root, [data-theme="dark"] {
+  --bg: #0d1117;
+  --bg-card: #161b22;
+  --bg-card-hover: #1c2129;
+  --bg-input: #161b22;
+  --bg-input-focus: #1c2129;
+  --bg-stat: #161b22;
+  --bg-glow: #1a2332;
+  --text: #c9d1d9;
+  --text-dim: #8b949e;
+  --text-faint: #484f58;
+  --text-heading: #e6edf3;
+  --border: #21262d;
+  --border-input: #30363d;
+  --accent: #58a6ff;
+  --accent2: #3fb950;
+  --badge-code-bg: rgba(88,166,255,0.15);
+  --badge-code-text: #58a6ff;
+  --badge-ind-bg: rgba(63,185,80,0.12);
+  --badge-ind-text: #3fb950;
+  --gradient-header: linear-gradient(135deg, #58a6ff, #3fb950);
+  --card-accent: linear-gradient(90deg, #238636, #58a6ff);
+  --hover-glow: rgba(88,166,255,0.12);
+  --header-line: linear-gradient(90deg, #238636, #58a6ff);
+}
+[data-theme="light"] {
+  --bg: #f5f7fa;
+  --bg-card: #ffffff;
+  --bg-card-hover: #fafbfc;
+  --bg-input: #ffffff;
+  --bg-input-focus: #ffffff;
+  --bg-stat: #ffffff;
+  --bg-glow: #e8ecf1;
+  --text: #2c3e50;
+  --text-dim: #6b7c93;
+  --text-faint: #a0aec0;
+  --text-heading: #1a202c;
+  --border: #e2e8f0;
+  --border-input: #cbd5e0;
+  --accent: #3182ce;
+  --accent2: #2f855a;
+  --badge-code-bg: rgba(49,130,206,0.1);
+  --badge-code-text: #3182ce;
+  --badge-ind-bg: rgba(47,133,90,0.1);
+  --badge-ind-text: #2f855a;
+  --gradient-header: linear-gradient(135deg, #3182ce, #2f855a);
+  --card-accent: linear-gradient(90deg, #38a169, #3182ce);
+  --hover-glow: rgba(49,130,206,0.1);
+  --header-line: linear-gradient(90deg, #38a169, #3182ce);
+}
+[data-theme="forest"] {
+  --bg: #0a1c14;
+  --bg-card: #0f2b1f;
+  --bg-card-hover: #143627;
+  --bg-input: #0f2b1f;
+  --bg-input-focus: #143627;
+  --bg-stat: #0f2b1f;
+  --bg-glow: #0d241a;
+  --text: #b8d4c2;
+  --text-dim: #6b9e7a;
+  --text-faint: #3d6b4e;
+  --text-heading: #d4f0df;
+  --border: #1a4a2e;
+  --border-input: #235d3a;
+  --accent: #4ade80;
+  --accent2: #a3e635;
+  --badge-code-bg: rgba(74,222,128,0.15);
+  --badge-code-text: #4ade80;
+  --badge-ind-bg: rgba(163,230,53,0.12);
+  --badge-ind-text: #a3e635;
+  --gradient-header: linear-gradient(135deg, #4ade80, #a3e635);
+  --card-accent: linear-gradient(90deg, #22c55e, #4ade80);
+  --hover-glow: rgba(74,222,128,0.1);
+  --header-line: linear-gradient(90deg, #22c55e, #4ade80);
+}
+[data-theme="gold"] {
+  --bg: #1a1410;
+  --bg-card: #241c14;
+  --bg-card-hover: #2d2318;
+  --bg-input: #241c14;
+  --bg-input-focus: #2d2318;
+  --bg-stat: #241c14;
+  --bg-glow: #1f1812;
+  --text: #d4c5b2;
+  --text-dim: #9e8b72;
+  --text-faint: #6b5a44;
+  --text-heading: #efe4d4;
+  --border: #3d3022;
+  --border-input: #52432e;
+  --accent: #f0b34b;
+  --accent2: #e8963a;
+  --badge-code-bg: rgba(240,179,75,0.15);
+  --badge-code-text: #f0b34b;
+  --badge-ind-bg: rgba(232,150,58,0.12);
+  --badge-ind-text: #e8963a;
+  --gradient-header: linear-gradient(135deg, #f0b34b, #e8963a);
+  --card-accent: linear-gradient(90deg, #d4952a, #f0b34b);
+  --hover-glow: rgba(240,179,75,0.1);
+  --header-line: linear-gradient(90deg, #d4952a, #f0b34b);
+}
+
+/* ===== Base ===== */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
   font-family: "Microsoft YaHei", "PingFang SC", "Helvetica Neue", sans-serif;
-  background: #0d1117;
-  color: #c9d1d9;
+  background: var(--bg);
+  color: var(--text);
   min-height: 100vh;
   overflow-x: hidden;
+  transition: background 0.4s ease, color 0.4s ease;
 }
 body::before {
   content: "";
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: radial-gradient(ellipse at 50% 0%, #1a2332 0%, #0d1117 60%);
+  background: radial-gradient(ellipse at 50% 0%, var(--bg-glow) 0%, var(--bg) 60%);
   z-index: -1;
+  transition: background 0.4s ease;
 }
 
+/* ===== Theme Switcher ===== */
+.theme-bar {
+  position: fixed;
+  top: 16px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  z-index: 100;
+}
+.theme-dot {
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.25s ease;
+  position: relative;
+}
+.theme-dot:hover { transform: scale(1.2); }
+.theme-dot.active { border-color: var(--accent); box-shadow: 0 0 10px var(--accent); }
+.theme-dot.dark { background: linear-gradient(135deg, #0d1117 50%, #58a6ff 50%); }
+.theme-dot.light { background: linear-gradient(135deg, #f5f7fa 50%, #3182ce 50%); }
+.theme-dot.forest { background: linear-gradient(135deg, #0a1c14 50%, #4ade80 50%); }
+.theme-dot.gold { background: linear-gradient(135deg, #1a1410 50%, #f0b34b 50%); }
+
+/* ===== Header ===== */
 .header {
   text-align: center;
   padding: 60px 20px 30px;
@@ -34,13 +164,13 @@ body::before {
   transform: translateX(-50%);
   width: 80px;
   height: 3px;
-  background: linear-gradient(90deg, #238636, #58a6ff);
+  background: var(--header-line);
   border-radius: 2px;
 }
 .header h1 {
   font-size: 32px;
   font-weight: 700;
-  background: linear-gradient(135deg, #58a6ff, #3fb950);
+  background: var(--gradient-header);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -49,10 +179,11 @@ body::before {
 }
 .header .subtitle {
   font-size: 14px;
-  color: #8b949e;
+  color: var(--text-dim);
   letter-spacing: 1px;
 }
 
+/* ===== Search ===== */
 .search-wrap {
   max-width: 600px;
   margin: 0 auto 40px;
@@ -63,45 +194,65 @@ body::before {
   width: 100%;
   padding: 14px 20px 14px 48px;
   font-size: 15px;
-  border: 1px solid #30363d;
+  border: 1px solid var(--border-input);
   border-radius: 12px;
-  background: #161b22;
-  color: #c9d1d9;
+  background: var(--bg-input);
+  color: var(--text);
   outline: none;
   transition: all 0.25s ease;
   font-family: inherit;
 }
 .search-wrap input:focus {
-  border-color: #58a6ff;
-  box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.15);
-  background: #1c2129;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--hover-glow);
+  background: var(--bg-input-focus);
 }
-.search-wrap input::placeholder { color: #484f58; }
+.search-wrap input::placeholder { color: var(--text-faint); }
 .search-icon {
   position: absolute;
   left: 36px;
   top: 50%;
   transform: translateY(-50%);
-  color: #484f58;
+  color: var(--text-faint);
   font-size: 17px;
   pointer-events: none;
 }
 
+/* ===== Container ===== */
 .container {
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 20px 60px;
 }
 
+/* ===== Stats ===== */
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+}
+.stat-item {
+  text-align: center;
+  padding: 12px 24px;
+  background: var(--bg-stat);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+.stat-item .num { font-size: 24px; font-weight: 700; color: var(--accent); }
+.stat-item .label { font-size: 12px; color: var(--text-dim); margin-top: 2px; }
+
+/* ===== Card Grid ===== */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   gap: 20px;
 }
-
 .card {
-  background: #161b22;
-  border: 1px solid #21262d;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
   border-radius: 14px;
   padding: 24px;
   cursor: pointer;
@@ -117,15 +268,15 @@ body::before {
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 3px;
-  background: linear-gradient(90deg, #238636, #58a6ff);
+  background: var(--card-accent);
   opacity: 0;
   transition: opacity 0.3s ease;
 }
 .card:hover {
-  border-color: #58a6ff;
+  border-color: var(--accent);
   transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(88, 166, 255, 0.12);
-  background: #1c2129;
+  box-shadow: 0 12px 40px var(--hover-glow);
+  background: var(--bg-card-hover);
 }
 .card:hover::before { opacity: 1; }
 
@@ -143,79 +294,62 @@ body::before {
   font-weight: 600;
   letter-spacing: 0.5px;
 }
-.badge-code {
-  background: rgba(88, 166, 255, 0.15);
-  color: #58a6ff;
-}
-.badge-industry {
-  background: rgba(63, 185, 80, 0.12);
-  color: #3fb950;
-}
+.badge-code { background: var(--badge-code-bg); color: var(--badge-code-text); }
+.badge-industry { background: var(--badge-ind-bg); color: var(--badge-ind-text); }
 
 .card .name {
   font-size: 20px;
   font-weight: 700;
-  color: #e6edf3;
+  color: var(--text-heading);
   margin-bottom: 6px;
 }
 .card .summary {
   font-size: 13px;
-  color: #8b949e;
+  color: var(--text-dim);
   line-height: 1.6;
   margin-bottom: 16px;
 }
 .card .date {
   font-size: 12px;
-  color: #484f58;
+  color: var(--text-faint);
   display: flex;
   align-items: center;
   gap: 5px;
 }
-.card .date::before {
-  content: "📅";
-  font-size: 12px;
-}
+.card .date::before { content: "📅"; font-size: 12px; }
 
 .empty {
   text-align: center;
   padding: 60px 20px;
-  color: #484f58;
+  color: var(--text-faint);
   grid-column: 1 / -1;
 }
 .empty .icon { font-size: 48px; margin-bottom: 12px; }
 .empty .text { font-size: 15px; }
 
-.stats {
-  display: flex;
-  justify-content: center;
-  gap: 32px;
-  margin-bottom: 36px;
-  flex-wrap: wrap;
-}
-.stat-item {
-  text-align: center;
-  padding: 12px 24px;
-  background: #161b22;
-  border: 1px solid #21262d;
-  border-radius: 10px;
-}
-.stat-item .num { font-size: 24px; font-weight: 700; color: #58a6ff; }
-.stat-item .label { font-size: 12px; color: #8b949e; margin-top: 2px; }
-
 .footer {
   text-align: center;
   padding: 20px;
-  color: #484f58;
+  color: var(--text-faint);
   font-size: 12px;
 }
 
 @media (max-width: 600px) {
   .header h1 { font-size: 24px; }
   .grid { grid-template-columns: 1fr; }
+  .theme-bar { top: 10px; right: 12px; gap: 6px; }
+  .theme-dot { width: 18px; height: 18px; }
 }
 </style>
 </head>
-<body>
+<body data-theme="dark">
+
+<div class="theme-bar" id="themeBar">
+  <span class="theme-dot dark active" data-theme="dark" title="暗色"></span>
+  <span class="theme-dot light" data-theme="light" title="亮白"></span>
+  <span class="theme-dot forest" data-theme="forest" title="墨绿"></span>
+  <span class="theme-dot gold" data-theme="gold" title="暖金"></span>
+</div>
 
 <div class="header">
   <h1>📊 股票深度分析报告</h1>
@@ -239,12 +373,32 @@ body::before {
 </div>
 
 <script>
+// --- Theme switcher ---
+(function() {
+  var saved = localStorage.getItem('stock-theme') || 'dark';
+  document.body.setAttribute('data-theme', saved);
+  document.querySelectorAll('.theme-dot').forEach(function(d) {
+    d.classList.toggle('active', d.dataset.theme === saved);
+  });
+  document.getElementById('themeBar').addEventListener('click', function(e) {
+    var dot = e.target.closest('.theme-dot');
+    if (!dot) return;
+    var t = dot.dataset.theme;
+    document.body.setAttribute('data-theme', t);
+    localStorage.setItem('stock-theme', t);
+    document.querySelectorAll('.theme-dot').forEach(function(d) {
+      d.classList.toggle('active', d.dataset.theme === t);
+    });
+  });
+})();
+
+// --- Report cards ---
 (async function() {
-  const res = await fetch('data.json');
-  const data = await res.json();
-  const grid = document.getElementById('cardGrid');
-  const search = document.getElementById('search');
-  const totalEl = document.getElementById('totalCount');
+  var res = await fetch('data.json');
+  var data = await res.json();
+  var grid = document.getElementById('cardGrid');
+  var search = document.getElementById('search');
+  var totalEl = document.getElementById('totalCount');
 
   function render(list) {
     totalEl.textContent = list.length;
@@ -252,28 +406,28 @@ body::before {
       grid.innerHTML = '<div class="empty"><div class="icon">🔎</div><div class="text">没有匹配的报告，试试其他关键词</div></div>';
       return;
     }
-    grid.innerHTML = list.map(r => `
-      <a class="card" href="${r.file}">
-        <div class="badge-row">
-          <span class="badge badge-code">${r.code}</span>
-          <span class="badge badge-industry">${r.industry}</span>
-        </div>
-        <div class="name">${r.name}</div>
-        <div class="summary">${r.summary}</div>
-        <div class="date">${r.date}</div>
-      </a>
-    `).join('');
+    grid.innerHTML = list.map(function(r) {
+      return '<a class="card" href="' + r.file + '">'
+        + '<div class="badge-row">'
+        + '<span class="badge badge-code">' + r.code + '</span>'
+        + '<span class="badge badge-industry">' + r.industry + '</span>'
+        + '</div>'
+        + '<div class="name">' + r.name + '</div>'
+        + '<div class="summary">' + r.summary + '</div>'
+        + '<div class="date">' + r.date + '</div>'
+        + '</a>';
+    }).join('');
   }
 
   search.addEventListener('input', function() {
-    const q = this.value.trim().toLowerCase();
+    var q = this.value.trim().toLowerCase();
     if (!q) { render(data); return; }
-    const filtered = data.filter(r =>
-      r.name.toLowerCase().includes(q) ||
-      r.code.toLowerCase().includes(q) ||
-      r.industry.toLowerCase().includes(q) ||
-      r.summary.toLowerCase().includes(q)
-    );
+    var filtered = data.filter(function(r) {
+      return r.name.toLowerCase().indexOf(q) !== -1
+        || r.code.toLowerCase().indexOf(q) !== -1
+        || r.industry.toLowerCase().indexOf(q) !== -1
+        || r.summary.toLowerCase().indexOf(q) !== -1;
+    });
     render(filtered);
   });
 
