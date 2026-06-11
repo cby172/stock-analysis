@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>奶荣投资课程</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Microsoft YaHei","PingFang SC","Helvetica Neue",sans-serif;background:#f5f7fa;color:#2c3e50;min-height:100vh}
+body::before{content:"";position:fixed;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 50% 0%,#e8ecf1 0%,#f5f7fa 60%);z-index:-1}
+.layout{display:flex;min-height:100vh}
+.side{width:260px;min-width:260px;background:#fff;border-right:1px solid #e2e8f0;position:fixed;top:0;left:0;bottom:0;overflow-y:auto;z-index:50;padding-bottom:40px;box-shadow:2px 0 8px rgba(0,0,0,.03)}
+.side-hd{padding:16px;border-bottom:1px solid #e2e8f0;position:sticky;top:0;background:#fff;z-index:5}
+.c-list{list-style:none}
+.c-item{border-bottom:1px solid #f0f0f0}
+.c-toggle{display:block;padding:10px 16px;font-size:13px;font-weight:600;color:#1a202c;text-decoration:none;transition:.2s}
+.c-toggle:hover{background:#f0f6ff;color:#3182ce}
+.sec-list{display:none;list-style:none;padding:0 0 4px;background:#fafbfc}
+.c-item:target .sec-list{display:block}
+.c-item:target > .c-toggle{color:#3182ce;background:#f0f6ff}
+.sec-list li a{display:block;padding:5px 16px 5px 36px;font-size:12px;color:#6b7c93;text-decoration:none;transition:.15s;border-left:2px solid transparent}
+.sec-list li a:hover{color:#3182ce;background:#f0f6ff;border-left-color:#3182ce}
+.main{margin-left:260px;flex:1;padding:30px 40px 60px;max-width:900px}
+.main h2{font-size:26px;color:#1a202c;margin:40px 0 8px;padding-bottom:12px;border-bottom:2px solid #e2e8f0;scroll-margin-top:20px}
+.main h2:first-child{margin-top:0}
+.main h3{font-size:17px;color:#2c3e50;margin:26px 0 10px;padding-left:12px;border-left:3px solid #3182ce;scroll-margin-top:20px}
+.main p{font-size:15px;line-height:1.9;margin-bottom:14px;text-align:justify}
+.main strong{color:#1a202c}
+.main code{background:#f0f0f0;padding:1px 6px;border-radius:3px;font-size:13px}
+.mob-nav{display:none;position:fixed;top:0;left:0;right:0;background:#fff;z-index:60;border-bottom:1px solid #e2e8f0;padding:10px 14px}
+.mob-nav select{width:100%;padding:8px;font-size:14px;border:1px solid #e2e8f0;border-radius:8px;font-family:inherit;background:#fff}
+.to-top{position:fixed;bottom:24px;right:24px;width:40px;height:40px;border-radius:50%;background:#3182ce;color:#fff;border:none;cursor:pointer;font-size:18px;box-shadow:0 4px 12px rgba(0,0,0,.15);z-index:40;display:none}
+.to-top:hover{background:#2c5282}
+@media(max-width:768px){.side{display:none}.main{margin-left:0;padding:80px 16px 40px}.mob-nav{display:block}.main h2{font-size:22px}.main h3{font-size:16px}.main p{font-size:14px}}
+</style>
+</head>
+<body>
+<div class="mob-nav">
+  <select onchange="if(this.value)location.hash=this.value">
+    <option value="">-- 选择课程 --</option>
+<option value='c0'>对冲</option>
+<option value='c1'>定投的真相</option>
+<option value='c2'>白水未来怎么走</option>
+<option value='c3'>春节前怎么看</option>
+<option value='c4'>投资的终极考验</option>
+<option value='c5'>逃顶的真相</option>
+<option value='c6'>白水怎么走强化课</option>
+<option value='c7'>值得拿到退休的投资标的</option>
+<option value='c8'>牛转熊股灾避险指南</option>
+<option value='c9'>慢牛定投策略强化篇</option>
+<option value='c10'>黑天鹅：今天和4月7号有什么异同</option>
+<option value='c11'>怎么打底仓</option>
+<option value='c12'>组建球队</option>
+<option value='c13'>10w归零的经验</option>
+<option value='c14'>红利低波定投法、宠物经济研究及其他</option>
+<option value='c15'>真的看懂慢牛了吗？</option>
+<option value='c16'>核医疗、箱体震荡</option>
+<option value='c17'>五粮液财报魔改</option>
+<option value='c18'>投资修行三重境：平等心、天眼与共舞</option>
+<option value='c19'>套牢</option>
+<option value='c20'>仓位管理、金融反身性与投资纪律</option>
+<option value='c21'>投资内功心法：平等心</option>
+<option value='c22'>投资中的逻辑谬误与孙子兵法战略思维</option>
+<option value='c23'>xn哥：如何构建完整自洽的投资逻辑体系</option>
+<option value='c24'>连麦实录：投资路上的经验、教训与市场认知</option>
+  </select>
+</div>
+<div class="layout">
+<div class="side">
+  <div class="side-hd"><a href="../knowledge.html" style="color:#3182ce;text-decoration:none;font-size:13px;">← 知识库</a></div>
+  <h3 style="padding:12px 16px 8px;color:#1a202c;font-size:15px;font-weight:700;">🎓 奶荣投资课程</h3>
+  <ul class="c-list">
+<li class='c-item'><a class='c-toggle' href='#c0'>对冲</a><ul class='sec-list'><li><a href='#c0s0'>一、开场与课程重要性</a></li><li><a href='#c0s1'>二、对冲的真相</a></li><li><a href='#c0s2'>三、仓位管理的真相</a></li><li><a href='#c0s3'>四、投资之道：持之以恒的努力</a></li><li><a href='#c0s4'>五、给新手的建议与结尾</a></li></ul></li>
+    <li class='c-item'><a class='c-toggle' href='#c1'>定投的真相</a><ul class='sec-list'><li><a href='#c1s0'>一、 定投为什么能赚钱？（三个核心原因）</a></li><li><a href='#c1s1'>二、 为什么大部分人的定投是亏钱的？（三个误区）</a></li><li><a href='#c1s2'>三、 100%胜率的定投策略（三个核心原则）</a></li><li><a href='#c1s3'>四、 慢牛行情的定投实操沙盘推演</a></li><li><a href='#c1s4'>五、 关于“要不要定投美股（纳指）”的专题辨析</a></li><li><a href='#c1s5'>六、 结尾总结与心态寄语</a></li></ul></li>
+    <li class='c-item'><a class='c-toggle' href='#c2'>白水未来怎么走</a><ul class='sec-list'><li><a href='#c2s0'>一、背景与前提：为什么现在关注白水？</a></li><li><a href='#c2s1'>二、当前所处阶段：大哥吹哨（定海神针已现）</a></li><li><a href='#c2s2'>三、未来第一阶段：建仓波</a></li><li><a href='#c2s3'>四、未来第二阶段：洗盘（洗碗）</a></li><li><a href='#c2s4'>五、未来第三阶段：拉升波（吃饭/主升浪）</a></li><li><a href='#c2s5'>六、重要提醒与风险控制</a></li></ul></li>
+    <li class='c-item'><a class='c-toggle' href='#c3'>春节前怎么看</a><ul class='sec-list'><li><a href='#c3s0'>一、 开场答疑与投资纪律提醒</a></li><li><a href='#c3s1'>二、 市场下跌的深度剖析：“苹果熟了”的比喻</a></li><li><a href='#c3s2'>三、 春节行情的逻辑与大盘推演</a></li><li><a href='#c3s3'>四、 不同板块的分类应对策略</a></li><li><a href='#c3s4'>五、 投资心态与最终寄语</a></li></ul></li>
+    <li class='c-item'><a class='c-toggle' href='#c4'>投资的终极考验</a><ul class='sec-list'><li><a href='#c4s0'>一、 课程开场：这节课为什么重要</a></li><li><a href='#c4s1'>二、 灵魂拷问：五个问题直击痛点</a></li><li><a href='#c4s2'>三、 为什么追高很难赚钱？（理论层面）</a></li><li><a href='#c4s3'>四、 人性推演：大多数人在白水上赚不到钱的完整路径</a></li><li><a href='#c4s4'>五、 核心哲学：比经验更值钱的是对人性的掌控</a></li><li><a href='#c4s5'>六、 奶荣5年5倍的成功秘诀：想明白与做明白的差距</a></li><li><a href='#c4s6'>七、 追涨杀跌的本质：贪嗔痴</a></li><li><a href='#c4s7'>八、 “戒”的具体内容（投资中的五条戒律）</a></li><li><a href='#c4s8'>九、 结尾寄语</a></li></ul></li>
+    <li class='c-item'><a class='c-toggle' href='#c5'>逃顶的真相</a><ul class='sec-list'><li><a href='#c5s0'>一、 开场：什么是“对冲”的活学活用</a></li><li><a href='#c5s1'>二、 案例剖析：为什么不要去追大黄鱼（黄金）？</a></li><li><a href='#c5s2'>三、 确定性：投资的第一要义</a></li><li><a href='#c5s3'>四、 逃顶的真相：反者道之动</a></li><li><a href='#c5s4'>五、 逃顶的实操步骤（水到渠成的结果）</a></li><li><a href='#c5s5'>六、 奶荣的亲身验证：大饼上的Water实战</a></li><li><a href='#c5s6'>七、 清洗伪概念，建立正确的思维习惯</a></li><li><a href='#c5s7'>八、 结尾寄语</a></li></ul></li>
+    <li class='c-item'><a class='c-toggle' href='#c6'>白水怎么走强化课</a><ul class='sec-list'><li><a href='#c6s0'>一、白水框架快速复习</a></li><li><a href='#c6s1'>二、技术面极简建议：只留两条线</a></li><li><a href='#c6s2'>三、案例一：万字开头的小公司——垃圾票是怎么走的</a></li><li><a href='#c6s3'>四、案例二：中字开头的小公司——全程在洗盘</a></li><li><a href='#c6s4'>五、案例三：C开头企业——边建仓边洗盘</a></li><li><a href='#c6s5'>六、案例四：深开头的公司——做T必卖飞</a></li><li><a href='#c6s6'>七、案例五：奶荣的实战案例——好公司是怎么走的</a></li><li><a href='#c6s7'>八、总结：如何判断好公司与垃圾公司</a></li></ul></li>
+    <li class='c-item'><a class='c-toggle' href='#c7'>值得拿到退休的投资标的</a><ul class='sec-list'><li><a href='#c7s0'>一、 开场定调：春节持仓心态</a></li><li><a href='#c7s1'>二、 核电板块深度分析：中广核与中国核电</a></li><li><a href='#c7s2'>三、 医疗设备龙头分析：迈瑞医疗</a></li><li><a href='#c7s3'>四、 海运龙头分析：中远海控</a></li><li><a href='#c7s4'>五、 其他行业观点速览</a></li><li><a href='#c7s5'>六、 投资理念与个人偏好</a></li><li><a href='#c7s6'>七、 结尾总结：今天聊到的五个知识点</a></li></ul></li>
+    <li class='c-item'><a class='c-toggle' href='#c8'>牛转熊股灾避险指南</a><ul class='sec-list'><li><a href='#c8s0'>一、 开篇寄语：小白在牛市中最重要的是什么？</a></li><li><a href='#c8s1'>二、 中长线投资策略的本质</a></li><li><a href='#c8s2'>三、 长期指标：233日线（年线）详解</a></li><li><a href='#c8s3'>四、 案例实操与互动答疑</a></li></ul></li>
+    <li class='c-item'><a class='c-toggle' href='#c9'>慢牛定投策略强化篇</a><ul class='sec-list'><li><a href='#c9s0'>一、 开篇定调：策略选择与心法</a></li><li><a href='#c9s1'>二、 慢牛定投策略完整流程图复习（逐帧精讲）</a></li><li><a href='#c9s2'>三、 核心优化：如何用“沃特战法”找到合适的底仓位置</a></li><li><a href='#c9s3'>四、 核心优化：如何用“233连线（年线）战法”找到合适的底仓位置</a></li><li><a href='#c9s4'>五、 两大战法结合：寻找“十分”买点</a></li><li><a href='#c9s5'>六、 实战案例分析与风险提示</a></li></ul></li>
+    <li class='c-item'><a class='c-toggle' href='#c10'>黑天鹅：今天和4月7号有什么异同</a><ul class='sec-list'><li><a href='#c10s0'>一、开篇：核心关切与未来安排</a></li><li><a href='#c10s1'>二、核心议题：今天和4月7号有什么异同？</a></li><li><a href='#c10s2'>三、核心风险警示：防一手黑天鹅</a></li><li><a href='#c10s3'>四、心态建设：奶荣的亲身经历</a></li></ul></li>
+    <li class='c-item'><a class='c-toggle' href='#c11'>怎么打底仓</a><ul class='sec-list'><li><a href='#c11s0'>一、 策略融合与升级：从“模糊”到“量化”</a></li><li><a href='#c11s1'>二、 实战案例推演：用评分体系跑一遍</a></li><li><a href='#c11s2'>三、 比亚迪专题：极品好公司的买卖点</a></li><li><a href='#c11s3'>四、 答疑与个股点评</a></li><li><a href='#c11s4'>五、 结尾寄语</a></li></ul></li>
+    <li class='c-item'><a class='c-toggle' href='#c12'>组建球队</a><ul class='sec-list'><li><a href='#c12s0'>一、课程目标：从零组建你的投资球队</a></li><li><a href='#c12s1'>二、建队第一步：做球员市场的需求分析</a></li><li><a href='#c12s2'>三、奶荣的建队思路：防守赢得总冠军</a></li><li><a href='#c12s3'>四、建队第二步：去市场里挑球员（具体选股）</a></li><li><a href='#c12s4'>五、阵容的后续运营</a></li><li><a href='#c12s5'>六、互动答疑与个股点评</a></li></ul></li>
+    <li class='c-item'><a class='c-toggle' href='#c13'>10w归零的经验</a><ul class='sec-list'><li><a href='#c13s0'>一、 开篇案例：美团（团子）的分析与操作</a></li><li><a href='#c13s1'>二、 投资哲学：中长线投资的孤独与本质</a></li><li><a href='#c13s2'>三、 核心原则：充分意识到你的投资大前提</a></li></ul></li>
+    <li class='c-item'><a class='c-toggle' href='#c14'>红利低波定投法、宠物经济研究及其他</a><ul class='sec-list'><li><a href='#c14s0'>模块一：红利低波233定投法——最“傻瓜”的资产配置策略</a></li><li><a href='#c14s1'>模块二：核心投资哲学——“充分意识到你是一个中国人”</a></li><li><a href='#c14s2'>模块三：宠物经济行业深度研究——“有点心动，但最终放弃”</a></li><li><a href='#c14s3'>模块四：市场宏观认知与盘中点评</a></li></ul></li>
+    <li class='c-item'><a class='c-toggle' href='#c15'>真的看懂慢牛了吗？</a><ul class='sec-list'><li><a href='#c15s0'>一、 开篇说明与直播背景</a></li><li><a href='#c15s1'>二、 核心宏观分析：理解“适度宽松的货币政策与积极有为的财政政策”</a></li><li><a href='#c15s2'>三、 宏观格局对比：为什么选择东大而看空老美</a></li><li><a href='#c15s3'>四、 总结与最终寄语</a></li></ul></li>
+    <li class='c-item'><a class='c-toggle' href='#c16'>核医疗、箱体震荡</a><ul class='sec-list'><li><a href='#c16s0'>一、 新的方向分享：核医疗板块</a></li><li><a href='#c16s1'>二、 持仓答疑与投资心态安抚</a></li><li><a href='#c16s2'>三、 技术分析小课堂：如何看“箱体震荡”</a></li><li><a href='#c16s3'>四、 新闻解读与投资分层：什么是赚大钱的逻辑？</a></li><li><a href='#c16s4'>五、 盘面快速点评与总结</a></li></ul></li>
+    <li class='c-item'><a class='c-toggle' href='#c17'>五粮液财报魔改</a><ul class='sec-list'><li><a href='#c17s0'>一、 事件背景：五粮液财报发生了什么？</a></li><li><a href='#c17s1'>二、 核心认知一：财报的操作空间可以非常大</a></li><li><a href='#c17s2'>三、 核心认知二：财报的真正价值——避雷与验证</a></li><li><a href='#c17s3'>四、 核心认知三：对坏公司操盘路径的推演（梦话/推测）</a></li><li><a href='#c17s4'>五、 连麦嘉宾核心观点补充（SN大哥）</a></li><li><a href='#c17s5'>六、 主播最终总结与反思</a></li></ul></li>
+    <li class='c-item'><a class='c-toggle' href='#c18'>投资修行三重境：平等心、天眼与共舞</a><ul class='sec-list'><li><a href='#c18s0'>一、 投资能力体系的终极框架：三重境界</a></li><li><a href='#c18s1'>二、 主播的内观经历与“平等心”的实操训练</a></li><li><a href='#c18s2'>三、 嘉宾分享：芯片行业深度解析与投资方法</a></li><li><a href='#c18s3'>四、 结尾总结与升华：向内诉求，成为自己的救世主</a></li></ul></li>
+    <li class='c-item'><a class='c-toggle' href='#c19'>套牢</a><ul class='sec-list'><li><a href='#c19s0'>一、实盘展示：大周期投资者的真实心态</a></li><li><a href='#c19s1'>二、核心逻辑：赚大周期的钱</a></li><li><a href='#c19s2'>三、深度剖析：破除“踏空”心魔</a></li><li><a href='#c19s3'>四、中场插曲：新笔记本的设计哲学</a></li><li><a href='#c19s4'>五、结尾寄语：共情与期待</a></li></ul></li>
+    <li class='c-item'><a class='c-toggle' href='#c20'>仓位管理、金融反身性与投资纪律</a><ul class='sec-list'><li><a href='#c20s0'>一、 开篇：配置的意义与市场周期</a></li><li><a href='#c20s1'>二、 深刻案例：一位半导体从业者的惨痛教训</a></li><li><a href='#c20s2'>三、 投资的核心纪律：永不让自己陷入绝境</a></li><li><a href='#c20s3'>四、 理解市场本质：金融反身性与筹码逻辑</a></li><li><a href='#c20s4'>五、 主播的补充：从惨痛经历中汲取力量</a></li><li><a href='#c20s5'>六、 估值基础：区分“真资产”与“假资产”</a></li><li><a href='#c20s6'>七、 黄金的本质：抵抗通胀的永续配置</a></li></ul></li>
+    <li class='c-item'><a class='c-toggle' href='#c21'>投资内功心法：平等心</a><ul class='sec-list'><li><a href='#c21s0'>一、 开篇：这节课的重要性</a></li><li><a href='#c21s1'>二、 核心认知：你贪求或厌恶的，从来不是外在事物</a></li><li><a href='#c21s2'>三、 底层逻辑：释迦牟尼的“五蕴”自动化流水线</a></li><li><a href='#c21s3'>四、 破局之道：在“受”的环节，修习“平等心”</a></li><li><a href='#c21s4'>五、 实现平等心的路径：戒、定、慧</a></li><li><a href='#c21s5'>六、 连麦分享：瑜伽与身体觉知（小圆饼干）</a></li></ul></li>
+    <li class='c-item'><a class='c-toggle' href='#c22'>投资中的逻辑谬误与孙子兵法战略思维</a><ul class='sec-list'><li><a href='#c22s0'>一、 核心问题：一个典型的散户逻辑谬误</a></li><li><a href='#c22s1'>二、 顶级战略思维：《孙子兵法》在投资中的应用</a></li><li><a href='#c22s2'>三、 实战答疑：白水划线走崩后怎么办？</a></li><li><a href='#c22s3'>四、 嘉宾深度分享：长线投资的本质、估值与主力意图</a></li></ul></li>
+    <li class='c-item'><a class='c-toggle' href='#c23'>xn哥：如何构建完整自洽的投资逻辑体系</a><ul class='sec-list'><li><a href='#c23s0'>一、核心命题：为什么做长线投资必须有自己完整的逻辑体系</a></li><li><a href='#c23s1'>二、案例拆解之一：用“新巴塞尔协议”验证低波红利的核心逻辑</a></li><li><a href='#c23s2'>三、案例拆解之二：用“偿二代”体系判断险资入市的真实影响</a></li><li><a href='#c23s3'>四、案例拆解之三：用底层宏观逻辑打通科技与消费的关系</a></li><li><a href='#c23s4'>五、实践论：如何将认知转化为投资中的行动力与心态</a></li></ul></li>
+    <li class='c-item'><a class='c-toggle' href='#c24'>连麦实录：投资路上的经验、教训与市场认知</a><ul class='sec-list'><li><a href='#c24s0'>一、主播开场：关于历史前高、盘面复盘的思考</a></li><li><a href='#c24s1'>二、连麦观众一：蜗牛666——一个新手小白的自我剖析</a></li><li><a href='#c24s2'>三、主播即兴分享：为什么在牛市中算估值没有意义</a></li><li><a href='#c24s3'>四、连麦观众二：一名在校学生——韭菜的“花样亏钱史”与成长</a></li><li><a href='#c24s4'>五、连麦观众三：菜狗——A股市场的生态认知</a></li><li><a href='#c24s5'>六、连麦观众四：豆豆——关于“国家队”的疑问与理解</a></li><li><a href='#c24s6'>七、连麦观众五：小圆饼干——从“着急”到“不着急”的蜕变之路</a></li><li><a href='#c24s7'>八、连麦观众六：菜狗（返场）——价值投资、周期与量价关系的深度思辨</a></li></ul></li>
+  </ul>
+</div>
+<div class="main">
+<div class='c-block' id='c0'><h2>对冲</h2><div class='sec' id='c0s0'><h3>一、开场与课程重要性</h3><p>主播强调，这节课属于<strong>基础中的基础</strong>，但<strong>非常重要</strong>。如果不掌握今天的内容，后面分享的任何投资策略（无论是基金还是股票），都<strong>很难在现实中赚到大钱</strong>。</p>
+<p>---</p></div>
+<div class='sec' id='c0s1'><h3>二、对冲的真相</h3><p><strong>1. 什么是对冲？</strong>  <br>最简单的解释：<strong>不要把鸡蛋都放在同一个篮子上。</strong>  <br>就像买十张刮刮乐比买一张中奖概率更高，这就叫对冲。但<strong>对冲不一定能带来盈利</strong>。</p>
+<p><strong>2. 对冲的核心目的是什么？</strong>  <br><strong>是风险管理，而不是盈利。</strong>  <br>市场上没有100%的事，都是概率。即使选股、择时比较强，也可能遇到极端行情或黑天鹅事件。<strong>再好的公司，你不能说它没有倒闭的可能，没有腰斩、再腰斩的可能。</strong> 为了对抗这些风险，就需要对冲。</p>
+<p><strong>3. 牛市中小白一定要学会的四种对冲：</strong></p>
+<p>- <strong>① 现金对冲（最重要）</strong><br>    <br>    - <strong>只能拿输得起的钱进入这个市场。</strong><br>        <br>    - <strong>场外必须有稳定的现金流收入。</strong><br>        <br>    - 这样在任何时候都能保持<strong>进可攻、退可守</strong>的状态。<br>        <br>    - 身边就有上一波牛市满仓加杠杆、借钱吃满股灾的人，<strong>好多年都缓不过来</strong>。<br>        <br>- <strong>② 板块对冲</strong><br>    <br>    - 市场资金在任何时候都是有限的，所以多是<strong>板块轮动</strong>，牛市也一样。<br>        <br>    - 建议<strong>至少配4-5个完全不相关、有前景的板块</strong>。这样无论是普涨、结构性行情还是独立行情，都有机会跟着吃肉。<br>        <br>    - 反面案例：有人买了基金，基金本身已经包含板块里很多公司，他还买同板块下三四种基金，别的板块却一个不买。<strong>这没什么意义。</strong><br>        <br>- <strong>③ 高低对冲（主播自己看书总结）</strong><br>    <br>    - 任何一波大牛市里，都会有<strong>率先启动的板块</strong>，也会有<strong>后知后觉</strong>和<strong>长期趴着</strong>的板块。<br>        <br>    - 最终所有板块都会走出一定程度的行情。<br>        <br>    - 操作要点：<strong>在任何阶段，高位票有，低位票也要有。</strong><br>        <br>    - <strong>抓住一只牛股后，高位一定要减仓，但又一定要拿住一部分。同时做好高切低，出来的钱马上去找低位加仓，继续等待下一只牛股。</strong><br>        <br>    - 好处：让账户<strong>时刻保持攻击性</strong>，提高任何阶段拿到收益的概率。<br>        <br>- <strong>④ 时空对冲（非常多人吃大亏的原因）</strong><br>    <br>    - 核心：<strong>尽可能提高操作之间的时间间隔，尤其是买入。</strong><br>        <br>    - 绝大多数票无论是三角形整理、旗形整理、W底还是波段回调，基本都需要<strong>1-3个月</strong>。<br>        <br>    - 散户山顶套牢的原因：追高是一方面，另一方面是<strong>稍微跌几天就加仓，跌几天又加仓</strong>，几个月下来吃了一波30%-40%的跌幅，成本基本就在山顶。<br>        <br>    - <strong>核心纪律</strong>：在牛市里面，<strong>间隔不够一个月的都不要乱加仓，间隔时间越久越好。</strong><br>        <br>    - <strong>在股市，永远永远不要害怕踏空。</strong><br>        </p>
+<p>---</p></div>
+<div class='sec' id='c0s2'><h3>三、仓位管理的真相</h3><p><strong>1. 什么是仓位管理？</strong>  <br>最简单的解释：<strong>每个篮子应该放多少鸡蛋。</strong></p>
+<p><strong>2. 仓位管理的核心目的是什么？</strong>  <br><strong>就是为了实现对冲。</strong>  <br>假如有四个篮子100个鸡蛋，一个篮子放97个，其他三个各放1个，那和所有鸡蛋放一个篮子没有多大区别，<strong>基本就没有任何对冲效果</strong>。</p>
+<p><strong>3. 牛市中小白一定要学会的三种仓位管理思路：</strong></p>
+<p>- <strong>① 足够均匀</strong><br>    <br>    - 字面意思，<strong>每个篮子最好装的鸡蛋都差不多。</strong><br>        <br>- <strong>② 攻守兼备</strong><br>    <br>    - 持仓里必须有<strong>负责进攻的</strong>，也有<strong>负责防守的</strong>。<br>        <br>    - <strong>进攻</strong>：高弹性、景气、率先启动、不高不低的板块。<br>        <br>    - <strong>防守</strong>：对大部分小白来说，<strong>红利低波或指数基金</strong>就可以了。<br>        <br>- <strong>③ 守多攻小</strong><br>    <br>    - 主播过去8年长期满仓、长期盈利、甚至经常翻倍的秘诀：<strong>几乎在任何时候，大部分仓位都是防守能力出众的。</strong><br>        <br>    - 建议：小白至少<strong>六四分</strong>或者<strong>五五分</strong>。<br>        </p>
+<p>---</p></div>
+<div class='sec' id='c0s3'><h3>四、投资之道：持之以恒的努力</h3><p>主播通过自身经历，讲述了“道”与“术”的关系。</p>
+<p><strong>1. 个人经历：高三从学渣到985</strong></p>
+<p>- 英语从80分徘徊，到放弃所有技巧秘籍，只用一个最笨的方法：<strong>每天只刷一套题，坚持三个多月，刷了400多篇阅读</strong>，最终考到130分。<br>    <br>- 那一刻他悟了：过去学不好，只是因为<strong>没有在任何一个有效的方法里坚持足够久。</strong><br>    <br>- 最终高考接近660分，一年提高约200分。<br>    </p>
+<p><strong>2. 核心理念</strong></p>
+<p>- <strong>无论要成什么事，持之以恒的努力本身就是最强的天赋、最强的运气、最强的老师、最强的方法。</strong><br>    <br>- <strong>持之以恒的努力是道，其他的都是术。</strong><br>    </p>
+<p><strong>3. 如何在投资上持之以恒？</strong></p>
+<p>- <strong>第一，买股票就是买公司。</strong><br>    <br>    - 必须<strong>持之以恒地相信这一点</strong>。这是格雷厄姆、巴菲特、段永平都讲过的。<br>        <br>    - 股市起源：16世纪航海贸易，企业拉合伙人（股东）共享利润、共担风险。因为周期长、有交易需求，才弄了交易所方便股权流通。<br>        <br>    - 灵魂拷问：一个人从不关心船新不新、多大、做什么生意、赚不赚钱，却天天盯着交易所里的买卖拼命研究。<strong>这个人是一个聪明的投资者吗？</strong><br>        <br>- <strong>第二，选择一个期望值为正的策略，持之以恒地努力。</strong><br>    <br>    - <strong>两个非常简单但长期证明能赚钱的策略：</strong><br>        <br>        - ① <strong>很久之前买，很久之后卖。</strong><br>            <br>        - ② <strong>显著低估买，显著高估卖。</strong><br>            <br>    - 主播自己的策略总结：<strong>好公司、低位买、拿很久</strong>，现在再加一个<strong>组合配置</strong>。<br>        </p>
+<p>---</p></div>
+<div class='sec' id='c0s4'><h3>五、给新手的建议与结尾</h3><p><strong>建议只关注主播一个人</strong>，理由有三：</p>
+<p>1. <strong>战绩可查</strong>：无论基金还是股票，都做到了长期盈利。策略大概率是正期望值能赚钱的。<br>    <br>2. <strong>真是好人</strong>：牛市一来外面全是营销号和镰刀。主播从未想过赚小白小资金的钱，相关业务只针对A7以上老板。<br>    <br>3. <strong>讲的东西足够简单、有效</strong>：小白听得懂。外面那些讲得云里雾里的，很多是AI改写，越学脑袋越糊涂。<br>    </p>
+<p>最后提醒：以上内容不构成投资建议，<strong>坚守价值，不要追高。</strong></p></div></div>
+
+<div class='c-block' id='c1'><h2>定投的真相</h2><div class='sec' id='c1s0'><h3>一、 定投为什么能赚钱？（三个核心原因）</h3><p>主播开篇通过提问互动，逐一驳斥了常见的错误答案（复利、强制攒钱等），给出了三个层层递进的核心原因。</p>
+<p><strong>1. 标的必须长期上行</strong></p>
+<p>- <strong>这是第一个核心原因，也是最重要的前提。</strong><br>    <br>- 如果选了一个<strong>长期下行的投资标的</strong>（如杂毛公司），再怎么分摊成本、再怎么长期持有、再怎么遵守纪律，<strong>到最后一定还是亏钱</strong>，定投就没有任何作用。<br>    <br>- <strong>结论</strong>：只有挑一个长期上行的标的，才有可能赚钱。<br>    </p>
+<p><strong>2. 市场规律是“熊长牛短”</strong></p>
+<p>- <strong>这是第二个核心原因，也是定投能控制成本的根本逻辑。</strong><br>    <br>- 对比图表说明：如果“牛长熊短”，越定投持仓成本越高。只有在<strong>熊市特别长、牛市特别短</strong>的情况下，通过定时定投，才能把持仓成本控制在低位。<br>    <br>- <strong>熊长牛短是全世界绝大多数投资市场的规律</strong>（美股作为金融帝国，有其特殊性）。<br>    </p>
+<p><strong>3. 必须穿越完整的周期</strong></p>
+<p>- <strong>周期的形态</strong>：一波牛市起来 → 回调（股灾），但回调的低点大概率比上一波牛市起涨前更高 → 又一波牛市起来 → 又回调。如此循环往复，<strong>底部不断抬高，慢慢往上走</strong>。<br>    <br>- <strong>牛熊市的时间规律</strong>：<br>    <br>    - <strong>熊市一般3-4年</strong>，大熊市4-6年。<br>        <br>    - <strong>牛市一般1-2年</strong>，如果熊市更长，对应的牛市也会更长（2-3年）。<br>        <br>- <strong>“熊长牛短”的本质——反身性原理</strong>：<br>    <br>    - 索罗斯专门通过反身性原理赚钱。<br>        <br>    - <strong>牛市末期</strong>：越涨越买，越买越涨，<strong>自我加速</strong>，最终形成泡沫。<br>        <br>    - <strong>牛转熊</strong>：永远是股灾。越跌越卖，越卖越跌，同样<strong>自我加速</strong>。<br>        <br>    - <strong>熊市横盘期的作用</strong>：① <strong>消化上方套牢盘的压力</strong>，任何人想拉起牛市都会面临巨大抛压。② <strong>主力需要很长时间吸收筹码</strong>，他在牛市抛售了大量筹码后，想再拉起来，必须通过长时间低位吸筹。<br>        <br>    - <strong>核心规律</strong>：<strong>熊市时间越长，主力吸收筹码越多，对应的牛市就能走得越长。</strong><br>        <br>- <strong>对中国市场“慢牛”的判断</strong>：<br>    <br>    - 过去10年（2015年至今）经历了漫长的熊市，意味着“大哥”（国家队）收集了足够多的筹码。<br>        <br>    - 这就是为什么924之后市场敢“蹬起来”，并敢于喊出“慢牛”**。<br>        <br>    - <strong>核心立场</strong>：<strong>如果大哥说慢牛，你都不信，那你大概率赚不到钱。</strong> 从过去一年的结果看，慢牛已经实现（有只无形的大手在控制）。<br>        <br>    - <strong>历史教训</strong>：15年股灾控制不住，是因为<strong>外资太多，筹码不够</strong>。国家队运作10年熊市，就是为了<strong>把外资洗掉</strong>。<br>        <br>    - <strong>个人经验</strong>：主播当年10万亏到零，就是因为没听大哥的话。去年4月7号敢满仓、一路拿到国庆，就是因为<strong>听劝，真信慢牛</strong>。<br>        </p>
+<p>---</p></div>
+<div class='sec' id='c1s1'><h3>二、 为什么大部分人的定投是亏钱的？（三个误区）</h3><p>主播用图表推演的方式，展示了普通投资者完整的亏损路径。</p>
+<p><strong>误区一：从牛市开始定投</strong></p>
+<p>- <strong>这是最多人出现的、最重要的原因。</strong><br>    <br>- <strong>路径</strong>：牛市时听说投资能赚钱 → 查到定投很厉害 → 果断从牛市开始定投 → 买在相对高位。<br>    <br>- <strong>结果推演</strong>：<br>    <br>    - 牛市阶段：可能赚一点，但大部分时间<strong>亏钱</strong>。<br>        <br>    - 牛转熊阶段：<strong>大亏</strong>（如白酒亏40%-50%）。<br>        <br>    - 漫长熊市阶段：长期<strong>浮亏</strong>或<strong>套牢</strong>，5-10年后才勉强回本（进入“小赚”状态）。<br>        <br>    - 真正开始赚钱，要等到<strong>下一个牛市</strong>。<br>        <br>- <strong>核心警示</strong>：从牛市开始定投，<strong>可能十年才赚一点，甚至十几年半辈子过去了，有一半时间在亏钱或套牢。</strong><br>    <br>- <strong>当下反面案例</strong>：现在去定投<strong>纳指、黄金、白银</strong>，就是从牛市开始定投。主播知道这些热度高，讲这些涨粉快，但<strong>从没讲过，因为他真想让大家赚钱。</strong><br>    </p>
+<p><strong>误区二：牛市定投多，熊市定投少</strong></p>
+<p>- <strong>路径</strong>：牛市时拼命买、买得多；熊市时害怕，不敢买、买得少。<br>    <br>- <strong>结果</strong>：持仓成本被高位的大量买入<strong>往上拉高</strong>，最终耗费十几年，<strong>只是打个平手，被通胀吊打，十几年就为了回本。</strong><br>    </p>
+<p><strong>误区三：大多数人的“长期”只有2-3年</strong></p>
+<p>- <strong>现实</strong>：很多人嘴上说打算长持10年、20年，但实际上，当<strong>浮亏30%-40%并持续3-4年时，绝大多数人坚持不住</strong>。<br>    <br>- <strong>结果</strong>：到不了下一个牛市。稍微抬头就卖了（还算好的），或者没抬头就割肉了。<br>    <br>- <strong>最终结局</strong>：<strong>大亏、超级亏、超级加倍大亏。</strong><br>    </p>
+<p>---</p></div>
+<div class='sec' id='c1s2'><h3>三、 100%胜率的定投策略（三个核心原则）</h3><p>针对上述误区，主播给出了解决之道。</p>
+<p><strong>原则一：尽量选择“往上走”或“不死”的标的</strong></p>
+<p>- <strong>上行标的</strong>：选对就能赚钱，在第二个周期时开始稳定盈利。<br>    <br>- <strong>不死标的</strong>：<br>    <br>    - 即便长期横盘（如过去10年的A股3000点），每到牛市也能赚钱，熊市基本持平。<br>        <br>    - <strong>实际上不存在真正“不死”的标的，因为整个金融史就是通胀史。</strong> 随着通胀，底部一定会抬高（小时候奶茶多少钱，现在多少钱）。<br>        <br>    - <strong>典型例子</strong>：优质的<strong>央企、红利、银行</strong>等。<br>        </p>
+<p><strong>原则二：熊市定投，牛市减仓</strong></p>
+<p>- <strong>这是100%胜率的核心操作纪律。</strong><br>    <br>- <strong>判断牛熊并不难</strong>：现在就是牛市（大家都来了），3-4年前就是熊市（大家都知道）。<br>    <br>- <strong>操作推演（最极端情况）</strong>：<br>    <br>    - 即使从牛转熊时开始定投，初期可能持平不赚不亏。<br>        <br>    - 但随着<strong>经验积累</strong>（认清牛转熊形态）和<strong>时间拉长</strong>（浮盈积累），到第二个周期时，<strong>大概率一直赚钱下去。</strong> 因为标的是往上走的。<br>        </p>
+<p><strong>原则三：牛市定投间隔要长（≥3个月），熊市越跌越重仓</strong></p>
+<p>- <strong>牛市操作</strong>：<br>    <br>    - <strong>间隔</strong>：<strong>大于等于三个月</strong>。牛市一般1-2年，间隔三个月，两年只买4-6次，仓位非常有限。<br>        <br>    - <strong>目的</strong>：防止在牛市高位把仓位打满。还能被动躲过牛转熊初期20%左右的跌幅。<br>        <br>    - <strong>止盈</strong>：出现<strong>20%-30%涨幅时就应该减仓</strong>。<br>        <br>- <strong>熊市操作</strong>：<br>    <br>    - 确认熊市后（所有人都知道时），切换策略。<br>        <br>    - <strong>核心</strong>：<strong>越跌越重仓</strong>。因为已知熊市是3-4年，<strong>不要在头一年就把仓位打满</strong>。应随着跌幅加深，逐步加大仓位（如1万、2万、4万）。<br>        <br>    - <strong>抄底</strong>：足够耐心下，<strong>底部一定能抄到，而且是重仓抄到。</strong><br>        <br>- <strong>心态升级</strong>：当你掌握了“熊市3-4年，牛市1-2年”和“熊长牛短”的规律，<strong>你就已经不是小白了，已经算入门了。</strong><br>    </p>
+<p>---</p></div>
+<div class='sec' id='c1s3'><h3>四、 慢牛行情的定投实操沙盘推演</h3><p>主播用924之后的大盘日线图，假设了最差情况，进行完整的沙盘推演。</p>
+<p><strong>1. 慢牛的定义</strong>：<strong>3-4个月走一个小熊市，1-2个月走一个小牛市。</strong> 不相信慢牛的人可以离开直播间。类比：不相信慢牛，就像20年前不相信房地产牛市。</p>
+<p><strong>2. 实操推演（假设买在最高点）</strong>：</p>
+<p>- <strong>B1（初始买入）</strong>：去年10月国庆后最高点站岗。<br>    <br>- <strong>B2（三个月后，加倍）</strong>：1月份，大盘已回调，<strong>仓位加大</strong>（如1000→2000）。<br>    <br>- <strong>B3（再三个月后，继续加倍）</strong>：4月份，出现意外大跌（如关税事件），<strong>再次加倍</strong>（如2000→3000）。<br>    <br>- <strong>持有/小减仓</strong>：7月份，大盘已涨到3400点，<strong>不应再重仓买</strong>，对慢牛不够信任的可减一点。<br>    <br>- <strong>S1（核心止盈）</strong>：9-10月份，突破前高，<strong>“傻子都知道是小牛市顶了”</strong>，浮盈30%-40%，<strong>必须走</strong>。慢牛不是直直上去的。<br>    <br>- <strong>后续</strong>：卖后三个月再买回来，成本相近，等于做了高抛低吸，始终浮盈。<br>    </p>
+<p><strong>3. 策略精髓</strong>：</p>
+<p>- <strong>卖点</strong>：<strong>你的账户会告诉你。</strong> 当底仓浮盈二三十个点，自己就知道该卖了。<br>    <br>- <strong>成本决定心态</strong>：买在低位，<strong>想卖就卖，不想卖就不卖</strong>；买在高位，才会天天问别人。<br>    <br>- <strong>简单即有效</strong>：如果一个东西特别复杂，听不明白，<strong>大概率不是好东西。</strong><br>    </p>
+<p>---</p></div>
+<div class='sec' id='c1s4'><h3>五、 关于“要不要定投美股（纳指）”的专题辨析</h3><p>主播从多个维度给出了明确结论：<strong>不要去。</strong></p>
+<p>- <strong>策略维度</strong>：现在定投纳指，是典型的“从牛市开始定投”**，属于高位接盘，是散户在做慈善。<br>    <br>- <strong>国运维度</strong>：<strong>相不相信“东升西落”</strong> 是投资A股的基本前提。国家说了慢牛，就一定会实现，要听爸妈的话。<br>    <br>- <strong>发展潜力维度</strong>：东升不一定需要西降，那为何不选择<strong>发展潜力更大</strong>的东方市场？<br>    <br>- <strong>风向标维度</strong>：<strong>巴菲特现金比例创历史新高。</strong> 是巴菲特聪明，还是劝你定投纳指的大V聪明？<br>    <br>- <strong>其他建议</strong>：信息太多，分辨能力不够，<strong>只看主播一个人的内容就够了。</strong><br>    </p>
+<p>---</p></div>
+<div class='sec' id='c1s5'><h3>六、 结尾总结与心态寄语</h3><p>- <strong>不建群</strong>：<strong>菜鸟凑一起只会更菜</strong>，会互相吓自己。<br>    <br>- <strong>不卖课</strong>：只想交朋友，带小白赚钱，只讲干货。<br>    <br>- <strong>课程总结</strong>：大家辛苦了三个多小时，希望能学到东西。切片明天发布。</p></div></div>
+
+<div class='c-block' id='c2'><h2>白水未来怎么走</h2><div class='sec' id='c2s0'><h3>一、背景与前提：为什么现在关注白水？</h3><p><strong>1. 白水过去5年经历了什么？</strong></p>
+<p>- 从2020-2021年至今，白水一直处于<strong>喋喋不休（长期下跌）</strong> 的状态。即使924行情之后，它依然在喋喋不休。<br>    <br>- 根据周期规律，<strong>一般牛转熊就是3-4年、4-5年</strong>。到现在，白水已经跌了4-5年，<strong>这个位置大概率就是一个底部区间</strong>。<br>    </p>
+<p><strong>2. 定投视角下的白水</strong></p>
+<p>- 那些从2020年牛市高位开始定投白酒的人，完美踩中了“从牛市开始定投”的误区，浮亏40%-50%，5年过去了还在亏钱。<br>    <br>- 白酒跌了这么多，已经<strong>把所有利空消息都消解掉了</strong>。后面随便来点利好，就会往上走。<br>    <br>- 主播反问：白酒跌2%-3%就过来问怎么办，<strong>“一直跌你怕什么呀？”</strong><br>    </p>
+<p><strong>3. 为什么要做白水而不是其他热门板块？</strong></p>
+<p>- 讲有色、黄金这些热度高的板块，粉丝涨得更快，短期内大家都能赚钱。但主播从来没讲过，<strong>因为他真想让大家赚钱。</strong><br>    <br>- 白水现在处于绝对低位，而很多热门板块（有色、航天等）已经处于绝对高位，性价比完全不同。<br>    </p>
+<p>---</p></div>
+<div class='sec' id='c2s1'><h3>二、当前所处阶段：大哥吹哨（定海神针已现）</h3><p><strong>1. 什么是“大哥进场”？</strong></p>
+<p>- <strong>大哥进场不是在一天完成的。</strong> 在熊市的底部区间、漫长的横盘过程中，大哥就已经在陆续进场、收集筹码了。<br>    <br>- <strong>大哥是大资金，不着急。</strong> 3年翻一倍很满意，4年翻一倍也很满意，甚至5年翻一倍都满意。<br>    </p>
+<p><strong>2. “大哥吹哨”才是关键信号</strong></p>
+<p>- 主播说的“大哥进场”实际上是<strong>大哥吹哨</strong>，说“我要干活了”。<br>    <br>- <strong>大哥明牌了</strong>：告诉市场，我的筹码吸得差不多了，<strong>再跌外面的人就要来抢筹码了，不可以再跌了，这就是我的底线。</strong><br>    <br>- <strong>盘面特征（定海神针）</strong>：在下跌趋势中，<strong>放天量突破，不管多少人卖，都一路买到涨停。</strong> 这根线叫<strong>定海神针</strong>。<br>    <br>- <strong>关键认知</strong>：<strong>这根涨停对于主力来说，他是亏钱的。亏钱也要拉到涨停</strong>，这是用真金白银宣告实力。<br>    </p>
+<p><strong>3. 驳斥谣言</strong></p>
+<p>- 有人说那天白酒涨是因为“段永平夸了白酒”。主播直接驳斥：<strong>“段永平说一句话能让全市场花20多亿把它买到涨停吗？”</strong><br>    </p>
+<p><strong>4. 定海神针之后</strong></p>
+<p>- 后面还能跌回这个位置吗？答案是：<strong>不是不可能，是比较难。</strong> 正常情况一般不会跌穿。<br>    <br>- <strong>大哥为什么要明牌？</strong> 因为他要<strong>将下跌趋势转成上升趋势，动作不得不明牌</strong>。告诉市场：“我要进去了”，让任何想做空的人<strong>看到这根东西就要掂量一下，要不还是别去了吧。</strong><br>    <br>- 定海神针之后，每次跌到附近就会有资金进场托底，因为有人会想“到大哥的成本了，那我买一买”，这样就形成了市场共识。<br>    </p>
+<p><strong>5. 当前的操作（底仓）</strong></p>
+<p>- <strong>现在这里打个底仓没有问题。</strong> 如果总资金有5个W，这里撑死打1个。<br>    <br>- <strong>绝对不能重仓，因为可上可下，还没有完全确认。</strong><br>    <br>- 如果周四发笔记时就买入的，已经抄到了近期小底，即使后面跌了，现在还是浮盈。<br>    <br>- <strong>定投策略不建议</strong>：有人问能不能从现在开始每日定投白水。主播明确回答：<strong>没有必要定投。</strong> 因为如果从高位开始定投，成本会在半山腰，等洗盘的时候，<strong>你的成本太高，洗的就是你，你一定走。</strong><br>    </p>
+<p>---</p></div>
+<div class='sec' id='c2s2'><h3>三、未来第一阶段：建仓波</h3><p>大哥吹哨之后，市场不会立刻起飞，而是进入一个震荡向上的阶段。</p>
+<p><strong>1. 什么是建仓波？</strong></p>
+<p>- 大哥吹哨后，一些大资金（不一定是主力）看到前面能稳住，就会在这个位置上买入筹码，形成一波震荡上行的走势。<br>    <br>- <strong>底部会不断抬高</strong>：每一轮回调的低点，都比前一轮的低点更高。上升回调、上升回调。<br>    <br>- <strong>建仓波的涨幅</strong>：一般会有<strong>30%到50%的涨幅</strong>。<br>    </p>
+<p><strong>2. 建仓波的三大特征</strong></p>
+<p>- <strong>特征一：底部不断抬高。</strong><br>    <br>- <strong>特征二：利空消息仍频。</strong> 这个阶段<strong>大概率还全是利空</strong>。财报可能依然很差；新闻资讯都在骂；散户能刷到的东西，基本还在骂这个板块。<br>    <br>    - 有人问主播为什么“阿勉”财报很差时还敢买、拿得住。主播回答：<strong>“因为我知道，因为我见过，这是经验。”</strong><br>        <br>    - <strong>核心结论：永远不要跟消息面去炒股，股市永远走的是预期。</strong><br>        <br>    - <strong>大资金傻吗？</strong> 这些东西肯定不是散户买的，是大资金买的。他们天天看着利空，为什么还要买？<br>        <br>- <strong>特征三：散户天天骂。</strong> 涨没涨多少，一买进去就跌，不像别的板块那样直直上去。很多人就是被利空吓走的。<br>    </p>
+<p><strong>3. 建仓波的操作策略</strong></p>
+<p>- <strong>绝对不走，千万别走！</strong> 因为这种是大底部区域。<br>    <br>- <strong>要赚就赚大钱，不要赚小钱。</strong> 主播的“阿勉”从建仓到翻倍走了一年半。两三年翻一倍，应该满意。<br>    <br>- 在建仓波回调时，<strong>B2这个位置一定要敢加倍。如果这个位置不敢加倍，别玩了。</strong><br>    </p>
+<p>---</p></div>
+<div class='sec' id='c2s3'><h3>四、未来第二阶段：洗盘（洗碗）</h3><p>这是最考验人性、让绝大多数人错失主升浪的阶段。</p>
+<p><strong>1. 洗盘的核心目的</strong></p>
+<p>- <strong>主力不想带太多人起飞。</strong> 火车挂了太多人，走不快的。<br>    <br>- <strong>因为带太多人起飞，他们会在拉升时卖出，这会提高拉升成本。</strong> 所以要把人洗走。<br>    <br>- 主要想洗掉的是<strong>别的大资金</strong>，不是散户那点钱。<strong>“他是想把别的大资金洗掉，然后不小心把你也洗掉。”</strong><br>    </p>
+<p><strong>2. 洗盘的最大特征：技术指标失效</strong></p>
+<p>- 典型表现：<strong>跌破重要均线（如20日线、60日线）、形成死叉、底部比上一个底部更低</strong>，走出来的图形乱七八糟，让技术派彻底绝望。<br>    <br>- <strong>主力是要花钱来画这些图的</strong>，目的就是让看技术的人走。<br>    <br>- <strong>很多人苦心钻研技术、天天亏钱，一般就是在这种时候走掉的。</strong> 主播用自己的姑丈举例——他就是在这种技术指标失效的时候被洗走的。<br>    </p>
+<p><strong>3. 洗盘的其他特征</strong></p>
+<p>- <strong>利好较多，利空较少</strong>：与建仓波相反，好消息开始变多，但图形却很难看，让人极度困惑。<strong>跟着消息面做什么动作都是错的。</strong><br>    <br>- <strong>财报开始有转好趋势。</strong><br>    <br>- <strong>横盘箱体震荡</strong>：股价在一个箱体里面上蹿下跳，高点不抬高，低点不抬高，说上去就上去，说下来就下来。<br>    <br>- <strong>洗盘时间不确定</strong>：<strong>碗没有洗干净，就不会进入下一个阶段。</strong> 洗到主力认为OK了，才会结束。<br>    </p>
+<p><strong>4. 洗盘时的散户心态模拟</strong></p>
+<p>- 跌破关键均线 → “完了完了，亏了亏了”<br>    <br>- 死叉出现 → “书上说了，死叉一定要走”<br>    <br>- 刚卖出就拉起来 → “我去！”<br>    <br>- 反复几次后再跌 → “不敢买了，大哥在骗我”<br>    <br>- 最终 → <strong>“我不走他不拉，倒在了黎明前。”</strong><br>    </p>
+<p><strong>5. 洗盘阶段的操作策略</strong></p>
+<p>- <strong>绝对不要在洗盘的时候走，一定要等到最后的拉升波。</strong><br>    <br>- 在所有人最恐慌、技术指标失效的时候，是<strong>B3买入点</strong>。这就是<strong>巴菲特说的“别人恐慌我贪婪”</strong> 的时刻。<br>    <br>- 此时你的成本已经很低（成本在底部区间），<strong>你有什么不敢买的？</strong><br>    <br>- 这个位置不要加倍，正常仓位买入即可。到这里时，大概打了80%的仓位。<br>    </p>
+<p>---</p></div>
+<div class='sec' id='c2s4'><h3>五、未来第三阶段：拉升波（吃饭/主升浪）</h3><p>洗盘结束后，进入最暴利的阶段。</p>
+<p><strong>1. 触发条件</strong></p>
+<p>- 洗完盘，剩下的都是“家人”，都是自己人。大哥说：<strong>“行吧，有钱一起赚。”</strong><br>    </p>
+<p><strong>2. 拉升波的最大特征：短时间快速推升</strong></p>
+<p>- 股价快速上涨，<strong>你觉得自己赚够了卖出，它还继续涨。连最浅的线都不跌破，就哐哐涨。</strong><br>    <br>- 真正的主升浪非常短暂。主播以自己为例：<strong>“真正赚钱就这一个，从浮盈10%-20%到变成浮盈70%，就一周。任何人都反应不过来。”</strong><br>    </p>
+<p><strong>3. 拉升波的其他特征</strong></p>
+<p>- <strong>利好频出</strong>，财报非常漂亮——专门吸引看消息的人高位接盘。<strong>“他们一来就高位，一来就接盘。”</strong><br>    <br>- <strong>散户不再骂，开始嚣张</strong>：“福音十五二十%，我无敌了！”<br>    </p>
+<p><strong>4. 何时卖出？</strong></p>
+<p>- <strong>成本决定心态</strong>：当成本足够低，涨到这里时，<strong>“你随便卖，无所谓，没有压力的。”</strong><br>    <br>- <strong>止盈信号</strong>：<strong>连续快速冲刺时、散户嚣张时、新闻资讯特别好时、财报特别漂亮时、短时间内快速拉升时，一定要走。</strong><br>    <br>- <strong>减仓策略</strong>：快速拉升阶段，<strong>至少要走一半仓位（至少减半仓）</strong>。越冲刺越要卖。<br>    <br>- 这里卖完之后，<strong>天王老子来你的底仓都不会走</strong>，再也不会慌张地问别人怎么办。<strong>从从容容，不慌不忙，不是装出来的，是在正确的逻辑下跑出来的。</strong><br>    </p>
+<p>---</p></div>
+<div class='sec' id='c2s5'><h3>六、重要提醒与风险控制</h3><p><strong>1. 不要刻舟求剑</strong></p>
+<p>- <strong>洗盘和拉升是随机组合的</strong>，不是固定顺序。可能建仓后洗盘，也可能洗盘后再建仓。最常见的顺序是本次所讲的。<strong>“别人不走，他不拉。”</strong><br>    <br>- <strong>B1和B2这两个点的确定性很高</strong>，后面的B3等点位需要更多技术判断。<br>    </p>
+<p><strong>2. 心态才是最大的收获</strong></p>
+<p>- 有粉丝留言说最大收获不是赚钱，而是“投资心态上的转变和成长”**。<br>    <br>- 如果投资把生活家庭搞得一团糟，是赚不到钱的。要把时间精力从市场上抽离出来，去享受生活。<br>    <br>- <strong>持之以恒的努力是最强的天赋、最强的方法、最强的运气。</strong><br>    </p>
+<p><strong>3. 防守价值已经体现</strong></p>
+<p>- 在极差的市场环境下（大盘跌4600家），白水逆势上涨。<strong>“如果白水不行，在这么差的环境下，会有人把它拉起来吗？”</strong> 那肯定是大家觉得它行。</p></div></div>
+
+<div class='c-block' id='c3'><h2>春节前怎么看</h2><div class='sec' id='c3s0'><h3>一、 开场答疑与投资纪律提醒</h3><p>直播开始时，主播针对粉丝的实时提问进行了快速解答，并再次强调了核心投资纪律。</p>
+<p>- <strong>关于“回调”的定义</strong>：有粉丝问“化工跌了一天是不是回调了”。主播明确纠正：<strong>跌一天不叫回调，就算跌停也只有10%。</strong> 真正的回调是需要时间的，他之前课程讲过，大票的调整周期通常是<strong>3-6个月</strong>，小票是<strong>10%-20%的跌幅</strong>。要等到时间和空间都到位，才算回调。<br>    <br>- <strong>关于加仓纪律（三个月的优先级）</strong>：有人问“跌了7个点，要不要再等3个点就加仓”。主播强调：<strong>第一条件是三个月，而不是跌幅。</strong> 必须是“三个月”和“超过10%的跌幅”两个条件同时满足，才考虑加倍。如果只看跌幅不看时间，就会一路买一路亏，买到海里去了。而按三个月一次的频率，撑死只打两个仓位，风险完全可控。<br>    <br>- <strong>关于比亚迪的比喻</strong>：有粉丝问比亚迪被套了要不要减。主播用了一个生动的比喻：比亚迪现在这个位置，相当于“王嘉尔跟你说，咱结婚吧，我什么都不要”<strong>。打个底仓没事。如果过三个月它继续跌，那就相当于</strong>“30岁的王嘉尔跟你说，咱结婚吧”**，性价比更高了。<br>    <br>- <strong>关于对冲的意义</strong>：今天（直播当天）大盘极差，下跌家数达4600家，但主播的阵容里有两个板块特别硬（白水、中药等防守板块），整体净值没跌多少。<strong>对冲的核心目的</strong>：<strong>大盘不好的时候，我们跌得少；大盘好的时候，我们涨得多。</strong> 主播教的这套东西，包括现金对冲、高低对冲、板块对冲、时空对冲，价值极高。<br>    </p>
+<p>---</p></div>
+<div class='sec' id='c3s1'><h3>二、 市场下跌的深度剖析：“苹果熟了”的比喻</h3><p>主播用“苹果熟了掉地上”的比喻，来解释近期市场的下跌。</p>
+<p>- <strong>核心比喻：苹果熟了，才会掉地上。</strong> 苹果不是掉地上那一天才熟的。它是熟了一段时间，慢慢变重，蒂慢慢松动，最后才掉下来的。这是一个<strong>厚积薄发、逐步积累</strong>的过程。<br>    <br>- <strong>对应到大盘</strong>：今天的下跌，<strong>不是因为今天发生了什么事</strong>。而是在此前的上涨过程中，<strong>已经陆陆续续有主力在出货了</strong>（苹果慢慢熟了）。当他们出得差不多了，不再愿意承接时，股价就会下跌（苹果掉地上）。春节后下跌，不是因为春节过了，而是因为在春节前的行情里，主力已经出完货了。要辩证地看。<br>    <br>- <strong>辩证看待下跌：不会直直跌下去。</strong> 主播明确表示：大盘<strong>不会就这样直直地跌下去</strong>。原因：大盘是一个<strong>果盆，里面有很多个苹果</strong>。有些苹果熟了，先掉下来（高位板块杀跌）。但<strong>还有很多苹果没熟</strong>（低位板块），它们不会跟着一起跌，甚至会被拉起来。<br>    </p>
+<p>---</p></div>
+<div class='sec' id='c3s2'><h3>三、 春节行情的逻辑与大盘推演</h3><p>主播分析了“春节行情”的成因，并给出了大盘未来两周的走势预判。</p>
+<p>- <strong>春节行情的两大原因</strong>：① <strong>习俗（约定俗成）</strong>：多年跑下来的数据表明，春节前后就是有行情，这是一种市场共识，像“祖宗之法”一样，很难完全解释清楚。② <strong>一年之计在于春</strong>：每年一季度，往往是有形大手<strong>发布利好政策、推动经济数据“开门红”最密集的时期，为全年目标定调。同时，当前核心任务是</strong>促销费、拉动内需。因此，<strong>春节前市场不会太差</strong>，都希望大家赚到钱，春节时能促进消费。<br>    <br>- <strong>大盘走势预判</strong>：未来两周会<strong>震荡上行</strong>。主播认为，今天这跟阴线<strong>太刻意了，是故意往下蹲一蹲</strong>，为春节行情创造空间。盘中是<strong>缩量下跌</strong>，说明是硬砸出来的，不是真正的恐慌出逃。先砸出空间，然后<strong>慢慢悠悠、磨磨唧唧地一点点往上爬</strong>，这才是慢牛的走法。如果直接从这里V形反转拉上去，就又成“风流”（疯牛）了。<strong>核心观点：永远不要低估咱爸妈（国家队）要走慢牛的决心。</strong> 说慢牛就慢牛。<br>    </p>
+<p>---</p></div>
+<div class='sec' id='c3s3'><h3>四、 不同板块的分类应对策略</h3><p>主播将市场上的板块分为三类，并给出了完全不同的应对策略。</p>
+<p>- <strong>第一类：绝对高位的东西（苹果熟透了）</strong>：前期涨幅巨大，主力已在高位出货。代表：有色（大黄、大白）、航天、卫星、机器人、AIGC等。策略：<strong>能压就压，一定会往下砸。</strong> 这些苹果已经掉下来了，未来的反弹和小牛市可能跟它们没关系。<strong>撑死留个底仓，主播建议底仓20%。</strong> 特别提醒：有色不跟慢牛，而且外围市场不一定有春节行情，千万小心。提前一周就有压单消息出来，<strong>一定要听爸妈的话</strong>，爸妈说的都不听，最后一定很惨。18-20年说“房住不炒”，不听的人最后都爆雷了。<br>    <br>- <strong>第二类：相对高/相对低的东西</strong>：位置不高不低，有基本面支撑。代表：香港恒生科技（恒恒）、券商（圈圈）等。策略：<strong>能稳住就稳住，拿住不动。</strong> 券商和恒科在今天的下跌中都稳住了，没有破位。<br>    <br>- <strong>第三类：绝对低位的东西</strong>：跌了4-5年，处于历史底部区间，出现了“大哥吹哨”信号。代表：白水（白酒）、红利低波、中药等。策略：<strong>能拉就拉。</strong> 今天的白水在极差的环境下还能拉两三个点，说明有资金在行动。<strong>资金从高位苹果出来，去了低位苹果。</strong> 这就是慢牛行情中板块轮动的本质。汪汪队只是给信号，大部分钱是市场上自己的钱在跑。<br>    <br>- <strong>三种分类与之前课程完全对得上</strong>：绝对高位的往下砸一砸（创造空间）；相对高低的稳住（不能也跟着跌）；绝对低位的拉一拉（让春节前有赚钱效应）。<br>    </p>
+<p>---</p></div>
+<div class='sec' id='c3s4'><h3>五、 投资心态与最终寄语</h3><p>- <strong>心理按摩到位</strong>：今天的直播是为了让在大跌中恐慌的粉丝安心。主播用自己的公开组合验证了配置逻辑——在极差行情中，防守阵容非常硬，白水逆势上涨，整体净值没跌多少。<br>    <br>- <strong>鼓励与共勉</strong>：<strong>不要为敌人的来势汹汹所吓倒，不要为尚能忍耐的挫折所沮丧。</strong> 道路是曲折的，前途是光明的。主播分享了4月7日市场大跌时自己的感受，当时看到这番话直接落泪。<br>    <br>- <strong>持之以恒的努力</strong>：这是直播间不变的信条。鼓励大家用本子记录思考和成长，主播会制作一款高品质的笔记本（红色封面，像法典一样端庄，工艺对标Paper Blanks），免费送给支持他的粉丝。<br>    <br>- <strong>投资即人性</strong>：股票市场打开，里面只有两个字——<strong>人性</strong>。如果有第二页，写着两个字——<strong>抢钱</strong>。希望各位未来不要被抢钱了。<br>    <br>- <strong>恭喜与强调</strong>：隆重恭喜上周听劝减仓有色的粉丝，非常不容易。就算减仓后继续涨，在这个位置减仓<strong>一定是对的。</strong> 主播永远只做买在底部区域、卖在人声鼎沸时的交易。</p></div></div>
+
+<div class='c-block' id='c4'><h2>投资的终极考验</h2><div class='sec' id='c4s0'><h3>一、 课程开场：这节课为什么重要</h3><p>- <strong>时机恰到好处</strong>：正好有色暴跌后反弹、航天也反弹，有些人又追进去了；同时另一批人听了劝，在底部布局白水、黑煤球、药、券商等吃到了肉，有点兴奋。<strong>气氛烘托到这了，是讲这课的最好节点。</strong><br>    <br>- <strong>课程定位</strong>：<strong>极其枯燥，偏哲学</strong>，没有盘面分析，但可能是<strong>50年的茅台</strong>，很多人穷尽一生在市场上都想不明白这个问题。<br>    <br>- <strong>核心题目</strong>：<strong>《绝大多数的人不配拿到翻倍》</strong>，解决的是<strong>知行合一</strong>的问题——<strong>如何从想明白，到做明白。</strong><br>    </p>
+<p>---</p></div>
+<div class='sec' id='c4s1'><h3>二、 灵魂拷问：五个问题直击痛点</h3><p>主播通过五个问题，让粉丝直面自己“想明白但做不到”的行为：</p>
+<p>1. <strong>白水</strong>：讲了无数次打底仓，<strong>有没有人到现在都不敢打底仓的？</strong>（众多回应）每当不敢打底仓时，把白水未来怎么走的课重新听一遍。<br>    <br>2. <strong>白水</strong>：明知道现在只能打底仓，<strong>有没有人涨了也加仓、跌了也加仓的？</strong>（众多回应）主播表示生气但也猜到了。<br>    <br>3. <strong>烂苹果</strong>：明知道有些苹果已经熟了（绝对高位），坏人用胶水粘回树上，<strong>有没有人除了底仓以外还抱着不撒手的？</strong> 包括这两天反弹又追进去的。<br>    <br>4. <strong>时间纪律</strong>：明知道不够三个月，<strong>但跌一点跌一阵就憋不住加了的？</strong><br>    <br>5. <strong>频繁看盘</strong>：明知道要拿半年到一年，<strong>但没事就打开盘看的？</strong><br>    </p>
+<p><strong>核心矛盾</strong>：你们在认知层面都懂，白水的线也画了，道理也讲了，<strong>但很多人就是做不到。</strong> 更关键的是，你们<strong>不知道“为什么我天天看盘不对”、“为什么我管不住手不对”</strong>——今天就来讲清楚这个“为什么”。</p>
+<p>---</p></div>
+<div class='sec' id='c4s2'><h3>三、 为什么追高很难赚钱？（理论层面）</h3><p>主播声明：不是说追高不对，也不是说追高赚不了钱。游资、机构有信息差和资金优势可以追高赚钱。但<strong>对于绝大多数人来说，追高肯定很难赚钱。</strong></p>
+<p>- <strong>第一：追高成本不会低。</strong> 买在阶段高位甚至一年高位，10块涨到100块，80块买入只能赚25%；10块买入，50块走也是翻五倍。<br>    <br>- <strong>第二：追高几乎无法打满仓。</strong> 几乎没买点出现，时间太短，撑死买一点点，越买成本越高。10万的仓位，买1万翻倍也就赚1万。而在低位可以拼命买，<strong>满仓吃到涨幅</strong>，即使不翻倍，涨50%也爽得不得了。<br>    <br>- <strong>第三：追高大概率拿不住。</strong> 追在高位，一进去就要跌，洗来洗去，各种技术指标失效、破位、骂声一片。<strong>成本在这，你是拿不住的。</strong> 成本在低位，这些东西就是“小卡拉米”。<br>    <br>- <strong>灵魂反问</strong>：这几天大家很兴奋，但上周六你们在评论区说的是“希望它跌，而不是涨”，<strong>为什么兴奋啥呢？我们不打满仓怎么赚大钱？</strong><br>    </p>
+<p>---</p></div>
+<div class='sec' id='c4s3'><h3>四、 人性推演：大多数人在白水上赚不到钱的完整路径</h3><p>主播按白水未来走势图，生动预演了“不听话的大多数人”未来会怎么一步步亏钱的完整过程：</p>
+<p>- <strong>涨停→回调</strong>：第二天回调4%-5%，<strong>很多人马上卖了</strong>。有人已经跟主播说第二天就卖了。<br>    <br>- <strong>涨回来→捶胸顿足</strong>：连涨两天，心想“我是不是卖错了”，但不敢买。再拉一根，捶胸顿足“为什么要卖？少吃了八个点！”<br>    <br>- <strong>看笔记→后悔追高</strong>：看到主播笔记说“打个底仓、千万别卖”，心想不对啊，不应该卖。但又看到很多博主疯狂吹白水，觉得底仓不对，<strong>又追进去了。</strong><br>    <br>- <strong>回调到超级加倍位→割肉骂人</strong>：跌到大哥吹哨的成本位（超级加倍位置），<strong>“什么超级加倍，我直接拜拜了”，开始到评论区骂人。</strong><br>    <br>- <strong>跌完后→庆幸卖得早</strong>：心想“还好我卖得早，躲过了4%-5%的亏损，还是我牛逼，小奶什么玩意儿。”<br>    <br>- <strong>真正超级加倍→梭哈</strong>：你让他打底仓他整不明白，<strong>你让他梭哈他包懂的</strong>，兴奋得不得了。<br>    <br>- <strong>加完继续跌→紧张</strong>：亏了5%-6%，开始紧张。<br>    <br>- <strong>阴跌→骂“小勇子不行”</strong>：跌了一个多月甚至三个月，利空消息频出，想都不想，“小勇子不行啊，走你一个。”<br>    <br>- <strong>刚走就涨停</strong>：不敢去，折磨了一个多月不敢去。心想“奶油教过不能追高，一定要等回调。”<br>    <br>- <strong>回调真来了→不敢买</strong>：到回调的时候，<strong>他不敢买了。</strong><br>    <br>- <strong>涨起来→问奶荣能不能进</strong>：主播说“这是阶段高位，不能进”。他说“好的谢谢奶油”，<strong>转头打了个重仓。</strong><br>    <br>- <strong>涨了沾沾自喜</strong>：不会来问奶荣，觉得“奶荣真是预言家啊，这半年行情都被他预言出来了！”<br>    <br>- <strong>洗碗阶段→加仓</strong>：想着“之前回调没进，这次一定要进！”忘了奶荣说过后面有洗碗。加完仓后跌得乱七八糟，浮亏且大概率满仓。<strong>受不了了，卖了。</strong><br>    <br>- <strong>卖了才想起洗碗</strong>：看直播想起“对啊这是洗碗，忘了！”不敢买多，买一点。<br>    <br>- <strong>拉升→后悔买少→高位梭哈</strong>：心想“马上要拉升了，仓位太小不行！”<strong>高位补仓。</strong><br>    <br>- <strong>A杀→拿住不走→问奶荣怎么办</strong>：第一个跌停舍不得走（因为之前追高赚过钱），第二个跌停还不走，第三个跌停来问“白水怎么看？”<strong>奶荣沉默了。</strong> 如果人在面前，“绝对一逼兜过去”。<br>    </p>
+<p><strong>结论</strong>：截图保存这张图，对比自己以前的操盘历史，<strong>这就是大多数人的画像。</strong></p>
+<p>---</p></div>
+<div class='sec' id='c4s4'><h3>五、 核心哲学：比经验更值钱的是对人性的掌控</h3><p>主播进入课程最核心、最枯燥的哲学部分。</p>
+<p>- <strong>一个看似没问题的逻辑</strong>：有人问“现在不就是底部吗？未来会翻倍，为什么不能追？”逻辑上确实没问题，现在追进去也是底部，<strong>但这个动作不对。</strong> 哪怕市场说你是对的，<strong>这个动作不对。</strong><br>    <br>- <strong>投资的终极考验是人性</strong>：为什么所有大师都统一达成这个共识？因为投资最后你能不能成功，<strong>最重要的就是你能不能做到逆人性。</strong> 哪怕现在不是底部，哪怕知道未来会翻倍，但这个位置不能买，就是不能买。<br>    <br>- <strong>为什么做不到？</strong> 因为你们<strong>被自己的人性牵着走了。</strong> 就算这次没问题，有一天你的人性会带着你们在市场上亏很多钱。<br>    <br>- <strong>核心递进</strong>：<br>    <br>    - 比钱更值钱的是<strong>经验/认知</strong>。钱是赚不完的，但经验和认知是钱。<br>        <br>    - <strong>比经验更值钱的，是对人性的掌控。</strong> 在这个市场上不缺有钱的人，也不缺经验丰富、认知高的人。但这些人也经常亏大钱。利弗摩尔（华尔街之狼）赚过很多钱，出了好几本书，最后跳楼了——<strong>因为他对人性的掌控能力不够。</strong><br>        <br>- <strong>追高为什么是臭毛病？</strong>（哪怕赚钱，哪怕是对的）<br>    <br>    1. <strong>你纵容了自己的人性。</strong><br>        <br>    2. <strong>你助长了自己的恶习。</strong> 买完继续涨，觉得自己“精准预测”“天下第一”，这恶习会跟恶魔一样缠绕你，到股灾时你一定站山顶。<br>        <br>    3. <strong>你削弱了自己对人性的掌控能力。</strong> 这是来到这个市场上最宝贵的能力，比钱、比认知更值钱，能让你长期赚钱、保护你在股灾时不被重创。<br>        <br>- <strong>你们亏钱仅仅是因为没逃顶吗？</strong> 大黄、大白亏了那么多钱，仅仅是因为没逃顶、没听劝、太晚刷到奶荣吗？<strong>不是。</strong> 是因为在这个过程中，<strong>你纵容了自己的人性，你助长了自己的恶习，你削弱了自己对人性的掌控能力。</strong><br>    <br>- <strong>奶荣的钱比姑丈多吗？经验比姑丈丰富吗？</strong> 姑丈炒股20多年，钱更多、经验更丰富，为什么一直亏钱？<strong>区别就在于对人性的掌控。</strong><br>    </p>
+<p>---</p></div>
+<div class='sec' id='c4s5'><h3>六、 奶荣5年5倍的成功秘诀：想明白与做明白的差距</h3><p>- <strong>成功秘诀</strong>：过去5年五倍、熊市3年三倍的秘诀，就是搞清楚了<strong>想明白和做明白的差距。</strong> 一直压制自己的人性，跟恶习做对抗，提高对人性掌控的能力。<br>    <br>- <strong>奶荣24岁就想明白了这件事</strong>：<br>    <br>    - 原文念读：<strong>“当你不再默认自己是一个想明白就能做明白的人、不是一个理性的人的时候，你会发现关于如何解决问题、如何提升自我的思路会发生翻天覆地的变化。你的敌人不再是去想明白什么道理，而真正的敌人是在你做的过程中不断作妖的不必要的情绪、莫名浮现的愚昧的想法、以及各种劝你放弃的幻觉。”</strong><br>        <br>    - 实际上，<strong>人天生不理性。</strong> 你们不是没想明白，是在做的过程中，那些情绪、愚昧想法、幻觉在作妖。<br>        <br>- <strong>持之以恒的努力</strong>：奶荣高三一年提高200分，膝盖做过两次手术打上校队，27岁当上项目经理——<strong>靠的都是持之以恒的努力。</strong> 你们嘴上说“持之以恒的努力”，但真正做的时候，是很难的。<br>    <br>- <strong>两个深刻案例</strong>：<br>    <br>    1. <strong>关于学习</strong>：奶荣从小被夸而学习好，其实很长一段时间都不知道为什么要学习。直到24岁才真正想明白。<strong>想明白是一回事，做明白是另一回事。</strong> 很多人写作文“为了中华崛起而读书”，那只是“想明白”，只有真正经历过之后，才“做明白”。<br>        <br>    2. <strong>关于定投</strong>：定投的道理不复杂，但为什么聪明的投资者投不明白？因为在过程中，涨15%忍不住落袋、亏10%忍不住抛掉、持有一两个月就待不住。<strong>这些挑战只有在做的时候才能体会得到。</strong> 那些幻觉、情绪、干扰，才是真真正正的敌人。<strong>你只有身处其中，才能真正遇见他们。想象不到的。</strong><br>        <br>- <strong>千万别骄傲，路还很长</strong>：只有经历过一次又一次正确成功的定投体验之后，你才能真正做到淡定、真正做明白。那一刻，你才可能成为真正意义上坚定不移的投资者。<strong>奶荣帮不了你们经历这个过程，只能靠你们自己。</strong><br>    </p>
+<p>---</p></div>
+<div class='sec' id='c4s6'><h3>七、 追涨杀跌的本质：贪嗔痴</h3><p>- <strong>追涨杀跌的本质是“贪嗔痴”。</strong> 主播借用内观禅修的理论框架来分析：<br>    <br>    - <strong>贪</strong>：贪恋迅速暴富、快进快出、刺激、躺平、赌博的快感。<br>        <br>    - <strong>嗔</strong>：厌恶损失、厌恶踏空、厌恶等待、厌恶不完美、厌恶未知、眼红嫉妒、厌恶动脑子、厌恶持之以恒的努力。<br>        <br>    - <strong>痴</strong>：在某个状态下沉迷进去，迷迷糊糊、上头了。<strong>迷失了，不知道自己在干嘛。</strong> 最典型的表现：<strong>对纪律的漠视、对大道的不确信。</strong><br>        <br>        - <strong>案例</strong>：明知中国老龄化、寿命变长、医疗增长潜力大，为什么某医疗股跌10个点就嗷嗷叫、想割掉？——<strong>就是典型的“痴”。</strong><br>            <br>- <strong>如何克服贪嗔痴？——戒、定、慧。</strong><br>    <br>    - 圣人2000年前就给出了路径：<strong>由戒生定，由定生慧。</strong><br>        <br>    - 奶荣处于“戒”和“定”之间，基本做到了“戒”，还做不到“定”。<br>        <br>    - 今天的课只讲“戒”，因为你们正处于这个阶段。<strong>戒做不到，定不了；定不了，生不了智慧。</strong> 这市场上聪明的人很多，都亏钱，因为他们没有智慧。<br>        </p>
+<p>---</p></div>
+<div class='sec' id='c4s7'><h3>八、 “戒”的具体内容（投资中的五条戒律）</h3><p><strong>第一部分：止恶（五条戒律）</strong></p>
+<p>1. <strong>不用能力范围外的钱。</strong> 用了就是在纵容人性、助长恶习、削弱自己对人性的掌控。<br>    <br>2. <strong>不买垃圾票（及认知范围外的票）。</strong> 炒想象力、炒概念，明知是垃圾还买，因为你贪、嗔、痴。奶荣亲自研究大黄鱼两周，结论是“认知范围外，看不懂”，踏空了大行情但不后悔。<strong>在这个市场7-8年，从来没碰过那些东西。</strong><br>    <br>3. <strong>不追涨杀跌。</strong> 哪怕追涨杀跌是对的，也不能做。<strong>把它当成纪律。</strong> 你在市场上不断增长的最宝贵的东西，就是对人性的掌控。<strong>哪怕赚的钱少了，你也是赚的。</strong><br>    <br>4. <strong>不做短期预测。</strong> 历史证明任何短期预测都会失效。外面大V画线讲得头头是道，都是扯淡。<strong>一个东西只要拉得足够长，有效性就会提高；足够短，不确定性就会提高。</strong><br>    <br>5. <strong>不乱看资讯。</strong> 资讯都是短期的，没有用。看周期、看长远才是对的。<strong>一群菜鸟凑一起只会更菜。</strong><br>    </p>
+<p><strong>第二部分：行善（五条生活准则）</strong></p>
+<p>1. <strong>多赚钱。</strong> 场外赚钱能力是投资的底气。<strong>钱生而不平等</strong>——你的一块钱和段永平的一块钱是不一样的。巴菲特的钱是保险浮存金，可以等10年20年；你的钱下个月要买奶粉，<strong>属性不一样。</strong> 敬畏市场，不要高估自己。<br>    <br>2. <strong>多读书。</strong> 奶荣赚的钱99%以上都源自以前读的书。把看盘、看资讯、做短期预测的时间省下来读书。<br>    <br>3. <strong>多锻炼。</strong> 想长期赚钱，一定要有好身体。活得足够久，坚持大道，10年20年绝对不缺钱。<strong>20年后，还有一波机会，到时候身体好才能抓住。</strong><br>    <br>4. <strong>多帮朋友。</strong> 相当于一种对冲。你帮过的人，在你有困难时也会帮你。只有生活安稳，钱才能在市场上等得起。<br>    <br>5. <strong>多陪家人。</strong> 如果你天天亏钱、没时间、工作不好、身体差、朋友少，一定会疏忽家人。家庭氛围不好会反噬投资心态，让你更容易贪嗔痴，最后更容易亏钱。<br>    </p>
+<p>---</p></div>
+<div class='sec' id='c4s8'><h3>九、 结尾寄语</h3><p>- <strong>这节课比定投的真相更重要。</strong> 不是说学了定投就能赚钱，而是先搞明白<strong>什么东西是最重要的、能一直为你保驾护航。</strong><br>    <br>- <strong>不要骄傲，不要嚣张。</strong> 奶荣拿了13次翻倍，到今天依然不能完全做到。这条路可能要10年、20年。奶荣一直走在路上。<br>    <br>- <strong>今天是最重要的。</strong> 等牛市结束之后回头看，今天晚上的内容是最重要的。这是奶荣送给你们的礼物。</p></div></div>
+
+<div class='c-block' id='c5'><h2>逃顶的真相</h2><div class='sec' id='c5s0'><h3>一、 开场：什么是“对冲”的活学活用</h3><p>- <strong>平台也需对冲</strong>：小红书的直播限制较多，需要多平台布局（如B站、抖音、视频号等）作为备份，这就是对冲思维的体现——<strong>东方不亮西方亮，小红不亮小破站亮。</strong><br>    <br>- <strong>主要矛盾与次要矛盾</strong>：技术指标、盘面、信息等都属于次要矛盾。当前的主要矛盾只有一个——<strong>慢牛。</strong> 抓主要矛盾，主要矛盾抓矛盾的主要方面。<br>    </p>
+<p>---</p></div>
+<div class='sec' id='c5s1'><h3>二、 案例剖析：为什么不要去追大黄鱼（黄金）？</h3><p>主播用大黄鱼60年的历史走势图，从七个维度层层递进，论证普通投资者在绝对高位追涨几乎没有胜算。</p>
+<p>- <strong>第一问：这波能到多高？</strong> 所有人答案百花齐放，没有人能确定，<strong>心里是没底的。</strong><br>    <br>- <strong>第二问：要花多少时间见顶？</strong> 同样没有人知道。说“10年一个牛市”，但19年到现在已经6年，14年到现在已经10年，怎么算？<strong>机构也不知道，大资金也不知道。</strong><br>    <br>- <strong>第三问：见顶后会跌多少？</strong> 历史上有时跌20年，有时跌三四年，无法预测。<br>    <br>- <strong>第四问：见顶后跌多久？万一跌20年你受得了吗？</strong> 很多人跌8年就受不了了。<br>    <br>- <strong>第五问：你们能拿多久？</strong> 你们的钱不是巴菲特的钱，不是段永平的钱。下个月结婚可能就要取出来，刚好套牢两三年。<br>    <br>- <strong>第六问：有多大的把握能逃顶？</strong> 看看你们之前拿过的各种票，哪个成功逃顶了？不多。<br>    <br>- <strong>第七问：各位能接受亏多少？</strong> 30%可能就两三天（参照近期大白走势）。<br>    </p>
+<p><strong>结论：昭然若揭。</strong> 就算跌下来又起来，也不能去，因为<strong>几乎没有胜算。</strong> 这是<strong>神仙打架，我们看不懂。</strong> 大佬在互相博弈，<strong>下面的蚂蚁全死了。</strong> 即使咱爸妈增持，他也很紧张。</p>
+<p>---</p></div>
+<div class='sec' id='c5s2'><h3>三、 确定性：投资的第一要义</h3><p>- <strong>不会选？来看看猪肉的例子。</strong><br>    <br>    - 猪肉价格从08年到现在几乎没变，<strong>这合理吗？</strong> 整个金融史就是通胀史，<strong>傻子都知道不合理。</strong><br>        <br>    - 猪肉已跌了5年，价格与08年持平。市场规律该通胀就要通胀，政策也在提“控制物价稳步上升”**。<br>        <br>- <strong>大黄鱼和猪肉的最大区别：三个字——确定性。</strong><br>    <br>    - 大黄鱼的问题都是<strong>不确定</strong>的；猪肉的问题都是<strong>确定</strong>的（确定会涨，只是不确定多久）。<strong>快了，因为已经跌了5年了。</strong><br>        <br>- <strong>投资的第一要义：避险。</strong> 避险围绕的核心就是<strong>确定性。</strong> 确定的东西就拿着，别怕跌。<br>    </p>
+<p>---</p></div>
+<div class='sec' id='c5s3'><h3>四、 逃顶的真相：反者道之动</h3><p>- <strong>追求逃顶的本质是贪嗔痴。</strong> 渴望逃顶、卖在最高位、完美躲过股灾，这是顺人性的，所以<strong>赚不了钱</strong>（可能赚一两次，最后亏回去）。<br>    <br>- <strong>逃顶最重要的真相：你不能去追求逃顶。</strong> 越想逃顶，越逃不了顶。<strong>反者道之动。</strong><br>    <br>- <strong>Be Water, My Friend（李小龙原声视频）</strong><br>    <br>    - 水倒入杯子就成为杯子，倒入茶壶就成为茶壶。<strong>水是流动的，没有自己的执念。</strong><br>        <br>    - 在投资上，<strong>不要跟市场较劲</strong>，不要有太多执念、要求、期望。市场怎么走，我们就怎么跟随。<br>        <br>    - 不想着逃顶，可能反而可以逃顶；不想着抄底，可能反而可以抄底。<br>        <br>    - 避险做得越好的人，盈利往往越好。没打算抄底的人，反而经常抄底（比如奶荣慢慢买，抄到了白水、本草纲目的底）。<br>        <br>- <strong>“慢牛定投策略”的内核就是上善若水。</strong><br>    <br>    - 市场走出小牛，就减仓；往下跌超过三个月，就超级加倍。无论涨跌，<strong>无所谓，我们只需要跟随。</strong><br>        <br>    - 不像很多人买有色，买进去就想“到底了，要涨了”——这是在<strong>要求市场怎么样，而不是跟随。</strong><br>        <br>- <strong>沃特战法（Water战法）——水往低处流，水满则溢</strong><br>    <br>    - 水总是往低处流，在低洼处蓄水。蓄满之后，自然溢出，再往下一个低处流。<br>        <br>    - 突破历史前高后，<strong>水满则溢</strong>，往往要回调蓄力，走势别扭。确定性最高的是<strong>低位蓄水区</strong>。<br>        <br>    - 白水、本草纲目就处于“水往低处流”的位置。而大黄鱼那种直直拉上去的是<strong>洪灾</strong>，不是Water该去的地方。<br>        </p>
+<p>---</p></div>
+<div class='sec' id='c5s4'><h3>五、 逃顶的实操步骤（水到渠成的结果）</h3><p><strong>逃顶不是一个刻意的技术动作，而是一个自然而然的结果。</strong> 你做对了以下动作，自然就能实现：</p>
+<p><strong>1. 选好标的。</strong></p>
+<p>- 选长期上行、不会死的标的（如招财猫后复权图）。即使买在顶部站岗，拉长5年10年，当初的顶也会变成底。<strong>选足够好的标的，你是不需要操心逃顶的。</strong><br>    </p>
+<p><strong>2. 低位进场。</strong></p>
+<p>- 用直觉判断就行。跌了四五年、从215腰斩到120，这就是低位，可以买。拉起来了就不能买。<strong>低位进场，整个过程随便卖，无所谓。</strong><br>    </p>
+<p><strong>3. 慢慢买。</strong></p>
+<p>- 隔比较长的时间再买，这就是慢慢买。<strong>你不需要研究顶部有什么MACD、KDJ特征，跟那没关系。</strong><br>    <br>- 这其实就是<strong>定投真相的复习课</strong>：选不死或长期上行的标的 → 慢慢买 → 低位重仓 → 3-4年慢慢买。<strong>你按这个东西做下来，你不需要逃顶。</strong><br>    </p>
+<p>---</p></div>
+<div class='sec' id='c5s5'><h3>六、 奶荣的亲身验证：大饼上的Water实战</h3><p>- 奶荣展示了一笔历时652天的实盘操作（2022年10月买入，2024年10月卖出）。<br>    <br>- <strong>过程极其煎熬</strong>：突破历史前高后卖出，结果踏空从7万涨到12万；忍住没追，又跌回8万；再忍住，最后瀑布到6万。<br>    <br>- <strong>Water的思维</strong>：这里（高位）不是Water会去的地方，遮住后面剧情，很有可能是洪灾。<strong>就算还有行情，也不应该去。</strong><br>    <br>- <strong>奶荣站在卖点时的真实想法</strong>：想的不是“我成功逃顶了”，而是“后面的钱，我不要了”。这两句话天差地别——前者是贪嗔痴，后者是淡然和平常心。<br>    </p>
+<p>---</p></div>
+<div class='sec' id='c5s6'><h3>七、 清洗伪概念，建立正确的思维习惯</h3><p>你们经常挂在嘴边的话，会不断强化过去的垃圾思维。<strong>要彻底清洗以下伪概念：</strong></p>
+<p>- <strong>逃顶</strong>、<strong>踏空/卖飞</strong>、<strong>抄底</strong>、<strong>做T</strong>（抛硬币游戏）、<strong>支撑</strong>（支撑就是用来跌破的）、<strong>突破</strong>、<strong>反转/反弹</strong>、<strong>企稳/到位</strong>、<strong>破位</strong>（拉升前就是要破位，技术指标就是要失效）、<strong>金叉/死叉</strong>……<br>    <br>- <strong>这些都没用。</strong> 不简单的东西一定是不对的、不漂亮的。<strong>韭菜最爱说这些。</strong> 奶荣的姑丈就是典型，整天把这些挂嘴边，一卖就飞，一进就套。<br>    </p>
+<p><strong>正确的概念清单：</strong></p>
+<p>- 对冲<br>    <br>- 周期<br>    <br>- 熊长牛短<br>    <br>- 长期上行<br>    <br>- 穿越周期<br>    <br>- 慢牛（听大家长的话）<br>    <br>- 好公司<br>    <br>- 知行合一（终极考验）<br>    <br>- 止恶行善<br>    </p>
+<p>---</p></div>
+<div class='sec' id='c5s7'><h3>八、 结尾寄语</h3><p>- 奶荣能讲的东西，比较倾向于“道”**。今天的内容是帮大家把伪概念拆解掉、洗干净脑子，更好地做到知行合一。<br>    <br>- 白水这波，要坚持到最后。突破历史前高、水满则溢的过程需要时间和耐心。奶荣一定陪各位走到最后。</p></div></div>
+
+<div class='c-block' id='c6'><h2>白水怎么走强化课</h2><div class='sec' id='c6s0'><h3>一、白水框架快速复习</h3><p>主播开场快速回顾了白水未来走势的四个阶段：</p>
+<p>1. <strong>大哥进场</strong>：底部出现一根<strong>定海神针</strong>（放天量的涨停阳线），大哥明牌宣告实力。<br>    <br>2. <strong>回调</strong>：大哥吹哨后，如果市场没人接手，会自然回调。回调到<strong>大哥进场的成本位附近</strong>，是考虑加仓的位置。<br>    <br>3. <strong>建仓波</strong>：外部资金看到企稳后陆续进场买入，<strong>底部不断抬高</strong>，上升回调、上升回调。<br>    <br>4. <strong>洗盘</strong>：大哥不想带太多人起飞，开始洗盘。<strong>最重要的特征是所有技术指标都会失效</strong>，走势乱七八糟，洗掉不坚定的人。<br>    <br>5. <strong>拉升波</strong>：洗得差不多了，配合业绩改善、政策或财报利好，<strong>脱离成本区间快速拉升</strong>。<br>    </p>
+<p>---</p></div>
+<div class='sec' id='c6s1'><h3>二、技术面极简建议：只留两条线</h3><p>- <strong>把那些乱七八糟的指标全删掉</strong>：神奇九转、各种“空”和“逼”、一堆均线，都是噪音，不影响最终拉升。<br>    <br>- <strong>只留两条线</strong>就够了：<br>    <br>    - <strong>第一条</strong>：BBI线（或10日线、布林线中轨，三者差不多）。<br>        <br>    - <strong>第二条</strong>：<strong>60日线</strong>。<br>        <br>- <strong>目的</strong>：方便看出来<strong>洗盘</strong>。当股价跌破这两条线、出现死叉、底部降低时，就是典型的洗盘特征。<br>    </p>
+<p>---</p></div>
+<div class='sec' id='c6s2'><h3>三、案例一：万字开头的小公司——垃圾票是怎么走的</h3><p>这是粉丝提供的真实案例，买在低位，卖在拉升前，卖完翻了一倍。主播用它剖析垃圾票的典型特征：</p>
+<p>- <strong>垃圾票的特征一：924之后不跟大盘跌，反而逆势拉涨。</strong><br>    <br>    - 正常好公司924后随大盘回调。但小公司/恶庄会在924后<strong>莫名其妙往上拉</strong>，不顾大盘走势。目的是<strong>揽客</strong>——吸引外部资金注意，“快看我，我有实力，我想拉就拉”。<br>        <br>    - 这是<strong>吸筹 + 创造热度</strong>，没有热度外部钱不会来。<br>        <br>    - <strong>所有小公司、坏庄都这么干。</strong> 清单里的好公司没有一个是这么走的。<br>        <br>- <strong>垃圾票的特征二：不遵循“大哥吹哨”逻辑。</strong><br>    <br>    - 小公司市值小（四五十亿），<strong>不会遵循大哥吹哨的规律</strong>。你想让它去哪就去哪，散户买卖在庄眼里透明一样。买的人多了就砸，卖的人多了就拉，走出乱七八糟的图形。<br>        <br>- <strong>案例中的四阶段识别</strong>：<br>    <br>    - <strong>揽客/吸筹阶段</strong>（924后逆势拉升）：从10块拉到16块，涨60%。<br>        <br>    - <strong>洗盘阶段</strong>（3月中到8月，五个月）：走势乱七八糟，跌破两条线，死叉，顶部降低、底部降低，<strong>五个月</strong>横盘折磨。目的就是把前面进来的筹码一网打尽。<br>        <br>    - <strong>大哥吹哨（小盘不准）</strong>：出现一根大红柱，可以理解成吹哨。<br>        <br>    - <strong>突破前高放量</strong>：不是出货，是大量套牢盘回本后卖出，主力全部接回来。从2024年10月到2025年8月，<strong>差不多一年，把所有筹码一网打尽</strong>。<br>        <br>    - <strong>建仓波</strong>：底部抬高。<br>        <br>    - <strong>吃饭/拉升</strong>：从22涨到34。<br>        <br>- <strong>为什么粉丝拿不住</strong>：最大原因是<strong>不知道这个公司是干嘛的</strong>，不了解，所以稍微一回本就卖了。<br>    </p>
+<p>---</p></div>
+<div class='sec' id='c6s3'><h3>四、案例二：中字开头的小公司——全程在洗盘</h3><p>- <strong>特征</strong>：924后又是<strong>莫名其妙拉起来</strong>，走势<strong>特别的乱</strong>。<br>    <br>- <strong>结论</strong>：这种图<strong>不建议选择</strong>，没什么人能在里面赚到钱。就算买在低位，过程中也受不了。起来一下又下去，<strong>只有主力的爸妈能拿得住</strong>。<br>    <br>- <strong>避雷标准</strong>：<strong>200亿以下市值不要碰。</strong><br>    <br>- <strong>对比阿信（好公司）</strong>：走势稳健，横盘也在一个区间内，不会乱砸乱拉。<br>    </p>
+<p>---</p></div>
+<div class='sec' id='c6s4'><h3>五、案例三：C开头企业——边建仓边洗盘</h3><p>- <strong>大哥吹哨</strong>：非常明显。底部出现一根<strong>比前面所有量都大得多的大红柱</strong>。这条线就是大哥吹哨的位置。<br>    <br>- <strong>验证</strong>：<strong>每一次跌到大哥吹哨的位置，就有一股神秘的力量把它推起来。</strong><br>    <br>- <strong>特点</strong>：这是一波流，<strong>一边建仓一边拉升</strong>，几乎没有技术指标失效。过程中也有洗盘（急涨急跌、走势乱七八糟），但相对良心。<br>    <br>- <strong>风险提示</strong>：如果按照慢牛定投策略，它走出两个月的拉升后，如果<strong>不走，就会吃满后面的A杀</strong>。小票随便玩，很吓人。只有底仓买在低位，才能游刃有余。<br>    <br>- <strong>刚吃完饭的公司不要进</strong>：人家刚拉完翻倍，进去就是套。<br>    </p>
+<p>---</p></div>
+<div class='sec' id='c6s5'><h3>六、案例四：深开头的公司——做T必卖飞</h3><p>- 粉丝说自己卖飞了。主播直言：<strong>“你没事就搁那做T，不卖飞才有鬼呢。”</strong><br>    <br>- <strong>做T赚不了大钱</strong>：天天在河边走，怎么可能不湿鞋。总有一天，拉升波之前你就T没了。<br>    <br>- <strong>避雷特征</strong>：4月7号大跌后，好公司第二天就能收红（如阿敏、企鹅）；<strong>垃圾公司4月7号之后还在跌停</strong>，没人救。只有在最极限的行情里，才能看出什么是好公司、什么是坏公司。<br>    <br>- <strong>要等大哥进场再考虑</strong>：跌很多了也别急着去，等底部出现<strong>最高最红的大红柱</strong>（大哥吹哨），跌到大哥成本位时才可以考虑。<br>    </p>
+<p>---</p></div>
+<div class='sec' id='c6s6'><h3>七、案例五：奶荣的实战案例——好公司是怎么走的</h3><p>这是奶荣自己做过的一笔短线（赚了20%左右），标的在清单内，是典型的好公司。</p>
+<p>- <strong>奶荣的短线经历</strong>：学过三四个月短线，实践后觉得<strong>很无聊、很花时间精力</strong>，就没做了。<strong>奶荣的3年3倍、5年5倍跟短线没有一点关系。</strong> 技术只能给中长期策略做一定程度的优化，仅此而已。<br>    <br>- <strong>好公司的特征</strong>：<br>    <br>    - <strong>924之后不会非得拉起来让别人看见</strong>。<br>        <br>    - <strong>大哥吹哨特别明显</strong>。大哥不跟你玩虚的，有实力，不需要骗你进来。<br>        <br>    - <strong>走势稳健</strong>：大哥进场→回调→建仓→回调，走得很漂亮。<br>        <br>    - <strong>洗盘也规矩</strong>：跌破两条线、顶部降低底部降低，典型的洗盘，洗完马上拉。<br>        <br>    - 拉升一波后，大盘不好又想再赚点，再来一次洗盘（顶部降低、底部降低），让外面学技术的都认为是空头趋势，然后再拉起来出货。<br>        <br>- <strong>好公司为什么好</strong>：<strong>大公司全市场都看得懂，充分博弈之后形成的共识往往比较有规律。</strong> 大哥不跟你玩花里胡哨的。垃圾公司只有天才和傻子能在里面赚钱（关系户也行）。<br>    <br>- <strong>白水当前阶段</strong>：就处于大哥吹哨后的这个阶段。未来大概率就像好公司这样走，可能波动没那么大，慢一点，但最后一定会有一波拉升。<br>    </p>
+<p>---</p></div>
+<div class='sec' id='c6s7'><h3>八、总结：如何判断好公司与垃圾公司</h3><p>- <strong>垃圾公司特征</strong>：<br>    <br>    - 924之后逆势拉升，“揽客”。<br>        <br>    - 走势乱七八糟，想砸就砸，想拉就拉。<br>        <br>    - 4月7号之后还在跌，没人救。<br>        <br>    - 洗盘洗五六个月，折磨死人。<br>        <br>    - 市值小（200亿以下尽量别碰）。<br>        <br>- <strong>好公司特征</strong>：<br>    <br>    - 走势稳健、漂亮。<br>        <br>    - 大哥吹哨非常明显（鹤立鸡群，底部放天量）。<br>        <br>    - 建仓、洗盘、拉升都很规矩。<br>        <br>    - 极限行情下有人救（第二天就收红）。<br>        <br>- <strong>核心提醒</strong>：<br>    <br>    - <strong>不要做T</strong>，做T一定会卖飞。<br>        <br>    - <strong>刚吃完饭（刚拉完翻倍）的公司不要进</strong>，会跌麻。<br>        <br>    - <strong>大哥吹哨是很明显的</strong>，如果你还判断不出来，说明还没到。就像判断牛市熊市一样，判断不出来说明还没到。<br>        <br>    - <strong>等大哥吹哨完之后的第一次回调，是最有价值的介入点。</strong>（下节课会详细讲）<br>        <br>    - 年后会结合恩师的体系，教大家在慢牛定投策略基础上做进一步优化。</p></div></div>
+
+<div class='c-block' id='c7'><h2>值得拿到退休的投资标的</h2><div class='sec' id='c7s0'><h3>一、 开场定调：春节持仓心态</h3><p>- <strong>不必纠结持币还是持股</strong>：主播开场就点出，很多散户每到春节就会紧张“持币还是持股”。但学过定投真相之后，<strong>天天想这东西干嘛，没有必要。</strong><br>    <br>- <strong>春节后熟苹果会难受</strong>：主播提醒，春节后<strong>那些熟苹果（绝对高位的东西）会很难受</strong>，但自家的阵容没有一个熟的，都是绿苹果（低位），所以不用担心。<br>    <br>- <strong>白水和券商是“吞金兽”</strong>：如果今天什么也没记住，<strong>只需要记住这一点——白水和圈圈（券商）都是吞金兽。</strong> 他俩要启动，整个大盘会非常疯狂，全市场的钱都会被吸进去。因为<strong>他俩的业绩很确定、特别漂亮，防守能力拉满。</strong> 大钱都是避险的，一年能赚20%就很开心，直接收队去公海钓鱼了。所以<strong>在慢牛背景下，它们的启动会很慢</strong>，整个过程走下来<strong>估计得一年</strong>。<br>    </p>
+<p>---</p></div>
+<div class='sec' id='c7s1'><h3>二、 核电板块深度分析：中广核与中国核电</h3><p>主播应粉丝提问，分享了核电板块的投资逻辑，并透露这是其清华博士后合伙人的专业领域。</p>
+<p>- <strong>核电是纯印钞机</strong>：<br>    <br>    - <strong>三代核电站</strong>：运营周期60-80年，<strong>回本周期约20年</strong>。过了20年之后，剩下的40年就是<strong>纯印钞机</strong>。<br>        <br>    - <strong>四代核电站</strong>（目前全国只有山东一个）：运营周期80-100年，固有安全系数更高。最厉害的是<strong>回本周期只需10年</strong>。10年还完建站成本，往后<strong>90年是印钞机</strong>。<br>        <br>- <strong>财报的秘密——折旧掩盖真实盈利能力</strong>：<br>    <br>    - 核电站建造成本极高，在财报上体现为固定资产折旧。<strong>折旧在前5-10年就已经折得差不多了</strong>，但实际上核电站能运营60-80年。<br>        <br>    - 所以<strong>在某些阶段，核电站的财报会显得比较差，但这种差是表面上的差。</strong> 折旧完之后可以一直运营下去，<strong>越到后面财报越漂亮。</strong><br>        <br>- <strong>对比煤炭与银行</strong>：核电<strong>肯定比煤炭好，肯定比银行好</strong>。整体上是一个持续往上走的板块，还能受益于电价上涨（通胀）。<br>    <br>- <strong>核心标的</strong>：主播喜欢<strong>中广核</strong>（H股股息率约4%，A股约2.46%），但指出<strong>中国核电才是绝对龙头</strong>。两者都行。对中广核的判断是<strong>20年十倍以上</strong>，适合作为防守阵容长期持有，甚至<strong>可以买到退休</strong>。<br>    <br>- <strong>核电适合定投策略</strong>：现在长远来看处于底部，特别适合定投策略。<br>    </p>
+<p>---</p></div>
+<div class='sec' id='c7s2'><h3>三、 医疗设备龙头分析：迈瑞医疗</h3><p>粉丝问到清单里的医疗设备龙头（迈瑞），主播结合自己曾从事家用眼科医疗设备的创业经历，进行了深度剖析。</p>
+<p>- <strong>为什么独立于医疗板块行情？</strong><br>    <br>    - 迈瑞主营是<strong>医疗设备</strong>，而前几年医疗设备领域一直在<strong>严管整改</strong>（防集采、经销商被打掉、价格管控等），所以业绩还没缓过来，在底部趴着很正常。<br>        <br>    - 对比<strong>药明康德</strong>：药明主要是做药和帮药企做实验的平台服务，生意模式好，基本不受集采影响。<br>        <br>- <strong>医疗设备行业的渠道秘密</strong>：<br>    <br>    - 一台市场售价1000块的医疗设备，给到渠道商的成本可能只有<strong>300块</strong>。<strong>70%的钱要给渠道商。</strong> 你不花这个钱，东西就卖不出去、进不了医院。<br>        <br>    - 渠道商的活不是谁都能干的，涉及跟医院、医生长期合作，有很多利益纠缠。<strong>中间商暴利，但那个活让厂家去干还真干不了。</strong> 所以爸妈严管医疗设备是非常对的。<br>        <br>- <strong>结论：迈瑞有投资价值。</strong><br>    <br>    - 医疗设备依然是<strong>高毛利行业</strong>，依然顺应<strong>老龄化社会</strong>的发展趋势，一定会迎来转机。<br>        <br>    - 大量利空往下砸，但已经砸了很久。盘面上<strong>筑底的迹象挺明显</strong>。既然在清单里，说明是龙头。主播认为<strong>这个位置有价值</strong>。<br>        </p>
+<p>---</p></div>
+<div class='sec' id='c7s3'><h3>四、 海运龙头分析：中远海控</h3><p>- <strong>核心优势</strong>：<br>    <br>    - <strong>中国的船遥遥领先</strong>，订单排到了2027-2028年。<br>        <br>    - <strong>股息率约11%</strong>，现金流很漂亮。4%就算高了，11%非常夸张。<br>        <br>- <strong>风险提示</strong>：<br>    <br>    - 业绩与<strong>海运运价指数</strong>紧密挂钩。运价贵时财报漂亮，运价差时财报不好看。<strong>波动比较大，千万不能重仓，要慢慢买。</strong><br>        <br>    - 现在属于比较好的海运价格阶段，但预期已经走完了。如果后面运价跌，财报会变差。但主播认为无所谓，因为<strong>当它往下跌时，股息率还会再增加。</strong><br>        <br>- <strong>长期逻辑</strong>：全世界就是通胀，中国的商品出海处于前中期，<strong>中国的船运一定不会差。</strong><br>    <br>- <strong>操作</strong>：主播自己翻了一倍，目前处于相对低位，<strong>值得长拿</strong>，适合作为防守配置吃分红。<br>    </p>
+<p>---</p></div>
+<div class='sec' id='c7s4'><h3>五、 其他行业观点速览</h3><p>- <strong>房地产</strong>：爸妈喊“止跌企稳”，就一定要信。<strong>只要企稳了，就会走出上升波段</strong>（每年3%-4%增长）。因为企稳后会有大哥来做资产配置，买着买着就起来了。<strong>刚需买房的可以考虑</strong>（仅限一线和二线），三四线还早。<br>    <br>- <strong>建筑工程板块（中铁、中建等）</strong>：主播是土木工程出身，<strong>绝对不碰。</strong> 财报水分很大，很多员工工资砍了又砍，年终奖还没发。<br>    <br>- <strong>光伏</strong>：不是建筑工程行业，会跟着电力逻辑起来。现在位置挺好。人类的终极能源是太阳能，但有点产能过剩，需要等政策。<br>    <br>- <strong>电网设备（特高压）</strong>：可以长线拿，一直拿到牛市结束都行。<br>    <br>- <strong>银行理财产品</strong>：<strong>纯垃圾，没有好的。</strong> 主播有很多在银行工作的朋友，他们的投资建议都是问主播的。<br>    </p>
+<p>---</p></div>
+<div class='sec' id='c7s5'><h3>六、 投资理念与个人偏好</h3><p>- <strong>关于现金流管理</strong>：主播的现金流<strong>不放在任何理财上，就是纯粹的现金</strong>（银行卡里的钱）。参考塔勒布《黑天鹅》《非对称风险》的杠杆策略——要么放在高风险高收益的地方（股市），要么放在绝对安全的地方（现金）。<strong>“我看不上那一个点两个点三个点的收益，我就要安全到极致的感觉，就要这个自由。”</strong> 万一哪天某个标的突然大跌，可以马上取钱买入。<br>    <br>- <strong>关于分红</strong>：分红的本质是<strong>你买了公司成为股东，公司赚钱了给你分钱。</strong> 不是“分自己的钱”。拿得足够久（如20年），中间分红的钱可能已经跟当初买股票的成本差不多了，手里还拿着一笔涨了20年的股权。<br>    <br>- <strong>投资既简单又不简单</strong>：想明白简单，做明白不简单。就像巴菲特说的“投资指数能跑赢大部分基金经理”很简单，但大多数人做不到——<strong>第一追高，第二拿不住，不能穿越周期。</strong><br>    <br>- <strong>不需要区分成长股/价值股</strong>：最核心的是<strong>避险</strong>，跟成长或价值没关系。机器人很好，但位置高风险高就不去；茅台成长性一般，但位置安全就会去。<br>    </p>
+<p>---</p></div>
+<div class='sec' id='c7s6'><h3>七、 结尾总结：今天聊到的五个知识点</h3><p>1. <strong>白水和券商是吞金兽</strong>，爸妈亲儿子，启动慢，要有耐心。<br>    <br>2. <strong>核电板块</strong>：营收结构美丽，四代核电站10年回本后是90年印钞机。财报折旧掩盖真实盈利。中广核20年十倍以上。<br>    <br>3. <strong>医疗设备龙头（迈瑞）</strong>：受政策整改影响在底部，但依然是高毛利行业、顺应老龄化，<strong>目前有投资价值。</strong><br>    <br>4. <strong>房地产</strong>：止跌企稳要信，刚需可考虑一二线。企稳就会吸引避险资金，买着买着就起来。<br>    <br>5. <strong>海运龙头（中远海控）</strong>：股息率11%，中国造船遥遥领先，值得长拿但波动大、不能重仓。<br>    <br>6. <strong>建筑工程板块千万别碰</strong>，财报水分大。<br>    </p>
+<p>- <strong>春节后展望</strong>：阿敏（某标的）等春节后再看怎么走。熟苹果节后不要抱幻想。年后会在AC站安排重要课程，教大家<strong>怎么躲掉股灾、怎么永不套牢。</strong></p></div></div>
+
+<div class='c-block' id='c8'><h2>牛转熊股灾避险指南</h2><div class='sec' id='c8s0'><h3>一、 开篇寄语：小白在牛市中最重要的是什么？</h3><p>主播开场即点明核心，为整堂课定下基调。</p>
+<p>- <strong>人生第一次经历牛市，对小白小资金来说，最大的价值是什么？</strong><br>    <br>    - <strong>是为未来的牛市做准备。</strong> 都是周期，熊市牛市不断循环。这绝对不是唯一一次牛市，过五六年又会来一次。<br>        <br>    - <strong>真正的大钱，是在熊市赚的，或者说在熊转牛的时候赚的。</strong> 牛市是用来学习和锻炼的。<br>        <br>- <strong>三个层面的准备（按重要性排序）：</strong><br>    <br>    1. <strong>最重要：锻炼自己对人性的掌控能力。</strong><br>        <br>        - <strong>比钱更重要的是经验和认知，比经验和认知更重要的是对人性的掌控。</strong> 这节课（终极考验）一定要听，不听的话，挣了也会亏回去。<br>            <br>        - 在这波牛市里，哪怕没赚到钱，但学会了<strong>不追高、不杀跌、不买垃圾票、不看乱七八糟资讯、多读书、多锻炼、多陪家人、多帮朋友、多赚钱</strong>，你们也是赚的。这东西可以<strong>复利一辈子</strong>。<br>            <br>        - 现在拿着几千块钱学会了对人性的掌控，下一波牛市拿着几万、几十万，是一样的，没有区别。巴菲特赚的钱，90%都是人生后面20年赚的。<br>            <br>    2. <strong>相对重要：获取经验，提高认知。</strong><br>        <br>        - 你知道当适度宽松的货币政策来的时候，通胀周期下贵金属会涨。下一次大黄鱼疯狂的时候，你一定在场。<br>            <br>        - 就算这次套牢了、站岗了，因为你见过、经历过，下一次你就不会了。下一次券商翻倍、科技股起飞的时候，你就知道该怎么做了。<br>            <br>        - 就算一块钱没买，把清单里的公司加入模拟盘，走一遍慢牛定投策略，也收获了经验和认知。<br>            <br>    3. <strong>最不重要但也重要：最好能躲掉牛转熊的股灾，钱最好别套牢。</strong><br>        <br>        - 但为什么说最不重要？因为<strong>小白小资金，钱很少，损失有限。</strong> 五六千套牢了，毕业两个月就赚回来了。五六万套牢了，以后升职加薪也就那样。<strong>钱少，损失有限，但至少买了教训、长了经验。</strong><br>            </p>
+<p>---</p></div>
+<div class='sec' id='c8s1'><h3>二、 中长线投资策略的本质</h3><p>- <strong>做短线的人，本质上是认为自己比别人更聪明。</strong> 认为自己掌握了别人不掌握的技术或信息差，能在零和博弈中赚别人的钱。但实际上，<strong>他们都不比别人聪明</strong>，所以做短线都亏钱。<br>    <br>- <strong>奶荣即使真的聪明，来到市场上也时刻把自己当作傻瓜。</strong> 从来没有一天觉得自己比别人聪明。<br>    <br>- <strong>中长线投资策略赚的是三种钱：</strong><br>    <br>    1. <strong>公司发展的钱（最重要）。</strong><br>        <br>        - 就是赚<strong>公司未来现金流的折现</strong>。买公司是看它未来能赚多少钱，不是现在。市场上绝大多数机构给出的目标价，都是基于未来现金流折现的。<br>            <br>        - 典型案例：医疗板块（未来每年多1000万老龄人）、机器人（未来高负荷增长）。像本草纲目这种在底部的，真的不需要担心。<br>            <br>    2. <strong>超跌超涨的钱（相对重要）。</strong><br>        <br>        - <strong>泡沫对于任何一个股票来说，必然会出现的。</strong> 这是反身性原理决定的——熊市越跌越卖、越卖越跌，出现超跌；牛市越涨越买、越买越涨，出现泡沫。<br>            <br>        - 中长线策略就是在<strong>熊市股灾时进场</strong>（如200块买企鹅），在<strong>牛市泡沫时离开</strong>（如9万多卖出大饼）。慢牛总有一天会走成风流（疯牛）。<br>            <br>    3. <strong>通货膨胀的钱（最不重要）。</strong><br>        <br>        - 赚的不多，必须结合上面两点才赚得多。主要是<strong>避险为主</strong>。比如熊市买有色、贵金属、能源、煤炭、原油等，基本能跑赢通胀。有些大钱在房地产止跌企稳时去配置，也是为了对抗通胀。<br>            <br>- <strong>这三种钱有一个共同的特点：时间长。</strong><br>    <br>    - 公司发展不可能一夜之间多1000万老年人；超跌超涨不可能明天就来股灾或泡沫；通胀不可能一夜之间让鸡蛋从一块变两块。<br>        <br>    - <strong>对于一个中长线投资策略来说，今天怎么看、明天怎么看，这种东西几乎没有意义。</strong><br>        <br>    - <strong>绝对不能盯着短期的技术指标看。</strong> 短期技术指标一定会失效，什么神奇九转、多空线，一点用没有。<br>        </p>
+<p>---</p></div>
+<div class='sec' id='c8s2'><h3>三、 长期指标：233日线（年线）详解</h3><p>既然时间长，就要看长期指标。主播引出了本节课的核心工具——<strong>233日线</strong>。</p>
+<p>- <strong>什么是233日线？</strong><br>    <br>    - 也叫<strong>年线</strong>（一年约233个交易日）。参数设成250也行，没区别。缠中说禅的理论里，主播认为最有用的就是这个。<br>        <br>    - <strong>设置方法</strong>：在日线图上，把某一条均线的参数设置为<strong>233</strong>即可。只看这一条就够了，别的都不看。<br>        <br>- <strong>年线的三大功能：</strong><br>    <br>    <strong>功能一：牛熊分界线。</strong><br>    <br>    - <strong>K线在年线以上，大概率是牛市行情/上涨趋势。</strong><br>        <br>    - <strong>K线在年线以下，大概率是熊市行情/下跌趋势。</strong><br>        <br>    - 更准确的翻译：<strong>牛市行情一定在年线上面</strong>（充分条件）；但不是在年线上面的都是牛市（不必要）。<strong>熊市行情基本都在年线下面或围绕年线。</strong><br>        <br>    - 案例验证：企鹅、茅台、粗粮、笛子等，大牛市都在年线以上；跌破年线进入熊市。好公司（如茅台）跌破年线也不会待太久就会回来。<br>        <br>    <br>    <strong>功能二：识别高位和低位（地心引力/弹簧理论）。</strong><br>    <br>    - 年线就像一个<strong>弹簧的中间</strong>，或者说<strong>地心引力</strong>。<br>        <br>    - <strong>当股价离年线很远的时候，就会被吸回来。</strong> 不管是在上面还是下面。<br>        <br>    - <strong>牛市里比年线高很多 → 高位，不要去追。</strong><br>        <br>    - <strong>熊市里比年线低很多 → 低位，可以买。</strong><br>        <br>    - 这个标准是<strong>模糊的</strong>，但一目了然。一眼看过去就知道是高位还是低位。对于极品好公司，在年线下面离得远就买，在年线上面离得远就卖。<br>        <br>    - 案例验证：笛子在年线附近→低位；特变电工、三花、平潭在年线上方很远→高位；隆基在年线附近→不算追高；华润三九离年线远的时候是买点；同仁堂一眼就知道是低位。<br>        <br>    <br>    <strong>功能三：超级加倍的暂停键（牛转熊避险）。</strong><br>    <br>    - 这是对慢牛定投策略的<strong>重要完善</strong>。<br>        <br>    - <strong>慢牛只是一个暂时态，总有一天会走成风流。</strong><br>        <br>    - <strong>当市场走出风流（疯牛）之后，如果股价跌破年线，就要停止超级加倍。</strong><br>        <br>    - 推演：你按定投策略，在风流中卖出后，过了三个月，股价跌了30%，按原策略应该超级加倍。但如果此时股价已经<strong>跌破年线</strong>，<strong>就不能买，不能超级加倍。</strong> 因为很可能是牛转熊的股灾。<br>        <br>    - 此时那个底仓（20%仓位）套牢了无所谓，因为前面已经赚过钱了。等到熊市深处，离年线很远的时候，才是真正重仓的机会。比如500多买的企鹅套牢20%仓位，等跌到200多再超级加倍，成本300多，拿到现在也翻倍了。<br>        <br>    - <strong>很多人牛转熊亏钱，是因为在牛转熊之前是满仓，满仓吃完股灾。</strong><br>        <br>- <strong>年线的本质：</strong><br>    <br>    - <strong>技术指标只是手指，月亮才是核心。</strong> 年线本身不重要，它存在的意义是<strong>让各位更好地去理解周期、牛熊周期。</strong><br>        <br>    - 奶荣自己已经不需要看年线了，因为能感知到什么时候是牛市、什么时候是风流。<strong>后面的钱不赚了</strong>，就是这种感知的体现。<br>        <br>    - 但教给大家这个，是因为它给了你一个<strong>标准、一个纪律、一个抓手</strong>，让你的心情稳很多，操作简单很多。<br>        </p>
+<p>---</p></div>
+<div class='sec' id='c8s3'><h3>四、 案例实操与互动答疑</h3><p>- <strong>阿勉（中免）的持有逻辑</strong>：奶荣会拿到阿勉的<strong>营收和利润出现正增长</strong>的时候再走。赚的是公司发展的钱，要等到业绩改善、未来现金流兑现。第一目标价120。不会等到历史前高397，翻三四倍（150-200）就可以了，<strong>后面的钱不赚了。</strong> 因为前一波泡沫太严重。<br>    <br>- <strong>茅台 vs 其他白酒</strong>：茅台涨起来不一定最多，但<strong>体感最好</strong>，拿得住，是稳的往上走。其他如小五、汾酒、老窖、酒鬼酒很折腾，容易被洗下车。而且牛转熊时，<strong>茅台回调最少</strong>，因为它是大哥，就像黄金回调比白银、铝、铜少一样。<br>    <br>- <strong>关于好公司</strong>：<strong>真正的好公司不需要我们去挑。</strong> 市场上聪明的大机构、官方机构已经挑好了。清单里的就是好公司，没必要看别的。<br>    <br>- <strong>大学生寄语</strong>：很希望10年前读大学时有人讲这些。大学生先别急着包连，一个月一个月续就行。奶荣不会涨价。<br>    <br>- <strong>下次课程预告</strong>：下周讲<strong>核电及电力的投资逻辑</strong>（会准备清华博士后合伙人的资料，需要较长时间准备）。实操课后续也会安排。</p></div></div>
+
+<div class='c-block' id='c9'><h2>慢牛定投策略强化篇</h2><div class='sec' id='c9s0'><h3>一、 开篇定调：策略选择与心法</h3><p>- <strong>多种策略的关系</strong>：慢牛定投策略、沃特战法、233连线（年线）战法，三者是“你中有我，我中有你”的关系。<br>    <br>- <strong>当前阶段的优先级</strong>：在慢牛背景下，<strong>优先级最高的绝对是慢牛定投策略</strong>。严格按照白水划线走，对人性的掌控能力的提高是最大的，挑战最大，成功走过一次，就算是<strong>悟道了</strong>，摸到了道的门槛。如果求稳，则用慢牛定投策略，时刻保持进可攻、退可守的状态。<br>    <br>- <strong>国企一把手问题的定心丸</strong>：对于五粮液董事长被查的新闻，主播指出：<strong>国企从来不看一把手，一把手就是一个职业经理人，谁干都一样。</strong> 如果是私企则是大利空，但对白水国企来说，没准是利好。五粮液永远是二哥，谁来都一样。<br>    </p>
+<p>---</p></div>
+<div class='sec' id='c9s1'><h3>二、 慢牛定投策略完整流程图复习（逐帧精讲）</h3><p>主播带着粉丝一步步复习了整个策略流程，并点出了容易被忽略的关键步骤。</p>
+<p><strong>第一步：确定池子。</strong></p>
+<p>- 核心池子是<strong>福布斯2025 ESG 50强</strong>。<br>    <br>- 可以加一些“漏网之鱼”，例如：ESG 50里是龙一的，可以看看龙二、龙三；被忽略的重要板块龙头（如中药、核电）；清单里覆盖不到的板块龙头（如平安、化工、阿勉等）。<br>    <br>- <strong>警告</strong>：如果挑一个垃圾股，慢牛定投策略是没用的。人家走的是风流，A杀会把你套死。<br>    </p>
+<p><strong>第二步：基于对冲，设计你的阵容和仓位。</strong></p>
+<p>- 这一步是<strong>最容易被忽略</strong>但至关重要的一步。你选五个白酒去走慢牛定投策略，完全没有意义。<br>    <br>- <strong>具体操作</strong>：在池子里，先挑板块（如券商、新能源电车、白酒、银行、家电、能源、科技、医疗器械等），再从板块里挑龙头公司。太贵的龙头可以换成同板块其他标的（如茅台换青花）。<br>    <br>- 分配仓位时，要<strong>均匀、攻守兼备</strong>。攻守主要看公司所处的<strong>相对位置</strong>和<strong>所在板块</strong>。科技永远攻击，消费永远防守。大哥吹哨完在底部就是防守，已经建完仓就是攻击。<br>    </p>
+<p><strong>第三步：在合适的位置分别打底仓。</strong></p>
+<p>- 注意“分别”二字，因为你要对冲，每个标的都要打底仓。20%是指分配给该标的仓位的20%。<br>    <br>- <strong>这是今天优化的核心</strong>：如何找到“合适的位置”。<br>    </p>
+<p><strong>第四步：等三个月，观察期间是否出现小牛/冲刺波。</strong>（进入判断循环）</p>
+<p>- <strong>情况A：出现了小牛/冲刺波。</strong><br>    <br>    - → <strong>适当减仓</strong>（小牛卖一半，风流全卖）。<br>        <br>    - → 从减仓点算起，<strong>再等三个月</strong>。<br>        <br>    - → 做一次<strong>普通加仓</strong>（20%）。<br>        <br>    - → 再次回到循环起点：<strong>再等三个月，观察是否出现小牛/冲刺波</strong>。<br>        <br>- <strong>情况B：没有出现小牛/冲刺波。</strong><br>    <br>    - → <strong>看跌幅是否超过10%</strong>。<br>        <br>    - → <strong>否（跌幅&lt;10%）</strong>：<strong>普通加仓</strong>（小B），然后回到循环起点。<br>        <br>    - → <strong>是（跌幅&gt;10%）</strong>：<strong>超级加倍</strong>（大B，<strong>永远只加40%仓位</strong>），然后回到循环起点。<br>        </p>
+<p><strong>优化点</strong>：整个流程中，<strong>唯一的优化空间只有第一步打底仓的位置</strong>，别的地方都不需要优化。</p>
+<p>---</p></div>
+<div class='sec' id='c9s2'><h3>三、 核心优化：如何用“沃特战法”找到合适的底仓位置</h3><p><strong>沃特战法的核心思想</strong>：跟随市场，像水一样。<strong>水往低处流，水满则溢</strong>。要学会找那些能把水兜起来、蓄起来的地方——<strong>找碗底</strong>。</p>
+<p><strong>具体应用：</strong></p>
+<p>- <strong>去“碗”的地方（能蓄水的地方）</strong>：横盘一段时间，走出像圆弧底一样的蓄水池结构。这就是水该去的地方，也就是<strong>合适的位置</strong>。<br>    <br>- <strong>不去“湍急”的地方（留不住水的地方）</strong>：急涨急跌、直上直下的地方，水是留不住的，这是典型的A杀区域。<strong>急涨急跌的地方不能打底仓</strong>。<br>    <br>- <strong>不去“水满”的地方（前高附近）</strong>：突破上一个前高，水满则溢，这时应该减仓，而不应该打底仓。等它溢出来、回调蓄水后再考虑。<br>    </p>
+<p>---</p></div>
+<div class='sec' id='c9s3'><h3>四、 核心优化：如何用“233连线（年线）战法”找到合适的底仓位置</h3><p><strong>年线战法的核心思想</strong>：利用年线的“地心引力”作用，识别股价的高低位置。</p>
+<p><strong>具体应用（三类位置）：</strong></p>
+<p>- <strong>最好的位置：比连线低很多的地方。</strong> 可以建底仓。前提是池子里的好公司，你看不懂也没关系，大哥看得懂。<br>    <br>- <strong>次好的位置：在连线附近的地方。</strong> 也可以建底仓。一个股票要走出大牛，一定是在连线以上。你可以等他上了连线再打底仓。<br>    <br>- <strong>不能去的位置：比连线高太多的地方（如高30%-50%以上）。</strong> 主播权衡后设定为<strong>50%</strong>，因为不想大家错过一些回调浅的大牛股。但一旦超过50%，就必须结合沃特战法，不是水该去的地方就不能去。<br>    </p>
+<p>---</p></div>
+<div class='sec' id='c9s4'><h3>五、 两大战法结合：寻找“十分”买点</h3><p><strong>最好的买点是“沃特战法”和“年线战法”都符合的时候。</strong></p>
+<p>- <strong>评分标准</strong>：符合一个得五分，两个都符合得十分。五分凑合，十分最好，零分就不行。<br>    <br>- <strong>经典买点</strong>：股价<strong>走出了一个小碗（蓄水结构），同时站上了年线（或离年线不远）</strong>，且涨幅不大。这就是十分买点。<br>    <br>- <strong>核心逻辑</strong>：真正给你兜底的，不是什么战法，而是<strong>慢牛定投策略本身</strong>。be water，是跟随，是慢牛。战法只是优化。<br>    </p>
+<p>---</p></div>
+<div class='sec' id='c9s5'><h3>六、 实战案例分析与风险提示</h3><p>主播利用课末时间，对粉丝提出的大量个股，应用今天的优化策略进行分析，并穿插了时事点评。</p>
+<p><strong>个股点评精选：</strong></p>
+<p>- <strong>中远海控</strong>：走出碗底，站上年线，回调半年，位置无敌，打个底仓。<br>    <br>- <strong>上汽集团</strong>：走出了一个碗底（横盘），这是水可以去的地方。最好等它有一根立起来兜住水的阳线再进。<br>    <br>- <strong>长江电力</strong>：走出1/3的碗，从年线看比连线低很多，符合任一个标准打个底仓都没问题。<br>    <br>- <strong>药明康德</strong>：走出了个小碗，可以打个底仓。但主播不喜欢，因为老板是美国人。<br>    <br>- <strong>安琪酵母</strong>：像在洗碗，大哥吹哨后站上年线，主播在上面赚过钱。公司是亚洲第一的酵母供应链，绝对垄断。<br>    <br>- <strong>歌尔股份</strong>：高点下来调整四五个月，在连线附近，走出了碗的形状，打个底仓不错。<br>    <br>- <strong>顺丰控股</strong>：很标准，湍急的地方（急涨）不会去，就能等来碗底的机会。调整快一年了，位置很好。<br>    </p>
+<p><strong>风险提示与反面案例：</strong></p>
+<p>- <strong>金风科技</strong>：1月到现在调整才两个月，时间不够。比连线高一倍，<strong>连线高一倍你就不应该去，很简单。</strong><br>    <br>- <strong>恒力（某案例股）</strong>：刚冲刺完不到一个月就去，白教了。那么多符合标准的，没必要非选这个。<br>    <br>- <strong>彤彤（同仁堂）</strong>：为什么说没吹哨？量能和片仔癀对比，不够明显，所以还没吹哨。<br>    </p>
+<p><strong>时事点评（伊朗局势）：</strong></p>
+<p>- 老美此次是亲自下场（派航母、发导弹），与以往不同。伊朗地理位置特殊，是隔绝东大与中东的天然屏障，<strong>伊朗不能倒</strong>，但东大不会进场。<br>    <br>- 过去海运价格高涨，是因胡塞武装只打欧美船，不打东大的船，利好中远海控。</p></div></div>
+
+<div class='c-block' id='c10'><h2>黑天鹅：今天和4月7号有什么异同</h2><div class='sec' id='c10s0'><h3>一、开篇：核心关切与未来安排</h3><p>- <strong>核心关切：不允许半途而废。</strong><br>    <br>    - 主播开篇即表明，宁愿粉丝越来越少，也要保证大家能一起安全走到最后。因为<strong>绝大多数散户都是在牛市的末端亏大钱</strong>，牛转熊才是最可怕的。<br>        <br>    - 引用塔勒布《黑天鹅》的话：<strong>“一架飞机开得再快，如果它不能安全落地，那么这一切都将没有任何意义。”</strong> 账面数据再好，如果牛转熊时崩了，就一点用没有。<br>        <br>- <strong>平台定位与风控安排：</strong><br>    <br>    - <strong>小红书</strong>：大本营定位不改，但笔记内容转型，<strong>从今天开始再也不发任何投资相关内容</strong>，转型读书/生活博主。评论区可以交流，但露骨评论会删。<br>        <br>    - <strong>B站（AC）</strong>：切片全部放在那边，重要内容保留，非重要内容删减。<br>        <br>    - <strong>私信</strong>：已关闭，后续可能改为“相互关注才能私信”，做基本筛选。<br>        <br>    - <strong>资质认证</strong>：准备6月份考证券从业资格证。<br>        <br>    - <strong>直播安排</strong>：每周三和周六直播，正课先在红书播再转B站，闲聊在红书播。<br>        </p>
+<p>---</p></div>
+<div class='sec' id='c10s1'><h3>二、核心议题：今天和4月7号有什么异同？</h3><p><strong>1. 估值水平上的异同</strong></p>
+<p>- <strong>相同点</strong>：大部分<strong>好公司的股价</strong>，尤其是“国家队”的票（如券商、白水、银行），跟去年4月7号时<strong>区别不是很大</strong>，价格差不多。<br>    <br>- <strong>不同点（最大区别）</strong>：大量<strong>差公司、小公司、科技公司</strong>，股价<strong>高高在上</strong>，与去年4月7号时完全不同。<br>    <br>- <strong>推演与结论</strong>：<br>    <br>    - 好公司稳住了，说明<strong>慢牛的逻辑没变，爸妈还在</strong>。<br>        <br>    - 如果形势继续恶化，那些高高在上的垃圾公司<strong>会往下走，甚至走出一个4月7号</strong>。<br>        <br>    - 钱从这些公司出来后，会去<strong>避险</strong>，去到爸妈护盘的好公司里——“到我们的碗里来”。<br>        </p>
+<p><strong>2. 大盘位置/走势上的异同</strong></p>
+<p>- <strong>相同点</strong>：都是走出了<strong>横盘震荡/中枢形态</strong>。今年也是走出了一波小牛后在横盘。<br>    <br>- <strong>不同点</strong>：去年4月7号处于<strong>低位</strong>（3300-3400点，充分回调过），今年处于<strong>高位</strong>（4100-4200点，几乎没有像样的回调）。<br>    <br>- <strong>重要提醒（针对买指数的）</strong>：<br>    <br>    - 去年4月7号低位砸下去，很有价值，很快能拉起来。<br>        <br>    - 现在高位砸下去，<strong>不一定有价值</strong>，确定性没有去年高。<br>        <br>    - <strong>不要这两天匆匆忙忙冲进去抄底</strong>，尤其是差公司、小公司、科技公司，不要以为会像去年一样第二天就拉起来。<br>        </p>
+<p><strong>3. 当日走势上的异同</strong></p>
+<p>- <strong>相同点</strong>：都出现了<strong>恐慌的放量抛售</strong>。<br>    <br>- <strong>不同点</strong>：去年4月7号是<strong>完全失控</strong>（连国家队都几乎跌停），今天是<strong>相对可控</strong>（跌幅更小）。<br>    <br>- <strong>结论</strong>：说明市场大部分大机构、大钱，<strong>对慢牛的信心比去年更足了</strong>。走了一年多，信心在增强。<br>    </p>
+<p><strong>4. 直接原因上的异同</strong></p>
+<p>- <strong>相同点</strong>：都来自于<strong>外部的国际形势变化</strong>引发的内部情绪。<br>    <br>- <strong>不同点</strong>：<br>    <br>    - 今天是<strong>全球投资市场暴跌联动</strong>带来的。<br>        <br>    - 去年4月7号是<strong>关税战</strong>，直接对我们的经济贸易造成影响。<br>        <br>    - 美伊打仗对我们是<strong>间接影响</strong>（甚至不影响），关税战是<strong>直接影响</strong>。<br>        </p>
+<p><strong>5. 后续影响上的异同</strong></p>
+<p>- <strong>相同点</strong>：未来都<strong>充满不确定性</strong>。当时不知道关税战会持续多久，现在也不知道美伊的事会打多大。<br>    <br>- <strong>不同点</strong>：<br>    <br>    - 如果美伊的事不扩大、不对我们造成直接影响，大概率就跟俄乌战争一样，影响有限。<br>        <br>    - <strong>但如果局势控制不住，这次的影响会比去年4月7号的关税战更加难以处理。</strong><br>        </p>
+<p>---</p></div>
+<div class='sec' id='c10s2'><h3>三、核心风险警示：防一手黑天鹅</h3><p>- <strong>极端情况提醒</strong>：<br>    <br>    - 主播提醒大家关注美伊局势，建议看<strong>沈逸老师</strong>的分析，因为老美这次是亲自下场，特朗普的行为不可预测。<br>        <br>    - 历史对照：二战前的人们，也不知道会发生那么大的世界大战。<strong>“你不好说这个东西会不会扩大。”</strong><br>        <br>    - <strong>必须保留这种可能性</strong>。如果真发生极端情况，什么股市根本不重要，全市场一起亏。<br>        <br>    - 但从盘面上看，<strong>至少爸妈认为没有问题</strong>。<br>        <br>- <strong>具体操作建议</strong>：<br>    <br>    - <strong>最近不要乱加仓，稳一手，观察一下。</strong> 底仓没问题，但后面不要乱操作。<br>        <br>    - <strong>绝对不能买任何高高在上的东西，很危险。</strong><br>        <br>    - 长远来看只要事情不扩大，趋势不改还是慢牛。<br>        <br>    - 今天很难像去年4月7号一样走出流畅的行情，但<strong>绝对低位、相对低位的好公司</strong>，可能因这几天的下杀，反而未来走出流畅行情。<br>        </p>
+<p>---</p></div>
+<div class='sec' id='c10s3'><h3>四、心态建设：奶荣的亲身经历</h3><p>- <strong>2022年过年前后——奶荣投资生涯最悲观的时刻</strong>：<br>    <br>    - 当时香港口罩失控，奶荣中招，发烧失去意识一天一夜，心脏恢复六七个月才正常。<br>        <br>    - 同时俄乌战争爆发。双重冲击下，对世界都极度悲观。<br>        <br>    - 但三个月后，<strong>200块钱买到了腾讯</strong>。<br>        <br>    - 同事在700跌到600时满仓，没有防一手黑天鹅，套了三四连到现在没解套。奶荣防了，所以抓到了机会。<br>        <br>- <strong>核心理念：悲观的乐观主义者</strong><br>    <br>    - 机会和风险是相伴相生的。有些时候风险也是机会。<br>        <br>    - 积极乐观自信不代表不考虑黑天鹅。<strong>“防一手黑天鹅”</strong>，就是留着底仓观察，不在这时候乱加仓。<br>        <br>    - 如果真遇到事，市场缓过来，<strong>咱家一定是率先反弹、率先冲锋的</strong>。因为我们不在泡沫阶段，我们没有下场，我们的基本面很好，我们在走向世界第一。<br>        <br>    - 未来的安排：带大家读《黑天鹅》这本书，这本书很重要。好的，这是一堂结合了时事分析、历史对比和深度风险教育的课程。主播在全球市场动荡的背景下，对比了今日与去年4月7号的异同，并对粉丝进行了严肃的风险警示和心态建设。<br>        </p>
+<p>---</p></div></div>
+
+<div class='c-block' id='c11'><h2>怎么打底仓</h2><div class='sec' id='c11s0'><h3>一、 策略融合与升级：从“模糊”到“量化”</h3><p>主播开篇即点明，沃特战法和233连线战法是“你中有我，我中有你”的关系，都是为慢牛定投策略寻找合适底仓位置的优化工具。为了让标准更清晰，主播建立了一套<strong>双维度评分体系</strong>。</p>
+<p><strong>1. 沃特战法评分标准（考察“水”的形态与时间）</strong></p>
+<p>- <strong>0分（不能去）</strong>：<br>    <br>    - <strong>水流湍急的地方</strong>：急涨急跌、A杀区域，水留不住。<br>        <br>    - <strong>水满则溢的地方</strong>：突破前高，水满溢出。<br>        <br>- <strong>5分（可以观察）</strong>：<br>    <br>    - 已经<strong>形成了一个蓄水的“碗”</strong>。<br>        <br>    - 但从上一个高点回调的时间<strong>少于1个月</strong>（普通行情）或<strong>少于3个月</strong>（经历过冲刺波/风流之后）。<br>        <br>- <strong>10分（很好的位置）</strong>：<br>    <br>    - 形成了一个蓄水的碗。<br>        <br>    - 且从上一个高点回调的时间<strong>大于1个月</strong>（普通行情）或<strong>大于3个月</strong>（经历过冲刺波/风流之后）。例如比亚迪、中国核电/中广核。<br>        </p>
+<p><strong>2. 233连线战法评分标准（考察股价与年线的位置关系）</strong></p>
+<p>- <strong>0分（不能去）</strong>：股价<strong>高于年线50%以上</strong>。<br>    <br>- <strong>5分（可以观察）</strong>：<br>    <br>    - 股价在<strong>年线正负50%的范围内</strong>。<br>        <br>    - <strong>关键点</strong>：为什么比年线低很多也只能打5分？因为<strong>牛市行情一定在年线上面</strong>。如果它连年线都站不上，大概率走不出一波大的主升浪。我们大可以等它上了年线再说。<br>        <br>- <strong>10分（很好的位置）</strong>：<br>    <br>    - 股价在<strong>年线附近</strong>（正负50%内）。<br>        <br>    - <strong>例外（极品好公司）</strong>：对于极品好公司（如茅台、五粮液、比亚迪，以及ESG50清单里的绝大部分公司），当股价<strong>比年线低很多</strong>时，是非常好的机会，可以直接给<strong>10分</strong>。<br>        </p>
+<p><strong>3. 综合打分与操作规则</strong></p>
+<p>- <strong>总分 = 沃特得分 + 连线得分</strong>。<br>    <br>- <strong>买入规则</strong>：<strong>总分 ≥ 10分，就可以去打底仓。总分 &lt; 10分，一定不能去打底仓。</strong><br>    <br>- <strong>关于重置三个月的优化</strong>：<br>    <br>    - <strong>空仓时找第一个底仓</strong>：只看评分，不看重置三个月。总分≥10分就可以买。<br>        <br>    - <strong>打完底仓后</strong>：<strong>必须看三个月</strong>。三个月内观察是否出现小牛/冲刺波，以及后续的加仓逻辑（普通加仓或超级加倍）。<br>        </p>
+<p>---</p></div>
+<div class='sec' id='c11s1'><h3>二、 实战案例推演：用评分体系跑一遍</h3><p>主播用这套评分体系，带着粉丝对多个标的进行了全流程推演。</p>
+<p><strong>案例一：中芯国际</strong></p>
+<p>- <strong>11月18日</strong>：形成一个碗，但回调仅1个月（Water 5分）。股价55，年线80，超过50%（连线0分）。总分5分，<strong>不买</strong>。<br>    <br>- <strong>3月中旬</strong>：形成一个小碗，高点回调1个月（Water 5分）。股价90，年线70，在50%范围内（连线5分）。总分10分，<strong>可以打底仓</strong>。<br>    <br>- <strong>7月中-8月中</strong>：走出一波小牛（80涨到120，涨50%）。<strong>卖出</strong>。<br>    <br>- <strong>9月</strong>：走出超级冲刺波，一个月内从80涨到140，几乎翻倍，这是<strong>风流，必须全走</strong>。<br>    <br>- <strong>12月底</strong>：高点回调后形成小碗，但水流湍急（Water 0分），连线5分。总分5分，<strong>不买</strong>。<br>    <br>- <strong>当前（1月中）</strong>：形成了小碗，从去年10月高点回调至今超过3个月（Water 10分），股价在年线附近（连线10分）。总分<strong>20分，是非常好的底仓位置</strong>。主播认为半导体目前是不错的位置。<br>    </p>
+<p><strong>案例二：阿敏（中免）</strong></p>
+<p>- <strong>11月22日</strong>：形成小碗，冲刺波后回调仅2个月（Water 5分），股价在年线附近（连线10分）。总分15分，<strong>可以打底仓</strong>。<br>    <br>- <strong>3月底</strong>：从72跌到55，跌幅超过10%且够三个月，<strong>超级加倍</strong>。<br>    <br>- <strong>其后出现三天涨20%</strong>：这种从底部拉起的、非典型的短时脉冲行情，主播认为它<strong>不是常规的小牛，更像建仓波</strong>。卖掉后<strong>不需要重置三个月</strong>，等它再次形成碗和好的年线位置时就可以买回。<br>    <br>- <strong>后续推演</strong>：按评分体系反复操作，到10月底时，走出两周涨40%的冲刺波。此时总仓位约60%，赚40%清仓，空仓等待。<br>    <br>- <strong>重要提醒（针对当前）</strong>：之前教慢牛定投策略时，任何位置打底仓都可以，因为策略本身就允许站岗。但现在学了评分体系，就可以选择更优的买点。当前阿勉形成了一个小碗，在年线附近，是<strong>适合打底仓的位置</strong>（总分≥10分）。<br>    </p>
+<p><strong>案例三：药明康德</strong></p>
+<p>- <strong>11月21日（主播发笔记当天）</strong>：形成小碗（Water 5分），在年线附近（连线10分）。总分15分，<strong>可以打底仓</strong>。<br>    <br>- <strong>2月中</strong>：走出一波小牛（50涨到60，涨20%），<strong>卖出</strong>。<br>    <br>- <strong>后续推演</strong>：这只票走出了非常流畅的上涨行情，如果完全按重置三个月的纪律，会踏空中间的多个10-15分的买点。主播借此优化规则：<strong>空仓时只看评分，不看重置三个月。</strong> 虽然会卖飞、会踏空，但每一次卖出都赚到了钱，反复操作下来收益可观。<br>    <br>- <strong>特别提醒</strong>：药明康德的老板是美国人，走势很像美股，被外资控制。像这种短期内已经涨了很多的票，高位时不要轻易进去。<br>    </p>
+<p>---</p></div>
+<div class='sec' id='c11s2'><h3>三、 比亚迪专题：极品好公司的买卖点</h3><p>- <strong>买点</strong>：比亚迪是极品好公司，股价比年线低，任何时候都可以打底仓。<br>    <br>- <strong>两个卖点</strong>：<br>    <br>    - <strong>小牛卖出（适合胆小者）</strong>：走出一波1-2个月的小牛行情时，卖出一部分（如20%-50%）。<br>        <br>    - <strong>水满则溢卖出（奶荣策略）</strong>：看大碗。在<strong>116元</strong>（前期小碗高点/水满位置）卖1/4或1/2，在<strong>137元</strong>（大碗历史高点/水满则溢）清仓。<br>        <br>- <strong>重要仓位纪律</strong>：像比亚迪这种已经在牛市里涨过一波（从51涨到137）的票，<strong>不能</strong>在回调时轻易使用超级加倍。只有在打完底仓后，<strong>过了三个月且跌幅超过10%</strong>，才能考虑超级加倍。这与五粮液那种在历史大底部的超级加倍逻辑完全不同。<br>    <br>- <strong>左侧与右侧</strong>：下跌趋势叫左侧，上涨趋势叫右侧。左侧可以有超级加倍，右侧只能靠时间去等、用小仓位去加。<br>    </p>
+<p>---</p></div>
+<div class='sec' id='c11s3'><h3>四、 答疑与个股点评</h3><p>- <strong>广核/中国核电</strong>：非常好的防守标的。小波动（如6.5%的涨幅）不用理会，要看大碗。核电拿久一点没问题，每三个月定投一次，看到水满则溢的大行情再考虑卖出。中国核电的历史走势图，就是未来核电的蓝图——一步一个台阶往上走。<br>    <br>- <strong>猪猪（猪肉龙头）</strong>：大周期底部，没走出小牛就不用卖。至少看到58再考虑卖出。有周期和慢牛双线逻辑推动，很有可能一波小牛就能到目标位。<br>    <br>- <strong>顺丰控股</strong>：极品好公司，比年线低很多，走出了一个大碗。这是“发财的机会”，打个底仓，进可攻退可守。<br>    <br>- <strong>小米集团</strong>：好公司，年线低很多，走出大碗，逻辑同上。<br>    <br>- <strong>赛力斯</strong>：好公司，比年线低很多，打个底仓没问题。但确定性不如比亚迪。<br>    <br>- <strong>中国卫星</strong>：形成了一个碗，但股价是年线的翻倍（高100%），非常危险，不能去。<br>    <br>- <strong>海信家电/海尔智家</strong>：都在ESG50清单里，可以打底仓的位置。<br>    <br>- <strong>格力电器</strong>：也是可以打底仓的位置。<br>    <br>- <strong>中国神华</strong>：走出了类似核电的走势，目前位置不适合打底仓。<br>    </p>
+<p>---</p></div>
+<div class='sec' id='c11s4'><h3>五、 结尾寄语</h3><p>- 今天解决了<strong>底仓如何选择</strong>的问题。空仓时，根据这个双维度评分体系去判断，总分≥10分就可以打底仓。这样操作，很难买到尖尖顶或者站岗。<br>    <br>- 祝愿各位未来每一波牛熊都能全身而退，实现资产增值。理想情况一波牛熊翻三倍，稍差一点一波牛市翻一倍。同时能享受生活和投资的平衡，不需要天天盯盘。</p></div></div>
+
+<div class='c-block' id='c12'><h2>组建球队</h2><div class='sec' id='c12s0'><h3>一、课程目标：从零组建你的投资球队</h3><p>- <strong>核心问题</strong>：从零开始，怎么去组建你的投资阵容？组建好之后，遇到心仪的标的，要不要加入？这个超市要不要开？<br>    <br>- <strong>两重目的</strong>：<br>    <br>    1. <strong>要有自己的一套逻辑和系统</strong>，去解决“买什么、买多少”的问题。<br>        <br>    2. <strong>提高资金的利用率</strong>。现在你们已经学会了水流233定投策略，不再像最早慢牛定投策略时一上来就站岗。如果买完就涨，三个月内遇到小牛，资金闲着就浪费了。<br>        </p>
+<p>---</p></div>
+<div class='sec' id='c12s1'><h3>二、建队第一步：做球员市场的需求分析</h3><p><strong>1. 认识你的球队角色。</strong></p>
+<p>- 你既是<strong>球队经理</strong>（管钱、管配置），也是<strong>球队教练</strong>（管买卖决策）。市场上只有你能对自己的钱负责。<br>    <br>- 一支球队需要：<strong>中锋</strong>、<strong>控球后卫</strong>、<strong>得分后卫</strong>、<strong>大小前锋</strong>、<strong>最佳第六人（替补）</strong>。<br>    </p>
+<p><strong>2. 各角色特征与对应板块。</strong></p>
+<p>- <strong>中锋</strong><br>    <br>    - <strong>特征</strong>：得分产量不行，但离篮筐近、命中率高、确定性高。脏活累活一把抓（防守、抢篮板、盖帽），存在感不强，但<strong>没有中锋就像踢足球没有守门员</strong>。<br>        <br>    - <strong>对应板块</strong>：<strong>不死且长期赚钱的标的</strong>。如：白酒、银行、煤炭、钢铁、石油、有色、化工、红利低波、食品饮料、家电、快递运输、电力（长电）等。翻倍很难，但长期慢慢往上走。<br>        <br>- <strong>控球后卫</strong><br>    <br>    - <strong>特征</strong>：负责组织进攻，梳理场面，稳住球队节奏。偶尔爆发，但很少。要对局面敏感。<br>        <br>    - <strong>对应板块</strong>：<strong>市场的水温计，牛市熊市的信号灯</strong>。牛市一来率先启动，牛市要走它就不行。→ <strong>券商（如阿信）</strong>。没有控球后卫，你就慌慌张张，不知道市场走到什么阶段。<br>        <br>- <strong>得分后卫</strong><br>    <br>    - <strong>特征</strong>：得分爆发力极强（一两个月涨很多），但无心顾及防守（涨得快跌得也快），容易上头，情绪波动大。<br>        <br>    - <strong>对应板块</strong>：<strong>高负荷增长，但护城河不够</strong>。如：AI、算力、机器人、科创小票等。<br>        <br>- <strong>大小前锋</strong><br>    <br>    - <strong>特征</strong>：多面手。能得分、能防守、能组织、能抢篮板。<strong>进可攻，退可守。</strong><br>        <br>    - <strong>对应板块</strong>：<strong>不仅高负荷增长，而且基本面过硬</strong>。如：医药、新能源、恒生科技、半导体、中药、保险、科创50等指数基金。即使得分后卫受伤，五个大小前锋也能打。<br>        <br>- <strong>最佳第六人</strong><br>    <br>    - <strong>特征</strong>：增加替补厚度。有也行，没有也行。往往是过气球星（发挥不稳定）、神经刀、乱战高手。最大特征是<strong>能打，但看不懂</strong>。<br>        <br>    - <strong>对应板块</strong>：房地产、基建、军工、光伏、卫星、稀土等。可配，但不配也行，非到不得已不会配。<br>        </p>
+<p>---</p></div>
+<div class='sec' id='c12s2'><h3>三、奶荣的建队思路：防守赢得总冠军</h3><p>- <strong>核心思想</strong>：<strong>防守赢得总冠军，不做全输出阵容。</strong><br>    <br>- <strong>仓位分配（奶荣版）</strong>：<br>    <br>    - <strong>大小前锋</strong>：配<strong>40%-60%</strong>（核心主力，进可攻退可守）。<br>        <br>    - <strong>控球后卫</strong>：配<strong>20%</strong>（雷打不动，一定要有）。<br>        <br>    - <strong>中锋</strong>：配<strong>20%-40%</strong>。<br>        <br>    - <strong>得分后卫</strong>：配<strong>0%</strong>（奶荣不要，不追求短期翻倍的爆发力，希望球员不上头，不天天盯盘）。<br>        <br>    - <strong>最佳第六人</strong>：配一点点或没有。<br>        <br>- <strong>建队哲学</strong>：喜欢多面手（大小前锋）。即使中锋、控球后卫都受伤，上五个大小前锋也能稳住比赛。<br>    </p>
+<p>---</p></div>
+<div class='sec' id='c12s3'><h3>四、建队第二步：去市场里挑球员（具体选股）</h3><p><strong>1. 选股标准：用“水流233评分体系”找底仓。</strong></p>
+<p>- 基于水流233评分，<strong>总分≥10分的就可以打底仓</strong>。（详见之前课程）。<br>    <br>- 优先选清单内的板块龙头，位置要合适（当打之年，价格合适）。<br>    </p>
+<p><strong>2. 一个关键问题：配多少个标的？</strong></p>
+<p>- <strong>观点：完全可以配8个。</strong> 因为按照标准买，买完之后三个月不出现小牛的概率较低。五个标的全部走向超级加倍的几率不高，这意味着有很多预备资金是用不着的，会造成资金浪费。选8个，底仓打完大概率也就半仓左右，资金利用率和心态都会更好。<br>    </p>
+<p><strong>3. 能不能买的标准：</strong></p>
+<p>- 每个标的<strong>最多配总资金的20%</strong>（如10万就是2万）。<br>    <br>- <strong>一手价格 × 3 ≤ 2万 → 可以买。</strong> （例如阿勉70多块一手，7000×3≈2万，刚好符合底仓+超级加倍的预留空间）。<br>    <br>- <strong>一手价格 × 3 &gt; 2万 → 不能买。</strong> （例如青花一手1.6万，超级加倍后远超仓位上限）。<br>    </p>
+<p><strong>4. 奶荣的选股示范（10万本金为例）：</strong></p>
+<p>- <strong>白水</strong>：股票太贵，选<strong>白水ETF</strong>，打4000底仓。<br>    <br>- <strong>核电</strong>：中国核电走大碗，在连线附近，打4400底仓。<br>    <br>- <strong>免税消费</strong>：中国中免（阿勉），白月光，打7200底仓。<br>    <br>- <strong>券商</strong>：阿信（建队核心），打约5000底仓。<br>    <br>- <strong>中药</strong>：同仁堂（绝对龙头），打约6000底仓。<br>    <br>- <strong>恒生科技</strong>：直接ETF，打5000底仓。<br>    <br>- <strong>保险</strong>：中国人保（连线附近小碗，清单内），打约4900底仓。<br>    <br>- <strong>畜牧业/其他补充</strong>：牧原股份（猪周期+大碗），打4900底仓。（也可选福耀玻璃等）。<br>    <br>- <strong>建仓结果</strong>：八个标的打完底仓，总计约4-5万，接近<strong>半仓</strong>。剩余半仓现金留作超级加倍，游刃有余。<br>    </p>
+<p><strong>5. 小资金（2万）怎么办？</strong></p>
+<p>- 能买的个股非常有限。可以适当提升仓位，多选ETF或价格合适的标的（如平安银行、东方证券、中广核等），凑出5-6个标的，打满半仓即可。<br>    <br>- 实在选不出来，直接参考奶荣的蓝色app组合也完全可以。<br>    </p>
+<p>---</p></div>
+<div class='sec' id='c12s4'><h3>五、阵容的后续运营</h3><p>- <strong>建仓后</strong>：观察三个月内是否出现小牛。出现小牛就<strong>卖出</strong>；没出现且跌幅够就<strong>超级加倍</strong>。<br>    <br>- <strong>卖出后</strong>：资金空出来，再去扒拉清单，看有没有符合底仓标准（总分≥10分）的标的可以买回来。这样<strong>资金就滚动起来了</strong>。<br>    <br>- <strong>调仓</strong>：仓位太重或配置不满意，最好在<strong>普跌行情</strong>（如4月7号那种）中调仓，因为所有东西都在跌，从一个亏损30%的换到亏损20%的，没太大区别。<br>    </p>
+<p>---</p></div>
+<div class='sec' id='c12s5'><h3>六、互动答疑与个股点评</h3><p>- <strong>券商满仓问题</strong>：奶荣现在直接券商满仓不带犹豫，认为比白酒更吸引人。券商是发动机，看着阿信就知道慢牛还在，未来可期。<br>    <br>- <strong>广核/核电</strong>：中广核和中国核电差不多，奶荣更喜欢中广核。五天涨10%没必要跑，至少拿到翻倍或5块钱。<br>    <br>- <strong>科沃斯</strong>：公司还行，但护城河不会大到哪里去。宁愿在中国联通套牢，也不在科沃斯套牢。<br>    <br>- <strong>比亚迪</strong>：现在没上车机会，等回调到99块平台附近可以考虑。已经涨起来过的，不要超级加倍，有且只有三个月后跌幅超10%再加。<br>    <br>- <strong>万华化学</strong>：未来会加入阵容，是好公司。<br>    <br>- <strong>迈瑞医疗</strong>：奶荣会一路买套，等拿到340块（不到340不走）。<br>    <br>- <strong>恒生科技</strong>：差不多是4月7号的位置，走W底的概率大，单底不是底，再确认一次就差不多了。</p></div></div>
+
+<div class='c-block' id='c13'><h2>10w归零的经验</h2><div class='sec' id='c13s0'><h3>一、 开篇案例：美团（团子）的分析与操作</h3><p><strong>1. 当前走势判断：底部大哥吹哨，小碗不要走。</strong></p>
+<p>- 美团当前处于<strong>绝对低位</strong>，且出现了<strong>大哥吹哨</strong>的信号。<br>    <br>- 对于在低位（如73-76元）买入的持有者，主播明确建议：<strong>这个小碗（从76涨到100，涨幅约30%）不要走</strong>。<br>    <br>- <strong>核心理由</strong>：成本足够低，完全可以陪主力折腾。至少看到<strong>140元</strong>的前期平台再考虑卖出，中间都是过程。从76拿到150，就是翻倍。<br>    </p>
+<p><strong>2. 触发因素分析：外卖大战即将结束。</strong></p>
+<p>- 市监总局发文，信号明确：<strong>外卖大战该结束了，内卷竞争没有赢家。</strong><br>    <br>- 价格战影响的不只是企业，更是普通人的生计。让市场竞争从“拼砸钱”转向“拼服务”，才是真正的惠企利民。<br>    <br>- 这意味美团将<strong>扭亏为盈</strong>。<br>    </p>
+<p><strong>3. 深度基本面分析（三个核心问题）：</strong></p>
+<p>- <strong>问题一：美团、京东、阿里能否共存？</strong><br>    <br>    - <strong>背景</strong>：去年美团有一家独大趋势（闪购业务抢了京东和阿里的生意），爸妈把京东放出来进行制衡。阿里为保二哥地位也加入战局。<br>        <br>    - <strong>核心逻辑</strong>：我们是不能让资本垄断民生领域的。但爸妈也不会看着京东把美团打爆，然后让京东一家独大。<strong>制衡</strong>是关键。<br>        <br>    - <strong>结论</strong>：中国市场足够大，容得下这三家。最终大概率是<strong>三者共存</strong>，且都能赚到钱。<br>        <br>- <strong>问题二：外卖大战后，美团仍是外卖巨头的概率高不高？</strong><br>    <br>    - 市占率可能下降，但中国市场<strong>前三就是巨头</strong>。<br>        <br>    - 美团历史上就是<strong>从“千团大战”中杀出来的</strong>，战绩可查，有丰富的竞争经验。<br>        <br>    - 美团与海量骑手、商家已形成深度绑定的生态，推倒重来不现实。<br>        <br>    - <strong>结论</strong>：美团未来仍是外卖巨头的<strong>概率很高</strong>。<br>        <br>- <strong>问题三：美团的商业模式该不该赚钱？</strong><br>    <br>    - 它的模式就是平台中介，整合资源，本质是<strong>应该赚钱</strong>的生意。<br>        <br>    - 当前的亏损（如2025年预计亏230亿）是<strong>暂时的</strong>，是外卖大战打价格战、搞补贴的结果。甚至可能配合市场，<strong>提前释放或隐藏了利润</strong>。<br>        <br>    - <strong>结论</strong>：一旦回到正轨，它就<strong>应该赚钱</strong>。现在看到亏损消息不应恐慌，反而是机会。<br>        </p>
+<p>---</p></div>
+<div class='sec' id='c13s1'><h3>二、 投资哲学：中长线投资的孤独与本质</h3><p><strong>1. 长线投资必然是孤独的。</strong></p>
+<p>- <strong>顺人性的行为（如短线追涨杀跌）永远占大多数</strong>。长线投资是逆人性的，走这条路的人本来就少。就像早睡早起的人永远比熬夜睡懒觉的人少。<br>    <br>- <strong>如果你发现和身边的人没法交流，那就对了，说明你走在正确的路上。</strong> 就像清晨六点出门，街上空无一人，这才说明你早起了。<br>    <br>- 即使在这个直播间里，每个人的持仓、认知都不同，核心依然是孤独的。<strong>你唯一的朋友和敌人，都是你自己。</strong> 最终做决策、经历思想斗争的只有你自己。<br>    </p>
+<p><strong>2. 关于投资者类型：我是“Water”型投资者。</strong></p>
+<p>- 主播回应自己是成长型还是价值型投资者的提问：<strong>都不是，是“Water型”的投资者，是避险型的投资者。</strong><br>    <br>- 一个标的成长性再好、价值再高，如果位置高风险大（如高位、水流湍急），就绝不去。一切都取决于<strong>价格、宏观环境和风险收益比</strong>。<br>    </p>
+<p>---</p></div>
+<div class='sec' id='c13s2'><h3>三、 核心原则：充分意识到你的投资大前提</h3><p>主播结合美团S点的操作，揭示了其投资体系中最根本的底层逻辑。</p>
+<p><strong>1. 美团S点的操作复盘：</strong></p>
+<p>- 在2025年4月7日清仓美团，原因<strong>与技术指标完全无关</strong>。<br>    <br>- <strong>核心决策逻辑</strong>：当外卖大战发起时，就要意识到<strong>这是爸妈发起的</strong>，目的是反垄断、调控市场。当一个公司的业务触及政策红线，即使反弹到成本区间，也<strong>必须走</strong>。不走的结果，参考携程被查反垄断后的走势。<br>    </p>
+<p><strong>2. 根本原则：</strong></p>
+<p>- <strong>我们必须充分、120%地意识到：自己是一个中国人，在中国的投资市场上做投资。</strong><br>    <br>- <strong>这意味着，我们必须听爸妈的。</strong><br>    <br>    - 主播10万归零的教训，就是因为觉得自己牛，没听爸妈的。<br>        <br>    - 去年4月7号没走、赚到大盘从3100到4000的钱，就是因为<strong>听爸妈的，真信慢牛</strong>。不信大洋彼岸那些混乱的信号。<br>        <br>- <strong>投资交换的是信仰</strong>：<br>    <br>    - 市场交易的本质，是不同信仰的互换。你买我卖，互道保重。<br>        <br>    - 现在走的人是不信慢牛，现在进来的人是信慢牛。就这么简单。<br>        <br>- <strong>寄语零零后</strong>：<br>    <br>    - 你们是天生更自信、更平视世界的一代，是未来走慢牛最重要的力量。不要变成那些整天“3000点保卫战”、抱怨市场的“老韭菜”。你们的使命，是让机构和大资金看到新一代投资者的信仰和定力。</p></div></div>
+
+<div class='c-block' id='c14'><h2>红利低波定投法、宠物经济研究及其他</h2><div class='sec' id='c14s0'><h3>模块一：红利低波233定投法——最“傻瓜”的资产配置策略</h3><p>主播针对那些不想学复杂策略、只想简单跑赢通胀的人，系统性地讲解了红利低波233定投法。</p>
+<p><strong>1. 为什么需要这个策略？</strong></p>
+<p>- 不是所有人都能接受慢牛定投或白水划线这类策略。有些人就是<strong>不想动脑子</strong>，只想找个和定投纳斯达克一样“省事”的策略。<br>    <br>- 这个策略的目标是<strong>用最简单的方式跑赢通胀</strong>，实现资产稳健增值。<br>    </p>
+<p><strong>2. 策略核心规则。</strong></p>
+<p>- <strong>标的</strong>：红利低波（如红利低波ETF）。<br>    <br>- <strong>核心信号</strong>：<strong>踩233连线（年线）就买。</strong><br>    <br>- <strong>买法1</strong>：每年有2-3次踩连线的机会。假设你每年有固定的一笔钱用于定投（如100块），<strong>每次踩连线就买入总预算的1/3</strong>（如33块）。<br>    <br>- <strong>买法2</strong>：如果踩完连线后，股价继续下跌，<strong>跌破年线超过10%</strong>，属于难得的黄金坑机会，<strong>可以再买一次</strong>（同样金额）。<br>    <br>- <strong>重要原则</strong>：这是一个<strong>只买不卖</strong>的策略。红利低波长期向上、波动小、分红高，完全可以终身持有，<strong>根本不需要逃顶</strong>。<br>    </p>
+<p><strong>3. 历史回测与收益率。</strong></p>
+<p>- 主播以21年5月到26年4月为周期进行了回测，按最笨的等分买入法，5年累计收益率约<strong>24%</strong>。<br>    <br>- <strong>优化方案</strong>：如果第一笔买多一点（如50%），后面少买，收益率可提升至<strong>31%</strong>；如果年初第一笔就满仓，收益率可达<strong>35%</strong>。<br>    <br>- <strong>真实年化收益率</strong>：由于不是所有钱都跑满了5年，首批买入的资金实际复合年化收益率约为<strong>10%</strong>，这已经是一个非常优秀的长期回报，远超银行理财，且过程中账户<strong>几乎没有大幅回撤</strong>，随时可取，持有体验极佳。<br>    </p>
+<p><strong>4. 与无脑定投纳斯达克/标普的对比。</strong></p>
+<p>- 很多人选择定投纳指标普，核心原因无非是：历史表现好、身边的人和博主都在推、不想动脑子、钱按月发放。<br>    <br>- <strong>红利低波策略的优点</strong>：<br>    <br>    - <strong>波动极低，账户不回撤</strong>。相比之下，纳斯达克熊市时回撤可达30%-40%，普通人极难承受。<br>        <br>    - <strong>身处中国，没有信息差</strong>。我们对国内的真实经济情况、政策动向有一线感知。而美股那边掌握全球舆论，利好利空全凭包装（特朗普画K线），普通投资者处于信息茧房。<br>        <br>    - <strong>历史收益并不差</strong>。即使在A股大熊市的背景下，红利低波依然走出稳健上涨趋势。如果未来A股走出慢牛、通缩转通胀，红利低波会走得更好。<br>        <br>- <strong>结论</strong>：对于想无脑配置资产的中国普通人，红利低波233定投法<strong>碾压</strong>纳斯达克无脑定投。<br>    </p>
+<p>---</p></div>
+<div class='sec' id='c14s1'><h3>模块二：核心投资哲学——“充分意识到你是一个中国人”</h3><p>主播结合美团的操作案例，阐述了其投资体系中最根本的底层逻辑。</p>
+<p>- <strong>根本原则</strong>：我们必须<strong>充分120%地意识到，自己是一个中国人，在中国的投资市场上做投资</strong>。这意味着，<strong>我们必须听爸妈的</strong>。<br>    <br>- <strong>案例：美团S点的操作</strong>。2025年4月7日清仓美团，不是因为技术指标，而是因为意识到“外卖大战”是爸妈发起的，目的是反垄断调控。当政策信号明确时，即使反弹到成本位也必须走，绝不抱有侥幸心理。<br>    <br>- <strong>对比携程</strong>：携程被查反垄断后，如果不走，一把就被套回去。证明必须重视官方政策信号。<br>    <br>- <strong>“信慢牛”的回报</strong>。去年4月7号没走，赚到3100到4000的钱，就是因为<strong>听爸妈的，真信慢牛</strong>。不信大洋彼岸那些混乱的信号。<br>    </p>
+<p>---</p></div>
+<div class='sec' id='c14s2'><h3>模块三：宠物经济行业深度研究——“有点心动，但最终放弃”</h3><p>主播花了大量时间，带着粉丝从宏观到微观，完整地研究了一遍宠物经济赛道，得出审慎结论。</p>
+<p><strong>1. 宏观逻辑：赛道很好。</strong></p>
+<p>- <strong>确定性增长</strong>：中国的宠物数量和宠物消费支出，与日本、美国等成熟市场相比仍有<strong>数倍增长空间</strong>（渗透率仅20%+，日本57%，美国70%）。<br>    <br>- <strong>复合增速快</strong>：预计2025-2028年，宠物市场规模年复合增长率约<strong>10%</strong>。宠物食品是最大头，医疗和服务次之。<br>    <br>- <strong>情感消费属性</strong>：宠物正从“工具”转变为“家人”，这是一个不可逆的社会趋势，催生了巨大的情感消费市场。<br>    </p>
+<p><strong>2. 微观研究：护城河存疑，龙头难觅。</strong></p>
+<p>- <strong>盘面很漂亮</strong>：乖宝宠物、中宠股份等技术图形上走出了经典的<strong>大碗底、底部堆量、年线附近企稳</strong>，是很好的买点形态。<br>    <br>- <strong>核心问题——护城河太浅</strong>：宠物食品（如猫粮狗粮）技术壁垒不高，<strong>谁都可以做</strong>。大企业（如新希望、牧原）随时可能入局，很容易陷入内卷。公司一旦暴雷，品牌信任崩塌，可能万劫不复。<br>    <br>- <strong>财报瑕疵</strong>：部分公司实控人存在高位减持、被约谈等负面记录，且为私企，治理风险较高。<br>    <br>- <strong>宠物医疗</strong>：虽然毛利极高，但区域性限制强，商业模式不成熟，A股也缺乏纯正标的。疫苗等细分领域占比太小，对业绩拉动有限。<br>    </p>
+<p><strong>3. 最终结论：列入“最佳第六人”，不重仓参与。</strong></p>
+<p>- 和猪周期（牧原）这种“杨幂刘亦菲”级别的国民刚需相比，宠物经济就像“化了浓妆的美女”，看起来很美，但底子不够硬。<br>    <br>- 这个赛道有机会，短期跟风赚个小牛是可以的，但<strong>很难让人放心地长期重仓持有、赚大钱</strong>。<br>    <br>- <strong>“它比光伏（看不懂）要强一点，但远不如猪周期。”</strong> 最终，主播决定不把它纳入核心进攻或防守阵容，最多作为替补（最佳第六人）观察。<br>    </p>
+<p>---</p></div>
+<div class='sec' id='c14s3'><h3>模块四：市场宏观认知与盘中点评</h3><p>- <strong>如何判断市场泡沫</strong>：当一个市场开始“利好利好、利空也是利好、假消息当真的炒”，甚至国家领导人亲自高频放消息操纵市场时，就<strong>大概率是泡沫末期</strong>。用这一标准看，现在的纳斯达克就有显著泡沫特征，而A股经过提前下跌，回到了正常位置，是“有脑子的市场”。<br>    <br>- <strong>对某股评人（Z哥）的评价</strong>：主播很尊重，认为其真诚、大爱，但其粉丝中短线投机者较多，贪嗔痴重，导致他讲长期逻辑时经常被骂。<br>    <br>- <strong>个股/板块快评</strong>：<br>    <br>    - <strong>阿信（券商）</strong>：是控球后卫，判断市场的水温计。只要阿信不破位，<strong>慢牛就还在</strong>。<br>        <br>    - <strong>赛力斯</strong>：发布会数据不错（M9大定1.2万），作为高端新能源车，国资龙头，比较放心。<br>        <br>    - <strong>安琪酵母</strong>：亚洲第一、全球第三的酵母龙头，也是好公司。今天正好踩年线，可以考虑打底仓。<br>        <br>    - <strong>宁德时代</strong>：高位出货图，不去。<br>        <br>    - <strong>垃圾股特征</strong>：924行情之后，不跟大盘回调，反而逆势拉升揽客的小公司，都是坏庄，要避雷。4月7号还跌停、没人救的，也是垃圾公司。<br>        <br>    - <strong>顶部大风车</strong>：高位出现长上影、长下影、放天量、实体收中间的K线组合，是典型的出货信号，必须走。</p></div></div>
+
+<div class='c-block' id='c15'><h2>真的看懂慢牛了吗？</h2><div class='sec' id='c15s0'><h3>一、 开篇说明与直播背景</h3><p>- <strong>直播缘由</strong>：主播近期笔记流量较大，引来不少争论（特别是关于纳斯达克和大A的对比）。他希望通过深入讲解底层逻辑，让粉丝真正理解其观点的依据，而不仅仅是因为信任他这个人。<br>    <br>- <strong>核心目的</strong>：<strong>知其然，更要知其所以然。</strong> 只有真正搞懂了“为什么”，在面对账户回撤或外界噪音时，才能向自己的认知寻求支撑，而不是仅仅依赖主播。<br>    <br>- <strong>意外插曲</strong>：因在小红书讲解时内容过“嗨”，直播间被<strong>封禁30天</strong>。主播情绪一度低落，但表示理解，并决定未来主要阵地转移至B站，小红书将减少发言。<br>    </p>
+<p>---</p></div>
+<div class='sec' id='c15s1'><h3>二、 核心宏观分析：理解“适度宽松的货币政策与积极有为的财政政策”</h3><p>这是本次直播最核心的干货部分，主播从背景、原理、传导机制三个层面进行了拆解。</p>
+<p><strong>1. 政策背景与历史对比</strong></p>
+<p>- <strong>政策定调</strong>：2024年底提出的“适度宽松的货币政策”和“积极有为的财政政策”，是一个<strong>强度极高</strong>的政策组合。<br>    <br>- <strong>历史对比</strong>：上一次提出“适度宽松的货币政策”，要追溯到<strong>2008年全球金融危机</strong>时期。这说明决策层对当前经济挑战的定性非常严肃，是将其视为<strong>类金融危机</strong>级别的压力来应对的。<br>    <br>- <strong>当前困局</strong>：我们事实上处于<strong>通缩</strong>阶段，核心问题不是缺钱（居民存款连创新高），而是<strong>钱流动不起来，消费起不来</strong>。<br>    <br>- <strong>消费不振的根源</strong>：<br>    <br>    - <strong>财富效应破灭</strong>：最有消费力的群体（70/80后）在房地产高位套牢，资产不断缩水，导致对未来的预期极度悲观，不敢消费。<br>        <br>    - <strong>产能过剩与内卷</strong>：企业赚不到钱，员工薪资受影响，进一步压缩消费。<br>        <br>- <strong>为什么我们能提前调控？</strong> 因为我们的<strong>经济政策服务于生产</strong>，调控走在市场前面，避免了真正的金融危机爆发。<br>    </p>
+<p><strong>2. 两大政策的通俗解读：“输血”与“造血”</strong></p>
+<p>- <strong>适度宽松的货币政策 = 输血</strong>：说白了就是<strong>提高货币供应量</strong>，为经济体注入流动性。<br>    <br>- <strong>积极有为的财政政策 = 造血</strong>：说白了就是政府<strong>花钱</strong>（搞基建、发补贴、扶持产业），<strong>创造需求和就业</strong>，让经济体恢复自我循环。<br>    </p>
+<p><strong>3. 货币政策的四大传导机制（核心逻辑）</strong></p>
+<p>主播用流程图推演的方式，详细解释了“放水”是如何一步步传导到实体经济的。</p>
+<p><strong>传导机制一：利率传导机制</strong></p>
+<p>- <strong>路径</strong>：货币供应量↑ → 实际利率↓ → 投资↑ → 总产出↑。<br>    <br>- <strong>逻辑</strong>：钱多了，资金成本下降，企业借钱更容易，投资扩张意愿增强。<br>    </p>
+<p><strong>传导机制二：信用传导机制</strong></p>
+<p>- <strong>路径</strong>：货币供应量↑ → 银行存款和贷款能力↑ → 企业融资更容易 → 投资↑ → 总产出↑。<br>    <br>- <strong>逻辑</strong>：宽松环境下，银行监管放宽，放贷意愿增强，让钱流向实体经济。<br>    </p>
+<p><strong>传导机制三：企业资产负债表渠道</strong></p>
+<p>- <strong>路径</strong>：货币供应量↑ → 股价↑ → 企业净值↑（持有的金融资产增值） → 信用评级↑ → 贷款能力↑ → 投资↑ → 总产出↑。<br>    <br>- <strong>逻辑</strong>：股市上涨不仅让股民赚钱，更重要的是让<strong>上市公司的资产负债表改善</strong>，从而获得更多信贷资源，形成正向循环。<br>    </p>
+<p><strong>传导机制四：财富效应渠道</strong></p>
+<p>- <strong>路径</strong>：货币供应量↑ → 股价↑ → 居民的金融资产价值↑ → 财富感增强、财务困难可能性↓ → 消费↑ → 总产出↑。<br>    <br>- <strong>逻辑</strong>：这就是“股市替代房地产成为新的财富锚点”**的理论基础。房价上涨带来财富效应刺激消费，股市上涨同样可以。未来九零后、零零后赚的钱，如果看到股市在走慢牛，自然会流入股市，形成新的财富驱动消费的链条。<br>    </p>
+<p>---</p></div>
+<div class='sec' id='c15s2'><h3>三、 宏观格局对比：为什么选择东大而看空老美</h3><p>主播将中美两国的底层资产进行了对比，解释了“东升西落”的逻辑。</p>
+<p><strong>1. 美国的“三宝”及其动摇（霸权的根基）</strong></p>
+<p>- <strong>第一宝：美元。</strong> 全球贸易结算占比高达50%（尽管已从巅峰70%下降），是收割全球的基础。但其基础是<strong>工业强国</strong>和<strong>与石油的强绑定</strong>。<br>    <br>- <strong>第二宝：美股。</strong> 吸纳了全球最优质的科技企业，形成虹吸效应。但其基础是<strong>科技遥遥领先</strong>。现在这个领先优势正在被快速追赶，部分领域已被反超。<br>    <br>- <strong>第三宝：军事霸权（美航母）。</strong> 为美元石油体系提供安全保护的基石。<br>    <br>- <strong>核心观察：三大根基均在动摇。</strong><br>    <br>    - <strong>工业</strong>：已被东大反超。<br>        <br>    - <strong>科技</strong>：从全面领先变为局部微领先，且AI泡沫巨大。<br>        <br>    - <strong>军事</strong>：与一个军费仅为其1%的国家（伊朗）打得有来有回，暴露了实力的衰退。无法为中东盟友提供绝对安全，导致“保护费”（购买美债）体系开始瓦解。<br>        </p>
+<p><strong>2. 石油美元体系的瓦解与“保护费”逻辑</strong></p>
+<p>- <strong>历史</strong>：1990年海湾战争，美国摧枯拉朽击败伊拉克，确立了其对中东的绝对安全保护。沙特等国因此心甘情愿购买美债、用美元结算石油，形成了闭环。<br>    <br>- <strong>现在</strong>：美国连伊朗都打不服，无法提供昔日的安全承诺。沙特等国已经开始寻求其他大国的武器系统（如巴基斯坦与沙特的联防协议）。<strong>安全不存在了，为什么还要交保护费？</strong><br>    <br>- <strong>趋势</strong>：多个石油出口国已开始在与中国的贸易中使用<strong>人民币结算</strong>（如伊朗100%使用，俄罗斯、缅甸等比例很高）。这是不可逆的趋势。<br>    </p>
+<p><strong>3. 对A股慢牛的结论</strong></p>
+<p>- <strong>股市就是新的房地产</strong>，是承接居民财产性收入、打通内需外需链条的关键。<br>    <br>- 我们不是在金融危机中，而是<strong>提前调控，在修复和重估</strong>。现在可能只修复了20%-30%，后面还有正常估值回归和泡沫化的两大段行情。<br>    <br>- <strong>“20岁的吴彦祖（东大），不要非得去找80岁的川普（老美）。”</strong> 看得懂自家逻辑，就没必要去寄人篱下。<br>    <br>- <strong>风险提示</strong>：如果美股泡沫破裂，A股一定会受到情绪冲击而下跌。但跌多少，由<strong>筹码在谁手里</strong>决定。过去十年3000点保卫战，绝大多数筹码已在爸妈手中，跌到一定程度就会稳住。留着半仓，等待可能到来的全球性金融危机后再从容捡筹码，是更优策略。<br>    </p>
+<p>---</p></div>
+<div class='sec' id='c15s3'><h3>四、 总结与最终寄语</h3><p>- <strong>从今天起，这是属于你们自己的认知。</strong> 不是因为“奶荣说的”，而是你们自己理解了政策传导和全球格局后的判断。<br>    <br>- <strong>拿着核心资产不用怕。</strong> 茅台都敢自己涨价了，因为大哥看得懂、和爸妈走得近。猪猪、中免等核心持仓，看懂底层逻辑后，没什么好担心的。<br>    <br>- <strong>不要跟着“臭棋篓子”下棋。</strong> 拒绝去做那些看不懂、纯靠情绪和消息博弈的高位接盘侠。<br>    <br>- 主播宣布后续将转至B站直播，并安排下次的话题。</p></div></div>
+
+<div class='c-block' id='c16'><h2>核医疗、箱体震荡</h2><div class='sec' id='c16s0'><h3>一、 新的方向分享：核医疗板块</h3><p>主播在直播开始时，分享了他近期研究的一个细分赛道。</p>
+<p>- <strong>核心赛道：核医疗。</strong> 这是一个非常细分和垂直的领域，目前全中国做得比较好的主要有两家公司。<br>    <br>- <strong>具体标的</strong>：<br>    <br>    - <strong>中国同福（港股）</strong>：被主播认为是绝对的龙头，护城河比另一家强。目前已回调至年线（233连线）附近。<br>        <br>    - <strong>东诚药业（A股）</strong>：同样是可以关注的公司，也到了主播认为合适的买点位置。<br>        <br>- <strong>投资逻辑</strong>：<br>    <br>    - <strong>长线逻辑</strong>：核医疗在国内仍非常落后，与国外先进水平差距巨大，有非常大的增长空间。<br>        <br>    - <strong>技术护航</strong>：中国的核技术本身很强，但在核技术的商业应用（如医疗）上还处于发展阶段，未来潜力大。<br>        <br>    - <strong>板块属性</strong>：属于医疗板块，天然具备前锋属性（得分能力强）。<br>        <br>    - 主播强调，他选公司<strong>绝不是只看技术图形</strong>，而是先看行业、赛道和公司基本面，技术图形是最后一步验证。<br>        </p>
+<p>---</p></div>
+<div class='sec' id='c16s1'><h3>二、 持仓答疑与投资心态安抚</h3><p>针对粉丝提出的各种持仓焦虑，主播进行了集中回应和心态按摩。</p>
+<p>- <strong>美团</strong>：主播汇报自己今天也买了美团，买在“大哥成本位”附近。对于刚买就跌的情况，他认为无所谓，因为<strong>“Be water”的精髓在于跟随</strong>，不会在意短期波动，这只是一笔动态仓位的试探。<br>    <br>- <strong>中宠/乖宝（宠物经济）</strong>：验证了此前“看不懂、护城河不够”的判断。中宠一份不痛不痒的财报直接导致大跌，说明市场对其信心不足，这不是好公司该有的表现。如果是用慢牛定投策略在低位买入的，短期问题不大，但不适合压力测试。<br>    <br>- <strong>核心心态：不要为错过的行情捶胸顿足。</strong><br>    <br>    - 以浪潮信息和立讯精密为例，卖飞之后又涨了，但那笔钱本就不属于你。如果抱着“不卖在最高点就是亏”的心态，早晚会在高位站岗。<br>        <br>    - 我们赚的是<strong>调整很久之后，好公司给你的确定性的钱</strong>。赚到确定性的20%就很好了，不要总想着赚到最后一个铜板。<br>        <br>    - <strong>中芯国际和浪潮信息的根本区别</strong>：中芯国际有7NM突破、国产替代等长线大逻辑，你可以不赚小钱，跟他干到底；而浪潮信息这种赚了小刘就该走，不必留恋。<br>        </p>
+<p>---</p></div>
+<div class='sec' id='c16s2'><h3>三、 技术分析小课堂：如何看“箱体震荡”</h3><p>在点评恒生电子、海康威视等个股时，主播分享了一个实用的盘面观察方法。</p>
+<p>- <strong>箱体震荡的特征</strong>：<br>    <br>    - 股价在一个区间内反复波动，形成明显的上下沿。<br>        <br>    - <strong>底部特征</strong>：跌到箱体下沿就缩量止跌，形成共识。<br>        <br>    - <strong>顶部特征</strong>：一碰到箱体上沿，就会<strong>放量砸下来</strong>（长上影、大阴线），因为大量获利盘和解套盘涌出。<br>        <br>- <strong>操作策略</strong>：<br>    <br>    - <strong>不要在箱体顶部卖出</strong>，因为你不知道这次会不会突破。<br>        <br>    - <strong>买点</strong>：在<strong>箱体底部缩量时</strong>买入；或者<strong>向上突破趋势后的第一波回调时</strong>买入。<br>        <br>    - <strong>卖点</strong>：<strong>只在成功突破箱体后的拉升中卖出。</strong> 一旦突破，上方空间很大（如恒生电子，突破后至少看到50元，离现在26元有巨大空间）。<br>        <br>    - 箱体震荡的意义在于“提纯”筹码，把不坚定的人洗走，留下的都是长线持有者。<br>        </p>
+<p>---</p></div>
+<div class='sec' id='c16s3'><h3>四、 新闻解读与投资分层：什么是赚大钱的逻辑？</h3><p>- <strong>工业利润数据</strong>：一季度规上工业企业利润增长15%，主播认为这直接验证了“适度宽松”政策的效果，是宏观逻辑的有力支撑。<br>    <br>- <strong>养猪行业新闻</strong>：<br>    <br>    - 散户视角（恐慌）：看到“每头猪亏300元”的新闻会崩溃。<br>        <br>    - 价值投资视角（验证）：看到“能繁母猪存栏量连续9个月下降”的新闻，会兴奋，因为这验证了周期反转的逻辑。价值投资就是看着自己当初的判断，在新闻中一步步被验证。<br>        <br>- <strong>如何区分“赚大钱”和“赚小钱”的标的？</strong><br>    <br>    - <strong>赚大钱的（前锋/核心）</strong>：有大逻辑，敢重仓，敢长期持有，目标是翻倍或更多。如：中芯国际、同仁堂、白酒、核电、猪猪、阿敏。<br>        <br>    - <strong>赚小钱的（最佳第六人/替补）</strong>：有短期机会，但逻辑不够长，赚一波小刘就走。如：通威（光伏）、浪潮信息等。<br>        <br>    - <strong>明确自己手里的球员属性，是赚大钱的基础。</strong><br>        </p>
+<p>---</p></div>
+<div class='sec' id='c16s4'><h3>五、 盘面快速点评与总结</h3><p>- <strong>常总（某争议博主）</strong>：主播罕见点评，认为其模式像“割韭菜”，没干货，高价私域，投资逻辑偏短线炒作，与自己理念完全不同。<br>    <br>- <strong>利好兑现（立讯精密）</strong>：在大碗位置，市场开始讲“光模块有订单”的故事，主播认为这大概率是利好兑现，行情可能要调整了。<br>    <br>- <strong>底部特征的经验之谈</strong>：好的公司在底部，即使财报差、坏消息多，也跌不动（如中免、同仁堂）；而护城河不深的公司，出个不痛不痒的财报就可能暴跌（如中宠）。<br>    <br>- <strong>预告</strong>：五一期间会讲一个大课，主题是“组建一套不翻倍不走的阵容”**，明确最多10-12个核心标的，进一步简化投资操作。</p></div></div>
+
+<div class='c-block' id='c17'><h2>五粮液财报魔改</h2><div class='sec' id='c17s0'><h3>一、 事件背景：五粮液财报发生了什么？</h3><p>- <strong>核心事件</strong>：五粮液在发布去年年报及今年一季报时，对过往财报数据进行了<strong>大幅度的“会计差错更正”</strong>。<br>    <br>- <strong>具体调整幅度</strong>（举例）：<br>    <br>    - 将2025年全年营收从600亿调至400亿，<strong>同比下降54%</strong>。<br>        <br>    - 将去年归母净利润从200亿调至89亿，<strong>同比下滑71%</strong>。<br>        <br>    - 将2025年一季度利润从148亿调至44亿，<strong>调了70%</strong>。<br>        <br>- <strong>市场反应</strong>：引发轩然大波，大量散户陷入恐慌，认为财报造假、公司暴雷，甚至有人喊出“要ST”。</p></div>
+<div class='sec' id='c17s1'><h3>二、 核心认知一：财报的操作空间可以非常大</h3><p>主播以五粮液为引，揭示了投资世界中一个残酷但必须接受的真相。</p>
+<p>- <strong>五粮液是“正牌军”尚且如此</strong>：作为一个大国企、上市多年、拥有无数股东和极强盈利能力（高毛利、高现金流）的顶级公司，五粮液的管理层在<strong>合法合规</strong>的框架下，仅通过会计准则的调整（如收入确认方式），就能让财报数据出现50%-70%的惊人变化。管理层需要珍惜自己的羽毛，其调整幅度已算克制。<br>    <br>- <strong>推演至“坏人股”</strong>：连五粮液都能做出如此幅度的调整，那些缺乏约束的、有预谋的小公司、坏公司，为了在牛市中炒作套现，可以提前将财报<strong>化妆成任何他们想要的样子</strong>。<br>    <br>    - <strong>熊市/底部布局期</strong>：通过会计手段<strong>把财报做差</strong>，隐藏利润，打压股价，以便自己或关联方低位吸筹。<br>        <br>    - <strong>牛市/拉升出货期</strong>：再通过会计手段<strong>把财报做好</strong>，释放利润，配合提前准备好的“故事”和“利好”，吸引市场资金高位接盘。<br>        <br>- <strong>核心结论</strong>：<strong>在底部，不要过分操心那些烂财报；在顶部，也绝对不要迷信那些亮丽的财报。</strong> 财报并不像化学元素周期表那样是纯客观的存在，它更像一幅<strong>“写真画”</strong>，可以拍得很美或很丑，但<strong>真人（公司的客观基本面）并不在画里</strong>。财报会放大市场对公司的感受，但无法改变公司本身的基本面。</p></div>
+<div class='sec' id='c17s2'><h3>三、 核心认知二：财报的真正价值——避雷与验证</h3><p>在揭示财报的可操纵性后，主播阐述了财报对于普通投资者的正确用法。</p>
+<p>- <strong>财报的最大价值，不是用来发现一个公司有多好，而是用来合理推测一个公司可以有多差。</strong><br>    <br>- <strong>“好”可能是化妆出来的，但“差”往往是藏不住的。</strong> 带着“挑刺”和“避雷”的视角去看财报，重点关注那些<strong>最难造假、最稀缺的指标</strong>：<br>    <br>    - <strong>现金流</strong>：公司账上到底躺着多少钱。（例如五粮液账上1200亿现金）<br>        <br>    - <strong>毛利率</strong>：产品的赚钱能力有多强。（例如五粮液70%+的毛利率）<br>        <br>    - <strong>净资产收益率（ROE）</strong>：公司利用股东投入资本的效率。<br>        <br>    - <strong>分红率</strong>：公司是真金白银地分给股东，还是只是账面利润。（五粮液能持续大比例分红，本身就是实力的证明）<br>        <br>- <strong>对五粮液的反向印证</strong>：如果用“挑刺”的眼光去审视，会发现五粮液在上述核心指标上，其实比A股绝大多数公司都要强得多。那些因财报调整而恐慌、认为公司要完蛋的散户，恰恰是用错了财报——他们只想看到“好”，而无法容忍问题。<strong>如果连五粮液这种财报都让你绝望，那市场上那些涨飞了的垃圾股，其财报背后的真实情况只会更可怕。</strong></p></div>
+<div class='sec' id='c17s3'><h3>四、 核心认知三：对坏公司操盘路径的推演（梦话/推测）</h3><p>主播基于经验，推演了“坏公司”在牛市中如何利用财报进行炒作的全过程。</p>
+<p>- <strong>第一步：把财报做差（用时约两到三个季度）</strong><br>    <br>    - <strong>目的</strong>：①隐藏利润；②方便利益方在低位拿筹码；③争取时间准备未来的炒作“故事”。<br>        <br>- <strong>第二步：把财报做好（往往一个季度即可“反转”）</strong><br>    <br>    - <strong>目的</strong>：①释放利润，制造高增长的假象；②配合准备好的故事（如新品、订单、政策利好）拉升股价；③在高位将筹码派发给追高的散户。<br>        <br>- <strong>现象佐证</strong>：924牛市启动后的头几个季度，许多公司财报依然很差，因为利益方还在吸筹布局；而同期能起飞的公司（如小米等），恰好处于财报和故事准备完毕的阶段。</p></div>
+<div class='sec' id='c17s4'><h3>五、 连麦嘉宾核心观点补充（SN大哥）</h3><p>主播邀请了一位有四大会计师事务所审计背景和投行经验的嘉宾进行连麦，他对财报的解读更为系统和严谨。</p>
+<p>- <strong>财报的严肃性与系统性</strong>：<br>    <br>    - <strong>造假的难度极高</strong>：一份财报有近千个勾稽关系，在高压监管下，<strong>长期系统性造假几乎不可能</strong>。它不像散户想的那样可以随意涂改。<br>        <br>    - <strong>调整空间是“化妆”而非“换头”</strong>：公司可以通过会计政策变更（如折旧年限）来合法调节利润，但操作空间有限，不可能凭空变出利润。五粮液的做法是把利润转移到了资产负债表（预收款/合同负债），钱并没有消失。<br>        <br>- <strong>财报面向过去，投资看的是未来预期</strong>：<br>    <br>    - 财报反映的是<strong>已经发生</strong>的业绩。无论好坏，它已经在股价中被体现了。<br>        <br>    - <strong>股价永远交易的是对未来的预期。</strong> 如果无法形成一致的向好预期，股票就不会涨。<br>        <br>- <strong>财报的核心作用是验证过去的判断</strong>：<br>    <br>    - 对于一个持续跟踪公司的长期投资者，财报是用来<strong>校准你的分析模型的</strong>。如果你的预期在财报上得到验证，说明你的分析思路大体正确；如果不符，则需要修正。<br>        <br>- <strong>“懂行业”比“懂财报”更重要</strong>：<br>    <br>    - 不懂具体行业，光有会计知识，<strong>无法分析任何一家公司</strong>。不同行业的财报结构天差地别，负债率、毛利率等指标的含义完全不同，必须在行业框架下进行横向和纵向对比才能得出有意义的结论。<br>        <br>- <strong>对五粮液事件的独特机构视角</strong>：<br>    <br>    - 这次调整，真正害怕的是<strong>腰尾部的酒企</strong>。五粮液作为龙头，主动撕开了整个白酒行业“压货倒挂”的遮羞布。它敢这么做，说明<strong>自身实力足以承受冲击</strong>，而那些跟风的酒企则未必。<br>        <br>    - 五粮液必须维持高分红，因为其庞大的长期投资者群体就是冲着分红来的。如果因利润调降而减少分红，会引发这批基石投资者的“用脚投票”，这是五粮液无法承受的。</p></div>
+<div class='sec' id='c17s5'><h3>六、 主播最终总结与反思</h3><p>- <strong>承认专业差距，阐述策略的本质</strong>：主播坦承自己的财报知识不如专业人士，但其投资策略的出发点正是<strong>一个普通人如何通过构建体系来弥补专业知识的不足</strong>。<br>    <br>- <strong>策略如何层层加高安全边际</strong>：<br>    <br>    1. <strong>先看行业</strong>：选择普通人能看懂的、前景确定的行业（如老龄化、通胀）。<br>        <br>    2. <strong>选龙头</strong>：不懂分析公司，就选最不可能倒闭的龙头。<br>        <br>    3. <strong>用对冲</strong>：万一选错，用组合平摊风险。<br>        <br>    4. <strong>用评分体系</strong>：确保不追高。<br>        <br>    5. <strong>“Be Water”仓位管理</strong>：用时间和仓位节奏，保证自己永远不会因为一次错误判断而重仓套在山顶。<br>        <br>- <strong>对“Be Water”策略的再次强调</strong>：面对五粮液财报这种级别的“大事”，任何过于武断、满仓All-in的策略都可能被市场教育。而“Be Water”的策略，让你有足够的从容和空间去观察和跟随，这是它最大的价值所在。</p></div></div>
+
+<div class='c-block' id='c18'><h2>投资修行三重境：平等心、天眼与共舞</h2><div class='sec' id='c18s0'><h3>一、 投资能力体系的终极框架：三重境界</h3><p>主播将自己对投资的理解，提炼为三个层次的“武功”体系，并明确指出了它们之间的关系。</p>
+<p><strong>1. 内功心法——平等心</strong></p>
+<p>- <strong>定义</strong>：控制自己人性的能力，与“贪嗔痴”做坚决的斗争。主播将其提炼为<strong>“平等心”</strong>——即对上涨不产生贪念，对下跌不产生厌恶，对止损等操作不视为损失，而只是将其看作一个普通的动作。<br>    <br>- <strong>核心地位</strong>：这是<strong>最重要、最根本、绕不开的根基</strong>。没有它，掌握再强的其他“武功”也无法赚到大钱，因为它决定了你能否“知行合一”。<br>    <br>- <strong>案例佐证</strong>：<br>    <br>    - <strong>定投红利低波/上证指数</strong>：普通人只需在年线处持续定投，长期持有不动，就能跑赢通胀和多数散户。这不需要高超的选股或择时能力，<strong>本质上赚的就是“拿得住”的钱</strong>。<br>        <br>    - <strong>塔勒布的杠铃策略</strong>：他可能没有顶尖的公司分析能力（天眼），也没有顶尖的盘面技术（共舞），但他凭借对“黑天鹅”的坚定信仰和极致的耐心（持有大量现金等待10年甚至20年），依然赚到了巨额的财富。<strong>他的核心优势就是无人能及的“平等心”。</strong><br>        <br>    - <strong>主播个人经历</strong>：主播18年刚开始投基金时，既不懂基本面分析，也不懂技术指标，就凭“基金要长期持有”的朴素认知，克服了浮盈时想卖和回调时想割肉的冲动，最终在毕业时获得了60%-70%的收益。<strong>这也是“平等心”的胜利。</strong><br>        </p>
+<p><strong>2. 核心武功一——天眼（趋势洞察）</strong></p>
+<p>- <strong>定义</strong>：基于对行业的认知、对公司基本面和财报的分析，洞察长期趋势的能力。<br>    <br>- <strong>地位</strong>：这是分析具体标的核心能力，但<strong>如果没有内功心法，看对了也拿不住</strong>。例如有人能在924之前选出寒武纪，但中途的剧烈波动早已将人洗下车。<br>    </p>
+<p><strong>3. 核心武功二——共舞（盘面与技术）</strong></p>
+<p>- <strong>定义</strong>：洞察市场共识、解读盘面博弈、识别资金流向，与市场共舞的能力。<br>    <br>- <strong>地位</strong>：这同样重要，但<strong>如果没有内功心法，纪律再好也会在执行层面出问题</strong>。主播坦言自己在此领域连及格线都不到，只用一条“233连线”作为兜底保护，确保不追高。<br>    </p>
+<p><strong>4. 主播的自我定位与反思</strong></p>
+<p>- 主播坦承，自己在“天眼”和“共舞”上可能连及格线都达不到。财报分析、行业洞察等都是一知半解。<br>    <br>- 他之所以能取得过去的成绩，<strong>核心在于“平等心”上的悟性比大多数人高</strong>。加上他对东方哲学（道家、佛家）天然的喜爱和早期的内观训练，让他在投资心态上实现了降维打击。<br>    <br>- 他通过构建大的框架性原则（先行业后龙头）、组合配置来弥补自己在“天眼”上的不足；通过“一条连线”来弥补“共舞”上的短板。</p></div>
+<div class='sec' id='c18s1'><h3>二、 主播的内观经历与“平等心”的实操训练</h3><p>主播分享了自己大学时期参加内观禅修的亲身经历，以此来揭示“平等心”是如何通过训练获得的。</p>
+<p>- <strong>什么是内观</strong>：一个为期10-11天的免费冥想课程。期间完全止语，与外界断绝联系，每天从凌晨4点打坐到晚上9点。过午不食。<br>    <br>- <strong>训练过程的三重挑战</strong>：<br>    <br>    1. <strong>思绪纷飞</strong>：最初，大脑不受控制，各种念头不断涌现，将注意力从呼吸上带走，或直接陷入昏沉瞌睡。<br>        <br>    2. <strong>身体痛楚</strong>：当思绪稍定，盘腿带来的膝盖剧痛和腰酸成为更强大的敌人，疼痛感会不断拉扯注意力。<br>        <br>    3. <strong>如何克服——修习“平等心”</strong>：核心在于认知到所有感受（无论是疼痛还是舒适）都只是<strong>暂时的、会升起也会灭去的波动</strong>。对疼痛的<strong>厌恶和抗拒</strong>，才是痛苦的根源，而不是疼痛本身。通过不带评判地观察这些感受，学会对所有感觉持有平等心，不被其牵着走。<br>        <br>- <strong>突破性体验</strong>：到第七天时，主播进入一种极度专注和宁静的状态。此时，他惊奇地发现<strong>膝盖的疼痛消失了，取而代之的是一种高频的波动感，不再带有任何痛苦的情绪标签</strong>。从此，打坐不再痛苦，甚至可以轻松达到两个小时。<br>    <br>- <strong>对现实生活的迁移</strong>：<br>    <br>    - <strong>察觉情绪的能力</strong>：能更早地察觉到身体将要“生气”的信号（如后背发热、太阳穴血管跳动等），从而在情绪爆发前控制住它。<br>        <br>    - <strong>“手机掉落”的案例</strong>：手机掉地上时，能在条件反射说出“哎呀”之前，脑中插入了另一个冷静的观察者意识——“手机掉了，捡起来就好”。<br>        <br>- <strong>总结</strong>：内观训练的本质，是<strong>通过高强度的身体和意识挑战，让你学会以一种客观、平等、不执着的心态，去观察自己身体和心理上的一切现象</strong>。这种能力迁移到投资上，就是面对账户的暴涨暴跌，保持理性和平常心的能力。</p></div>
+<div class='sec' id='c18s2'><h3>三、 嘉宾分享：芯片行业深度解析与投资方法</h3><p>嘉宾SN大哥从宏观方法论和微观行业两个层面，进行了长达两小时的深度分享。</p>
+<p><strong>1. 关于技术分析的再定位</strong></p>
+<p>- <strong>技术分析不是短线工具</strong>，对长线投资者同样重要。它像财报一样，是用来<strong>验证你的宏观判断是否被市场所认可</strong>的。<br>    <br>- <strong>认知需要两面验证</strong>：如果你的“大逻辑”是看多，但股价却持续阴跌、没有主力介入信号（无放量企稳），这说明你的逻辑<strong>尚未得到市场共识</strong>，此时必须反思自己的判断。二者是互为表里、相辅相成的。<br>    </p>
+<p><strong>2. 关于长线投资的深刻认知</strong></p>
+<p>- <strong>长线持有远比想象中艰难</strong>：很多人自认为是“长线”，实则是“看长做短”，隐含了“在可等待时间内必涨”的错误假设。<br>    <br>- <strong>李宁的案例</strong>：股价在两块到八块之间横盘震荡长达七八年，之后再用几年时间涨到115。如果你在13年买入，带着3-5年的上涨预期，你一定会卖在最黑暗的黎明前。<br>    <br>- <strong>长线投资对认知要求极高</strong>：如果你的长期认知是错的（例如在21年重仓地产），时间越长，亏损越大。这与简单的“拿住不动”有本质区别。<br>    </p>
+<p><strong>3. 科技股投资的极高门槛</strong></p>
+<p>- <strong>科技赛道具有颠覆性风险</strong>：蒸汽机被内燃机颠覆，软盘被U盘颠覆，诺基亚被触摸屏手机颠覆。如果你投科技长线，却无法持续跟踪技术迭代，你很可能会死守一个被时代淘汰的“价值”。<br>    <br>- <strong>必须了解产业链，才能识别“小作文”</strong>：以芯片行业为例，你必须大致了解从<strong>设计（EDA软件）、制造（光刻、刻蚀）、到封装测试</strong>的完整流程。你只有知道<strong>光刻环节是产值和技术壁垒最高的环节</strong>，你才不会被各种炒作光刻胶、封装等细分领域的“小作文”所迷惑。<br>    </p>
+<p><strong>4. 龙芯中科的投资案例分析：正面与反面的全面认知</strong></p>
+<p>- <strong>正面的“天眼”逻辑</strong>：龙芯是国内唯一进行<strong>完全自主底层架构（龙Arc）设计</strong>的芯片公司，不基于X86或ARM架构，是国家解决“卡脖子”问题的独苗，技术含金量极高，属于“国家需要”。<br>    <br>- <strong>反面的现实困境</strong>：<br>    <br>    - <strong>盈利困难</strong>：财报持续亏损，研发投入高昂。<br>        <br>    - <strong>商业推广的“死亡闭环”</strong>：因其底层架构与主流Windows不兼容，导致<strong>软件开发商不愿为其适配，而没有丰富软件生态，消费者就不愿购买，导致市占率低，进而更没有开发商愿意适配</strong>。同时，它还面临RISC-V等开源新架构的潜在颠覆。<br>        <br>- <strong>不同资金属性的应对策略</strong>：<br>    <br>    - <strong>“天使轮”心态</strong>（如主播）：用“完全输光了也无所谓”的钱去投资，不追求精确预测，只押注其颠覆性可能。<br>        <br>    - <strong>“价值投机”心态</strong>：需要持续跟踪上述正面与反面的逻辑演变，在商业化出现明确转机时介入。<br>        <br>- <strong>核心结论</strong>：对于科技股投资，<strong>你必须做到全方位的“学习”和“认知迭代”</strong>，不能固守一个观点。你要投这个行业，就必须有对这个行业持续梳理脉络的能力。</p></div>
+<div class='sec' id='c18s3'><h3>四、 结尾总结与升华：向内诉求，成为自己的救世主</h3><p>- <strong>散户的成长路径</strong>：内功心法（平等心）从始至终都是最重要的根基。任何人在其他“武功”上遇到瓶颈，最终都会回归到心性的修炼上。<br>    <br>- <strong>拒绝“心理按摩”</strong>：主播强调，直播间不是教堂，他不提供心理按摩。投资者必须<strong>向内诉求</strong>，建立自己的逻辑体系，而不是依赖他人的观点来获取安心。<br>    <br>- <strong>投资的第一责任人永远是自己</strong>：能对自己的钱负责，能真正在市场的极端波动中救你的，只有你自己的认知和心性。<strong>只有自己能成为自己的救世主。</strong></p></div></div>
+
+<div class='c-block' id='c19'><h2>套牢</h2><div class='sec' id='c19s0'><h3>一、实盘展示：大周期投资者的真实心态</h3><p>主播罕见地展示了自己的“买套阵容”实盘账户，该账户浮亏约20%（30余万亏损7万），以此作为教学的鲜活案例。</p>
+<p>- <strong>“毫无感觉”的真实心态</strong>：主播强调，面对这样的浮亏，他在现实中完全无感。这些仓位对他来说只是整体资产配置中的一部分（大部分资金在港股恒生科技），且<strong>这些钱是他在主业（如卖保险、创业公司工资）产生额外现金流后，随手加仓的</strong>。<br>    <br>- <strong>仓位分配的随意性</strong>：账户内的持仓比例并非精算结果，而是“看谁顺眼就加谁”。这背后反映的是对底部区域的确认和对大周期的信仰，而非对短期价格的纠结。<br>    <br>- <strong>核心观点</strong>：这种从容，源于<strong>“买套”策略</strong>。底部是一个区间，不是某个精确的点。<strong>买套是一种高维的智慧</strong>，只有经历过被套，才能在未来行情起飞时游刃有余。如果你一直是盈利的，当它拉出20%的小牛时，你很可能就卖掉了底仓，从而彻底踏空后续的大行情。</p></div>
+<div class='sec' id='c19s1'><h3>二、核心逻辑：赚大周期的钱</h3><p>主播以黄金、李宁、牧原股份等大周期案例，阐释了长线价投/大周期投机的核心要义。</p>
+<p>- <strong>黄金的启示</strong>：黄金从2011年到2018年经历了长达7年的熊市。那些在熊市中坚持定投、在底部苦苦煎熬的人，才配赚到后来翻五倍的大钱。<br>    <br>- <strong>李宁的启示</strong>：作为消费品，李宁从2010年到2018年跌了8年，从28块跌到2块。最终的大行情是从底部“拼命买”出来的人才能完整吃到的。<strong>“你在牛市的自信，来自于你在熊市底部的勇气。”</strong><br>    <br>- <strong>牧原股份的启示</strong>：猪肉价格在周期顶点能翻10倍。通胀周期并非匀速，往往是在通缩末期布局，在通胀爆发时收获。<strong>当你身处通缩末期、资产价格已经跌了数年后，你的视角其实已经非常安全。</strong><br>    <br>- <strong>关于白酒的验证</strong>：统计学显示，年轻时不喝白酒的人群，随着年龄增长，有超过半数会转变为白酒消费者。这是人性与社会的共性，无需费力解释，但作为投资者必须洞悉。</p></div>
+<div class='sec' id='c19s2'><h3>三、深度剖析：破除“踏空”心魔</h3><p>针对粉丝普遍存在的“后悔没买某标的而踏空”的心理，主播从心理学和行为金融学的角度进行了深刻剖析。</p>
+<p>- <strong>“人不会两次踏入同一条河流”的两种解释</strong>：<br>    <br>    1. <strong>后视镜偏差的悖论</strong>：就算让你穿越回去，你大概率还是拿不住那些后来的牛股。因为你当初没买，一定有当时没买的理由（比如怕高、不了解）。如果强行改变，可能结果更差。<br>        <br>    2. <strong>市场的不确定性</strong>：即使现在你面前又出现了一条看似一样的“河流”，你鼓起勇气踏进去，也无法保证这条河里还有“黄金”。<strong>市场瞬息万变，历史不会简单重复。</strong><br>        <br>- <strong>心理学现象：为什么你总觉得“差一点就赚了”？</strong><br>    <br>    - 这是一种典型的<strong>选择性记忆</strong>。人的大脑会天然记住那些让你“印象深刻”的事件。你看过100个票，其中99个平庸的都被你遗忘了，只有那1个后来大涨的会让你捶胸顿足。<br>        <br>    - 主播用“在学校偶遇校花并一见钟情”的比喻，讽刺了这种“我差一点就追到校花”的不切实际幻想——在这个由最聪明的大脑组成的零和博弈市场里，<strong>凭什么是你一出手就能精准抓住那个最靓的仔？</strong><br>        <br>- <strong>“人教人教不会，事教人一教就会”</strong>：对于那些实在摆脱不了“踏空”焦虑、认为自己有短线天赋的人，主播给出了<strong>最真诚也最“狠”的建议——你就去真金白银地试试。</strong> 拿出你能亏得起的钱，去尝试追涨杀跌，试过之后，你才会真正明白自己是否能在那条路上成功。<br>    <br>- <strong>不要因没做的事而后悔，不要美化自己没走过的路</strong>：你没做的那个选择，在平行时空里可能让你亏得更惨。这是毫无意义的内耗。</p></div>
+<div class='sec' id='c19s3'><h3>四、中场插曲：新笔记本的设计哲学</h3><p>主播展示并讲解了最新版笔记本的设计理念，借此阐述不同人生阶段的心态变化。</p>
+<p>- <strong>从“横线”到“空白”</strong>：年轻人（大学生、刚毕业）偏爱有横线的本子，因为需要引导和约束；而工作多年、尤其是走上管理岗的人，则更喜欢空白页，因为可以<strong>自由挥洒、布局谋划，不受条框限制</strong>。<br>    <br>- <strong>设计细节</strong>：新版笔记本请了专业的书法家重新设计字体，使每个字都<strong>带有“活人感”和情感</strong>，而非冰冷的排版；去掉了日历，方便囤货送礼；移除了手机号，只留邮箱；并正式成立了新公司“经纬北京科技有限公司”，展现了其在产品上的长期抱负。</p></div>
+<div class='sec' id='c19s4'><h3>五、结尾寄语：共情与期待</h3><p>- 主播表示理解那些在消费股中“躲牛市”的痛苦，但再次强调，至少大家没有去追高那些乱七八糟的标的，<strong>已经比市场上绝大多数散户要强了</strong>。<br>    <br>- 他所教的策略（在大周期的底部对不死标的拼命买、做好对冲、组建阵容），虽然大道至简，但已经足够有效。赚钱的核心不在于懂得多高深的技巧，而在于<strong>简单的事情重复做</strong>。</p></div></div>
+
+<div class='c-block' id='c20'><h2>仓位管理、金融反身性与投资纪律</h2><div class='sec' id='c20s0'><h3>一、 开篇：配置的意义与市场周期</h3><p>- <strong>配置的两大作用</strong>：分散风险，降低单一标的波动对账户的冲击；改善持仓体验，避免因踏空或深套导致心态失衡。<br>    <br>- <strong>熊市确定性的案例——中国移动</strong>：在22-23年熊市中，中国移动作为高确定性资产持续上涨，甚至在924之前达到高点。持有这类标的能在市场极度悲观时获得“独乐”的体验。<strong>只要你的宏观逻辑和认知是对的，你的标的终将迎来高光时刻。</strong><br>    <br>- <strong>资本市场的残酷法则</strong>：<strong>最早意识到机会的人吃大肉，快速反应过来的人喝汤，最后追进去的人被收割。</strong> 这在任何市场都不会改变。</p></div>
+<div class='sec' id='c20s1'><h3>二、 深刻案例：一位半导体从业者的惨痛教训</h3><p>嘉宾分享了一位在长鑫存储工作的专业人士的真实投资经历，极具警示意义。</p>
+<p>- <strong>背景</strong>：朋友是半导体行业从业人员，自认为了解行业。在芯片ETF从高点回撤约45%时开始用网格法买入。<br>    <br>- <strong>过程</strong>：<br>    <br>    - <strong>仓位失控</strong>：由于收入高、资金量大，他加仓过急，<strong>仅两三个月就将芯片ETF买成了85%的绝对重仓</strong>。<br>        <br>    - <strong>噪音干扰</strong>：当时券商投顾不断给他灌输“芯片国产替代的故事已经炒过，狗都不碰”，让他产生了严重自我怀疑。<br>        <br>    - <strong>心态崩溃</strong>：最惨时<strong>满仓深套33%</strong>。想到回本需涨50%，他彻底丧失了信心。<br>        <br>    - <strong>倒在黎明前</strong>：最终在924行情启动前精准割肉。随后芯片ETF连续涨停，他根本买不回去。等能买入时，已比他割肉的位置<strong>涨了50%</strong>，如果没割，他已经回本。<br>        <br>- <strong>核心教训</strong>：<br>    <br>    - <strong>永远不要高估自己在重仓被套时的心理承受力。</strong> 他没输在选错标的，而输在仓位失控和心态崩溃。<br>        <br>    - <strong>专业人士也难逃人性</strong>。他对行业的认知没能救他，因为他对资本市场的残酷性认知不足。</p></div>
+<div class='sec' id='c20s2'><h3>三、 投资的核心纪律：永不让自己陷入绝境</h3><p>- <strong>仓位管理是生命线</strong>：你无法控制走势，但<strong>能通过仓位控制你的最大回撤和亏损</strong>。单个标的占绝对重仓，一旦遭遇黑天鹅，将万劫不复。<br>    <br>    - <strong>极端假设</strong>：假如一支票从100跌到20，你认为极度低估。但如果它从20再跌到2块，你又已满仓，你将面临灭顶之灾。<br>        <br>    - <strong>100万跌到50万，亏损50%；50万涨回100万，需盈利100%。</strong> 两者的难度天差地别。本金永久性损失后，翻盘的希望极其渺茫。<br>        <br>- <strong>底仓与止损的纪律</strong>：<br>    <br>    - <strong>单只标的仓位上限</strong>：例如总资金10%，即便退市也能承受，不致命。<br>        <br>    - <strong>发现大逻辑错误，必须认错止损</strong>。承认错误并不可耻，能意识到自己长期逻辑有问题，反而是入门和成长的标志。<br>        <br>- <strong>满仓的唯一前提</strong>：除非你心态能稳到“哪怕这笔钱全没了都无所谓”，否则永远不要轻易满仓或梭哈。</p></div>
+<div class='sec' id='c20s3'><h3>四、 理解市场本质：金融反身性与筹码逻辑</h3><p>- <strong>为何你一卖就涨？这是金融反身性的必然。</strong><br>    <br>    - 主力资金的拉升，建立在他<strong>于低位收集到足够筹码、实现有效控盘</strong>之后。<br>        <br>    - <strong>洗盘的目的</strong>，是把所有不坚定的、认知不足的筹码全部清洗出局。当最懂行、最坚定的人都因绝望而割肉离场时，意味着盘子已非常干净。<br>        <br>    - <strong>主力希望拉升时知道的人越少越好</strong>，直到高位才需要对手盘来接筹。因此，真正的行情启动往往是<strong>莫名其妙、毫无征兆</strong>的。如果你不卖，它就不会涨。<br>        <br>- <strong>不要有“时间表”幻想</strong>：一个标的不会因为“跌了足够久”或“基本面有好转迹象”就必然上涨。它何时涨，由主导资金觉得“盘子是否足够干净”来决定。你必须有熬过最黑暗时刻的耐心和认知。</p></div>
+<div class='sec' id='c20s4'><h3>五、 主播的补充：从惨痛经历中汲取力量</h3><p>- <strong>主播的“10万归零”与反思</strong>：坦诚分享自己10万亏到2万的经历，并强调是彻底的认错和深度反思，才铸就了后来的投资根基。<br>    <br>- <strong>市场的极端性</strong>：用新东方（从高点跌去90%+）、恒生科技指数（从11000点跌到2700点）的例子警示，<strong>你永远无法想象市场有多残酷</strong>。<br>    <br>- <strong>亏损的价值</strong>：亏的是钱，但换来的是经验和认知，换来了对自我人性的掌控。<strong>只有经历过熊市的绝望，才能在低位抓住机会</strong>（例如自己和粉丝均在200元买入腾讯）。<br>    <br>- <strong>定投的两个绝对前提</strong>：主播重申，定投策略的成功必须建立在<strong>①标的是长期上行的/不死的</strong>，<strong>②通过仓位和时间控制来弥补专业判断的不足</strong>。这两个前提绝不能错。<br>    <br>- <strong>直播间“外号”的价值</strong>：主播提醒，他反复起外号、反复讲解的标的，往往是他个人确定性更高、更为看重的机会，这是直播间价值的一部分。</p></div>
+<div class='sec' id='c20s5'><h3>六、 估值基础：区分“真资产”与“假资产”</h3><p>嘉宾用简化的财报案例，解释了判断公司价值时一个极其重要的区分。</p>
+<p>- <strong>破净的陷阱</strong>：一家公司净资产很高，但如果主要构成是<strong>应收账款（尤其来自单一、有风险的客户）</strong>，那么它的净资产可能严重虚高，破净也无投资价值。<br>    <br>- <strong>真金白银的价值</strong>：真正能构成估值“铁底”的，是公司账上的<strong>现金类资产</strong>（在零负债或极低负债的前提下）。一个市值低于其账面净现金的公司，才是真正意义上被低估的“烟蒂股”。<br>    <br>- <strong>核心结论</strong>：分析公司时，绝不能只看“净资产”，必须穿透到资产的具体构成。<strong>现金是流动性与安全性最高的资产，而应收账款则可能隐藏巨大风险。</strong></p></div>
+<div class='sec' id='c20s6'><h3>七、 黄金的本质：抵抗通胀的永续配置</h3><p>- <strong>黄金不言顶</strong>：与股票不同，黄金从极长周期看是永远增值的，因为人类经济社会长期必然通货膨胀。<br>    <br>- <strong>黄金的真实作用</strong>：它锚定的是<strong>一般等价物的真实价值</strong>。法定货币长期贬值，而黄金能帮你“保住”这份价值。<br>    <br>- <strong>配置方式</strong>：不应抱着炒作短线的心态。最合理的方式是<strong>永续的、无期限的资产配置</strong>（如每月投入可投资资产的15%），不关心价格，20年后回看，它帮你锁住了财富。</p></div></div>
+
+<div class='c-block' id='c21'><h2>投资内功心法：平等心</h2><div class='sec' id='c21s0'><h3>一、 开篇：这节课的重要性</h3><p>- 主播开宗明义，这是<strong>散户终极成长路径的第一课，关于内功心法</strong>。他发自内心希望这节课能让大家记一辈子，能对大家的人生产生积极影响，而不仅仅是投资。<br>    <br>- 主播将自己定位为一个<strong>唯物主义者</strong>，将这些哲学思想视为<strong>工具</strong>，特别好使，尤其在投资中。</p></div>
+<div class='sec' id='c21s1'><h3>二、 核心认知：你贪求或厌恶的，从来不是外在事物</h3><p>主播通过三个生动的案例，层层递进，揭示了一个深刻的真相：<strong>主导你喜好的，不是外在事物本身，而是它们在你体内触发的生化反应。</strong></p>
+<p><strong>1. 案例一：刷短视频停不下来</strong></p>
+<p>- <strong>你以为你喜欢的是</strong>：短视频的内容。<br>    <br>- <strong>实际上</strong>：让你上瘾的，是你每一次滑动屏幕时，<strong>对下一条内容不确定性的期待</strong>，以及由此分泌的一小撮多巴胺。你已经忘了你刷过什么内容，但你身体对那种愉悦生化反应的渴求，让你停不下来。<br>    </p>
+<p><strong>2. 案例二：你爱你的伴侣什么？</strong></p>
+<p>- <strong>你以为你喜欢的是</strong>：他的长相、性格、才华、共同回忆。<br>    <br>- <strong>实际上</strong>：如果上帝复制一个各方面客观条件完全一样的人来替换，你会觉得“感觉不一样”。你真正痴迷的，是<strong>只有跟那个人在一起时，你身体内部才会产生的、专属于他的、综合了触觉、视觉、回忆和情感的、说不清道不明的生化反应。</strong><br>    <br>- <strong>延伸</strong>：你不是喜欢他，你只是<strong>喜欢“喜欢他的那个自己”</strong>。<br>    </p>
+<p><strong>3. 案例三：兰博基尼与垃圾桶</strong></p>
+<p>- <strong>你以为是</strong>：喜欢车的机械部件（工业机器要不要？）、喜欢别人的注视（100个人盯着你行不行？）、喜欢速度感（高铁更快要不要？）。<br>    <br>- <strong>实际上</strong>：你喜欢的，是开着它在塞车时放下敞篷、或是在酒吧低调掏出钥匙时，身体内产生的<strong>那种名为“优越感”或“荣誉感”的化学反应</strong>。<br>    <br>- <strong>平行世界假想</strong>：在一个人人背垃圾桶为身份象征的平行世界，你会贪求一个名贵的垃圾桶，而不是兰博基尼。<strong>外在事物变了，但你对“内在感知”的贪求没变。</strong><br>    </p>
+<p><strong>4. 落脚到投资：你不是在交易股票，你是在交易多巴胺。</strong></p>
+<p>- <strong>你以为你想要的是</strong>：了解行情、回本、暴富、抓到好赛道、赚更多。<br>    <br>- <strong>实际上你真正想要的是</strong>：<br>    <br>    - 盯盘时多巴胺的持续供应。<br>        <br>    - 重温赚钱时的愉悦感（所以舍不得卖烂票）。<br>        <br>    - 红色数字带来的生理刺激（所以追涨停板）。<br>        <br>    - 喜新厌旧、到处押注的刺激感（所以来回换赛道）。<br>        <br>    - 更大的快感剂量（所以加杠杆）。<br>        <br>- <strong>核心结论</strong>：你并不是在理性决策，而是被体内的<strong>贪嗔痴</strong>所驱使。事后你还会用大脑为这些冲动行为编造一个“理性的理由”，这是一种<strong>自我欺骗</strong>。</p></div>
+<div class='sec' id='c21s2'><h3>三、 底层逻辑：释迦牟尼的“五蕴”自动化流水线</h3><p>主播借用2500年前释迦牟尼拆解出的精密链条，解释了人从“接触事物”到“做出错误决策”的全自动化过程。他以“一个苹果如何让你犯贪嗔痴”为例：</p>
+<p>1. <strong>色（客观存在）</strong>：一个苹果，它是红的、圆的、香的。<br>    <br>2. <strong>识（认知）</strong>：通过眼、耳、鼻、舌、身、意，认知到这些信息。<br>    <br>3. <strong>想（辨别/贴标签）</strong>：大脑从记忆库调取数据，迅速判断“这是个苹果”，并给它贴上<strong>“好苹果”或“坏苹果”的标签</strong>。<br>    <br>4. <strong>受（感受）</strong>：基于标签，身体产生对应的生化反应。觉得是好苹果，就分泌口水、胃部期待；觉得是坏苹果，就喉咙发紧、眉头微皱。<strong>这是整个链条中最关键的环节，但绝大多数人完全察觉不到它的发生。</strong><br>    <br>5. <strong>行（习性反应）</strong>：身体被“受”所驱使，不由自主地做出贪求（想吃）或厌恶（想扔）的行为。<br>    </p>
+<p>- <strong>整个过程是全自动的，快到让你跳过了“受”的环节，根本由不得你思考。</strong> 你就像一个被习性反应操控的木偶。<br>    <br>- <strong>习性反应的积累</strong>：你每一次顺着习性反应去做（追涨杀跌），你就在强化这个自动化链条，下一次它会来得更快、更强。这就是<strong>“业”</strong>的积累。</p></div>
+<div class='sec' id='c21s3'><h3>四、 破局之道：在“受”的环节，修习“平等心”</h3><p>- <strong>阻断链条的关键点</strong>：在<strong>受</strong>这个环节进行干预。<br>    <br>- <strong>具体方法</strong>：当愉悦或厌恶的感受出现时，<strong>不要给它贴上“好”或“坏”的标签</strong>，只是以<strong>平等心</strong>去观察它。<br>    <br>    - 愉悦的感受来了，不贪求它多留一会，只是观察“愉悦是什么样的感觉”。<br>        <br>    - 厌恶的感受来了，不抗拒它快点走，只是观察“厌恶是什么样的感觉”。<br>        <br>- <strong>戒烟的案例</strong>：有烟瘾的人只关注尼古丁带来的快感，而忽略了烟雾本身的难闻和对身体的刺激。一个没有烟瘾的人，能平等地观察到烟“难闻、恶心”的客观实相。<strong>这就是平等心的体现。</strong><br>    <br>- <strong>在投资中的运用</strong>：<br>    <br>    - K线涨了，你眼睛看到，心里想“还能涨”，身体兴奋，于是按下买入。这是被习性控制。<br>        <br>    - K线跌了，你眼睛看到，心里想“完了”，身体恐惧，于是按下卖出。这也是被习性控制。<br>        <br>    - 如果拥有平等心，你会观察这些感受，而不被它们推着走。<strong>你控制不了市场，但你可以做到不被自己的感知所控制。</strong> 你就像一个从未抽过烟的人观察烟一样，如实地观察市场的波动和你的账户盈亏，然后做出理性的、符合纪律的决策。</p></div>
+<div class='sec' id='c21s4'><h3>五、 实现平等心的路径：戒、定、慧</h3><p>主播重申了“戒定慧”的修行次第，并指出对于大多数人来说，<strong>现阶段先做好“戒”就足够了</strong>。</p>
+<p>- <strong>戒（止恶行善）</strong>：<br>    <br>    - <strong>投资领域的“止恶”</strong>：不用能力范围外的钱；不买认知范围外的票；不追涨杀跌；不做短期预测；不乱看资讯。<br>        <br>    - <strong>生活中的“行善”</strong>：多赚钱（提高场外收入）；多读书；多锻炼（身体是投资最重要的仓位，即“阳寿法”）；多帮朋友（积累人脉，是人生的对冲）；多陪家人（生活充实，就不会老盯盘犯错）。<br>        <br>    - 你只要坚持做这些动作，你对人性的掌控能力就会不断提高。<br>        <br>- <strong>定（看见感受，打断自动化）</strong>：<br>    <br>    - 学会观察自己。例如写<strong>炒股日记</strong>，记录每一次想买卖时，你在想什么，身体发生了什么。<br>        <br>    - <strong>冥想/内观</strong>：每天10分钟，已被大量科学研究证明能提高专注度和情绪稳定。其核心正是<strong>观察呼吸</strong>，因为呼吸是唯一一个普通人能抓住的、连通“自动挡”与“手动挡”的锚点。<br>        <br>    - <strong>瑜伽</strong>：主播强烈推荐，尤其是传统的瑜伽，它要求练习者在过程中不断去感受自己的身体、观察呼吸，是向内探寻的绝佳方式。<br>        <br>- <strong>慧（修正标签系统，长智慧）</strong>：<br>    <br>    - 当你觉察到“受”时，控制自己不要去打上贪或嗔的标签。<strong>以一个平等的心去看。</strong><br>        <br>    - 做到这一点，你会发现你开始“长智慧”，能真正做到知行合一，能真正理解“公司怎么赚钱”、“行业十年后还在不在”。</p></div>
+<div class='sec' id='c21s5'><h3>六、 连麦分享：瑜伽与身体觉知（小圆饼干）</h3><p>嘉宾分享了练习瑜伽两年多的亲身经历和科学原理，与主播的内观理念完美呼应。</p>
+<p>- <strong>身体影响心理</strong>：长期的耸肩、脖子前倾会压迫血管，导致大脑供血不足，从而让身体处于“战斗”的紧张和焦虑状态。通过瑜伽调整体态（如将肩头往后转、把肩胛骨往下拉），<strong>从物理上让身体放松下来，可以反过来影响情绪，缓解焦虑。</strong><br>    <br>- <strong>建立“身体与头脑的连接”</strong>：瑜伽的核心在于<strong>觉知</strong>。如找到“大腿前侧推后侧”的感觉、找到“骨盆内旋”的感觉。这是一个从控制一个手指，到控制整个身体的过程。<strong>当你对自己身体有掌控时，你就有能力对自己的心理有掌控。</strong><br>    <br>- <strong>呼吸法门</strong>：介绍了多种呼吸技巧，如睡前调息（吸一呼二）、观察呼吸在体内（如胸骨上）的起伏。这些方法的共同点是<strong>都让你专注于当下、向内观察，停止大脑的纷飞思绪</strong>，从而达到宁静状态。<br>    <br>- <strong>本质共鸣</strong>：嘉宾分享了她从一个唯物主义者、觉得老师是“吹牛逼”，到慢慢感受到身体内在循环的变化，这与主播的观点一致——<strong>“我不关心他怎么解释，我只关心他对我有没有实际层面的帮助。”</strong> 练对了，身体自然会知道。这也是一种平等心的实践——不先入为主地判断，而是如实地去感受。</p></div></div>
+
+<div class='c-block' id='c22'><h2>投资中的逻辑谬误与孙子兵法战略思维</h2><div class='sec' id='c22s0'><h3>一、 核心问题：一个典型的散户逻辑谬误</h3><p><strong>1. 粉丝提问及其问题所在</strong>  <br>有粉丝提问，持仓的多个品种都在下跌，之前涨得不错的也在大幅回撤，并问：“如果走熊一段时间，是不是就不是加仓，而是考虑减仓了？”</p>
+<p>- <strong>主播的第一反应</strong>：这暴露了持仓过多（如果是股票则太多，基金相对还好）、对“回撤”的认知偏差（核电、海康等并未出现大幅回撤），但最核心的问题是第三个——<strong>这是一个典型的逻辑谬误。</strong><br>    </p>
+<p><strong>2. 核心逻辑谬误：混淆“实际风险”与“心理风险”</strong></p>
+<p>- <strong>风险是涨出来的，不是跌出来的。</strong><br>    <br>- <strong>心理风险</strong>：因为买入后股价持续下跌，账户浮亏扩大，导致心理上感觉风险在增加。这是一种<strong>情绪感受</strong>。<br>    <br>- <strong>实际风险</strong>：对于一个基本面不变、价值恒定的公司，股价越往下跌，它的<strong>实际风险越低</strong>，因为它是在不断释放风险，性价比在提高。<br>    <br>- <strong>反面案例</strong>：一只垃圾股股价越涨越高，市盈率炒到几百倍，散户因账户盈利而觉得“零风险”，但此时它的<strong>实际风险已累积到极致</strong>。<br>    <br>- <strong>经典对比（茅台）</strong>：<br>    <br>    - 在73倍市盈率的高位买入，虽然买完可能还涨，账户浮盈，但<strong>持仓的实际风险在不断增加</strong>。<br>        <br>    - 在一路下跌到底部区域时买入，虽然买完可能被套，账户浮亏，但<strong>持仓的实际风险在不断释放和降低</strong>。<br>        <br>- <strong>核心结论</strong>：如果你被心理风险牵着鼻子走，就会在底部因恐慌而减仓（割肉），在高位因贪婪而加仓（追高），这正是追涨杀跌的根源。<strong>正确的思路是，当基本面没问题时，越跌越应该感到安全，而不是恐惧。</strong> 对于看不懂估值的散户，可以用策略（如等三个月、观察跌幅）来弥补判断力的不足。</p></div>
+<div class='sec' id='c22s1'><h3>二、 顶级战略思维：《孙子兵法》在投资中的应用</h3><p><strong>1. 核心理念：胜兵先胜而后求战，败兵先战而后求胜</strong></p>
+<p>- <strong>败兵先战而后求胜</strong>：<br>    <br>    - <strong>“战”不是一次性ALL IN决战</strong>，而是指<strong>在保证自己能活下来的前提下，通过持续的小规模战斗（分批买入），去寻找扭转战局、积累胜利果实的机会。</strong><br>        <br>    - <strong>在熊市中的应用</strong>：熊市中，所有买入者都是“败兵”。不能一跌就满仓，也不能完全退隐不玩。正确的做法是，在有成本优势的位置（如跌了三个月、跌幅够深）发起小规模的“战役”（加仓），一点点积累低价筹码，等待局势逆转。这就是“基本是游击战，但不放松有利条件下的运动战”。<br>        <br>        - <strong>游击战 = 底仓</strong>：小规模试探，埋伏一手。<br>            <br>        - <strong>运动战 = 超级加倍</strong>：在“有利条件”（如跌了六个月、跌出20%以上成本优势、或出现黑天鹅事件）下，发起的大规模建仓。<br>            <br>- <strong>胜兵先胜而后求战</strong>：<br>    <br>    - <strong>在牛市中的应用</strong>：当牛市来临，因低位积累了足够筹码而大幅盈利后，你就变成了“胜兵”。此时你已立于不败之地，<strong>首要任务是保住胜利果实，进一步扩大优势</strong>，而不是在优势不明显时随意出击。<br>        <br>    - <strong>具体操作</strong>：<br>        <br>        - <strong>牛市减仓</strong>：当行情爆发（如924行情），无需犹豫，先卖出部分筹码，锁定利润，让自己立于“胜兵”的不败之地。<br>            <br>        - <strong>谨慎加仓</strong>：只有在出现极有成本优势的位置（如比自己卖出价低很多，或按策略等三个月）时，才能用小仓位再次出击，这叫“先胜而后求战”。<br>            <br>        - <strong>心态</strong>：成为胜兵后，你根本无需焦虑踏空，因为你的成本极低，可以随便陪市场玩，直到最后的泡沫出现。<br>            </p>
+<p><strong>2. 实战推演：从腾讯、五粮液到上证指数</strong></p>
+<p>- <strong>腾讯案例</strong>：在200-300元区间持续买入（败兵先战），积累了大量低成本筹码。当股价涨到600元时，就是“胜兵”。之后一切操作都游刃有余，心态极稳。<br>    <br>- <strong>五粮液/中国中免案例</strong>：过去几年所有买入者都是“败兵”。在底部区域，你唯一正确的战略就是“跟他丫的干”，通过分批买入来积累筹码，等待局势反转。这是你在未来“打胜仗”时的唯一资本。<br>    <br>- <strong>上证指数案例</strong>：如果有人在上证指数上亏钱，是因为完全用反了战略——在低位该“打仗”积累筹码时他退缩了，在高位不该“求战”时他却追进去了。<br>    </p>
+<p><strong>3. 历史视角：战略层面的降维打击</strong></p>
+<p>- <strong>抗日战争（败兵阶段）</strong>：“抗日战争快不得”，基本方针是“独立自主的山地游击战，但不放松有利条件下的运动战”，对应投资中的熊市买套。<br>    <br>- <strong>解放战争（胜兵阶段）</strong>：“解放战争拖不得”，在局势转为优势后，迅速发动三大战役夺取全国胜利，对应投资中的牛市减仓。<br>    <br>- <strong>当前局势的感悟</strong>：我们在处理很多问题时，因为已是“胜兵”，所以要做的不是着急求战，而是<strong>不断巩固和扩大胜利的局面</strong>，让时间成为朋友，直到拥有碾压性的优势。这种战略思维，远比任何技术指标和战术都重要。</p></div>
+<div class='sec' id='c22s2'><h3>三、 实战答疑：白水划线走崩后怎么办？</h3><p>主播针对“按白水划线策略已满仓后该如何操作”进行了补充讲解，再次运用《孙子兵法》的框架。</p>
+<p>- <strong>当前状态是“败兵”</strong>。满仓被套，局势被动。<br>    <br>- <strong>应对策略</strong>：<br>    <br>    - <strong>第一，基本是游击战</strong>：如果你觉得仓位太重，心态扛不住，那么在<strong>未来走出一波小牛行情时，应立刻减仓到让你舒服的位置</strong>。这不是投降，而是为了保存实力，以便长期战斗。<br>        <br>    - <strong>第二，不放松有利条件下的运动战</strong>：不要因为满仓就躺平。如果后续出现了<strong>“有利条件”</strong>，你依然要敢于出击。这些条件包括：<br>        <br>        - <strong>跌得足够久</strong>（例如六个月以上）。<br>            <br>        - <strong>跌出了巨大的成本优势</strong>（例如在你最后一笔加仓的基础上又跌了20%以上）。<br>            <br>        - <strong>出现黑天鹅事件</strong>砸出黄金坑。<br>            <br>    - 此时，即使需要从生活中“抠钱”，也应该大胆加仓，再次发起“运动战”。<br>        <br>- <strong>总结</strong>：只要你的战略方向正确（投资的是大底部、不死的好公司），按这个策略走，死不了。一旦大周期来临时，你将直接起飞。</p></div>
+<div class='sec' id='c22s3'><h3>四、 嘉宾深度分享：长线投资的本质、估值与主力意图</h3><p>嘉宾SN大哥在主播分享的基础上，进行了更为深入和本质的补充。</p>
+<p><strong>1. 长线投资远比你想象的更难</strong></p>
+<p>- <strong>好公司不等于好长线标的</strong>：中石油是绝对的国字号好公司，但如果你在它上市时买入，至今仍可能无法回本。它在历史上能跌到两块多的低价。你无法想象当它从高位跌去75%后，还能继续跌向深渊。<strong>单凭“好公司”三个字，无法支撑你走过至暗时刻。</strong><br>    <br>- <strong>赚大钱需经历绝望</strong>：任何一只票要从熊转牛，实现彻底反转，<strong>一定会经历一个临界点：连最懂、最坚定的人都开始自我怀疑、甚至割肉离场。</strong> 如果过不了这个临界点，它就只是一个反弹，而不是反转。例如李宁，即便是专业投资者，在它跌到两块钱时也曾动摇。<br>    </p>
+<p><strong>2. 你必须知道“煎饼果子”到底值多少钱（估值的重要性）</strong></p>
+<p>- <strong>公允价值的概念</strong>：你家楼下的煎饼果子，大家公认的价值就是五块钱一套。即使被网红炒作到20元，它也终究要回归五元。在它从20元跌下来的过程中，15元、10元都不是真正的支撑，<strong>只有回到五块钱这个“公允价值”时，大家才会愿意重新购买。</strong><br>    <br>- <strong>对投资的映射</strong>：<strong>你必须对你投资的公司有一个清晰的估值概念，知道它的“公允价值”在什么区间。</strong> 这不是让你去预测最低点（没人能预测），而是让你知道，当它跌到某个极低位置时，你能心里有底，知道这是极度低估，而非价值毁灭。<br>    <br>- <strong>为什么过去A股总是在3000点？</strong> 因为那些决定大盘点位的核心权重股，每一波牛市怎么涨上去的，最终都怎么跌回了它们原本的“公允价值”区间。这个“公允价值”在很长一段时间内，就锚定在了3000点附近。未来随着国力增强，这个中枢会抬升。<br>    </p>
+<p><strong>3. 理解主力意图：为什么会有“不正常的下跌”？</strong></p>
+<p>- <strong>事出反常必有妖</strong>：一只股票，如果它不是在极高的泡沫位置，却出现了持续、流畅、没有反弹的下跌，这<strong>是不正常的</strong>。<br>    <br>- <strong>理解下跌背后的目的</strong>：<br>    <br>    - 为了让“赖着不走”的筹码彻底出清。好公司的筹码更为牢固，因此洗盘时间更长、跌幅更深。<br>        <br>    - 为了进行特定的“筹码安排”**，将筹码在极低的价格，转交给特定的人或机构。为了让散户不敢抄底，会砸出一个极低的价格。<br>        <br>    - 完成筹码安排后，盘面会变得更活跃，为未来的大行情创造条件。<strong>所有拉升最终都是为了出货</strong>，而大市值股票出货需要盘面有足够的活跃度。<br>        </p>
+<p><strong>4. 对自己负责的唯一方法：建立自己的逻辑体系</strong></p>
+<p>- <strong>不要依赖任何人的“心理按摩”</strong>：无论是相信主播、还是相信任何大佬，都无法支撑你走完长线的全程。因为<strong>你最相信的那个人，某一天也可能会自我怀疑</strong>。如果他含糊了，你怎么办？<br>    <br>- <strong>你必须自己看懂</strong>：你需要自己弄懂这个行业、这个公司的估值、它在周期中所处的位置、以及主力资金的意图。<br>    <br>- <strong>知行合一</strong>：只有你自己的逻辑，才能支撑你做到知行合一。赚你认知范围内的钱，不要为超出认知的踏空而懊悔，也不要因为暂时被套而恐惧。<br>    <br>- <strong>郑重推荐书籍</strong>：嘉宾推荐了一本名为《<strong>周期</strong>》的书，它能帮助理解经济和行业为何会有周期的盛衰，这是做长线投资的基石认知。</p></div></div>
+
+<div class='c-block' id='c23'><h2>xn哥：如何构建完整自洽的投资逻辑体系</h2><div class='sec' id='c23s0'><h3>一、核心命题：为什么做长线投资必须有自己完整的逻辑体系</h3><p><strong>1. 长线投资者面临的最大风险：片面的认知</strong></p>
+<p>- 做长线最可怕的不是短期账户浮亏，而是在经历了长期下跌、持续买入、浮亏巨大之后，<strong>突然发现自己对持有标的的了解是片面的，遗漏了某个关键风险点</strong>。<br>    <br>- 这种情况下，投资者会对自己的判断产生根本性怀疑。如果此时恰逢账户浮亏严重，心态会瞬间崩溃，此前的所有坚持将功亏一篑。<br>    <br>- <strong>核心结论</strong>：你越是做长线，越要确保自己对持有标的的认知是尽可能完整、全面的。只有这样，当市场出现各种你之前没听说过的、听起来又很有道理的利空言论时，<strong>你自己才能成为自己的那根“定海神针”</strong>。<br>    </p>
+<p><strong>2. 认知的完整性比精确性更重要</strong></p>
+<p>- 嘉宾明确认可“追求模糊的正确”这一理念，同时指出一个关键陷阱：<strong>很多人以为自己追求的是模糊的正确，但实际上对事物的了解极为片面，由此得出的结论本身就是错的</strong>。<br>    <br>- 真正有底气的投资决策，不是来自于听某位大V怎么说，而是来自于<strong>你发自内心地认为，你的大逻辑是非常完整、非常全面的，并且你对此坚信不疑</strong>。<br>    </p>
+<p><strong>3. 知识体系的完整性与投资信心</strong></p>
+<p>- 当你不了解某件事的全貌时，一旦有一天听到有人提出尖锐的、恰好指向你认知盲区的问题，你的信心就会瞬间瓦解。<br>    <br>- 但如果你对事物有完整的认知框架，当你遇到新的、不同的观点时，你的第一反应不是慌乱，而是能够<strong>冷静评估：这个观点影响的是哪个层面？它是否动摇了我的核心逻辑？</strong><br>    <br>- <strong>最终结论</strong>：完整的知识体系让你有能力屏蔽噪音，在市场恐慌或狂热时保持独立思考。<br>    </p>
+<p>---</p></div>
+<div class='sec' id='c23s1'><h3>二、案例拆解之一：用“新巴塞尔协议”验证低波红利的核心逻辑</h3><p><strong>1. 银行是核心资产中的核心资产</strong></p>
+<p>- 在低波红利板块中，<strong>银行是核心中的核心</strong>。<br>    <br>- 判断依据：即便是证券公司，也没有几家是财政部直接控股的。而国有大行由财政部直接控股，这本身就突出了银行在金融体系中最核心、最支柱性的地位。国家的态度很明确：股市可以关，银行绝不可能关。<br>    </p>
+<p><strong>2. 用专业知识发现潜在的逻辑漏洞</strong></p>
+<p>- 嘉宾早期对银行长期增长的疑问来自于一个专业概念：<strong>新巴塞尔资本协议（巴塞尔协议）</strong>。<br>    <br>- 这个协议约束的是银行的<strong>核心资本充足率</strong>。简单理解，它限制了银行放贷和展业的天花板——银行的业务规模不是可以无限扩张的。<br>    <br>- 与此同时，随着国家进入降息周期，存贷款利差在不断收窄，银行的传统盈利模式面临压力。<br>    <br>- <strong>由此产生的核心疑问</strong>：当银行展业范围触及天花板，且息差收入持续缩窄，如何保证其利润能够长期持续增长？又如何保证低波红利的估值能持续上行？<br>    </p>
+<p><strong>3. 政策背书的关键验证：亲儿子就是亲儿子</strong></p>
+<p>- 这个疑问最终被打消，不是因为简单的信仰，而是基于一个决定性的事实：<strong>国家在去年以溢价方式向国有四大行注资，用以提升其核心一级资本充足率</strong>。<br>    <br>- 这个“溢价注资”的意义在于，它甚至是在银行股价处于历史高位时完成的，说明国家为了帮助核心银行满足巴塞尔协议的要求，不惜付出额外的财政成本。<br>    <br>- <strong>逻辑闭环的形成</strong>：既然国家愿意在关键时候出手，用真金白银打破银行展业的天花板，那么可以合理推演，未来当银行再次遇到业务瓶颈时，“央妈”仍然会出手。因为<strong>亲儿子就是亲儿子，当它茁壮成长、旧衣服穿不下的时候，财政部妈妈会给他买新的，不管新衣服多贵</strong>。<br>    </p>
+<p><strong>4. 知识让你与其他人“同股不同命”</strong></p>
+<p>- 同样是持有低波红利，别人可能是听别人说好就买了，而你是因为自己从头到尾捋顺了这个大逻辑。<br>    <br>- <strong>核心差异</strong>：当面临极端行情时，你的抵御能力和信心底气，与不了解背后逻辑的持有者完全不同。你的“含金量”更高。<br>    </p>
+<p>---</p></div>
+<div class='sec' id='c23s2'><h3>三、案例拆解之二：用“偿二代”体系判断险资入市的真实影响</h3><p><strong>1. 市场流传的观点与必要的警惕</strong></p>
+<p>- 当时有一个流行的说法：让险资作为长期资金入市，将成为A股长牛的重要支柱。<br>    <br>- 嘉宾对这个说法一开始就不信。这并非因为他天生不看好，而是因为他知道保险公司运营中存在一个核心的制度约束——<strong>偿二代（中国第二代偿付能力监管制度体系）</strong>。<br>    </p>
+<p><strong>2. “偿二代”如何限制了保险公司的长持能力</strong></p>
+<p>- “偿二代”全称是动态风险能力偿付测试，它是对保险公司总体可用资金和可投资业务的一套监管约束体系，<strong>每年都要进行测试</strong>。<br>    <br>- <strong>关键机制</strong>：这套体系评估的不是你的持仓最终赚了多少，而是<strong>根据持仓的波动幅度来判定风险因子</strong>。一只股票，哪怕已经涨了100%，只要在新的一年里回调了20%，系统就会将其认定为高风险因子，从而<strong>加大保险公司核心资本的占用权重</strong>。<br>    <br>- <strong>现实压力</strong>：这种机制对保险公司的资本造成了巨大的压力，天然地限制了它们像巴菲特那样超长线持有波动较大的股权资产。<br>    </p>
+<p><strong>3. 分红险的负债属性：每年必须了结的现实义务</strong></p>
+<p>- 保险公司有大量分红型寿险、万能险产品，这些产品承诺给客户的收益率通常高于银行存款利率。<br>    <br>- 保险公司需要每年向客户支付这些收益，而这笔钱<strong>来自于保险资金的投资收益</strong>——天上不掉钱，地里不长钱。<br>    <br>- <strong>核心矛盾</strong>：这类带有分红性质的资金，具有现实意义的<strong>债务偿付约束</strong>——每年都有到期需要支付的分红。这意味着，当投资产生浮盈后，保险公司有天然的<strong>获利了结压力</strong>。如果不及时止盈，万一股价回落导致浮盈消失，偿付能力就会立刻承压，这个责任谁也担不了。<br>    <br>- 虽然保险公司也有可以做成超长线投资的资金，但这部分资金的比例受到上述制度框架和负债属性的严格限制。<br>    </p>
+<p><strong>4. 最终判断：现阶段险资必须当“百岁山”</strong></p>
+<p>- 综合以上两点，嘉宾得出结论：在当前的“偿二代”体系和保险产品结构下，<strong>险资很难成为长牛的支撑力量</strong>。在泡沫位置，它必然会有减持动作，<strong>它现阶段必须当“百岁山”（指进行波段操作、获利了结）</strong>。<br>    <br>- <strong>投资意义</strong>：有了这个判断，当市场因为“险资入市”的利好而情绪狂热时，你能够保持冷静；当保险公司因为阶段性减持而引发市场恐慌和各种利空解读时，你也不会慌乱，因为你知道这是制度框架下的必然行为。<br>    </p>
+<p>---</p></div>
+<div class='sec' id='c23s3'><h3>四、案例拆解之三：用底层宏观逻辑打通科技与消费的关系</h3><p><strong>1. 张坤的观点与嘉宾想提供的新角度</strong></p>
+<p>- 易方达基金经理张坤在被问及为何坚守消费时，给出了一个观点：如果你相信未来中国人的生活水平会比现在更好，那么消费总量就一定会比现在更好。<br>    <br>- 嘉宾认可这个逻辑，同时想从一个<strong>更底层、更根本的宏观大逻辑</strong>来补充论证。<br>    </p>
+<p><strong>2. 最根本的逻辑：所有科技进步，最终必然要转化为消费</strong></p>
+<p>- <strong>核心命题</strong>：科技进步创造出来的价值，最终要以什么形式来体现？<strong>终究要以终端消费的形式来体现</strong>。也就是说，公司必须能把产品卖出去，有人买单，它才能盈利，才能持续运转。<br>    <br>- <strong>极端假设</strong>：假设未来AI强大到制造出一个“超脑”，能替代全人类的所有工作，导致所有人失业。届时，这个社会将失去消费能力，生产力再强也无法持续。这说明，脱离终端消费的科技繁荣，本质上是无源之水。<br>    <br>- <strong>终极结论</strong>：<strong>科技进步只会改变消费的“结构”和“品类”，而不会消灭消费的“总量”</strong>。比如，大家的出行消费从买自行车变成了买汽车，消费的类别变了，但消费总额在增长。<br>    </p>
+<p><strong>3. 当前AI泡沫的本质</strong></p>
+<p>- AI技术的先进性本身没有问题，但它目前仍存在泡沫，核心原因在于：<strong>它还没有找到能够产生充分终端消费、实现自我造血回血的路径</strong>。<br>    <br>- 在能够自我造血之前，它需要持续烧钱。一旦资金注入停止，脆弱的繁荣可能顷刻崩塌。这和它的技术有多先进，并不矛盾。<br>    </p>
+<p><strong>4. 思维实战演练：以白酒为例进行逻辑自我攻防</strong></p>
+<p>- 嘉宾做了一个逻辑推演的实战示范，相当于在直播中跟自己辩论。<br>    <br>- <strong>正方问题（模拟质疑者）</strong>：既然消费结构会变，那像白酒这类“古老”消费品，未来会不会在消费结构中被挤压？年轻人更喜欢科技产品，白酒消费占比必然下降，那么现在的所谓“低估值”是否是真的低估？<br>    <br>- <strong>反方驳斥（逻辑纠错）</strong>：<br>    <br>    - <strong>错误归因</strong>：上述观点的根本谬误，是<strong>错误地将白酒消费与科技产品消费对立起来</strong>，假设二者是此消彼长的互斥关系。而实际上，一个老板可以既买豪车、又喝茅台，这两件事并不冲突。<strong>这二者不是互斥的</strong>。<br>        <br>    - <strong>历史与人性根源</strong>：酒的消费，满足的不是简单的口腹之欲，而是一种很本真的人类精神需求。考古证据显示，人类在9000年前就已经掌握了酿酒技术。几千年来，无论文明和科技如何翻天覆地，酒的消费从未消失。这说明<strong>酒这种东西很难被轻易舍弃或替代</strong>。<br>        <br>    - <strong>定价权逻辑</strong>：茅台的价格不由普通人工资或通胀水平决定，而<strong>由其目标消费群体的消费能力决定</strong>。只要这部分人的收入水平不受影响，茅台该涨价还是会涨价。<br>        <br>- <strong>这个示范的意义不在于结论本身（看好或不看好白酒），而在于展示你该如何去构建一套能够自圆其说、能应对质疑的投资逻辑。</strong><br>    </p>
+<p>---</p></div>
+<div class='sec' id='c23s4'><h3>五、实践论：如何将认知转化为投资中的行动力与心态</h3><p><strong>1. 充分认知与知行合一，是长期生存的必要条件</strong></p>
+<p>- <strong>必要条件，而非充分条件</strong>：拥有完善的认知体系、做到知行合一，不保证你一定能赚大钱。买点太高、估值太贵，即便看对了大方向，也可能长期不赚钱（例如中石油IPO时买入的投资者）。<br>    <br>- <strong>生存底线</strong>：但如果你想在这个市场中长期生存，想不被收割，想不因狂热而追高接盘、不因恐慌而割肉在黎明前，<strong>这套完整的认知体系和知行合一的能力，就是你必须具备的</strong>。<br>    </p>
+<p><strong>2. 以Z哥投资李宁为镜：极端行情下的信仰</strong></p>
+<p>- 知名投资人Z哥投资李宁的案例极为典型。<br>    <br>- 他曾在李宁下跌过程中持续买入，从十几块买到八块。之后股价从八块继续暴跌至两块，跌幅再达75%。更痛苦的是，在触底后，李宁的股价并非V型反转，而是<strong>在底部反复震荡了8年</strong>。<br>    <br>- <strong>为什么他能拿住？</strong> 不是因为他预测到了最低点，而是因为他在李宁干过，他确信自己对这个行业的认知是足够完善的。他认定了公司被极度低估，无论市场砸到多低，他都能坚持自己的判断。<br>    <br>- <strong>核心启示</strong>：当他自己持仓巨大、面临如此极端漫长的考验时，任何人的“心理按摩”都无济于事。让他活下来的，只有他对自己那套完整逻辑的绝对自信。<br>    </p>
+<p><strong>3. 真实案例警示：再聪明的人也可能变形</strong></p>
+<p>- 嘉宾分享了一个令他震惊的近期真实案例：一位朋友，曾作为<strong>核心成员参与央企资金管理制度的课题修订</strong>，在认知和学识层面绝对属于顶尖水平。<br>    <br>- 但就是这样一个人，近期因为心态崩溃，<strong>在84元的高位割掉了低位的持仓，转而买入工业富联</strong>。这笔操作恰好买在高点，随即被套。<br>    <br>- <strong>这个案例的冲击力在于</strong>：当一个人的知识体系没有真正内化成为坚定信仰时，即便是认知水平远超常人的人，在市场情绪的极端冲击下，依然会做出非常“韭菜”的操作。<br>    <br>- <strong>切勿高估自己</strong>：不要觉得这种事一定不会发生在自己身上。如果你没有一套自己真正想透、吃透的完整逻辑体系，你将来可能就是那个在顶部接盘、在底部割肉的人。<br>    </p>
+<p><strong>4. 学习路径：不要畏难，日积月累</strong></p>
+<p>- <strong>心态调整</strong>：不要把“建立完整认知体系”这件事想象得特别困难、特别专业。不要一上来就有畏难情绪。<br>    <br>- <strong>行动指引</strong>：就像每天坚持去健身房一样，<strong>坚持每天学一点东西</strong>。看一些优质的分析，读一些投资相关的经典书籍（嘉宾强烈推荐《<strong>周期</strong>》这本书，认为它能很好地解答关于行业周期盛衰的底层逻辑），慢慢构建你自己的框架。<br>    <br>- <strong>最终追求</strong>：不要求你成为专家，但至少在你投资的那个标的、那个行业上，你要有自己的、逻辑自洽的一套体系，并用这套体系指导你的知行合一。<strong>最终，真正能让你坚定的，不是任何其他人，是你自己的、完整的逻辑。</strong></p></div></div>
+
+<div class='c-block' id='c24'><h2>连麦实录：投资路上的经验、教训与市场认知</h2><div class='sec' id='c24s0'><h3>一、主播开场：关于历史前高、盘面复盘的思考</h3><p><strong>1. 历史前高不是必然能被突破的锚点</strong></p>
+<p>- 很多人认为每一波牛市都会突破历史前高，<strong>这个认知是错误的</strong>。<br>    <br>- 必须搞清楚上一波历史前高是因为什么原因达到的。例如某标的当年能到300元，与其涉及蚂蚁金服的概念关系很大。当这个概念不复存在，那个历史高点就<strong>不能作为一个合格的锚点</strong>。<br>    <br>- 同期对比：腾讯在这一波行情中从低点起来，已经接近历史前高，而前述标的离历史前高还差很远。原因是<strong>当初两者的泡沫不在一个级别</strong>。<br>    <br>- 类似的案例还有中石油，当年上市时43元的高点，中间经历了多波牛市，最高也只到过12元，至今未能收复。<br>    <br>- <strong>核心结论</strong>：千万不要盲目认为什么标的都一定能过历史前高，一定要分析清楚前高形成的特殊背景。<br>    </p>
+<p><strong>2. 关于盘面复盘的思考</strong></p>
+<p>- 主播认为直播间里<strong>最没有价值的动作就是看盘面、过标的</strong>。<br>    <br>- 因为基于之前讲过的策略（小流、水流湍急、三个月等），很多判断已经像“1+1=2”一样简单，反复看盘面只是在做心理按摩，浪费时间。<br>    <br>- 主播更希望观众拿着已经给到的“最小模型”自己去练，基本在牛市里就不会追高、不会轻易满仓，这样到了熊市才能大展拳脚。<br>    <br>- 今后盘面切片不再公开发布，因为太多外面的人看反而不好。主播更喜欢连麦，让处于不同阶段的散户朋友都来讲一讲，引起大家的共鸣。<br>    </p>
+<p>---</p></div>
+<div class='sec' id='c24s1'><h3>二、连麦观众一：蜗牛666——一个新手小白的自我剖析</h3><p><strong>1. 新手常见的“害怕错过”心理</strong></p>
+<p>- 蜗牛666从今年2月开始接触投资，最初只拿了1万本金跟投基金实盘。<br>    <br>- 后来因为<strong>担心错过行情</strong>，把本金追加到了3万去打底仓。<br>    <br>- 主播点出：这种生怕买少了、觉得马上要起飞的心理，几乎是每个新手都会经历的。明明已经看过“定投的真相”等相关内容，知道应该怎么做，但心理作用还是会驱使人去追。<br>    </p>
+<p><strong>2. 从基金到个股的“试水”与教训</strong></p>
+<p>- 觉得基金太慢，又去股票市场自己“组建球队”。<br>    <br>- 在3月份买入某标的底仓，4月下旬又加仓，之后就再没动过。<br>    <br>- <strong>心态波动</strong>：每天反复看盘，跌了心情不好，涨了又特别开心。这种被盘面左右情绪的状态，也是新手的典型特征。<br>    </p>
+<p><strong>3. 一种普遍的心理：幻想型拥有</strong></p>
+<p>- 蜗牛666提到一个概念叫<strong>“幻想型拥有”</strong>——幻想自己买入之后立刻迎来一波大行情，然后起飞。<br>    <br>- 他在很多评论区也看到类似现象：看到某个标的涨了，就有人着急问还能不能入，感觉买了之后马上就要飞。<br>    <br>- <strong>主播对此的回应</strong>：<br>    <br>    - 对于一个处于大底部的周期股来说，底部区间二三十个点的波动，并不影响最终赚大钱。真正需要防范的，是它在你重仓之后<strong>再往下跌一个大的台阶</strong>（比如从57跌到40），而不是担心它小涨踏空。<br>        <br>    - 如果买入一个标的，只是为了从50涨到70这种小行情，那这种标的从一开始就不该进入选股池。<br>        <br>    - 主播讲“55块”这种具体的点位，并不是因为这个点位本身有多大意义，而是<strong>必须给一个具体的参照物，很多人才能管住手</strong>。如果不讲一个具体的数字，很多人早就忍不住频繁操作了。<br>        </p>
+<p><strong>4. “三个月”规则的深层意义：人性掌控的训练</strong></p>
+<p>- 当标的真正涨到某个位置时，主播强调的其实是“三个月”比具体价格更重要。<br>    <br>- <strong>往上走的情况</strong>：如果标的在三个月内涨上去了，你忍住了没买，你会难受，因为你觉得自己错过了底。但当你三个月期满再买入，你就完成了一次闭环——你执行了自己的交易纪律，获得了<strong>正反馈</strong>：你知道了自己能够管住手，能够不去抄那个“精确的底”，从而真正理解什么是“底部区间”。<br>    <br>- <strong>往下走的情况</strong>：如果标的在三个月内跌下去了，你会更开心，因为你发现自己忍住了，避免了更大的浮亏。下一次你再执行“三个月”规则时，你的内心会更强大了。<br>    <br>- <strong>核心价值</strong>：这种对自己人性的掌控能力，在市场上是极度稀缺的，比所谓的分析盘面更加稀缺。这个过程会不断锻炼投资者，其重要性远超一次成功的抄底或逃顶。<br>    </p>
+<p><strong>5. 蜗牛666的总结：无欲则刚</strong></p>
+<p>- 经历了这些之后，他悟出四个字：<strong>无欲则刚</strong>。<br>    <br>- 不被短期的欲望所牵引，才能真正做到独立判断。<br>    </p>
+<p>---</p></div>
+<div class='sec' id='c24s2'><h3>三、主播即兴分享：为什么在牛市中算估值没有意义</h3><p><strong>1. 估值在牛市中极度失准</strong></p>
+<p>- 有观众问为什么不按估值水平来做基准操作。主播认为估值在牛市里<strong>很难算，算不了一点</strong>。<br>    <br>- 牛市中估值会有一个很大的区间，<strong>极其失准</strong>。原因是牛市尤其是中后期，各种研报、分析都像“神话故事”，没有任何参考价值。<br>    </p>
+<p><strong>2. 亲身经历：腾讯的估值演变全过程</strong></p>
+<p>- 主播分享了自己完整经历的一轮腾讯估值变化过程：<br>    <br>    - <strong>牛市顶部阶段</strong>：当年腾讯在700元附近时，市面上出现各种调研报告、采访，说腾讯能上1000元。<br>        <br>    - <strong>下跌初期</strong>：跌到600、540元时，依然有人说腾讯能上800元。<br>        <br>    - <strong>跌到平台区（400-420元）</strong>：这时才开始有一些研报认真讨论腾讯的合理估值，认为300元是合理位置。<br>        <br>    - <strong>继续下跌到280元</strong>：开始出现非常专业的报告，称280元是腾讯的“史诗级价值位”，逻辑讲得清清楚楚。<br>        <br>    - <strong>最终底部（200元附近）</strong>：主播在2022年10月，以约207元的价格买入腾讯。<strong>这个时候，他才真正看得懂腾讯的估值</strong>。<br>        <br>- <strong>核心规律</strong>：<br>    <br>    - 在牛市和下跌初期，所有的估值报告基本都是假的，逻辑绕来绕去，看不清真假。<br>        <br>    - <strong>只有在熊市里，当市场出现极度恐慌性的超跌时，估值才变得容易计算</strong>。因为这个时候会出现极其低估的位置，即便你算得不是很精确，你也能明确感知到这个位置“就是便宜”。<br>        <br>    - 所以主播在牛市中从来不碰高位的东西，所有讲估值的报告都当是放屁。只有当<strong>确认牛转熊、出现踩踏之后</strong>，才会去读研报、去市场里淘金。<br>        </p>
+<p><strong>3. 熊市淘金的前提：不要在牛市被套牢</strong></p>
+<p>- 主播强调，熊市带大家玩“很简单，没什么难度”，但<strong>前提是你不要在牛市高位套牢</strong>。如果在高位套牢了，到熊市底部的时候，讲再多逻辑都没有用，因为你已经没有子弹了。<br>    </p>
+<p>---</p></div>
+<div class='sec' id='c24s3'><h3>四、连麦观众二：一名在校学生——韭菜的“花样亏钱史”与成长</h3><p><strong>1. 支付宝基金的启蒙与幻灭</strong></p>
+<p>- 最初在支付宝上跟着博主（如大司马等）买基金，每周投50、100元，觉得亏不了多少。<br>    <br>- 后来累积投入几千块，经历了2022年1月的医疗暴跌，以及游戏板块跌停（因未成年人游戏限制政策），至今支付宝里还没回本。<br>    <br>- <strong>第一次认知冲击</strong>：原以为ETF是分散风险的，结果一天干了个跌停，直接懵了。<br>    </p>
+<p><strong>2. 跟投“大V”投顾的失败经历</strong></p>
+<p>- 早期读了一个叫“螺丝钉”的财经博主的内容，他有一个大盘估值打分系统，分数越高代表估值越低。<br>    <br>- 观众从4.6分开始定投，看着分数越来越高（意味着估值越来越低），一路亏一路投。原以为5.0分就是极限，结果后来出现了5.2、5.4，最低到5.6分——<strong>估值比“极限”还要极限</strong>。<br>    <br>- 最终在底部区域割掉了。<br>    <br>- 后来这位大V又推出了投顾服务（收投顾费），观众想着“投顾肯定没问题”，又跟着买了。结果<strong>从2022年成立以来，该投顾的年化收益仅在2%到5%</strong>，其中“主动优选”组合到2024年底年化收益为负6.49%，最大回撤高达33%。<br>    <br>- <strong>反思</strong>：你买的是投顾，但你根本不知道底层资产是什么，也不知道为什么一直跌，拿不住。一个买沪深300、中证500这种普通指数的投顾，回撤33%换来年化2%-5%的收益，完全不合理。<br>    </p>
+<p><strong>3. 纳斯达克的“错过”</strong></p>
+<p>- 在A股亏钱后，听大家都说纳指好，就在纳指上一次性投了1万。结果横盘了一年，刚回本就卖掉了。而同期他建议的健身房教练，每个月无脑定投3000元，一直坚持，反而赚了很多。他自己看对了却一分没赚到。<br>    </p>
+<p><strong>4. 为数不多的成功经验</strong></p>
+<p>- 2024年8月末买入创业板50ETF，当时觉得“越来越便宜了”，买入逻辑是成立的。10月8日开盘后直觉不对劲就抛掉了，卖的逻辑虽然模糊但结果很好。主播点评：<strong>做指数一定要做大碗</strong>，否则赚不了多少钱。<br>    </p>
+<p><strong>5. 当前最大的教训：重仓单调“电子”</strong></p>
+<p>- 把前期赚的钱，在35元重仓（占球队70%）买入了某个电子标的，一路套到现在，已持有151天。<br>    <br>- <strong>主播严厉警告</strong>：<br>    <br>    - 仓位太重，<strong>绝对不能补仓</strong>。<br>        <br>    - 像茅台、阿信这类顶级标的或许可以重仓，但一般公司<strong>不能这么玩</strong>。<br>        <br>    - 正确的做法是等一波反弹赶紧减仓，把其他球员（标的）培养起来。一个球队里有一个球员全没了，只要仓位不重就无伤大雅，但仓位太重就危险了。<br>        </p>
+<p><strong>6. 总结的三条经验与一个信仰</strong></p>
+<p>- <strong>经验一（胜兵与败兵）</strong>：败兵先战而后求胜（先冲进去再想办法解套），胜兵先胜而后求战（做好充分准备再出手）。<br>    <br>- <strong>经验二（风险越跌越小）</strong>：这句话虽然简单，但没人点破之前真的意识不到。<br>    <br>- <strong>经验三（远离噪音）</strong>：千万不要加任何投资群，会严重影响心态和判断。尽量少接触财经新闻，那些信息只会带来焦虑（开心也是一种情绪波动）。要把时间花在自己身上。<br>    <br>- <strong>根本信仰</strong>：很多东西只有1%可以用过去的经验、算术来判断，剩下99%是未知的。面对未知，唯一能依靠的信仰就是<strong>相信中国会越来越好</strong>。那些唱衰的言论，不过是根据现有状况做的一个“拟合”，未来永远是未知的。用积极乐观的心态去应对，比什么都重要。<br>    </p>
+<p>---</p></div>
+<div class='sec' id='c24s4'><h3>五、连麦观众三：菜狗——A股市场的生态认知</h3><p><strong>1. A股市场存在两拨完全不同的人</strong></p>
+<p>- 一拨人在<strong>正儿八经做价值投资</strong>，另一拨人在<strong>打麻将（投机博弈）</strong>。两拨人群体都不小，把这两者搞混是很多认知混淆的根源。<br>    <br>- 很多游资实际上<strong>非常懂价值投资</strong>——他们能做到精准地把有价值的股票排除掉，只买垃圾股。因为拉有价值的股票，里面的机构会砸盘，赌桌就开不起来；拉垃圾股则没有人捣乱，游戏能继续玩下去。所以看到那些没有任何业绩支撑的股票连续涨停，不要眼红，<strong>人家只是开了一桌麻将，跟你没关系</strong>。<br>    </p>
+<p><strong>2. 公募基金的生态问题：利益不一致</strong></p>
+<p>- 很多人买基金是觉得专业的人做专业的事，风险小。但A股的公募基金存在一个根本性的制度问题：<strong>基金公司按管理规模收费</strong>。<br>    <br>- 这导致无论牛市估值多高、熊市估值多低，基金公司都<strong>永远希望你尽快买入、买入越多越好</strong>，因为盘子越大管理费越多。<br>    <br>- 他们不会像格雷厄姆或巴菲特那样，在估值过高时提醒你风险、限制你买入。<strong>他们的利益跟客户的利益是不一致的</strong>。<br>    <br>- 少数如张坤，在2021年高点时曾限制申购，这是很牛逼也很难得的。<br>    <br>- 所以对于公募基金的建议，尤其是牛市里的唱多言论，听一乐就得了。<br>    </p>
+<p><strong>3. 一个小方法：用沪深300股债利差判断整体水温</strong></p>
+<p>- 观察沪深300的<strong>股债利差</strong>（股票与债券的相对收益率差值），可以在大方向上判断市场整体是贵还是便宜。<br>    <br>- 当差值极小（股票收益率接近债券收益率），说明股票太贵了，风险溢价几乎消失。<br>    <br>- 这个方法不是特别精确，但<strong>能帮助避免在高位重仓猛干、加杠杆这种最愚蠢的错误</strong>。<br>    </p>
+<p>---</p></div>
+<div class='sec' id='c24s5'><h3>六、连麦观众四：豆豆——关于“国家队”的疑问与理解</h3><p><strong>1. 问题来源：被周围短线的声音干扰</strong></p>
+<p>- 室友做短线，经常把“国家队砸盘”、“国家队套利”挂在嘴边，各种说法五花八门，导致自己也对“国家队到底是什么”产生了困惑。<br>    </p>
+<p><strong>2. 主播的回答（从个体体验出发）</strong></p>
+<p>- <strong>为什么很多人喜欢骂国家队？</strong> 做短线的人需要一个“稻草人”来为自己的亏损找一个外部理由，国家队足够大、足够显眼，就成了最合适的靶子。但实际上，<strong>国家队显然不是他们的对手盘</strong>。<br>    <br>- <strong>不同策略下的不同体感</strong>：主播自己习惯在大底部布局，经常感觉“汪汪队来救我”，因为拉的都是那些趴在地上的标的。而那些追高的人就会觉得“汪汪队抢我蛋糕”。<strong>体感完全相反，核心在于策略不同</strong>。<br>    <br>- <strong>国家队的角色</strong>：从整个市场的角度看，国家队就是<strong>压舱石</strong>，起到宏观调控的作用，配合国家的战略和不同阶段的发展。<br>    </p>
+<p><strong>3. 关于9.24行情的理解：矫枉过正</strong></p>
+<p>- 9.24的暴涨，不是“疯牛”，而是对前期极度恐慌、极度绝望情绪的一种<strong>矫枉过正</strong>。<br>    <br>- 市场连续暴跌、通道完全走坏，要把这种情绪扭转过来，就必须下猛药。<strong>不过正，就无法矫枉</strong>。效果最好的方法就是<strong>拉到你不信为止</strong>，连续多天全面涨停，把决心毫无保留地释放给市场，让大家知道这个位置便宜，不要离开。<br>    <br>- 这种动作，<strong>只能由国家队来做</strong>，其他任何机构都没有这个号召力和实力。政策之前就出了，但大家不知道什么时候拉，真正的爆拉只能由“爸妈”来主导。<br>    </p>
+<p><strong>4. 推荐进一步学习的方向</strong></p>
+<p>- 主播建议观众去了解“<strong>牛市四步走</strong>”、“<strong>牛市起手式</strong>”等相关理论，以及阅读<strong>黄奇帆教授</strong>的书籍（如关于结构改革的内容），他对股市、政策的关系阐述得非常清晰、严丝合缝。</p></div>
+<div class='sec' id='c24s6'><h3>七、连麦观众五：小圆饼干——从“着急”到“不着急”的蜕变之路</h3><p><strong>1. 从E大（ETF拯救世界）的困境看投资的心力</strong></p>
+<p>- 小圆饼干的保险经纪人是一位资深的E大跟车者，从18年开始跟投，经历了完整的牛熊周期。据她所知，周围跟E大车的人都是盈利的。<br>    <br>- 然而即便是E大这样经验丰富、经历过多次牛熊转换、粉丝量巨大的投资博主，近期也因为持续的负面言论而影响到心境，甚至发布了一篇带有劝退意味的文章。<br>    <br>- E大的案例说明了两点：<br>    <br>    - <strong>资金规模的影响</strong>：E大的跟车资金量太大，已经可以对市场产生冲击，他不得不放弃小盘ETF，只能买大盘的。这导致他被迫收取投顾费，又引发了新的舆论攻击。<br>        <br>    - <strong>心力是散户最重要的素质</strong>：强如E大，也会被市场的言论互动影响心态。对于散户来说，<strong>心力是第一位的，其次才是经验和技术</strong>。当市场下跌、账户浮亏时，你的心里有没有波动？这才是决定成败的关键。<br>        </p>
+<p><strong>2. 亏损的根源：一定是“着急”</strong></p>
+<p>- 小圆饼干分享了自己最经典的失败案例——东方财富。<br>    <br>    - 高位回调时，明明被告诫过“前三个B1不许买”，但因为害怕“财富的列车开走了”，急于上车，第一天买入1万。<br>        <br>    - 第二天大阴线，又被“拉低成本”的冲动驱使，补了2万。<br>        <br>    - 第三天继续下跌，<strong>全仓猛干</strong>，最终成本挂在山顶，至今亏损约33%。<br>        <br>- <strong>核心总结</strong>：反推自己所有的亏损操作，不管输多输少，不管客观原因是什么，<strong>归根结底都是因为“着急”</strong>。<br>    <br>    - 赢的操作呢？都是因为<strong>不着急</strong>。比如她的某个标的，拉起来之后分批卖，不一把梭，手里始终保留一部分仓位，最终的浮盈超过100%之后，心态就彻底踏实了——再跌也跟自己没关系了。<br>        </p>
+<p><strong>3. “忍一手”的实战运用：用金融反身性对抗冲动</strong></p>
+<p>- 小圆饼干分享了她用一个小方法对抗“金融反身性”的心得：<br>    <br>    - <strong>当想买的时候</strong>：想到背后有成千上万的人跟自己一样想买。让大家先进去，自己等两天。如果跌下来了，自己的成本就比大家低；如果直接拉飞了，那说明这趟车不属于自己。<br>        <br>    - <strong>当想割的时候</strong>：已经亏成这样了，再忍一手。背后有成千上万的人跟自己一样想割，让他们先走。等大家都走完了，往往就拉起来了。<br>        <br>- <strong>“裙子理论”</strong>：特别想买一条裙子时，先让服务员开好小票，出去转一圈，隔两天再回来看。如果还是很心动，再考虑买；如果已经下头了，就省下了这笔钱。这个习惯让她从“月光”变成了能攒下钱做投资的人。<br>    <br>- 在具体标的上，她硬生生忍到了自己设定的买点才出手，哪怕中间经历各种诱惑。她认为，<strong>这个钱可以不赚，但不能亏</strong>。<br>    </p>
+<p><strong>4. 主播的补充与反思</strong></p>
+<p>- 主播也反思自己当年学的东西太多，“学杂了”。回头看，<strong>自己原来最简单的策略（小流、水满则溢）就是最好的</strong>。那些精细的短线技术，对大多数非职业交易员来说太累、太辛苦，远不如“等个碗，小流就卖”来得舒服。<br>    <br>- 主播再次强调了第一节课《对冲的真相》的重要性，认为里面没有一句废话。特别是<strong>现金对冲</strong>——手里一定要留10%-20%的现金仓位，手里有粮，心里才不慌。如果做好了高低对冲、时空对冲、板块对冲，近期的账户浮亏本不该那么大。<br>    </p>
+<p>---</p></div>
+<div class='sec' id='c24s7'><h3>八、连麦观众六：菜狗（返场）——价值投资、周期与量价关系的深度思辨</h3><p><strong>1. 如何拿得住？——认知远比心态重要</strong></p>
+<p>- 很多人拿不住股票，根本原因不是心态不好，而是没有自己的价值锚点，不知道自己持有的东西到底值多少钱。<br>    <br>- 为什么2021年很多价值投资高手纷纷折戟？因为他们误把顺周期的蓝筹当作了永恒。在宏观经济高增长的大背景下（2017-2021），他们闭着眼买蓝筹都赚钱，便忘记了周期的存在。当2021年宏观周期见顶、房地产泡沫破灭后，他们在逆周期中仍然坚持投资，自然备受煎熬。<br>    <br>- <strong>估值的意义</strong>：400块的某些蓝筹，60-80倍的估值，是建立在业绩高增的基础之上的。当所有蓝筹都处于这种高位时，<strong>唯一的解释就是市场过热、泡沫化了</strong>。真正懂价值的投资者会在那个阶段减仓。<br>    </p>
+<p><strong>2. 为何低估后还不涨？——量价关系的本质</strong></p>
+<p>- 很多人在2023-2024年觉得蓝筹跌得差不多了，买入后却发现它不但不涨，还继续阴跌。<br>    <br>- 原因在于<strong>量价关系</strong>：<strong>2021年山顶上被套的人，他们还没有割出来。只要没割够，就不会涨。</strong> 这是很简单的筹码交换逻辑。<br>    <br>    - 低位放量：是韭菜把筹码割给了主力。<br>        <br>    - 高位放量：是主力把筹码卖给了韭菜。<br>        <br>    - 主力在低位吃饱筹码之前，是不会拉升的。他们甚至不需要砸盘，只要停止买入，里面套牢的人自己就会因为绝望而把股价砸穿。<br>        <br>- <strong>没有任何技术指标是长期有效的</strong>。菜狗用程序回测过全市场5000多只股票，结论是所有公开的技术指标都是混沌的，因为一旦规律公开，量化机构就会立刻把它的利润空间消灭。<br>    </p>
+<p><strong>3. 如何区分资金的意图？——以中免为例</strong></p>
+<p>- 菜狗分享了自己精准卖在日内最高点（后视镜看）的案例，核心方法是<strong>区分资金的意图</strong>。<br>    <br>    - 做价值投资的机构：目的是买到更多的货，分时图会走得<strong>缓慢、舒缓</strong>。<br>        <br>    - 进来做短线炒作的资金：目的是更快地拉升股价，分时图会走得<strong>乱七八糟、像狗啃过一样</strong>。<br>        <br>    - 一旦判断进来的是炒作型资金，就不要管它是量化、游资还是国家队，只要放量封板不成、第二天往下按，就可以果断卖给他们，头也不回。<br>        </p>
+<p><strong>4. 价值投资的核心难点：判断企业的长期存续能力</strong></p>
+<p>- 在被问及如何看待茅台从9倍到100倍市盈率的估值区间时，菜狗指出，对于茅台来说，9倍、10倍还是15倍市盈率买入，在长期来看并不是最重要的。<strong>最重要的是，这家企业在未来能否长期存续下去。</strong><br>    <br>- 他分享了对白酒行业的一个深度观察：不能简单地将当前的低谷与2014年塑化剂事件类比，<strong>两次有重大的不同</strong>。<br>    <br>    - <strong>代际消费习惯的变迁</strong>：过去的老一辈因为没有太多饮料选择，在工作应酬中形成了对白酒的口感和成瘾性依赖。而现在的年轻人从小喝可乐、奶茶，觉得白酒又苦又辣，根本形不成依赖。<br>        <br>    - <strong>消费人群的结构性退出</strong>：随着60后、70后这一批白酒消费主力在未来10年陆续退休，新一代进入管理层的中坚力量并没有同等的白酒消费习惯。<br>        <br>    - <strong>最终结论</strong>：如果宏观经济在未来10年内能起来，白酒可能还有最后一波行情；在此之后，这个行业将大概率由大变小，慢慢萎缩。当前的茅台短期不一定贵，但长期来看，这个逻辑有待商榷。<br>        </p>
+<p><strong>5. 主播的补充：被“惯坏”的一代制造业老板</strong></p>
+<p>- 主播分享了一个与制造业老板交流后的深刻体会：过去20年（2000-2020），中国的制造业经历了长牛慢牛，经济高速发展、GDP两位数增长。这种巨大的时代红利<strong>几乎抹平了所有周期波动的痛苦</strong>。<br>    <br>- 这些老板们几乎没有感受过真正的周期。08年金融危机，一年就过去了；所以2022年他们觉得2023年会好，2023年觉得2024年会好……他们被这20年的顺境“惯坏了”，从来没有想过，当真正的时代变革、供给侧改革来临的时候，自己会是被牺牲的那一批人。<br>    <br>- 这种普遍的思维惯性，也解释了为什么在2021年的高位，那么多人真心觉得茅台、中免在那个位置“不贵”——因为他们基于过去20年的经验，盲目认为任何经济下行都只是一年就能熬过去的小插曲。<br>    <br>- <strong>这种顺境中被惯坏的思维定势，是造成本轮周期中许多人严重误判的深层原因之一。</strong></p></div></div>
+</div>
+</div>
+<button class="to-top" id="toTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script>
+(function(){
+  function updateActive(){
+    var h=location.hash.replace('#','');
+    if(!h)return;
+    document.querySelectorAll('.c-item').forEach(function(el){el.id=''});
+    var link=document.querySelector('.c-toggle[href="#'+h+'"]');
+    if(link){
+      var item=link.closest('.c-item');
+      if(item)item.id=h.replace('c','citem');
+    }
+    var el=document.getElementById(h);
+    if(el){setTimeout(function(){el.scrollIntoView({behavior:'smooth',block:'start'})},100);}
+  }
+  window.addEventListener('hashchange',updateActive);
+  updateActive();
+
+  document.querySelector('.c-list').addEventListener('click',function(e){
+    var a=e.target.closest('.sec-list a');
+    if(a){
+      e.preventDefault();
+      var id=a.getAttribute('href').replace('#','');
+      var el=document.getElementById(id);
+      if(el){el.scrollIntoView({behavior:'smooth',block:'start'});history.pushState(null,'','#'+id);updateActive();}
+    }
+  });
+
+  var btn=document.getElementById('toTop');
+  window.addEventListener('scroll',function(){btn.style.display=window.scrollY>400?'block':'none'});
+})();
+</script>
+</body>
+</html>
