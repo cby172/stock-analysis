@@ -1,0 +1,13 @@
+[
+  {"name":"中信证券","code":"600030.SH","industry":"证券","price":"25.22","pb":"1.15","pe":"4.5","valMethod":"市净率(P/B)","roe":"7-10%","rating":"周期底部布局","conclusion":"国内券商绝对龙头，P/B 1.15x处于历史低位。但ROE仅7-10%，本质是周期底部布局型投资——以1.15x P/B买入中国资本市场的长期发展。","signal":"hold"},
+  {"name":"中国中免","code":"601888.SH","industry":"免税零售","price":"","pb":"","pe":"4.4","valMethod":"市盈率(PE)","roe":"5.9%","rating":"谨慎观望","conclusion":"低PE不总是机会——毛利率持续下行（51%→32%），消费疲软+竞争加剧，盈利能力持续恶化。低PE可能是价值陷阱信号。","signal":"bearish"},
+  {"name":"比亚迪","code":"002594.SZ","industry":"新能源汽车","price":"","pb":"1.05","pe":"9.8","valMethod":"PE+PEG","roe":"8.3%","rating":"估值底部布局","conclusion":"全球最大新能源车企，垂直一体化护城河深。但2025年首次利润下滑，正经历增长放缓到成熟期的阵痛。PE 9.8x、P/B 1.05x已反映悲观预期。","signal":"hold"},
+  {"name":"贵州茅台","code":"600519.SH","industry":"白酒","price":"","pb":"","pe":"14.6","valMethod":"DCF+PE","roe":"","rating":"低估·谨慎看好","conclusion":"A股商业模式最优、护城河最深的公司。14.6x PE处近10年最低，DCF估值溢价约23%，多重估值模型均指向低估区域。","signal":"bullish"},
+  {"name":"中国广核","code":"003816.SZ","industry":"核电","price":"","pb":"","pe":"22.5","valMethod":"市盈率(PE)","roe":"9%","rating":"稳健持有","conclusion":"核电双寡头，经营现金流充沛（净利润3倍），双碳目标下增长明确。PE 22.5x处历史偏低分位，安全边际充足，属于稳但慢的投资品种。","signal":"hold"},
+  {"name":"中国核电","code":"601985.SH","industry":"核电","price":"","pb":"1.61","pe":"","valMethod":"市盈率(PE)","roe":"8.2%","rating":"等待回调","conclusion":"垄断性牌照壁垒+稳定现金流+装机成长。但ROE持续下降（11.5%→8.2%），负债率69%高位。当前估值已反映成长预期，等待更好入场时机。","signal":"bearish"},
+  {"name":"中芯国际","code":"688981.SH","industry":"半导体","price":"","pb":"6.8","pe":"204.5","valMethod":"市净率(PB)","roe":"3.4%","rating":"估值过高","conclusion":"中国大陆晶圆代工不可替代，国产替代逻辑长期成立。但P/B 6.8x、ROE仅3.4%，估值已远远脱离基本面。H股折价3-4倍是理性定价的参考。","signal":"bearish"},
+  {"name":"寒武纪","code":"688256.SH","industry":"AI芯片","price":"1205.29","pb":"42.9","pe":"244.5","valMethod":"市盈率(PE)","roe":"","rating":"估值透支","conclusion":"国产AI芯片稀缺标的，2025年营收暴增453%首次盈利。但PE 244.5x已过度反映未来数年的增长预期，安全边际极低。","signal":"bearish"},
+  {"name":"片仔癀","code":"600436.SH","industry":"中药","price":"","pb":"5.0","pe":"33.5","valMethod":"市盈率(PE)","roe":"15-28%","rating":"拐点观察中","conclusion":"国家绝密配方赋予极强护城河。但2025年营收首降(-16.6%)、利润首降(-27.5%)、经营现金流断崖至0.8亿。核心指标亮红灯，需看到企稳信号。","signal":"bearish"},
+  {"name":"牧原股份","code":"002714.SZ","industry":"生猪养殖","price":"","pb":"2.5","pe":"12.1","valMethod":"市净率(PB)","roe":"","rating":"收获期观察","conclusion":"全球最大生猪养殖企业，成本行业最优。2025年FCF首次大幅转正至228亿，从高速扩张期进入收获期。P/B 2.5x估值合理但不算便宜。","signal":"hold"},
+  {"name":"迈瑞医疗","code":"300760.SZ","industry":"医疗器械","price":"149.98","pb":"4.77","pe":"22.3","valMethod":"市盈率(PE)","roe":"","rating":"集采压力下观望","conclusion":"医疗器械龙头，财务根基扎实。但2025年遭遇最大业绩压力（营收-9.4%、净利-30.3%），PE 22.3x处历史低位。等待IVD集采落地后的企稳信号。","signal":"hold"}
+]
