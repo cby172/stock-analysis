@@ -267,7 +267,7 @@ function switchTab(name){
     return text;
   }
 
-  function sortTable(col, dir){
+  function sortTable(col, dir, isDefault){
     var rows = Array.from(tbody.querySelectorAll('tr'));
     rows.sort(function(a,b){
       var va = getCellValue(a, col);
@@ -281,25 +281,35 @@ function switchTab(name){
     // Update header indicators
     headers.forEach(function(h){
       h.classList.remove('asc','desc');
-      if(parseInt(h.getAttribute('data-col')) === col) h.classList.add(dir === 1 ? 'asc' : 'desc');
+      if(!isDefault && parseInt(h.getAttribute('data-col')) === col) h.classList.add(dir === 1 ? 'asc' : 'desc');
     });
   }
 
+  var currentSort = null;
   headers.forEach(function(h){
     h.addEventListener('click', function(){
       var col = parseInt(this.getAttribute('data-col'));
-      var wasAsc = this.classList.contains('asc');
-      var wasDesc = this.classList.contains('desc');
-      if(wasAsc) sortTable(col, -1);  // desc
-      else sortTable(col, 1);  // asc
+      var same = currentSort && currentSort.col === col;
+
+      if(!same) {
+        currentSort = { col: col, dir: 1 };
+        sortTable(col, 1);
+      } else if(currentSort.dir === 1) {
+        currentSort.dir = -1;
+        sortTable(col, -1);
+      } else {
+        currentSort = null;
+        sortTable(6, 1, true);
+      }
     });
   });
 
-  // Default: sort by signal descending (高估->低估)
-  sortTable(6, 1);
+  // Default: sort by signal (高估->低估)
+  sortTable(6, 1, true);
 })();</script>
 
 </body>
 </html>
+
 
 
