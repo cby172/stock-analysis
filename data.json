@@ -21,7 +21,7 @@
     "pinyin": "zhongguozhongmian",
     "abbr": "zgzm",
     "codeNum": "601888",
-    "aliases": ["cdfg", "中免", "cdf", "中免集团"]
+    "aliases": ["cdfg", "中免", "cdf"]
   },
   {
     "name": "比亚迪",
@@ -45,6 +45,90 @@
     "pinyin": "guizhoumaotai",
     "abbr": "gzmt",
     "codeNum": "600519",
-    "aliases": ["moutai", "茅台", "maotai", "贵州茅台酒"]
+    "aliases": ["moutai", "茅台", "maotai"]
+  },
+  {
+    "name": "中国广核",
+    "code": "003816.SZ",
+    "industry": "核电",
+    "date": "2026-06-12",
+    "file": "reports/中国广核.html",
+    "summary": "核电运营龙头 · 稳定现金流 · 高股息红利标的",
+    "pinyin": "zhongguoguanghe",
+    "abbr": "zggd",
+    "codeNum": "003816",
+    "aliases": ["cgn", "中广核"]
+  },
+  {
+    "name": "中国核电",
+    "code": "601985.SH",
+    "industry": "核电",
+    "date": "2026-06-12",
+    "file": "reports/中国核电.html",
+    "summary": "核电双雄之一 · 成长性优于同行 · 能源转型核心标的",
+    "pinyin": "zhongguohedian",
+    "abbr": "zghd",
+    "codeNum": "601985",
+    "aliases": ["cnnp", "核电"]
+  },
+  {
+    "name": "中芯国际",
+    "code": "688981.SH",
+    "industry": "半导体",
+    "date": "2026-06-12",
+    "file": "reports/中芯国际.html",
+    "summary": "国内晶圆代工龙头 · 国产替代核心 · 先进制程突破",
+    "pinyin": "zhongxinguoji",
+    "abbr": "zxgj",
+    "codeNum": "688981",
+    "aliases": ["smic", "中芯"]
+  },
+  {
+    "name": "寒武纪",
+    "code": "688256.SH",
+    "industry": "AI芯片",
+    "date": "2026-06-12",
+    "file": "reports/寒武纪.html",
+    "summary": "国产AI芯片龙头 · 算力核心标的 · 高研发投入",
+    "pinyin": "hanwuji",
+    "abbr": "hwj",
+    "codeNum": "688256",
+    "aliases": ["camabrian"]
+  },
+  {
+    "name": "片仔癀",
+    "code": "600436.SH",
+    "industry": "中药",
+    "date": "2026-06-12",
+    "file": "reports/片仔癀.html",
+    "summary": "国家绝密配方 · 中药龙头 · 高毛利消费品属性",
+    "pinyin": "pianzihuang",
+    "abbr": "pzh",
+    "codeNum": "600436",
+    "aliases": ["片仔癀药业"]
+  },
+  {
+    "name": "牧原股份",
+    "code": "002714.SZ",
+    "industry": "生猪养殖",
+    "date": "2026-06-12",
+    "file": "reports/牧原股份.html",
+    "summary": "生猪养殖龙头 · 自繁自养模式 · 成本优势突出",
+    "pinyin": "muyuangufen",
+    "abbr": "mygf",
+    "codeNum": "002714",
+    "aliases": ["牧原", "muyuan"]
+  },
+  {
+    "name": "迈瑞医疗",
+    "code": "300760.SZ",
+    "industry": "医疗器械",
+    "date": "2026-06-12",
+    "file": "reports/迈瑞医疗.html",
+    "summary": "国产医疗器械龙头 · 国际化布局 · 研发驱动增长",
+    "pinyin": "mairuiyiliao",
+    "abbr": "myry",
+    "codeNum": "300760",
+    "aliases": ["mindray", "迈瑞"]
   }
 ]
