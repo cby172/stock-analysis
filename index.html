@@ -80,7 +80,12 @@ mark{background:var(--mark-bg);color:var(--mark-text);border-radius:2px;padding:
 .footer{text-align:center;padding:16px;color:var(--text-faint);font-size:11px}
 
 @media(max-width:600px){.header{padding:40px 16px 8px}.header h1{font-size:22px}.tabs{flex-wrap:wrap}.tab{padding:5px 12px;font-size:11px}.grid{grid-template-columns:1fr}.theme-bar{top:8px;right:10px;gap:6px}.theme-dot{width:18px;height:18px}.research-wrap table{font-size:12px}.research-wrap th,.research-wrap td{padding:6px 8px}}
-</style>
+.sortable{cursor:pointer;user-select:none;position:relative;white-space:nowrap;padding-right:22px!important}
+.sortable:hover{background:rgba(255,255,255,0.08)}
+.sort-arrow{display:inline-block;font-size:11px;margin-left:3px;opacity:.4;transition:opacity .2s}
+.sortable.asc .sort-arrow::after{content:"▲";opacity:1;color:var(--accent)}
+.sortable.desc .sort-arrow::after{content:"▼";opacity:1;color:var(--accent)}
+.sortable:not(.asc):not(.desc) .sort-arrow::after{content:"⇅"}</style>
 </head>
 <body>
 
@@ -227,7 +232,74 @@ function switchTab(name){
     });
   });
 })();
-</script>
+
+// ===== Research Table Sort =====
+(function(){
+  var table = document.getElementById('researchTable');
+  if(!table) return;
+  var headers = table.querySelectorAll('th.sortable');
+  var tbody = table.querySelector('tbody');
+  if(!tbody) return;
+
+  // Signal order for sorting
+  var sigOrder = { "高估":0, "正常偏高":1, "正常":2, "正常偏低":3, "低估":4 };
+
+  function getCellValue(row, col){
+    var cell = row.cells[col];
+    if(!cell) return '';
+    var text = cell.textContent.trim();
+    // PE / P/B / ROE: extract number
+    var num = parseFloat(text);
+    if(!isNaN(num)) return num;
+    // Signal column
+    if(col === 6) {
+      var cls = cell.querySelector('.sig');
+      if(cls){
+        for(var c in sigOrder){
+          if(cls.classList.contains('sig-'+c)) return sigOrder[c];
+          if(cls.classList.contains('sig-'+ (c==='正常偏高'?'偏高':c==='正常偏低'?'偏低':c) )) return sigOrder[c];
+        }
+        // Fallback: use text
+        return sigOrder[text] !== undefined ? sigOrder[text] : 99;
+      }
+      return sigOrder[text] !== undefined ? sigOrder[text] : 99;
+    }
+    return text;
+  }
+
+  function sortTable(col, dir){
+    var rows = Array.from(tbody.querySelectorAll('tr'));
+    rows.sort(function(a,b){
+      var va = getCellValue(a, col);
+      var vb = getCellValue(b, col);
+      if(typeof va === 'number' && typeof vb === 'number') return dir * (va - vb);
+      var sa = String(va);
+      var sb = String(vb);
+      return dir * sa.localeCompare(sb, 'zh-CN');
+    });
+    rows.forEach(function(r){ tbody.appendChild(r); });
+    // Update header indicators
+    headers.forEach(function(h){
+      h.classList.remove('asc','desc');
+      if(parseInt(h.getAttribute('data-col')) === col) h.classList.add(dir === 1 ? 'asc' : 'desc');
+    });
+  }
+
+  headers.forEach(function(h){
+    h.addEventListener('click', function(){
+      var col = parseInt(this.getAttribute('data-col'));
+      var wasAsc = this.classList.contains('asc');
+      var wasDesc = this.classList.contains('desc');
+      if(wasAsc) sortTable(col, -1);  // desc
+      else sortTable(col, 1);  // asc
+    });
+  });
+
+  // Default: sort by signal descending (高估->低估)
+  sortTable(6, 1);
+})();</script>
 
 </body>
 </html>
+
+
