@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>中国中免投资价值分析报告</title>
+<style>
+@page { size: A4; margin: 2cm; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Microsoft YaHei','SimSun',sans-serif; color: #1a1a2e; line-height: 1.8; background: #fafafa; padding: 40px; }
+.container { max-width: 960px; margin: 0 auto; background: #fff; padding: 50px 60px; box-shadow: 0 0 30px rgba(0,0,0,0.06); }
+h1 { font-size: 28px; text-align: center; color: #1a5276; margin-bottom: 5px; letter-spacing: 2px; }
+h2 { font-size: 20px; color: #1a5276; border-left: 5px solid #2980b9; padding-left: 15px; margin: 35px 0 18px 0; }
+h3 { font-size: 17px; color: #2c3e50; margin: 22px 0 12px 0; }
+.subtitle { text-align: center; color: #666; font-size: 14px; margin-bottom: 30px; border-bottom: 2px solid #1a5276; padding-bottom: 20px; }
+table { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 14px; }
+table th { background: #1a5276; color: #fff; padding: 10px 12px; text-align: center; font-weight: 500; }
+table td { padding: 8px 12px; text-align: center; border-bottom: 1px solid #e8e8e8; }
+table tr:nth-child(even) { background: #f0f4fa; }
+table tr:hover { background: #dce6f0; }
+.chart-container { text-align: center; margin: 25px 0; }
+.chart-container img { max-width: 100%; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); }
+.highlight-box { background: linear-gradient(135deg, #eef3fa, #e3ecf5); border-left: 4px solid #2980b9; padding: 18px 22px; margin: 18px 0; border-radius: 0 8px 8px 0; }
+.highlight-box.green { background: linear-gradient(135deg, #f0faf4, #e8f5e9); border-left-color: #2e8b57; }
+.highlight-box.orange { background: linear-gradient(135deg, #fef9f0, #fef3e2); border-left-color: #e67e22; }
+.highlight-box.red { background: linear-gradient(135deg, #fdf6f6, #fce8e8); border-left-color: #c0392b; }
+ul, ol { padding-left: 25px; margin: 12px 0; }
+li { margin-bottom: 8px; }
+.metric-grid { display: flex; flex-wrap: wrap; gap: 12px; margin: 18px 0; }
+.metric-item { flex: 1; min-width: 140px; background: #fafafa; padding: 15px; text-align: center; border-radius: 8px; border: 1px solid #eee; }
+.metric-item .value { font-size: 22px; font-weight: bold; color: #1a5276; }
+.metric-item .label { font-size: 12px; color: #888; margin-top: 4px; }
+.tag { display: inline-block; background: #1a5276; color: #fff; padding: 2px 10px; border-radius: 4px; font-size: 12px; margin: 2px; }
+.tag.green { background: #2e8b57; }
+.tag.blue { background: #2980b9; }
+.tag.orange { background: #e67e22; }
+p { margin-bottom: 14px; text-indent: 2em; text-align: justify; }
+p.no-indent { text-indent: 0; }
+.footer { text-align: center; color: #999; font-size: 12px; margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee; }
+.risk-meter { display: inline-block; padding: 3px 14px; border-radius: 20px; font-weight: bold; font-size: 13px; }
+.risk-high { background: #fde8e8; color: #c0392b; }
+.risk-mid { background: #fef3e2; color: #e67e22; }
+.risk-low { background: #e8f5e9; color: #2e8b57; }
+@media print {
+    body { background: #fff; padding: 0; }
+    .container { box-shadow: none; padding: 40px; }
+    .chart-container img { max-height: 400px; }
+}
+
+@media (max-width:768px){
+body{padding:8px;}
+.container{padding:20px 14px;}
+h1{font-size:20px;letter-spacing:1px;}
+h2{font-size:17px;margin:24px 0 12px;}
+h3{font-size:15px;}
+h4{font-size:14px;}
+table{font-size:10.5px;width:100%;border-collapse:collapse;}
+div.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:18px 0;}
+table th,table td{padding:8px 14px;white-space:normal;word-break:break-word;}
+p{text-indent:1em;font-size:14px;}
+.highlight-box{padding:12px 14px;}
+.metric-grid{gap:8px;}
+.metric-item{min-width:44%;padding:10px;}
+.metric-item .value{font-size:18px;}
+.subtitle{font-size:12px;}
+.tag{font-size:10px;padding:2px 8px;}
+ul,ol{padding-left:20px;}
+}
+@media print{
+body{background:#fff;padding:0;}
+.container{box-shadow:none;padding:30px;}
+}
+</style>
+</head>
+<body>
+<div class="container">
+<div style="text-align:left;padding:10px 0 30px;border-bottom:1px solid #333;margin-bottom:25px;"><a href="../index.html" style="color:#1a5276;text-decoration:none;font-size:15px;">&larr; 返回首页</a></div>
+
+<h1>中国中免（601888.SH）投资价值分析报告</h1>
+<div class="subtitle">
+    <p class="no-indent">报告日期：2026年6月10日 &nbsp;|&nbsp; 最新收盘价：<strong style="color:#c0392b;">58.05元</strong> &nbsp;|&nbsp; 数据范围：2015-2025年</p>
+    <p class="no-indent" style="margin-top:5px;">
+        <span class="tag">A股 601888</span>
+        <span class="tag green">国有企业</span>
+        <span class="tag blue">旅游零售龙头</span>
+        <span class="tag orange">沪深300</span>
+    </p>
+</div>
+
+<!-- ===== 一、公司概况 ===== -->
+<h2>一、公司概况</h2>
+<div class="highlight-box">
+    <p class="no-indent"><strong>公司全称：</strong>中国旅游集团中免股份有限公司</p>
+    <p class="no-indent"><strong>股票代码：</strong>601888.SH（上交所主板）</p>
+    <p class="no-indent"><strong>曾用名：</strong>中国国旅（2020年6月更名）</p>
+    <p class="no-indent"><strong>所属行业：</strong>旅游零售（免税品销售）</p>
+    <p class="no-indent"><strong>企业性质：</strong>国有企业（中国旅游集团控股，最终控制人为国务院国资委）</p>
+    <p class="no-indent"><strong>主营业务：</strong>免税品销售及旅游零售综合服务</p>
+    <p class="no-indent"><strong>核心资产：</strong>拥有中国最完整的免税零售渠道，包括三亚国际免税城、海口国际免税城、日上（北京/上海）、广州免税等</p>
+</div>
+
+<h3>行业概述</h3>
+<p>中国中免所处的<strong>免税行业</strong>是中国消费领域最具政策壁垒的赛道之一。免税品销售是指由国家批准、在特定场所（机场、口岸、离岛等）向特定人群（出境/入境旅客）销售免征关税、增值税和消费税的商品。中国免税行业具有以下特征：</p>
+<ul>
+    <li><strong>高度政策壁垒</strong>：免税经营牌照由国家严格管控，目前仅有中免（拥有全部8种牌照）、王府井、海旅投、深免、珠免等少数企业持有。</li>
+    <li><strong>离岛免税为核心增长极</strong>：自2011年海南离岛免税政策实施以来，海南已成为全球最大的离岛免税市场之一。离岛免税销售额占中国免税市场超过70%。</li>
+    <li><strong>行业规模持续扩大</strong>：中国免税市场从2019年约500亿元增长至2023年约1000亿元，成为全球第二大免税市场（仅次于韩国）。</li>
+    <li><strong>竞争格局：一超多强</strong>——中免市场份额约85%-90%，处于绝对垄断地位。</li>
+</ul>
+
+<!-- ===== 二、商业模式与产品力 ===== -->
+<h2>二、商业模式与产品力</h2>
+
+<h3>商业模式</h3>
+<p>中国中免的商业模式可以概括为<strong>"牌照壁垒×渠道网络×供应链规模"</strong>三位一体：</p>
+<ul>
+    <li><strong>牌照壁垒：</strong>中免是目前中国唯一拥有全国性免税经营资质的企业（拥有免税全品类牌照）。这使得中免在机场、口岸、离岛、市内等各类免税渠道均能合法经营，而竞争对手只能在特定区域经营。</li>
+    <li><strong>渠道网络：</strong>中免在全国拥有超过200家免税门店，包括三亚国际免税城（全球最大单体免税店）、海口国际免税城、日上（北京、上海）、广州、杭州、成都等主流机场免税店。</li>
+    <li><strong>供应链优势：</strong>凭借年超500亿的采购规模，中免对国际品牌（雅诗兰黛、欧莱雅、LVMH、历峰等）拥有极强议价能力，采购成本低于竞争对手10%-20%。</li>
+    <li><strong>盈利模式：</strong>以"香化产品引流→精品/奢侈品提利润"为核心——香化产品（占比约60%）价格竞争力最强，是吸引客流的抓手；腕表、珠宝、箱包等精品（占比约25%）贡献更高毛利率。</li>
+</ul>
+
+<h3>产品体系</h3>
+<div class="highlight-box green">
+    <p class="no-indent"><strong>核心品类结构：</strong></p>
+    <ul>
+        <li><strong>香化产品（约60%）：</strong>雅诗兰黛、兰蔻、迪奥、SK-II、海蓝之谜等国际一线品牌，价格通常比国内专柜低20%-40%。</li>
+        <li><strong>精品/时尚（约25%）：</strong>卡地亚、Tiffany、宝格丽、Prada、Gucci等奢侈品牌腕表、珠宝、箱包。</li>
+        <li><strong>烟酒食品（约10%）：</strong>中华、茅台等国产高端烟酒，以及进口葡萄酒、威士忌等。</li>
+        <li><strong>其他（约5%）：</strong>电子产品、保健品、食品等。</li>
+    </ul>
+</div>
+
+<h3>定价权分析</h3>
+<p>中免的定价权<strong>中等偏强</strong>，体现在：</p>
+<ul>
+    <li><strong>上游议价能力：</strong>作为全球最大的旅游零售商（按销售额排名全球第一），中免对品牌方有较强的议价能力，可以获得更低的采购价格和更优先的货源供应。</li>
+    <li><strong>终端定价受限于跨境竞争：</strong>由于消费者可以比较韩国、东南亚等地的免税价格，中免在终端定价上受到一定制约。但在海南离岛免税渠道，中免具有垄断地位，定价自由度较高。</li>
+    <li><strong>价格优势来自免税政策：</strong>免征关税、增值税和消费税（三税合计约30%-50%）是最大优势，这是政策红利而非经营能力。</li>
+</ul>
+
+<!-- ===== 三、关键财务指标分析 ===== -->
+<h2>三、关键财务指标分析（2018-2025年）</h2>
+
+<div class="metric-grid">
+    <div class="metric-item"><div class="value">536.94亿</div><div class="label">2025年营收</div></div>
+    <div class="metric-item"><div class="value">35.86亿</div><div class="label">2025年归母净利润</div></div>
+    <div class="metric-item"><div class="value">32.8%</div><div class="label">最新毛利率</div></div>
+    <div class="metric-item"><div class="value">6.7%</div><div class="label">最新净利率</div></div>
+    <div class="metric-item"><div class="value">58.05元</div><div class="label">最新股价(2026.6.10)</div></div>
+</div>
+
+<div class="chart-container">
+    <img src="中国中免_营收股价双轴图.png" alt="营收-股价双轴图">
+    <p style="text-align:center;color:#888;font-size:13px;margin-top:6px;">▲ 蓝色柱状图为季度营收（亿元），红色曲线为股价走势</p>
+</div>
+
+<h3>营收与利润趋势</h3>
+<table>
+    <tr><th>年份</th><th>营收（亿元）</th><th>毛利率</th><th>归母净利（亿元）</th><th>净利率</th><th>营业利润（亿元）</th></tr>
+    <tr><td>2018</td><td>470.07</td><td>41.5%</td><td>30.95</td><td>6.6%</td><td>54.26</td></tr><tr><td>2019</td><td>486.12</td><td>51.1%</td><td>46.32</td><td>9.5%</td><td>73.56</td></tr><tr><td>2020</td><td>525.98</td><td>40.6%</td><td>61.4</td><td>11.7%</td><td>96.94</td></tr><tr><td>2021</td><td>676.76</td><td>33.7%</td><td>96.54</td><td>14.3%</td><td>148.04</td></tr><tr><td>2022</td><td>544.33</td><td>28.4%</td><td>50.3</td><td>9.2%</td><td>76.19</td></tr><tr><td>2023</td><td>675.4</td><td>31.8%</td><td>67.14</td><td>9.9%</td><td>86.77</td></tr><tr><td>2024</td><td>564.74</td><td>32.0%</td><td>42.67</td><td>7.6%</td><td>61.78</td></tr><tr><td>2025</td><td>536.94</td><td>32.8%</td><td>35.86</td><td>6.7%</td><td>53.04</td></tr>
+</table>
+
+<table>
+    <tr><th>年份</th><th>营收同比增长</th></tr>
+    <tr><td>2019</td><td style='color:#2e8b57;font-weight:bold;'>+3.4%</td></tr><tr><td>2020</td><td style='color:#2e8b57;font-weight:bold;'>+8.2%</td></tr><tr><td>2021</td><td style='color:#2e8b57;font-weight:bold;'>+28.7%</td></tr><tr><td>2022</td><td style='color:crimson;font-weight:bold;'>-19.6%</td></tr><tr><td>2023</td><td style='color:#2e8b57;font-weight:bold;'>+24.1%</td></tr><tr><td>2024</td><td style='color:crimson;font-weight:bold;'>-16.4%</td></tr><tr><td>2025</td><td style='color:crimson;font-weight:bold;'>-4.9%</td></tr>
+</table>
+
+<h3>三秒财务解读</h3>
+<div class="highlight-box green">
+    <p class="no-indent"><strong>第一眼：周期波动明显。</strong>中国中免的业绩与旅游消费高度相关。2021年是业绩巅峰（营收677亿、归母净利97亿），此后受宏观经济放缓和消费降级影响逐年下滑。2025年营收仅537亿，归母净利36亿，较2021年高点分别下降21%和63%。这与贵州茅台的稳定性形成鲜明对比。</p>
+    <p class="no-indent"><strong>第二眼：毛利率偏高但净利率偏低。</strong>毛利率约30%-35%（国内零售业中偏上），但净利率仅约6%-10%（2025年约6.7%）。原因是期间费用率较高：销售费用率约12%-15%（租金+人工+营销），管理费用率约3%-4%，侵蚀了利润空间。</p>
+    <p class="no-indent"><strong>第三眼：资产负债结构健康。</strong>总资产856亿元，净资产637亿元，资产负债率仅25.5%。账上货币资金353亿元，无有息负债，财务安全性极高。</p>
+</div>
+
+<h3>资产负债表核心指标</h3>
+<p>总资产22亿元 | 净资产5亿元 | 资产负债率76.1% | 货币资金6亿元 | 存货3亿元</p>
+
+<!-- ===== 四、估值分析 ===== -->
+<h2>四、估值分析</h2>
+
+<h3>1. PE（市盈率）估值法</h3>
+<p>以2025年归母净利润35.86亿元计算，当前股价58.05元，总股本约20.7亿股（注：中免经历多次增发和股本变动，实际流通约20.7亿股），对应<strong>总市值约1,201亿元</strong>：</p>
+<ul>
+    <li><strong>静态PE：</strong>1201亿 ÷ 35.86亿 ≈ <strong>33.5倍</strong></li>
+    <li><strong>历史PE区间：</strong>中免近5年PE在20-60倍之间大幅波动。2021年高点时PE超过60倍，而2022年低谷时PE约25倍。当前33.5倍处于<strong>历史中位偏低</strong>区间。</li>
+    <li><strong>合理估值参考：</strong>考虑到免税行业的成长性和政策壁垒，给予25-35倍PE区间较为合理，对应市值897-1255亿元，股价约43-61元。</li>
+</ul>
+
+<h3>2. PEG估值法</h3>
+<p>目前业绩处于下行周期，PEG估值适用性有限。若以2025年为业绩底部、假设2026-2028年净利润恢复至50-60亿元（年复合增速15%-20%），则PEG约为1.7-2.2倍，估值合理但未显著低估。</p>
+
+<h3>3. PS（市销率）估值法</h3>
+<ul>
+    <li><strong>当前PS：</strong>1201亿 ÷ 537亿 ≈ <strong>2.2倍</strong></li>
+    <li><strong>历史PS区间：</strong>中免PS在2-8倍之间波动。当前2.2倍处于<strong>历史低位</strong>，接近2022年疫情封控时期的极值。</li>
+</ul>
+
+<h3>综合估值结论</h3>
+<div class="highlight-box orange">
+    <p class="no-indent"><strong>当前估值概览：</strong>PE ≈ 33.5倍，PS ≈ 2.2倍，PB ≈ 1.9倍</p>
+    <p class="no-indent"><strong>判断：</strong>当前股价58.05元，PE 33.5倍处于历史中位偏低位置。PS 2.2倍处于历史低位，反映市场对业绩继续下滑的悲观预期。对于免税行业而言，2.2倍PS具备一定性价比，但前提是业绩能触底回升。<strong>核心不确定性在于：当前业绩下滑是周期性的还是结构性的？</strong>如果是周期性的（消费回暖即可修复），则当前估值有吸引力；如果是结构性的（出境游分流、消费习惯改变），则估值还需进一步消化。</p>
+</div>
+
+<!-- ===== 五、投资亮点与风险 ===== -->
+<h2>五、投资亮点与风险</h2>
+
+<h3>投资亮点（为什么买中国中免）</h3>
+<ol>
+    <li><strong>垄断性牌照壁垒：</strong>中免是唯一拥有全国性免税全品类牌照的企业，竞争对手难以逾越政策门槛。</li>
+    <li><strong>全球第一的渠道规模：</strong>三亚国际免税城、海口国际免税城等核心资产不可复制，是全球最大的旅游零售商。</li>
+    <li><strong>供应链议价权：</strong>超500亿元的采购规模带来显著成本优势，毛利率高于国际竞争对手。</li>
+    <li><strong>股价充分调整：</strong>从2021年高点约400元跌至目前58元，跌幅超85%，悲观预期已充分反映。</li>
+    <li><strong>消费复苏潜力：</strong>中国居民出境游和高端消费终将恢复，海南自贸港政策持续加码。</li>
+    <li><strong>估值处于历史低位：</strong>PS 2.2倍为历史底部区域，PB仅1.9倍。</li>
+</ol>
+
+<h3>不能投资的理由（风险与顾虑）</h3>
+<ol>
+    <li><strong>业绩持续恶化：</strong>2023-2025年营收从675亿→565亿→537亿，归母净利从67亿→43亿→36亿，下滑趋势未见底。</li>
+    <li><strong>消费降级冲击：</strong>中产消费信心不足，免税消费属于弹性消费品，经济下行首当其冲。</li>
+    <li><strong>出境游分流风险：</strong>随着出境游恢复，部分消费从海南离岛免税转向海外（韩国、日本、东南亚），形成分流。</li>
+    <li><strong>牌照红利减弱：</strong>王府井等新进入者获得免税牌照，虽然短期难以撼动中免地位，但长期竞争加剧。</li>
+    <li><strong>线上冲击：</strong>跨境电商（天猫国际、考拉等）与免税渠道形成价格竞争，削弱了免税的独特优势。</li>
+    <li><strong>库存风险：</strong>存货159亿元（占资产18.6%），若消费持续低迷，存在存货减值风险。</li>
+</ol>
+
+<!-- ===== 六、需要关注的关键变化 ===== -->
+<h2>六、需要关注的关键变化</h2>
+<ul>
+    <li><strong>海南离岛免税销售额：</strong>月度跟踪海南离岛免税销售额增速——这是最直观的业绩先行指标。</li>
+    <li><strong>出境游恢复进度：</strong>国际航班量、出境游客人数变化，直接影响出境免税业务。</li>
+    <li><strong>毛利率趋势：</strong>毛利率是否稳定（当前约30%-32%），反映了公司的定价能力和折扣力度。</li>
+    <li><strong>库存去化情况：</strong>存货周转率变化，若存货持续增加说明销售不畅。</li>
+    <li><strong>政策变化：</strong>离岛免税额度调整、品类放开、新牌照发放等政策变化。</li>
+    <li><strong>新项目进展：</strong>海口国际免税城运营数据、三亚新项目等。</li>
+</ul>
+
+<!-- ===== 七、宏观与行业分析 ===== -->
+<h2>七、宏观逻辑与行业分析</h2>
+
+<h3>宏观逻辑</h3>
+<ul>
+    <li><strong>消费K型分化中的"受损方"：</strong>在经济下行期，中等收入群体消费信心减弱，免税消费（属于可选消费）首当其冲。这与奢侈品消费的"口红效应"不同，免税品更多依赖游客流量而非纯粹品牌忠诚度。</li>
+    <li><strong>汇率影响：</strong>人民币贬值会削弱出境游意愿（出境购物变贵），但对海南离岛免税是利好（境内消费替代出境消费）。</li>
+    <li><strong>政策驱动型行业：</strong>免税行业本质上是"政策市"，海南自贸港封关运作、离岛免税额度提升等都是潜在催化剂。</li>
+</ul>
+
+<h3>行业地位</h3>
+<div class="highlight-box">
+    <p class="no-indent"><strong>全球第一、中国绝对龙头。</strong></p>
+    <ul>
+        <li>全球排名：根据穆迪戴维特报告，中免2023年位列<strong>全球旅游零售商第一名</strong>（超越韩国乐天、新罗）。</li>
+        <li>国内市场份额：约85%-90%，处于<strong>事实垄断</strong>地位。</li>
+        <li>核心资产：三亚国际免税城（全球最大单体免税店，年销售额约200亿+）、海口国际免税城（2022年开业，全球第二大）等。</li>
+        <li>竞争对手：虽然王府井、海旅投等获得免税牌照，但渠道和供应链差距巨大，短期内无法构成实质性威胁。</li>
+    </ul>
+</div>
+
+<h3>企业性质与管理层</h3>
+<ul>
+    <li><strong>国有企业：</strong>中国旅游集团控股，国务院国资委为最终控制人。国企身份给公司带来了牌照获取的优势和政策支持，但也意味着管理层激励机制可能不如民企灵活。</li>
+    <li><strong>管理层：</strong>董事长由中旅集团委派，近年经历了多次人事变动（2022-2024年董事长变更）。稳定的管理层对战略执行至关重要。</li>
+</ul>
+
+<h3>政策环境</h3>
+<ul>
+    <li><strong>海南自贸港：</strong>2025年海南全岛封关运作，预期将带来更多免税政策红利，但具体细则仍需观察。</li>
+    <li><strong>离岛免税额度：</strong>当前每人每年10万元，提升空间有限。但品类放开（如电子产品、保健品）可能是增量催化剂。</li>
+    <li><strong>竞争政策：</strong>政府是否进一步放开免税牌照是最大的政策不确定性。若牌照放开加速，中免的垄断溢价将受损。</li>
+</ul>
+
+<h3>未来行业变化趋势</h3>
+<ol>
+    <li><strong>行业整合加速：</strong>中小免税企业生存困难，中免有望通过并购进一步巩固龙头地位。</li>
+    <li><strong>线上化趋势：</strong>"线上下单+离岛/出境提货"模式占比持续提升，数字化能力成为核心竞争力。</li>
+    <li><strong>品类多元化：</strong>从香化为主向精品、食品、保健品等多元化发展，提升客单价。</li>
+    <li><strong>国际化拓展：</strong>中免开始布局海外（如香港、澳门、东南亚），但海外业务占比极低，短期难以贡献利润。</li>
+    <li><strong>出境游恢复的"双刃剑"：</strong>出境游恢复对机场免税有利（客流量增加），但对海南离岛免税形成分流。</li>
+</ol>
+
+<!-- ===== 八、总结 ===== -->
+<h2>八、总结</h2>
+
+<div class="highlight-box red">
+    <p class="no-indent"><strong>综合评分：</strong></p>
+    <ul>
+        <li><strong>商业模式：</strong>⭐⭐⭐⭐（牌照壁垒极深，但本质上赚的是政策红利）</li>
+        <li><strong>财务健康：</strong>⭐⭐⭐⭐（零有息负债、现金流充裕）</li>
+        <li><strong>成长性：</strong>⭐⭐（业绩处于下行周期，拐点未现）</li>
+        <li><strong>估值吸引力：</strong>⭐⭐⭐（PS历史低位，PE中位偏低，但业绩还在恶化）</li>
+        <li><strong>风险水平：</strong>⭐⭐⭐⭐（业绩波动大、政策不确定性高）</li>
+    </ul>
+</div>
+
+<p>中国中免是中国消费行业中<strong>最具政策壁垒</strong>的龙头企业之一。其在免税行业的垄断地位、全球领先的渠道规模和供应链优势构成了坚实的护城河。然而，当前公司正处于<strong>业绩下行周期</strong>——消费降级、出境游恢复分流、竞争加剧等挑战叠加，导致2023年以来营收和利润持续下滑。</p>
+
+<p>从估值角度看，当前PS 2.2倍处于历史底部区域，股价从高点跌幅超85%，悲观预期已经得到了相当程度的反映。但需要警惕的是：<strong>估值便宜不等于马上会上涨。</strong>业绩拐点是决定股价走势的关键变量——如果消费能在2026年下半年企稳，当前价格具有较好的安全边际和反弹空间；但如果业绩进一步恶化，估值还有继续压缩的可能。</p>
+
+<div class="highlight-box green">
+    <p class="no-indent" style="font-weight:bold;">一句话总结：</p>
+    <p class="no-indent">以合理价格买入垄断性赛道中的龙头，但需要对业绩拐点和消费复苏有足够的耐心和判断。</p>
+</div>
+
+<!-- ===== 免责声明 ===== -->
+<h2>免责声明</h2>
+<p style="font-size:13px;color:#888;text-indent:2em;">本报告仅为投资分析参考，不构成任何投资建议。报告中的数据和估值均基于公开信息计算，所有估算结果仅供参考。股市有风险，投资需谨慎。过往业绩不代表未来表现。</p>
+
+<div class="footer">
+    <p class="no-indent">报告生成时间：2026年6月10日 &nbsp;|&nbsp; 数据来源：东方财富Choice、公开财报</p>
+    <p class="no-indent">© 2026 投资分析报告 &nbsp;|&nbsp; 仅供内部研究使用</p>
+</div>
+
+</div>
+<script>
+(function(){
+var tables = document.querySelectorAll("table");
+for(var i=0;i<tables.length;i++){
+  var table = tables[i];
+  if(table.parentNode && table.parentNode.className==="table-wrap") continue;
+  var wrap = document.createElement("div");
+  wrap.className = "table-wrap";
+  table.parentNode.insertBefore(wrap, table);
+  wrap.appendChild(table);
+}
+})();
+</script>
+</body>
+</html>
