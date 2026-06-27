@@ -29,6 +29,8 @@ body::before{content:"";position:fixed;top:0;left:0;right:0;bottom:0;background:
 .tab.active{background:var(--badge-code-bg)}
 .tab-content{display:none}
 .tab-content.active{display:block}
+.tab.soon{position:relative}
+.tab.soon::after{content:"NEW";position:absolute;top:-7px;right:-6px;padding:1px 6px;border-radius:999px;font-size:9px;font-weight:700;background:var(--accent);color:#fff;letter-spacing:.4px}
 
 /* Home */
 .search-wrap{max-width:600px;margin:0 auto 20px;padding:0 20px;position:relative}
@@ -76,10 +78,31 @@ mark{background:var(--mark-bg);color:var(--mark-text);border-radius:2px;padding:
 .research-stats{display:flex;justify-content:center;gap:14px;margin-bottom:16px;flex-wrap:wrap;font-size:12px;color:var(--text-dim)}
 .research-stats span{display:flex;align-items:center;gap:4px}
 
+/* Roadmap */
+.roadmap-wrap{max-width:1050px;margin:0 auto;padding:0 20px 40px}
+.roadmap-hero{background:linear-gradient(135deg,var(--bg-card),var(--bg-card-hover));border:1px solid var(--border);border-radius:18px;padding:24px 22px;margin-bottom:18px;position:relative;overflow:hidden}
+.roadmap-hero::before{content:"";position:absolute;right:-30px;top:-30px;width:120px;height:120px;border-radius:50%;background:var(--hover-glow)}
+.roadmap-title{font-size:22px;font-weight:700;color:var(--text-heading);margin-bottom:8px}
+.roadmap-sub{font-size:13px;line-height:1.8;color:var(--text-dim);max-width:760px}
+.roadmap-meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.roadmap-chip{padding:6px 10px;border-radius:999px;font-size:11px;font-weight:700;border:1px solid var(--border);background:var(--bg-stat);color:var(--text-dim)}
+.roadmap-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+.roadmap-card{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:18px;box-shadow:0 8px 24px rgba(0,0,0,.03);transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}
+.roadmap-card:hover{transform:translateY(-2px);border-color:var(--accent);box-shadow:0 12px 28px var(--hover-glow)}
+.roadmap-top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;margin-bottom:10px}
+.roadmap-name{font-size:16px;font-weight:700;color:var(--text-heading);line-height:1.4}
+.roadmap-status{padding:4px 8px;border-radius:999px;font-size:10px;font-weight:700;white-space:nowrap}
+.status-plan{background:rgba(49,130,206,.12);color:var(--accent)}
+.status-next{background:rgba(240,179,75,.16);color:#b7791f}
+.status-later{background:rgba(113,128,150,.12);color:#718096}
+.roadmap-desc{font-size:12px;color:var(--text-dim);line-height:1.7;margin-bottom:12px;min-height:58px}
+.roadmap-tags{display:flex;gap:6px;flex-wrap:wrap}
+.roadmap-tag{padding:3px 8px;border-radius:999px;font-size:10px;font-weight:600;background:var(--badge-code-bg);color:var(--badge-code-text)}
+
 /* Footer */
 .footer{text-align:center;padding:16px;color:var(--text-faint);font-size:11px}
 
-@media(max-width:600px){.header{padding:40px 16px 8px}.header h1{font-size:22px}.tabs{flex-wrap:wrap}.tab{padding:5px 12px;font-size:11px}.grid{grid-template-columns:1fr}.theme-bar{top:8px;right:10px;gap:6px}.theme-dot{width:18px;height:18px}.research-wrap table{font-size:12px}.research-wrap th,.research-wrap td{padding:6px 8px}}
+@media(max-width:600px){.header{padding:40px 16px 8px}.header h1{font-size:22px}.tabs{flex-wrap:wrap}.tab{padding:5px 12px;font-size:11px}.grid{grid-template-columns:1fr}.theme-bar{top:8px;right:10px;gap:6px}.theme-dot{width:18px;height:18px}.research-wrap table{font-size:12px}.research-wrap th,.research-wrap td{padding:6px 8px}.roadmap-hero{padding:18px 16px}.roadmap-title{font-size:18px}.roadmap-desc{min-height:auto}}
 .sortable{cursor:pointer;user-select:none;position:relative;white-space:nowrap;padding-right:22px!important}
 .sortable:hover{background:rgba(255,255,255,0.08)}
 .sort-arrow{display:inline-block;font-size:11px;margin-left:3px;opacity:.4;transition:opacity .2s}
@@ -103,6 +126,7 @@ mark{background:var(--mark-bg);color:var(--mark-text);border-radius:2px;padding:
     <span class="tab active" onclick="switchTab('home')">🏠 首页</span>
     <span class="tab" onclick="switchTab('knowledge')">📚 知识库</span>
     <span class="tab" onclick="switchTab('research')">📋 研究汇总</span>
+    <span class="tab soon" onclick="switchTab('roadmap')">🧩 待开发</span>
   </div>
 </div>
 
@@ -181,6 +205,71 @@ mark{background:var(--mark-bg);color:var(--mark-text);border-radius:2px;padding:
         <tr><td><a href="reports/中信证券.html">中信证券</a></td><td>600030.SH</td><td>证券</td><td>4.5x</td><td>1.15x</td><td>7-10%</td><td><span class="sig sig-低估">低估</span></td><td>券商龙头P/B 1.15x历史低位，周期底部布局</td></tr>
       </tbody>
     </table>
+  </div>
+</div>
+
+<!-- Tab: Roadmap -->
+<div class="tab-content" id="t-roadmap">
+  <div class="roadmap-wrap">
+    <div class="roadmap-hero">
+      <div class="roadmap-title">待开发功能区</div>
+      <div class="roadmap-sub">这里先集中放我们后续准备迭代的功能，不改你当前可用的首页、报告、知识库和研究汇总。后面每次你想到新点子，我们就继续往这里补，再逐步做成可用功能。</div>
+      <div class="roadmap-meta">
+        <span class="roadmap-chip">当前模式：仅展示规划</span>
+        <span class="roadmap-chip">原则：不影响现有页面</span>
+        <span class="roadmap-chip">后续可逐项上线</span>
+      </div>
+    </div>
+    <div class="roadmap-grid">
+      <div class="roadmap-card">
+        <div class="roadmap-top">
+          <div class="roadmap-name">公司对比台</div>
+          <span class="roadmap-status status-next">优先开发</span>
+        </div>
+        <div class="roadmap-desc">支持勾选多家公司，横向比较估值、ROE、营收增速、现金流和结论，做成一眼能看的对比页。</div>
+        <div class="roadmap-tags"><span class="roadmap-tag">对比分析</span><span class="roadmap-tag">表格视图</span></div>
+      </div>
+      <div class="roadmap-card">
+        <div class="roadmap-top">
+          <div class="roadmap-name">报告更新时间轴</div>
+          <span class="roadmap-status status-plan">规划中</span>
+        </div>
+        <div class="roadmap-desc">按时间展示每次报告更新记录，清楚知道哪家公司什么时候改过、补过哪些数据和结论。</div>
+        <div class="roadmap-tags"><span class="roadmap-tag">时间线</span><span class="roadmap-tag">更新记录</span></div>
+      </div>
+      <div class="roadmap-card">
+        <div class="roadmap-top">
+          <div class="roadmap-name">自选观察池</div>
+          <span class="roadmap-status status-next">优先开发</span>
+        </div>
+        <div class="roadmap-desc">把常看公司收藏到一个独立面板，后面可以扩展成“重点跟踪”“准备买入”“继续观察”三种状态。</div>
+        <div class="roadmap-tags"><span class="roadmap-tag">自选股</span><span class="roadmap-tag">轻交互</span></div>
+      </div>
+      <div class="roadmap-card">
+        <div class="roadmap-top">
+          <div class="roadmap-name">报告关键词提炼</div>
+          <span class="roadmap-status status-plan">规划中</span>
+        </div>
+        <div class="roadmap-desc">自动抽取每份报告的核心看点、风险点、催化剂和估值结论，减少通读整篇报告的时间。</div>
+        <div class="roadmap-tags"><span class="roadmap-tag">摘要</span><span class="roadmap-tag">核心结论</span></div>
+      </div>
+      <div class="roadmap-card">
+        <div class="roadmap-top">
+          <div class="roadmap-name">估值信号筛选器</div>
+          <span class="roadmap-status status-next">优先开发</span>
+        </div>
+        <div class="roadmap-desc">按高估、正常偏高、正常、正常偏低、低估快速筛选，只看你现在最关心的一组公司。</div>
+        <div class="roadmap-tags"><span class="roadmap-tag">筛选</span><span class="roadmap-tag">估值信号</span></div>
+      </div>
+      <div class="roadmap-card">
+        <div class="roadmap-top">
+          <div class="roadmap-name">知识库交叉引用</div>
+          <span class="roadmap-status status-later">后续扩展</span>
+        </div>
+        <div class="roadmap-desc">从报告里的概念直接跳到知识库对应章节，比如 ROE、DCF、PEG、行业周期、护城河等。</div>
+        <div class="roadmap-tags"><span class="roadmap-tag">知识联动</span><span class="roadmap-tag">深度阅读</span></div>
+      </div>
+    </div>
   </div>
 </div>
 
