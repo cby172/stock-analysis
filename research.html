@@ -7,115 +7,456 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:"Microsoft YaHei","PingFang SC","Helvetica Neue",sans-serif;background:#f5f7fa;color:#2c3e50;min-height:100vh}
-body::before{content:"";position:fixed;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 50% 0%,#e8ecf1 0%,#f5f7fa 60%);z-index:-1}
-.nav{display:flex;gap:12px;justify-content:center;padding:18px 20px 6px;flex-wrap:wrap}
-.nav a{display:inline-flex;align-items:center;gap:5px;padding:7px 16px;border-radius:20px;font-size:13px;font-weight:600;text-decoration:none;color:#6b7c93;background:#fff;border:1px solid #e2e8f0;transition:.2s}
+body::before{content:"";position:fixed;inset:0;background:radial-gradient(ellipse at 50% 0%,#e8ecf1 0%,#f5f7fa 60%);z-index:-1}
+.nav{display:flex;gap:12px;justify-content:center;padding:20px 20px 8px;flex-wrap:wrap}
+.nav a{display:inline-flex;align-items:center;gap:5px;padding:7px 16px;border-radius:20px;font-size:13px;font-weight:600;text-decoration:none;color:#6b7c93;background:#fff;border:1px solid #e2e8f0}
 .nav a:hover,.nav a.active{color:#3182ce;border-color:#3182ce;background:#f0f6ff}
-.header{text-align:center;padding:18px 20px 20px}
+.header{text-align:center;padding:18px 20px 18px}
 .header h1{font-size:28px;font-weight:700;color:#1a202c;margin-bottom:4px}
 .header .sub{font-size:13px;color:#6b7c93}
-.stats{display:flex;justify-content:center;gap:20px;margin:0 auto 20px;max-width:900px;padding:0 20px;flex-wrap:wrap}
-.stat{text-align:center;padding:10px 18px;background:#fff;border:1px solid #e2e8f0;border-radius:10px;min-width:90px}
+.stats{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;max-width:900px;margin:0 auto 20px;padding:0 20px}
+.stat{text-align:center;padding:10px 18px;background:#fff;border:1px solid #e2e8f0;border-radius:10px;min-width:92px}
 .stat-num{font-size:20px;font-weight:700;color:#3182ce}
 .stat-label{font-size:11px;color:#8b949e;margin-top:2px}
-.search{max-width:500px;margin:0 auto 20px;padding:0 20px}
-.search input{width:100%;padding:10px 14px;font-size:14px;border:1px solid #e2e8f0;border-radius:10px;background:#fff;color:#2c3e50;outline:none;font-family:inherit;transition:.2s}
-.search input:focus{border-color:#3182ce;box-shadow:0 0 0 3px rgba(49,130,206,.1)}
-.container{max-width:1000px;margin:0 auto;padding:0 20px 50px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
-.card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:18px;text-decoration:none;color:inherit;display:block;transition:.25s;position:relative;overflow:hidden}
-.card:hover{border-color:#3182ce;transform:translateY(-2px);box-shadow:0 8px 24px rgba(49,130,206,.08)}
-.card-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;gap:8px}
-.card-name{font-size:17px;font-weight:700;color:#1a202c}
-.card-code{font-size:11px;color:#a0aec0;font-weight:500}
-.card-badges{display:flex;gap:4px;margin-bottom:10px;flex-wrap:wrap}
-.bdg{display:inline-block;padding:2px 8px;border-radius:4px;font-size:10px;font-weight:600}
+.container{max-width:1080px;margin:0 auto;padding:0 20px 50px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.card{background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:18px;text-decoration:none;color:inherit;display:block;transition:.22s;box-shadow:0 6px 24px rgba(15,23,42,.04)}
+.card:hover{border-color:#3182ce;transform:translateY(-2px);box-shadow:0 10px 26px rgba(49,130,206,.10)}
+.card-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:10px}
+.card-name{font-size:18px;font-weight:700;color:#1a202c}
+.card-code{font-size:11px;color:#a0aec0;margin-top:2px}
+.card-badges,.metrics{display:flex;gap:8px;flex-wrap:wrap}
+.card-badges{margin-bottom:12px}
+.bdg{display:inline-block;padding:3px 9px;border-radius:999px;font-size:11px;font-weight:600}
 .bdg-ind{background:rgba(49,130,206,.1);color:#3182ce}
-.bdg-val{background:rgba(47,133,90,.1);color:#2f855a}
+.bdg-val{background:rgba(113,128,150,.1);color:#4a5568}
 .bdg-signal-bullish{background:rgba(47,133,90,.12);color:#2f855a}
 .bdg-signal-hold{background:rgba(214,158,46,.12);color:#d69e2e}
-.bdg-signal-bearish{background:rgba(197,48,48,.1);color:#c53030}
-.metrics{display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap}
-.metric{flex:1;min-width:50px;text-align:center;padding:6px 4px;background:#f7fafc;border-radius:6px}
+.bdg-signal-bearish{background:rgba(197,48,48,.10);color:#c53030}
+.metric{flex:1;min-width:64px;text-align:center;padding:8px 6px;background:#f7fafc;border-radius:8px}
 .metric-val{font-size:13px;font-weight:700;color:#2c3e50}
-.metric-lbl{font-size:9px;color:#a0aec0}
-.conclusion{font-size:12px;line-height:1.6;color:#6b7c93}
-.empty{text-align:center;padding:40px;color:#a0aec0;grid-column:1/-1}
-.empty .icon{font-size:36px;margin-bottom:8px}
+.metric-lbl{font-size:10px;color:#a0aec0;margin-top:2px}
+.conclusion{margin-top:12px;font-size:12px;line-height:1.7;color:#6b7c93;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 .footer{text-align:center;padding:16px;color:#a0aec0;font-size:11px}
-@media(max-width:600px){.grid{grid-template-columns:1fr}.header h1{font-size:22px}.stats{gap:10px}.stat{padding:8px 12px;min-width:70px}}
+@media(max-width:640px){.header h1{font-size:22px}.grid{grid-template-columns:1fr}.container{padding:0 14px 40px}.card{padding:16px}}
 </style>
 </head>
 <body>
 <div class="nav">
-  <a href="index.html">首页</a>
-  <a href="knowledge.html">知识库</a>
+  <a href="index.html">← 返回首页</a>
   <a href="research.html" class="active">研究汇总</a>
 </div>
 <div class="header">
-  <h1>研究汇总 · 快速预览</h1>
-  <p class="sub">22家公司 · 18个行业 · 一页看完核心估值与结论</p>
+  <h1>📋 研究汇总</h1>
+  <div class="sub">所有结论均从最新报告抽取，适合先快速筛选，再进入全文阅读</div>
 </div>
-<div class="stats" id="statsBar"></div>
-<div class="search">
-  <input type="text" id="search" placeholder="筛选公司名称、代码、行业..." autocomplete="off">
+<div class="stats">
+  <div class="stat"><div class="stat-num">22</div><div class="stat-label">公司数量</div></div>
+  <div class="stat"><div class="stat-num">18</div><div class="stat-label">行业数量</div></div>
+  <div class="stat"><div class="stat-num">2</div><div class="stat-label">低估</div></div>
+  <div class="stat"><div class="stat-num">2</div><div class="stat-label">高估</div></div>
 </div>
 <div class="container">
-  <div class="grid" id="cardGrid"></div>
+  <div class="grid">
+    <a class="card" href="reports/中芯国际.html">
+  <div class="card-head">
+    <div>
+      <div class="card-name">中芯国际</div>
+      <div class="card-code">688981.SH</div>
+    </div>
+    <span class="bdg bdg-signal-bearish">高估</span>
+  </div>
+  <div class="card-badges">
+    <span class="bdg bdg-ind">半导体</span>
+    <span class="bdg bdg-val">高估</span>
+  </div>
+  <div class="metrics">
+    <div class="metric"><div class="metric-val">204.5x</div><div class="metric-lbl">PE</div></div>
+    <div class="metric"><div class="metric-val">6.8x</div><div class="metric-lbl">P/B</div></div>
+    <div class="metric"><div class="metric-val">3.4%</div><div class="metric-lbl">ROE</div></div>
+  </div>
+  <div class="conclusion" title="中芯国际是中国半导体制造的战略基石企业，在中国大陆晶圆代工领域具有不可替代的地位。经营现金流强劲（200亿+/年），产能持续扩张，国产替代逻辑长期成立。但当前PB 6.8x、EV/EBITDA约45.8x、ROE仅3.4%——估值已远远脱离基本面。">中芯国际是中国半导体制造的战略基石企业，在中国大陆晶圆代工领域具有不可替代的地位。经营现金流强劲（200亿+/年），产能持续扩张，国产替代...</div>
+</a><a class="card" href="reports/寒武纪.html">
+  <div class="card-head">
+    <div>
+      <div class="card-name">寒武纪</div>
+      <div class="card-code">688256.SH</div>
+    </div>
+    <span class="bdg bdg-signal-bearish">高估</span>
+  </div>
+  <div class="card-badges">
+    <span class="bdg bdg-ind">AI芯片</span>
+    <span class="bdg bdg-val">高估</span>
+  </div>
+  <div class="metrics">
+    <div class="metric"><div class="metric-val">244.5x</div><div class="metric-lbl">PE</div></div>
+    <div class="metric"><div class="metric-val">42.9x</div><div class="metric-lbl">P/B</div></div>
+    <div class="metric"><div class="metric-val">-</div><div class="metric-lbl">ROE</div></div>
+  </div>
+  <div class="conclusion" title="寒武纪是中国AI芯片领域的稀缺标的和国产替代先锋，2025年营收暴增453%至65亿、首次盈利20.6亿，验证了产品和商业模式的可行性。国产AI芯片替代的大趋势确定性强，公司技术和产品处于国内领先水平。">寒武纪是中国AI芯片领域的稀缺标的和国产替代先锋，2025年营收暴增453%至65亿、首次盈利20.6亿，验证了产品和商业模式的可行性。国...</div>
+</a><a class="card" href="reports/万华化学.html">
+  <div class="card-head">
+    <div>
+      <div class="card-name">万华化学</div>
+      <div class="card-code">600309.SH</div>
+    </div>
+    <span class="bdg bdg-signal-bearish">正常偏高</span>
+  </div>
+  <div class="card-badges">
+    <span class="bdg bdg-ind">化工</span>
+    <span class="bdg bdg-val">正常偏高</span>
+  </div>
+  <div class="metrics">
+    <div class="metric"><div class="metric-val">17.1x</div><div class="metric-lbl">PE</div></div>
+    <div class="metric"><div class="metric-val">2.09x</div><div class="metric-lbl">P/B</div></div>
+    <div class="metric"><div class="metric-val">12.4%</div><div class="metric-lbl">ROE</div></div>
+  </div>
+  <div class="conclusion" title="万华化学是A股少数具备全球竞争力的制造业龙头，核心价值在聚氨酯技术壁垒、一体化成本和全球客户基础；但它仍是强周期、重资产、资本开支驱动的化工公司。投资它不能用消费股逻辑，也不能只看低PE。">万华化学是A股少数具备全球竞争力的制造业龙头，核心价值在聚氨酯技术壁垒、一体化成本和全球客户基础；但它仍是强周期、重资产、资本开支驱动的化...</div>
+</a><a class="card" href="reports/中远海控.html">
+  <div class="card-head">
+    <div>
+      <div class="card-name">中远海控</div>
+      <div class="card-code">601919.SH</div>
+    </div>
+    <span class="bdg bdg-signal-bearish">正常偏高</span>
+  </div>
+  <div class="card-badges">
+    <span class="bdg bdg-ind">航运</span>
+    <span class="bdg bdg-val">正常偏高</span>
+  </div>
+  <div class="metrics">
+    <div class="metric"><div class="metric-val">8.2x</div><div class="metric-lbl">PE</div></div>
+    <div class="metric"><div class="metric-val">0.90x</div><div class="metric-lbl">P/B</div></div>
+    <div class="metric"><div class="metric-val">-</div><div class="metric-lbl">ROE</div></div>
+  </div>
+  <div class="conclusion" title="中远海控是全球航运核心资产，但不是稳定成长股。它的价值来自全球网络、船队码头资产、现金流和周期弹性；它的风险也来自同一个地方：运价和供需周期。">中远海控是全球航运核心资产，但不是稳定成长股。它的价值来自全球网络、船队码头资产、现金流和周期弹性；它的风险也来自同一个地方：运价和供需周期。</div>
+</a><a class="card" href="reports/五粮液.html">
+  <div class="card-head">
+    <div>
+      <div class="card-name">五粮液</div>
+      <div class="card-code">000858.SZ</div>
+    </div>
+    <span class="bdg bdg-signal-bearish">正常偏高</span>
+  </div>
+  <div class="card-badges">
+    <span class="bdg bdg-ind">白酒</span>
+    <span class="bdg bdg-val">正常偏高</span>
+  </div>
+  <div class="metrics">
+    <div class="metric"><div class="metric-val">22.5x</div><div class="metric-lbl">PE</div></div>
+    <div class="metric"><div class="metric-val">2.22x</div><div class="metric-lbl">P/B</div></div>
+    <div class="metric"><div class="metric-val">-</div><div class="metric-lbl">ROE</div></div>
+  </div>
+  <div class="conclusion" title="五粮液仍是高端白酒核心资产，现金极强、品牌定价权仍在，分红提供一定现金回报；但2025口径下经营下滑明显，2026Q1修复还需要后续季度验证。当前更像“合理估值下的修复观察型”而不是无风险低估资产。">五粮液仍是高端白酒核心资产，现金极强、品牌定价权仍在，分红提供一定现金回报；但2025口径下经营下滑明显，2026Q1修复还需要后续季度验...</div>
+</a><a class="card" href="reports/同仁堂.html">
+  <div class="card-head">
+    <div>
+      <div class="card-name">同仁堂</div>
+      <div class="card-code">600085.SH</div>
+    </div>
+    <span class="bdg bdg-signal-bearish">正常偏高</span>
+  </div>
+  <div class="card-badges">
+    <span class="bdg bdg-ind">中药</span>
+    <span class="bdg bdg-val">正常偏高</span>
+  </div>
+  <div class="metrics">
+    <div class="metric"><div class="metric-val">28.5x</div><div class="metric-lbl">PE</div></div>
+    <div class="metric"><div class="metric-val">2.29x</div><div class="metric-lbl">P/B</div></div>
+    <div class="metric"><div class="metric-val">8.9%</div><div class="metric-lbl">ROE</div></div>
+  </div>
+  <div class="conclusion" title="同仁堂的用户不是单一“老年消费”标签，而是由基础用药、家庭健康决策、滋补礼品、经典名药、年轻线上尝试和境外需求共同构成。真正能支撑估值的，是高信任、高毛利、价格体系稳定的经典品类；线上年轻化和境外业务有想象空间，但目前缺少足够披露数据，不能提前当成主要估值来源。">同仁堂的用户不是单一“老年消费”标签，而是由基础用药、家庭健康决策、滋补礼品、经典名药、年轻线上尝试和境外需求共同构成。真正能支撑估值的...</div>
+</a><a class="card" href="reports/宁德时代.html">
+  <div class="card-head">
+    <div>
+      <div class="card-name">宁德时代</div>
+      <div class="card-code">300750.SZ</div>
+    </div>
+    <span class="bdg bdg-signal-bearish">正常偏高</span>
+  </div>
+  <div class="card-badges">
+    <span class="bdg bdg-ind">动力电池</span>
+    <span class="bdg bdg-val">正常偏高</span>
+  </div>
+  <div class="metrics">
+    <div class="metric"><div class="metric-val">22.3x</div><div class="metric-lbl">PE</div></div>
+    <div class="metric"><div class="metric-val">5.39x</div><div class="metric-lbl">P/B</div></div>
+    <div class="metric"><div class="metric-val">-</div><div class="metric-lbl">ROE</div></div>
+  </div>
+  <div class="conclusion" title="宁德时代是中国制造业中少数具备全球竞争力、强技术、强客户和强现金流的龙头。2025年报和2026Q1数据证明公司仍在增长，并且现金流质量明显改善。但电池行业强周期、强资本开支、强客户议价的特征决定了估值不能无脑给高倍数。">宁德时代是中国制造业中少数具备全球竞争力、强技术、强客户和强现金流的龙头。2025年报和2026Q1数据证明公司仍在增长，并且现金流质量明...</div>
+</a><a class="card" href="reports/安琪酵母.html">
+  <div class="card-head">
+    <div>
+      <div class="card-name">安琪酵母</div>
+      <div class="card-code">600298.SH</div>
+    </div>
+    <span class="bdg bdg-signal-bearish">正常偏高</span>
+  </div>
+  <div class="card-badges">
+    <span class="bdg bdg-ind">食品配料</span>
+    <span class="bdg bdg-val">正常偏高</span>
+  </div>
+  <div class="metrics">
+    <div class="metric"><div class="metric-val">19.1x</div><div class="metric-lbl">PE</div></div>
+    <div class="metric"><div class="metric-val">2.55x</div><div class="metric-lbl">P/B</div></div>
+    <div class="metric"><div class="metric-val">13.5%</div><div class="metric-lbl">ROE</div></div>
+  </div>
+  <div class="conclusion" title="收入增长之外，更重要的是毛利增长和费用效率。酵母主业毛利率高，是利润质量来源；食品原料和制糖业务如果只是扩大收入但不贡献利润，估值应打折。2026Q1收入和利润继续双位数增长，是积极信号。">收入增长之外，更重要的是毛利增长和费用效率。酵母主业毛利率高，是利润质量来源；食品原料和制糖业务如果只是扩大收入但不贡献利润，估值应打折...</div>
+</a><a class="card" href="reports/山西汾酒.html">
+  <div class="card-head">
+    <div>
+      <div class="card-name">山西汾酒</div>
+      <div class="card-code">600809.SH</div>
+    </div>
+    <span class="bdg bdg-signal-bearish">正常偏高</span>
+  </div>
+  <div class="card-badges">
+    <span class="bdg bdg-ind">白酒</span>
+    <span class="bdg bdg-val">正常偏高</span>
+  </div>
+  <div class="metrics">
+    <div class="metric"><div class="metric-val">12.0x</div><div class="metric-lbl">PE</div></div>
+    <div class="metric"><div class="metric-val">2.93x</div><div class="metric-lbl">P/B</div></div>
+    <div class="metric"><div class="metric-val">-</div><div class="metric-lbl">ROE</div></div>
+  </div>
+  <div class="conclusion" title="山西汾酒是清香型白酒龙头，主品牌强、省外扩张有数据支撑、现金和分红基础较好；但行业调整期已经反映在2026Q1表现和经营现金流上，投资不能只看静态低估值。">山西汾酒是清香型白酒龙头，主品牌强、省外扩张有数据支撑、现金和分红基础较好；但行业调整期已经反映在2026Q1表现和经营现金流上，投资不能...</div>
+</a><a class="card" href="reports/片仔癀.html">
+  <div class="card-head">
+    <div>
+      <div class="card-name">片仔癀</div>
+      <div class="card-code">600436.SH</div>
+    </div>
+    <span class="bdg bdg-signal-bearish">正常偏高</span>
+  </div>
+  <div class="card-badges">
+    <span class="bdg bdg-ind">中药</span>
+    <span class="bdg bdg-val">正常偏高</span>
+  </div>
+  <div class="metrics">
+    <div class="metric"><div class="metric-val">33.5x</div><div class="metric-lbl">PE</div></div>
+    <div class="metric"><div class="metric-val">5.0x</div><div class="metric-lbl">P/B</div></div>
+    <div class="metric"><div class="metric-val">14.8%</div><div class="metric-lbl">ROE</div></div>
+  </div>
+  <div class="conclusion" title="片仔癀是A股最稀缺的品牌中药标的之一——&quot;国家绝密级配方&quot;的垄断地位赋予其极强的护城河和定价权。过去十年公司实现了营收和利润的高增长，ROE长期维持在15-28%，是中国中药行业的标杆企业。">片仔癀是A股最稀缺的品牌中药标的之一——&quot;国家绝密级配方&quot;的垄断地位赋予其极强的护城河和定价权。过去十年公司实现了营收和利润的高增长，RO...</div>
+</a><a class="card" href="reports/甘李药业.html">
+  <div class="card-head">
+    <div>
+      <div class="card-name">甘李药业</div>
+      <div class="card-code">603087.SH</div>
+    </div>
+    <span class="bdg bdg-signal-bearish">正常偏高</span>
+  </div>
+  <div class="card-badges">
+    <span class="bdg bdg-ind">生物医药</span>
+    <span class="bdg bdg-val">正常偏高</span>
+  </div>
+  <div class="metrics">
+    <div class="metric"><div class="metric-val">31.4x</div><div class="metric-lbl">PE</div></div>
+    <div class="metric"><div class="metric-val">2.86x</div><div class="metric-lbl">P/B</div></div>
+    <div class="metric"><div class="metric-val">-</div><div class="metric-lbl">ROE</div></div>
+  </div>
+  <div class="conclusion" title="甘李药业是一家高毛利、低负债、处于集采后修复阶段的胰岛素生物药公司。它有清晰产品壁垒和慢病需求底盘，但也有政策价格、产品集中、现金流和新管线验证压力。">甘李药业是一家高毛利、低负债、处于集采后修复阶段的胰岛素生物药公司。它有清晰产品壁垒和慢病需求底盘，但也有政策价格、产品集中、现金流和新管...</div>
+</a><a class="card" href="reports/长江电力.html">
+  <div class="card-head">
+    <div>
+      <div class="card-name">长江电力</div>
+      <div class="card-code">600900.SH</div>
+    </div>
+    <span class="bdg bdg-signal-bearish">正常偏高</span>
+  </div>
+  <div class="card-badges">
+    <span class="bdg bdg-ind">水电</span>
+    <span class="bdg bdg-val">正常偏高</span>
+  </div>
+  <div class="metrics">
+    <div class="metric"><div class="metric-val">18.1x</div><div class="metric-lbl">PE</div></div>
+    <div class="metric"><div class="metric-val">2.86x</div><div class="metric-lbl">P/B</div></div>
+    <div class="metric"><div class="metric-val">-</div><div class="metric-lbl">ROE</div></div>
+  </div>
+  <div class="conclusion" title="长江电力是A股中稀缺的高质量公用事业现金流资产，适合以股息率和长期现金流视角研究，而不是按高成长股框架研究。公司最强的是资产稀缺、现金流强、分红稳定；最大问题是当前估值不便宜，安全边际取决于投资者要求的股息率和利率环境。">长江电力是A股中稀缺的高质量公用事业现金流资产，适合以股息率和长期现金流视角研究，而不是按高成长股框架研究。公司最强的是资产稀缺、现金流强...</div>
+</a><a class="card" href="reports/比亚迪.html">
+  <div class="card-head">
+    <div>
+      <div class="card-name">比亚迪</div>
+      <div class="card-code">002594.SZ</div>
+    </div>
+    <span class="bdg bdg-signal-hold">正常</span>
+  </div>
+  <div class="card-badges">
+    <span class="bdg bdg-ind">新能源车</span>
+    <span class="bdg bdg-val">正常</span>
+  </div>
+  <div class="metrics">
+    <div class="metric"><div class="metric-val">9.8x</div><div class="metric-lbl">PE</div></div>
+    <div class="metric"><div class="metric-val">3.1x</div><div class="metric-lbl">P/B</div></div>
+    <div class="metric"><div class="metric-val">15.3%</div><div class="metric-lbl">ROE</div></div>
+  </div>
+  <div class="conclusion" title="比亚迪是全球最大的新能源车企，垂直一体化+规模优势+技术积累构筑了深厚护城河。但2025年首次出现利润下滑（-19%），营收增速骤降至+3.5%，自由现金流巨亏-1,384亿——公司正经历从&quot;高增长期&quot;到&quot;成熟期&quot;的转型阵痛。">比亚迪是全球最大的新能源车企，垂直一体化+规模优势+技术积累构筑了深厚护城河。但2025年首次出现利润下滑（-19%），营收增速骤降至+3...</div>
+</a><a class="card" href="reports/牧原股份.html">
+  <div class="card-head">
+    <div>
+      <div class="card-name">牧原股份</div>
+      <div class="card-code">002714.SZ</div>
+    </div>
+    <span class="bdg bdg-signal-hold">正常</span>
+  </div>
+  <div class="card-badges">
+    <span class="bdg bdg-ind">生猪养殖</span>
+    <span class="bdg bdg-val">正常</span>
+  </div>
+  <div class="metrics">
+    <div class="metric"><div class="metric-val">12.1x</div><div class="metric-lbl">PE</div></div>
+    <div class="metric"><div class="metric-val">2.5x</div><div class="metric-lbl">P/B</div></div>
+    <div class="metric"><div class="metric-val">20.6%</div><div class="metric-lbl">ROE</div></div>
+  </div>
+  <div class="conclusion" title="牧原股份是全球最大的生猪养殖企业（年出栏7,200万头），具备行业最低的完全成本（14-15元/公斤）。2025年是公司发展的重要转折点——自由现金流首次大幅转正至228亿，负债率从62%降至54%，标志着从&quot;高速扩张期&quot;进入&quot;收获期&quot;。">牧原股份是全球最大的生猪养殖企业（年出栏7,200万头），具备行业最低的完全成本（14-15元/公斤）。2025年是公司发展的重要转折点—...</div>
+</a><a class="card" href="reports/中国中免.html">
+  <div class="card-head">
+    <div>
+      <div class="card-name">中国中免</div>
+      <div class="card-code">601888.SH</div>
+    </div>
+    <span class="bdg bdg-signal-hold">正常偏低</span>
+  </div>
+  <div class="card-badges">
+    <span class="bdg bdg-ind">免税零售</span>
+    <span class="bdg bdg-val">正常偏低</span>
+  </div>
+  <div class="metrics">
+    <div class="metric"><div class="metric-val">33.5x</div><div class="metric-lbl">PE</div></div>
+    <div class="metric"><div class="metric-val">1.9x</div><div class="metric-lbl">P/B</div></div>
+    <div class="metric"><div class="metric-val">-</div><div class="metric-lbl">ROE</div></div>
+  </div>
+  <div class="conclusion" title="当前股价58.05元，PE 33.5倍处于历史中位偏低位置。PS 2.2倍处于历史低位，反映市场对业绩继续下滑的悲观预期。对于免税行业而言，2.2倍PS具备一定性价比，但前提是业绩能触底回升。核心不确定性在于：当前业绩下滑是周期性的还是结构性的？如果是周期性的（消费回暖即可修复），则当前估值有吸引力；如果是结构性的（出境游分流、消费习惯改变），则估值还需进一步消化。">当前股价58.05元，PE 33.5倍处于历史中位偏低位置。PS 2.2倍处于历史低位，反映市场对业绩继续下滑的悲观预期。对于免税行业而言...</div>
+</a><a class="card" href="reports/中国人保.html">
+  <div class="card-head">
+    <div>
+      <div class="card-name">中国人保</div>
+      <div class="card-code">601319.SH</div>
+    </div>
+    <span class="bdg bdg-signal-hold">正常偏低</span>
+  </div>
+  <div class="card-badges">
+    <span class="bdg bdg-ind">保险</span>
+    <span class="bdg bdg-val">正常偏低</span>
+  </div>
+  <div class="metrics">
+    <div class="metric"><div class="metric-val">7.2x</div><div class="metric-lbl">PE</div></div>
+    <div class="metric"><div class="metric-val">0.96x</div><div class="metric-lbl">P/B</div></div>
+    <div class="metric"><div class="metric-val">16.1%</div><div class="metric-lbl">ROE</div></div>
+  </div>
+  <div class="conclusion" title="中国人保是一家以财险为核心的中央金融保险平台，资产负债表稳、ROE仍有韧性、PB估值不高；但它不是高成长公司，利润受投资收益、利率和赔付周期影响明显。适合把它当作“金融保险低估值 + 财险龙头 + 利率/权益修复弹性”的稳健型标的跟踪。">中国人保是一家以财险为核心的中央金融保险平台，资产负债表稳、ROE仍有韧性、PB估值不高；但它不是高成长公司，利润受投资收益、利率和赔付周...</div>
+</a><a class="card" href="reports/中国广核.html">
+  <div class="card-head">
+    <div>
+      <div class="card-name">中国广核</div>
+      <div class="card-code">003816.SZ</div>
+    </div>
+    <span class="bdg bdg-signal-hold">正常偏低</span>
+  </div>
+  <div class="card-badges">
+    <span class="bdg bdg-ind">核电</span>
+    <span class="bdg bdg-val">正常偏低</span>
+  </div>
+  <div class="metrics">
+    <div class="metric"><div class="metric-val">22.5x</div><div class="metric-lbl">PE</div></div>
+    <div class="metric"><div class="metric-val">1.8x</div><div class="metric-lbl">P/B</div></div>
+    <div class="metric"><div class="metric-val">9.1%</div><div class="metric-lbl">ROE</div></div>
+  </div>
+  <div class="conclusion" title="中国广核是中国核电行业的双寡头龙头之一，拥有核电站运营的天然垄断壁垒。经营现金流极为充沛（300亿+/年，净利润的3倍），在国家双碳目标和能源安全战略下增长路径明确。当前PE 22.5x处于历史偏低分位，具备较好的安全边际。">中国广核是中国核电行业的双寡头龙头之一，拥有核电站运营的天然垄断壁垒。经营现金流极为充沛（300亿+/年，净利润的3倍），在国家双碳目标和...</div>
+</a><a class="card" href="reports/中国核电.html">
+  <div class="card-head">
+    <div>
+      <div class="card-name">中国核电</div>
+      <div class="card-code">601985.SH</div>
+    </div>
+    <span class="bdg bdg-signal-hold">正常偏低</span>
+  </div>
+  <div class="card-badges">
+    <span class="bdg bdg-ind">核电</span>
+    <span class="bdg bdg-val">正常偏低</span>
+  </div>
+  <div class="metrics">
+    <div class="metric"><div class="metric-val">20.3x</div><div class="metric-lbl">PE</div></div>
+    <div class="metric"><div class="metric-val">-</div><div class="metric-lbl">P/B</div></div>
+    <div class="metric"><div class="metric-val">8.2%</div><div class="metric-lbl">ROE</div></div>
+  </div>
+  <div class="conclusion" title="中国核电（601985）是中国A股中最具确定性的&quot;长期生息资产&quot;。公司集&quot;高壁垒（核电牌照垄断）+ 高确定性（装机翻倍路径清晰）+ 高现金流（OCF/NP≈4x）+ 政策红利（双碳加持）&quot;四大优势于一身。 当前20.3倍PE看似不便宜，但考虑到核电折旧扭曲了账面利润（OCF是NP的4倍），以及未来10年装机翻倍带来的增量空间，9.19元的股价具备中长期配置价值。PB1.61x处于历史中低区间，提供了一定的安全边际。">中国核电（601985）是中国A股中最具确定性的&quot;长期生息资产&quot;。公司集&quot;高壁垒（核电牌照垄断）+ 高确定性（装机翻倍路径清晰）+ 高现金...</div>
+</a><a class="card" href="reports/腾讯控股.html">
+  <div class="card-head">
+    <div>
+      <div class="card-name">腾讯控股</div>
+      <div class="card-code">0700.HK</div>
+    </div>
+    <span class="bdg bdg-signal-hold">正常偏低</span>
+  </div>
+  <div class="card-badges">
+    <span class="bdg bdg-ind">互联网平台</span>
+    <span class="bdg bdg-val">正常偏低</span>
+  </div>
+  <div class="metrics">
+    <div class="metric"><div class="metric-val">12.2x</div><div class="metric-lbl">PE</div></div>
+    <div class="metric"><div class="metric-val">2.94x</div><div class="metric-lbl">P/B</div></div>
+    <div class="metric"><div class="metric-val">-</div><div class="metric-lbl">ROE</div></div>
+  </div>
+  <div class="conclusion" title="腾讯控股是高质量、强现金流、估值不高的互联网平台龙头。当前市场主要担心成长放缓、AI资本开支和监管边界，但从2025年和2026Q1数据看，核心利润和现金流仍有韧性，分部毛利率改善是最重要的正面信号。">腾讯控股是高质量、强现金流、估值不高的互联网平台龙头。当前市场主要担心成长放缓、AI资本开支和监管边界，但从2025年和2026Q1数据看...</div>
+</a><a class="card" href="reports/贵州茅台.html">
+  <div class="card-head">
+    <div>
+      <div class="card-name">贵州茅台</div>
+      <div class="card-code">600519.SH</div>
+    </div>
+    <span class="bdg bdg-signal-hold">正常偏低</span>
+  </div>
+  <div class="card-badges">
+    <span class="bdg bdg-ind">白酒</span>
+    <span class="bdg bdg-val">正常偏低</span>
+  </div>
+  <div class="metrics">
+    <div class="metric"><div class="metric-val">19.4x</div><div class="metric-lbl">PE</div></div>
+    <div class="metric"><div class="metric-val">7.5x</div><div class="metric-lbl">P/B</div></div>
+    <div class="metric"><div class="metric-val">-</div><div class="metric-lbl">ROE</div></div>
+  </div>
+  <div class="conclusion" title="当前股价1275.88元处于近五年估值底部区域。以PE/股息率角度看，估值已经反映了较多的悲观预期（消费走弱、增速放缓等）。若以25倍PE（对应约2060元）为合理估值中枢，当前价格有一定安全边际。但需注意短期内业绩增速放缓可能压制估值修复节奏。">当前股价1275.88元处于近五年估值底部区域。以PE/股息率角度看，估值已经反映了较多的悲观预期（消费走弱、增速放缓等）。若以25倍PE...</div>
+</a><a class="card" href="reports/中信证券.html">
+  <div class="card-head">
+    <div>
+      <div class="card-name">中信证券</div>
+      <div class="card-code">600030.SH</div>
+    </div>
+    <span class="bdg bdg-signal-bullish">低估</span>
+  </div>
+  <div class="card-badges">
+    <span class="bdg bdg-ind">证券</span>
+    <span class="bdg bdg-val">低估</span>
+  </div>
+  <div class="metrics">
+    <div class="metric"><div class="metric-val">4.5x</div><div class="metric-lbl">PE</div></div>
+    <div class="metric"><div class="metric-val">1.15x</div><div class="metric-lbl">P/B</div></div>
+    <div class="metric"><div class="metric-val">9.2%</div><div class="metric-lbl">ROE</div></div>
+  </div>
+  <div class="conclusion" title="中信证券是国内券商无可争议的龙头。P/B 1.15x处于历史较低分位，安全边际充足。但ROE仅7-10%（远低于15%优质标准），说明这不是高ROE驱动的成长型投资，而是周期底部布局型投资——本质是在1.15x P/B买入中国资本市场的长期发展。">中信证券是国内券商无可争议的龙头。P/B 1.15x处于历史较低分位，安全边际充足。但ROE仅7-10%（远低于15%优质标准），说明这不...</div>
+</a><a class="card" href="reports/迈瑞医疗.html">
+  <div class="card-head">
+    <div>
+      <div class="card-name">迈瑞医疗</div>
+      <div class="card-code">300760.SZ</div>
+    </div>
+    <span class="bdg bdg-signal-bullish">低估</span>
+  </div>
+  <div class="card-badges">
+    <span class="bdg bdg-ind">医疗器械</span>
+    <span class="bdg bdg-val">低估</span>
+  </div>
+  <div class="metrics">
+    <div class="metric"><div class="metric-val">22.3x</div><div class="metric-lbl">PE</div></div>
+    <div class="metric"><div class="metric-val">4.77x</div><div class="metric-lbl">P/B</div></div>
+    <div class="metric"><div class="metric-val">21.6%</div><div class="metric-lbl">ROE</div></div>
+  </div>
+  <div class="conclusion" title="迈瑞医疗是中国医疗器械行业当之无愧的龙头，具备极强护城河和稳健财务基础。过去十年营收CAGR约15.6%，但2025年遭遇上市以来最大业绩压力（营收-9.4%、净利-30.3%），受IVD集采、医疗反腐、海外放缓三重冲击。但27%负债率、177亿现金、96亿FCF的财务根基毫不动摇。">迈瑞医疗是中国医疗器械行业当之无愧的龙头，具备极强护城河和稳健财务基础。过去十年营收CAGR约15.6%，但2025年遭遇上市以来最大业绩...</div>
+</a>
+  </div>
 </div>
 <div class="footer">© 2026 · 数据仅供研究参考，不构成投资建议</div>
-<script>
-(function(){
-  var data = [{"name": "万华化学", "code": "600309.SH", "industry": "化工", "price": "71.79", "pb": "2.09x", "pe": "17.1x", "roe": "12.4%", "rating": "合理偏谨慎", "conclusion": "万华化学是A股少数具备全球竞争力的制造业龙头，核心价值在聚氨酯技术壁垒、一体化成本和全球客户基础；但它仍是强周期...", "signal": "bearish"}, {"name": "中信证券", "code": "600030.SH", "industry": "证券", "price": "25.22", "pb": "-", "pe": "4.5x", "roe": "9.2%", "rating": "P/B处于历史较低分位，安全边际充足。但投资时机需结合市场周期判断。", "conclusion": "低估", "signal": "bullish"}, {"name": "中国中免", "code": "601888.SH", "industry": "免税零售", "price": "-", "pb": "-", "pe": "-", "roe": "-", "rating": "中国中免最新研究报告已同步，可进入报告页查看完整结论。", "conclusion": "中国中免最新研究报告已同步，可进入报告页查看完整结论。", "signal": "hold"}, {"name": "中国人保", "code": "601319.SH", "industry": "保险", "price": "6.91", "pb": "-", "pe": "7.2x", "roe": "16.1%", "rating": "合理偏低", "conclusion": "中国人保是一家以财险为核心的中央金融保险平台，资产负债表稳、ROE仍有韧性、PB估值不高；但它不是高成长公司，利...", "signal": "bullish"}, {"name": "中国广核", "code": "003816.SZ", "industry": "核电", "price": "4.35", "pb": "-", "pe": "22.5x", "roe": "9.1%", "rating": "PE处于历史中低位，当前股价具备较好的安全边际。核电作为稳定现金牛资产，当前约22.5x PE对于5-8%年均利润增长预期来说，估值合理偏低。但需注意短期电价改革的不确定性。", "conclusion": "偏低", "signal": "hold"}, {"name": "中国核电", "code": "601985.SH", "industry": "核电", "price": "-", "pb": "1.61x", "pe": "20.3x", "roe": "8.2%", "rating": "中国核电最新研究报告已同步，可进入报告页查看完整结论。", "conclusion": "中国核电最新研究报告已同步，可进入报告页查看完整结论。", "signal": "hold"}, {"name": "中芯国际", "code": "688981.SH", "industry": "半导体", "price": "128.81", "pb": "-", "pe": "204.5x", "roe": "3.4%", "rating": "中芯国际当前股价远高于基于基本面（P/B、EV/EBITDA、ROE）的合理估值。溢价主要来自：① 科创板流动性溢价；② \"国产替代\"的叙事溢价；③ A股市场对半导体板块的炒作情绪。投资者需要区分\"好公司\"和\"好价格\"——中芯国际是中国半导体制造的重要企业，但当前股价已经远远超前于基本面。", "conclusion": "高估", "signal": "bearish"}, {"name": "中远海控", "code": "601919.SH", "industry": "航运", "price": "13.39", "pb": "-", "pe": "-", "roe": "-", "rating": "合理偏谨慎", "conclusion": "中远海控是全球航运核心资产，但不是稳定成长股。它的价值来自全球网络、船队码头资产、现金流和周期弹性；它的风险也来...", "signal": "bearish"}, {"name": "五粮液", "code": "000858.SZ", "industry": "白酒", "price": "73.17", "pb": "2.22x", "pe": "-", "roe": "-", "rating": "合理偏谨慎", "conclusion": "五粮液仍是高端白酒核心资产，现金极强、品牌定价权仍在，分红提供一定现金回报；但2025口径下经营下滑明显，202...", "signal": "bearish"}, {"name": "同仁堂", "code": "600085.SH", "industry": "中药", "price": "-", "pb": "2.29x", "pe": "28.5x", "roe": "8.9%", "rating": "合理偏谨慎", "conclusion": "同仁堂适合长期跟踪，但当前更像“稳健现金流 + 品牌恢复等待”的标的，而不是高成长标的。若投资，关注点应该放在工...", "signal": "bearish"}, {"name": "宁德时代", "code": "300750.SZ", "industry": "动力电池", "price": "381.00", "pb": "5.39x", "pe": "-", "roe": "-", "rating": "合理偏谨慎", "conclusion": "宁德时代是中国制造业中少数具备全球竞争力、强技术、强客户和强现金流的龙头。2025年报和2026Q1数据证明公司...", "signal": "bearish"}, {"name": "安琪酵母", "code": "600298.SH", "industry": "食品配料", "price": "35.18", "pb": "2.55x", "pe": "19.1x", "roe": "13.5%", "rating": "合理偏谨慎", "conclusion": "安琪酵母是一家有全球竞争力的食品发酵制造龙头，主业清晰、海外收入占比高、酵母及深加工产品利润质量好；但它仍有制造...", "signal": "bearish"}, {"name": "寒武纪", "code": "688256.SH", "industry": "AI芯片", "price": "1205.29", "pb": "42.9x", "pe": "244.5x", "roe": "-", "rating": "当前估值已包含极高的增长预期。PEG远超1.0，P/S远高于全球AI芯片龙头NVIDIA（约15-20x PS）。即使按最乐观的2025年盈利计算，PE仍超200x。寒武纪的\"合理估值\"取决于2026-2027年的增长能否兑现——若利润翻倍则PE可降至100x左右，估值压力缓解。但一旦增速不及预期，估值回归风险极大。", "conclusion": "高估", "signal": "bearish"}, {"name": "山西汾酒", "code": "600809.SH", "industry": "白酒", "price": "108.10", "pb": "2.93x", "pe": "-", "roe": "-", "rating": "合理偏谨慎", "conclusion": "山西汾酒是清香型白酒龙头，主品牌强、省外扩张有数据支撑、现金和分红基础较好；但行业调整期已经反映在2026Q1表...", "signal": "bearish"}, {"name": "比亚迪", "code": "002594.SZ", "industry": "新能源车", "price": "-", "pb": "-", "pe": "-", "roe": "15.3%", "rating": "比亚迪是全球最大的新能源车企，垂直一体化+规模优势+技术积累构筑了深厚护城河。但2025年首次出现利润下滑（-19%），营收增速骤降至+3.5%，自由现金流巨亏-1,384亿——公司正经历从\"高增长期\"到\"成熟期\"的转型阵痛。", "conclusion": "比亚迪是全球最大的新能源车企，垂直一体化+规模优势+技术积累构筑了深厚护城河。但2025年首次出现利润下滑（-1...", "signal": "hold"}, {"name": "片仔癀", "code": "600436.SH", "industry": "中药", "price": "119.78", "pb": "5.0x", "pe": "33.5x", "roe": "14.8%", "rating": "片仔癀的\"绝密级配方+强定价权+高ROE\"使其历史上享有估值溢价（PE中枢35-45x）。但2025年营收利润双降+经营现金流恶化+毛利率持续下滑，使历史估值锚点受到挑战。当前PE 33.5x处于历史中上分位，但结合盈利质量下降，实际风险调整后价值应低于历史中位。关注2026年经营现金流是否能恢复正常——若能，则当前估值可接受；若不能，估值有向下修正至25-30x的风险（对应89.5-107.4元）。", "conclusion": "偏高", "signal": "bearish"}, {"name": "牧原股份", "code": "002714.SZ", "industry": "生猪养殖", "price": "34.74", "pb": "-", "pe": "-", "roe": "20.6%", "rating": "牧原股份是全球最大的生猪养殖企业（年出栏7,200万头），具备行业最低的完全成本（14-15元/公斤）。2025年是公司发展的重要转折点——自由现金流首次大幅转正至228亿，负债率从62%降至54%，标志着从\"高速扩张期\"进入\"收获期\"。", "conclusion": "牧原股份是全球最大的生猪养殖企业（年出栏7,200万头），具备行业最低的完全成本（14-15元/公斤）。2025...", "signal": "hold"}, {"name": "甘李药业", "code": "603087.SH", "industry": "生物医药", "price": "53.77", "pb": "2.86x", "pe": "-", "roe": "-", "rating": "合理偏谨慎", "conclusion": "甘李药业是一家高毛利、低负债、处于集采后修复阶段的胰岛素生物药公司。它有清晰产品壁垒和慢病需求底盘，但也有政策价...", "signal": "bearish"}, {"name": "腾讯控股", "code": "0700.HK", "industry": "互联网平台", "price": "-", "pb": "-", "pe": "-", "roe": "-", "rating": "合理偏低", "conclusion": "腾讯控股是高质量、强现金流、估值不高的互联网平台龙头。当前市场主要担心成长放缓、AI资本开支和监管边界，但从20...", "signal": "hold"}, {"name": "贵州茅台", "code": "600519.SH", "industry": "白酒", "price": "-", "pb": "-", "pe": "-", "roe": "-", "rating": "贵州茅台最新研究报告已同步，可进入报告页查看完整结论。", "conclusion": "贵州茅台最新研究报告已同步，可进入报告页查看完整结论。", "signal": "hold"}, {"name": "迈瑞医疗", "code": "300760.SZ", "industry": "医疗器械", "price": "149.98", "pb": "4.77x", "pe": "22.3x", "roe": "21.6%", "rating": "极端低估。", "conclusion": "低估。估值已充分反映短期利空，一旦业绩触底回升，估值修复空间巨大。 六、投资逻辑6.1 投资亮点国产医疗器械绝对...", "signal": "bullish"}, {"name": "长江电力", "code": "600900.SH", "industry": "水电", "price": "26.65", "pb": "2.86x", "pe": "-", "roe": "-", "rating": "合理偏谨慎", "conclusion": "长江电力是A股中稀缺的高质量公用事业现金流资产，适合以股息率和长期现金流视角研究，而不是按高成长股框架研究。公司...", "signal": "bearish"}];
-  var grid = document.getElementById('cardGrid');
-  var search = document.getElementById('search');
-  var stats = document.getElementById('statsBar');
-  var sigMap = {bullish:'看好',hold:'中性',bearish:'谨慎'};
-  var sigClass = {bullish:'bdg-signal-bullish',hold:'bdg-signal-hold',bearish:'bdg-signal-bearish'};
-  function renderStats() {
-    var industries = {};
-    data.forEach(function(item){industries[item.industry]=1;});
-    stats.innerHTML =
-      '<div class="stat"><div class="stat-num">22</div><div class="stat-label">公司总数</div></div>' +
-      '<div class="stat"><div class="stat-num">18</div><div class="stat-label">覆盖行业</div></div>' +
-      '<div class="stat"><div class="stat-num">' + data.filter(function(item){return item.signal==='bullish';}).length + '</div><div class="stat-label">看好</div></div>' +
-      '<div class="stat"><div class="stat-num">' + data.filter(function(item){return item.signal==='hold';}).length + '</div><div class="stat-label">中性</div></div>' +
-      '<div class="stat"><div class="stat-num">' + data.filter(function(item){return item.signal==='bearish';}).length + '</div><div class="stat-label">谨慎</div></div>';
-  }
-  function render(list) {
-    if(!list.length) {
-      grid.innerHTML = '<div class="empty"><div class="icon">🔎</div><div>没有匹配的公司</div></div>';
-      return;
-    }
-    var html = '';
-    list.forEach(function(item){
-      var metrics = '';
-      if(item.pe && item.pe !== '-') metrics += '<div class="metric"><div class="metric-val">' + item.pe + '</div><div class="metric-lbl">PE</div></div>';
-      if(item.pb && item.pb !== '-') metrics += '<div class="metric"><div class="metric-val">' + item.pb + '</div><div class="metric-lbl">P/B</div></div>';
-      if(item.roe && item.roe !== '-') metrics += '<div class="metric"><div class="metric-val">' + item.roe + '</div><div class="metric-lbl">ROE</div></div>';
-      if(item.price && item.price !== '-') metrics += '<div class="metric"><div class="metric-val">' + item.price + '</div><div class="metric-lbl">股价</div></div>';
-      html += '<a class="card" href="reports/' + item.name + '.html">' +
-        '<div class="card-head"><div class="card-name">' + item.name + '</div><div class="card-code">' + item.code + '</div></div>' +
-        '<div class="card-badges"><span class="bdg bdg-ind">' + item.industry + '</span><span class="bdg ' + sigClass[item.signal] + '">' + sigMap[item.signal] + '</span><span class="bdg bdg-val">' + item.rating + '</span></div>' +
-        (metrics ? '<div class="metrics">' + metrics + '</div>' : '') +
-        '<div class="conclusion">' + item.conclusion + '</div></a>';
-    });
-    grid.innerHTML = html;
-  }
-  renderStats();
-  render(data);
-  search.addEventListener('input', function(){
-    var q = this.value.trim().toLowerCase();
-    if(!q) { render(data); return; }
-    render(data.filter(function(item){
-      return item.name.toLowerCase().indexOf(q) > -1 ||
-        item.code.toLowerCase().indexOf(q) > -1 ||
-        item.industry.toLowerCase().indexOf(q) > -1 ||
-        item.rating.toLowerCase().indexOf(q) > -1 ||
-        item.conclusion.toLowerCase().indexOf(q) > -1;
-    }));
-  });
-})();
-</script>
 </body>
 </html>
