@@ -8,31 +8,24 @@
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:"Microsoft YaHei","PingFang SC","Helvetica Neue",sans-serif;background:#f5f7fa;color:#2c3e50;min-height:100vh}
 body::before{content:"";position:fixed;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 50% 0%,#e8ecf1 0%,#f5f7fa 60%);z-index:-1}
-
-.nav{display:flex;gap:12px;justify-content:center;padding:18px 20px 6px}
+.nav{display:flex;gap:12px;justify-content:center;padding:18px 20px 6px;flex-wrap:wrap}
 .nav a{display:inline-flex;align-items:center;gap:5px;padding:7px 16px;border-radius:20px;font-size:13px;font-weight:600;text-decoration:none;color:#6b7c93;background:#fff;border:1px solid #e2e8f0;transition:.2s}
 .nav a:hover,.nav a.active{color:#3182ce;border-color:#3182ce;background:#f0f6ff}
-
 .header{text-align:center;padding:18px 20px 20px}
 .header h1{font-size:28px;font-weight:700;color:#1a202c;margin-bottom:4px}
 .header .sub{font-size:13px;color:#6b7c93}
-
 .stats{display:flex;justify-content:center;gap:20px;margin:0 auto 20px;max-width:900px;padding:0 20px;flex-wrap:wrap}
 .stat{text-align:center;padding:10px 18px;background:#fff;border:1px solid #e2e8f0;border-radius:10px;min-width:90px}
 .stat-num{font-size:20px;font-weight:700;color:#3182ce}
 .stat-label{font-size:11px;color:#8b949e;margin-top:2px}
-
 .search{max-width:500px;margin:0 auto 20px;padding:0 20px}
 .search input{width:100%;padding:10px 14px;font-size:14px;border:1px solid #e2e8f0;border-radius:10px;background:#fff;color:#2c3e50;outline:none;font-family:inherit;transition:.2s}
 .search input:focus{border-color:#3182ce;box-shadow:0 0 0 3px rgba(49,130,206,.1)}
-
 .container{max-width:1000px;margin:0 auto;padding:0 20px 50px}
-
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
-
 .card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:18px;text-decoration:none;color:inherit;display:block;transition:.25s;position:relative;overflow:hidden}
 .card:hover{border-color:#3182ce;transform:translateY(-2px);box-shadow:0 8px 24px rgba(49,130,206,.08)}
-.card-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px}
+.card-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;gap:8px}
 .card-name{font-size:17px;font-weight:700;color:#1a202c}
 .card-code{font-size:11px;color:#a0aec0;font-weight:500}
 .card-badges{display:flex;gap:4px;margin-bottom:10px;flex-wrap:wrap}
@@ -47,80 +40,80 @@ body::before{content:"";position:fixed;top:0;left:0;right:0;bottom:0;background:
 .metric-val{font-size:13px;font-weight:700;color:#2c3e50}
 .metric-lbl{font-size:9px;color:#a0aec0}
 .conclusion{font-size:12px;line-height:1.6;color:#6b7c93}
-
 .empty{text-align:center;padding:40px;color:#a0aec0;grid-column:1/-1}
 .empty .icon{font-size:36px;margin-bottom:8px}
-
 .footer{text-align:center;padding:16px;color:#a0aec0;font-size:11px}
-
 @media(max-width:600px){.grid{grid-template-columns:1fr}.header h1{font-size:22px}.stats{gap:10px}.stat{padding:8px 12px;min-width:70px}}
 </style>
 </head>
 <body>
-
 <div class="nav">
-  <a href="index.html">🏠 首页</a>
-  <a href="knowledge.html">📚 知识库</a>
-  <a href="research.html" class="active">📋 研究汇总</a>
+  <a href="index.html">首页</a>
+  <a href="knowledge.html">知识库</a>
+  <a href="research.html" class="active">研究汇总</a>
 </div>
-
 <div class="header">
-  <h1>📋 研究汇总 · 快速预览</h1>
-  <p class="sub">11家公司 · 一键纵览估值与核心结论</p>
+  <h1>研究汇总 · 快速预览</h1>
+  <p class="sub">22家公司 · 18个行业 · 一页看完核心估值与结论</p>
 </div>
-
 <div class="stats" id="statsBar"></div>
-
 <div class="search">
-  <input type="text" id="search" placeholder="筛选公司、行业..." autocomplete="off">
+  <input type="text" id="search" placeholder="筛选公司名称、代码、行业..." autocomplete="off">
 </div>
-
 <div class="container">
   <div class="grid" id="cardGrid"></div>
 </div>
-
 <div class="footer">© 2026 · 数据仅供研究参考，不构成投资建议</div>
-
 <script>
 (function(){
-  var data=[{"name":"中信证券","code":"600030.SH","industry":"证券","price":"25.22","pb":"1.15","pe":"4.5","valMethod":"市净率(P/B)","roe":"7-10%","rating":"周期底部布局","conclusion":"国内券商绝对龙头，P/B 1.15x处历史低位。本质是周期底部布局型投资。","signal":"hold"},{"name":"中国中免","code":"601888.SH","industry":"免税零售","price":"","pb":"","pe":"44","valMethod":"市盈率(PE)","roe":"5.9%","rating":"谨慎观望","conclusion":"毛利率持续下行(51%→32%)，低PE可能是价值陷阱信号","signal":"bearish"},{"name":"比亚迪","code":"002594.SZ","industry":"新能源汽车","price":"","pb":"1.05","pe":"9.8","valMethod":"PE+PEG","roe":"","rating":"估值底部布局","conclusion":"全球最大新能源车企，垂直一体化护城河深。PE 9.8x已反映悲观预期。","signal":"hold"},{"name":"贵州茅台","code":"600519.SH","industry":"白酒","price":"","pb":"","pe":"14.6","valMethod":"DCF+PE","roe":"","rating":"低估值区域","conclusion":"A股最强产品公司。14.6x PE处近10年最低，多重估值均指向低估区域。","signal":"bullish"},{"name":"中国广核","code":"003816.SZ","industry":"核电","price":"","pb":"","pe":"22.5","valMethod":"市盈率","roe":"9%","rating":"稳健持有","conclusion":"核电双寡头，现金流充沛。PE 22.5x历史偏低分位，安全边际充足。","signal":"hold"},{"name":"中国核电","code":"601985.SH","industry":"核电","price":"","pb":"1.61","pe":"","valMethod":"市盈率","roe":"8.2%","rating":"等待回调","conclusion":"垄断牌照+稳定现金流，但ROE持续下降，负债率69%。估值已反映成长预期。","signal":"bearish"},{"name":"中芯国际","code":"688981.SH","industry":"半导体","price":"","pb":"6.8","pe":"204.5","valMethod":"市净率(P/B)","roe":"3.4%","rating":"估值过高","conclusion":"晶圆代工基石企业。P/B 6.8x、ROE仅3.4%，估值已远远脱离基本面。","signal":"bearish"},{"name":"寒武纪","code":"688256.SH","industry":"AI芯片","price":"1205.29","pb":"42.9","pe":"244.5","valMethod":"市盈率","roe":"","rating":"估值透支","conclusion":"国产AI芯片稀缺标的。PE 244.5x已过度反映未来数年的增长预期。","signal":"bearish"},{"name":"片仔癀","code":"600436.SH","industry":"中药","price":"","pb":"5.0","pe":"33.5","valMethod":"市盈率","roe":"15-28%","rating":"拐点观察","conclusion":"国家绝密配方护城河强。但2025年营收/利润首降，经营现金流断崖，需等待企稳。","signal":"bearish"},{"name":"牧原股份","code":"002714.SZ","industry":"生猪养殖","price":"","pb":"2.5","pe":"12.1","valMethod":"市净率(P/B)","roe":"","rating":"收获期观察","conclusion":"全球最大养猪企业，成本行业最优。FCF首次转正，从扩张期进入收获期。","signal":"hold"},{"name":"迈瑞医疗","code":"300760.SZ","industry":"医疗器械","price":"149.98","pb":"4.77","pe":"22.3","valMethod":"市盈率","roe":"","rating":"集采压力观望","conclusion":"医疗器械龙头。PE 22.3x历史低位，等待IVD集采落地后的企稳信号。","signal":"hold"}];
-
-  var grid=document.getElementById('cardGrid');
-  var search=document.getElementById('search');
-  var stats=document.getElementById('statsBar');
-
-  var sigMap={bullish:'看好',hold:'中性',bearish:'谨慎'};
-  var sigColor={bullish:'bdg-signal-bullish',hold:'bdg-signal-hold',bearish:'bdg-signal-bearish'};
-
-  function render(list){
-    var industries={};data.forEach(function(d){industries[d.industry]=1});
-    var indCount=Object.keys(industries).length;
-    stats.innerHTML='<div class="stat"><div class="stat-num">'+data.length+'</div><div class="stat-label">公司总数</div></div><div class="stat"><div class="stat-num">'+indCount+'</div><div class="stat-label">覆盖行业</div></div><div class="stat"><div class="stat-num">'+data.filter(function(d){return d.signal==='bullish'}).length+'</div><div class="stat-label">看好</div></div><div class="stat"><div class="stat-num">'+data.filter(function(d){return d.signal==='hold'}).length+'</div><div class="stat-label">中性</div></div><div class="stat"><div class="stat-num">'+data.filter(function(d){return d.signal==='bearish'}).length+'</div><div class="stat-label">谨慎</div></div>';
-
-    if(list.length===0){grid.innerHTML='<div class="empty"><div class="icon">🔎</div><div>没有匹配的公司</div></div>';return}
-    var h='';
-    list.forEach(function(d){
-      var metricRows='';
-      if(d.pe)metricRows+='<div class="metric"><div class="metric-val">'+d.pe+'x</div><div class="metric-lbl">PE</div></div>';
-      if(d.pb)metricRows+='<div class="metric"><div class="metric-val">'+d.pb+'x</div><div class="metric-lbl">P/B</div></div>';
-      if(d.roe)metricRows+='<div class="metric"><div class="metric-val">'+d.roe+'</div><div class="metric-lbl">ROE</div></div>';
-      if(d.price)metricRows+='<div class="metric"><div class="metric-val">'+d.price+'</div><div class="metric-lbl">股价</div></div>';
-      if(d.valMethod)metricRows+='<div class="metric"><div class="metric-val" style="font-size:10px">'+d.valMethod+'</div><div class="metric-lbl">方法</div></div>';
-
-      h+='<a class="card" href="reports/'+d.name+'.html"><div class="card-head"><div class="card-name">'+d.name+'</div><div class="card-code">'+d.code+'</div></div><div class="card-badges"><span class="bdg bdg-ind">'+d.industry+'</span><span class="bdg '+sigColor[d.signal]+'">'+sigMap[d.signal]+'</span><span class="bdg bdg-val">'+d.rating+'</span></div>'+(metricRows?'<div class="metrics">'+metricRows+'</div>':'')+'<div class="conclusion">'+d.conclusion+'</div></a>';
-    });
-    grid.innerHTML=h;
+  var data = [{"name": "万华化学", "code": "600309.SH", "industry": "化工", "price": "71.79", "pb": "2.09x", "pe": "17.1x", "roe": "12.4%", "rating": "合理偏谨慎", "conclusion": "万华化学是A股少数具备全球竞争力的制造业龙头，核心价值在聚氨酯技术壁垒、一体化成本和全球客户基础；但它仍是强周期...", "signal": "bearish"}, {"name": "中信证券", "code": "600030.SH", "industry": "证券", "price": "25.22", "pb": "-", "pe": "4.5x", "roe": "9.2%", "rating": "P/B处于历史较低分位，安全边际充足。但投资时机需结合市场周期判断。", "conclusion": "低估", "signal": "bullish"}, {"name": "中国中免", "code": "601888.SH", "industry": "免税零售", "price": "-", "pb": "-", "pe": "-", "roe": "-", "rating": "中国中免最新研究报告已同步，可进入报告页查看完整结论。", "conclusion": "中国中免最新研究报告已同步，可进入报告页查看完整结论。", "signal": "hold"}, {"name": "中国人保", "code": "601319.SH", "industry": "保险", "price": "6.91", "pb": "-", "pe": "7.2x", "roe": "16.1%", "rating": "合理偏低", "conclusion": "中国人保是一家以财险为核心的中央金融保险平台，资产负债表稳、ROE仍有韧性、PB估值不高；但它不是高成长公司，利...", "signal": "bullish"}, {"name": "中国广核", "code": "003816.SZ", "industry": "核电", "price": "4.35", "pb": "-", "pe": "22.5x", "roe": "9.1%", "rating": "PE处于历史中低位，当前股价具备较好的安全边际。核电作为稳定现金牛资产，当前约22.5x PE对于5-8%年均利润增长预期来说，估值合理偏低。但需注意短期电价改革的不确定性。", "conclusion": "偏低", "signal": "hold"}, {"name": "中国核电", "code": "601985.SH", "industry": "核电", "price": "-", "pb": "1.61x", "pe": "20.3x", "roe": "8.2%", "rating": "中国核电最新研究报告已同步，可进入报告页查看完整结论。", "conclusion": "中国核电最新研究报告已同步，可进入报告页查看完整结论。", "signal": "hold"}, {"name": "中芯国际", "code": "688981.SH", "industry": "半导体", "price": "128.81", "pb": "-", "pe": "204.5x", "roe": "3.4%", "rating": "中芯国际当前股价远高于基于基本面（P/B、EV/EBITDA、ROE）的合理估值。溢价主要来自：① 科创板流动性溢价；② \"国产替代\"的叙事溢价；③ A股市场对半导体板块的炒作情绪。投资者需要区分\"好公司\"和\"好价格\"——中芯国际是中国半导体制造的重要企业，但当前股价已经远远超前于基本面。", "conclusion": "高估", "signal": "bearish"}, {"name": "中远海控", "code": "601919.SH", "industry": "航运", "price": "13.39", "pb": "-", "pe": "-", "roe": "-", "rating": "合理偏谨慎", "conclusion": "中远海控是全球航运核心资产，但不是稳定成长股。它的价值来自全球网络、船队码头资产、现金流和周期弹性；它的风险也来...", "signal": "bearish"}, {"name": "五粮液", "code": "000858.SZ", "industry": "白酒", "price": "73.17", "pb": "2.22x", "pe": "-", "roe": "-", "rating": "合理偏谨慎", "conclusion": "五粮液仍是高端白酒核心资产，现金极强、品牌定价权仍在，分红提供一定现金回报；但2025口径下经营下滑明显，202...", "signal": "bearish"}, {"name": "同仁堂", "code": "600085.SH", "industry": "中药", "price": "-", "pb": "2.29x", "pe": "28.5x", "roe": "8.9%", "rating": "合理偏谨慎", "conclusion": "同仁堂适合长期跟踪，但当前更像“稳健现金流 + 品牌恢复等待”的标的，而不是高成长标的。若投资，关注点应该放在工...", "signal": "bearish"}, {"name": "宁德时代", "code": "300750.SZ", "industry": "动力电池", "price": "381.00", "pb": "5.39x", "pe": "-", "roe": "-", "rating": "合理偏谨慎", "conclusion": "宁德时代是中国制造业中少数具备全球竞争力、强技术、强客户和强现金流的龙头。2025年报和2026Q1数据证明公司...", "signal": "bearish"}, {"name": "安琪酵母", "code": "600298.SH", "industry": "食品配料", "price": "35.18", "pb": "2.55x", "pe": "19.1x", "roe": "13.5%", "rating": "合理偏谨慎", "conclusion": "安琪酵母是一家有全球竞争力的食品发酵制造龙头，主业清晰、海外收入占比高、酵母及深加工产品利润质量好；但它仍有制造...", "signal": "bearish"}, {"name": "寒武纪", "code": "688256.SH", "industry": "AI芯片", "price": "1205.29", "pb": "42.9x", "pe": "244.5x", "roe": "-", "rating": "当前估值已包含极高的增长预期。PEG远超1.0，P/S远高于全球AI芯片龙头NVIDIA（约15-20x PS）。即使按最乐观的2025年盈利计算，PE仍超200x。寒武纪的\"合理估值\"取决于2026-2027年的增长能否兑现——若利润翻倍则PE可降至100x左右，估值压力缓解。但一旦增速不及预期，估值回归风险极大。", "conclusion": "高估", "signal": "bearish"}, {"name": "山西汾酒", "code": "600809.SH", "industry": "白酒", "price": "108.10", "pb": "2.93x", "pe": "-", "roe": "-", "rating": "合理偏谨慎", "conclusion": "山西汾酒是清香型白酒龙头，主品牌强、省外扩张有数据支撑、现金和分红基础较好；但行业调整期已经反映在2026Q1表...", "signal": "bearish"}, {"name": "比亚迪", "code": "002594.SZ", "industry": "新能源车", "price": "-", "pb": "-", "pe": "-", "roe": "15.3%", "rating": "比亚迪是全球最大的新能源车企，垂直一体化+规模优势+技术积累构筑了深厚护城河。但2025年首次出现利润下滑（-19%），营收增速骤降至+3.5%，自由现金流巨亏-1,384亿——公司正经历从\"高增长期\"到\"成熟期\"的转型阵痛。", "conclusion": "比亚迪是全球最大的新能源车企，垂直一体化+规模优势+技术积累构筑了深厚护城河。但2025年首次出现利润下滑（-1...", "signal": "hold"}, {"name": "片仔癀", "code": "600436.SH", "industry": "中药", "price": "119.78", "pb": "5.0x", "pe": "33.5x", "roe": "14.8%", "rating": "片仔癀的\"绝密级配方+强定价权+高ROE\"使其历史上享有估值溢价（PE中枢35-45x）。但2025年营收利润双降+经营现金流恶化+毛利率持续下滑，使历史估值锚点受到挑战。当前PE 33.5x处于历史中上分位，但结合盈利质量下降，实际风险调整后价值应低于历史中位。关注2026年经营现金流是否能恢复正常——若能，则当前估值可接受；若不能，估值有向下修正至25-30x的风险（对应89.5-107.4元）。", "conclusion": "偏高", "signal": "bearish"}, {"name": "牧原股份", "code": "002714.SZ", "industry": "生猪养殖", "price": "34.74", "pb": "-", "pe": "-", "roe": "20.6%", "rating": "牧原股份是全球最大的生猪养殖企业（年出栏7,200万头），具备行业最低的完全成本（14-15元/公斤）。2025年是公司发展的重要转折点——自由现金流首次大幅转正至228亿，负债率从62%降至54%，标志着从\"高速扩张期\"进入\"收获期\"。", "conclusion": "牧原股份是全球最大的生猪养殖企业（年出栏7,200万头），具备行业最低的完全成本（14-15元/公斤）。2025...", "signal": "hold"}, {"name": "甘李药业", "code": "603087.SH", "industry": "生物医药", "price": "53.77", "pb": "2.86x", "pe": "-", "roe": "-", "rating": "合理偏谨慎", "conclusion": "甘李药业是一家高毛利、低负债、处于集采后修复阶段的胰岛素生物药公司。它有清晰产品壁垒和慢病需求底盘，但也有政策价...", "signal": "bearish"}, {"name": "腾讯控股", "code": "0700.HK", "industry": "互联网平台", "price": "-", "pb": "-", "pe": "-", "roe": "-", "rating": "合理偏低", "conclusion": "腾讯控股是高质量、强现金流、估值不高的互联网平台龙头。当前市场主要担心成长放缓、AI资本开支和监管边界，但从20...", "signal": "hold"}, {"name": "贵州茅台", "code": "600519.SH", "industry": "白酒", "price": "-", "pb": "-", "pe": "-", "roe": "-", "rating": "贵州茅台最新研究报告已同步，可进入报告页查看完整结论。", "conclusion": "贵州茅台最新研究报告已同步，可进入报告页查看完整结论。", "signal": "hold"}, {"name": "迈瑞医疗", "code": "300760.SZ", "industry": "医疗器械", "price": "149.98", "pb": "4.77x", "pe": "22.3x", "roe": "21.6%", "rating": "极端低估。", "conclusion": "低估。估值已充分反映短期利空，一旦业绩触底回升，估值修复空间巨大。 六、投资逻辑6.1 投资亮点国产医疗器械绝对...", "signal": "bullish"}, {"name": "长江电力", "code": "600900.SH", "industry": "水电", "price": "26.65", "pb": "2.86x", "pe": "-", "roe": "-", "rating": "合理偏谨慎", "conclusion": "长江电力是A股中稀缺的高质量公用事业现金流资产，适合以股息率和长期现金流视角研究，而不是按高成长股框架研究。公司...", "signal": "bearish"}];
+  var grid = document.getElementById('cardGrid');
+  var search = document.getElementById('search');
+  var stats = document.getElementById('statsBar');
+  var sigMap = {bullish:'看好',hold:'中性',bearish:'谨慎'};
+  var sigClass = {bullish:'bdg-signal-bullish',hold:'bdg-signal-hold',bearish:'bdg-signal-bearish'};
+  function renderStats() {
+    var industries = {};
+    data.forEach(function(item){industries[item.industry]=1;});
+    stats.innerHTML =
+      '<div class="stat"><div class="stat-num">22</div><div class="stat-label">公司总数</div></div>' +
+      '<div class="stat"><div class="stat-num">18</div><div class="stat-label">覆盖行业</div></div>' +
+      '<div class="stat"><div class="stat-num">' + data.filter(function(item){return item.signal==='bullish';}).length + '</div><div class="stat-label">看好</div></div>' +
+      '<div class="stat"><div class="stat-num">' + data.filter(function(item){return item.signal==='hold';}).length + '</div><div class="stat-label">中性</div></div>' +
+      '<div class="stat"><div class="stat-num">' + data.filter(function(item){return item.signal==='bearish';}).length + '</div><div class="stat-label">谨慎</div></div>';
   }
-
-  render(data);
-
-  search.addEventListener('input',function(){
-    var q=this.value.trim().toLowerCase();
-    if(!q){render(data);return}
-    var f=data.filter(function(d){
-      return d.name.indexOf(q)!==-1||d.code.toLowerCase().indexOf(q)!==-1||d.industry.indexOf(q)!==-1||d.rating.indexOf(q)!==-1
+  function render(list) {
+    if(!list.length) {
+      grid.innerHTML = '<div class="empty"><div class="icon">🔎</div><div>没有匹配的公司</div></div>';
+      return;
+    }
+    var html = '';
+    list.forEach(function(item){
+      var metrics = '';
+      if(item.pe && item.pe !== '-') metrics += '<div class="metric"><div class="metric-val">' + item.pe + '</div><div class="metric-lbl">PE</div></div>';
+      if(item.pb && item.pb !== '-') metrics += '<div class="metric"><div class="metric-val">' + item.pb + '</div><div class="metric-lbl">P/B</div></div>';
+      if(item.roe && item.roe !== '-') metrics += '<div class="metric"><div class="metric-val">' + item.roe + '</div><div class="metric-lbl">ROE</div></div>';
+      if(item.price && item.price !== '-') metrics += '<div class="metric"><div class="metric-val">' + item.price + '</div><div class="metric-lbl">股价</div></div>';
+      html += '<a class="card" href="reports/' + item.name + '.html">' +
+        '<div class="card-head"><div class="card-name">' + item.name + '</div><div class="card-code">' + item.code + '</div></div>' +
+        '<div class="card-badges"><span class="bdg bdg-ind">' + item.industry + '</span><span class="bdg ' + sigClass[item.signal] + '">' + sigMap[item.signal] + '</span><span class="bdg bdg-val">' + item.rating + '</span></div>' +
+        (metrics ? '<div class="metrics">' + metrics + '</div>' : '') +
+        '<div class="conclusion">' + item.conclusion + '</div></a>';
     });
-    render(f);
+    grid.innerHTML = html;
+  }
+  renderStats();
+  render(data);
+  search.addEventListener('input', function(){
+    var q = this.value.trim().toLowerCase();
+    if(!q) { render(data); return; }
+    render(data.filter(function(item){
+      return item.name.toLowerCase().indexOf(q) > -1 ||
+        item.code.toLowerCase().indexOf(q) > -1 ||
+        item.industry.toLowerCase().indexOf(q) > -1 ||
+        item.rating.toLowerCase().indexOf(q) > -1 ||
+        item.conclusion.toLowerCase().indexOf(q) > -1;
+    }));
   });
 })();
 </script>
