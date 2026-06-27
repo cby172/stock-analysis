@@ -1,51 +1,194 @@
 [
   {
-    "name": "中信证券",
-    "code": "600030.SH",
-    "industry": "证券",
-    "date": "2026-06-11",
-    "file": "reports/中信证券.html",
-    "summary": "中央国有券商龙头 · P/B估值为主 · 综合型投行",
-    "pinyin": "zhongxinzhengquan",
-    "abbr": "zxzq",
-    "codeNum": "600030",
-    "aliases": ["citics", "中信", "citic"]
+    "name": "万华化学",
+    "code": "600309.SH",
+    "industry": "化工",
+    "date": "2026-06-27",
+    "file": "reports/万华化学.html",
+    "summary": "万华化学是A股少数具备全球竞争力的制造业龙头，核心价值在聚氨酯技术壁垒、一体化成本和全球客户基础；但它仍是强周期...",
+    "pinyin": "wanhuahuaxue",
+    "abbr": "whhx",
+    "codeNum": "600309",
+    "aliases": [
+      "whh",
+      "mdi",
+      "万华"
+    ]
   },
   {
-    "name": "中国中免",
-    "code": "601888.SH",
-    "industry": "免税零售",
-    "date": "2026-06-10",
-    "file": "reports/中国中免.html",
-    "summary": "全球最大免税运营商 · DCF估值 · 消费复苏弹性标的",
-    "pinyin": "zhongguozhongmian",
-    "abbr": "zgzm",
-    "codeNum": "601888",
-    "aliases": ["cdfg", "中免", "cdf"]
+    "name": "中国人保",
+    "code": "601319.SH",
+    "industry": "保险",
+    "date": "2026-06-27",
+    "file": "reports/中国人保.html",
+    "summary": "中国人保是一家以财险为核心的中央金融保险平台，资产负债表稳、ROE仍有韧性、PB估值不高；但它不是高成长公司，利...",
+    "pinyin": "zhongguorenbao",
+    "abbr": "zgrb",
+    "codeNum": "601319",
+    "aliases": [
+      "picc",
+      "人保"
+    ]
+  },
+  {
+    "name": "中远海控",
+    "code": "601919.SH",
+    "industry": "航运",
+    "date": "2026-06-27",
+    "file": "reports/中远海控.html",
+    "summary": "中远海控是全球航运核心资产，但不是稳定成长股。它的价值来自全球网络、船队码头资产、现金流和周期弹性；它的风险也来...",
+    "pinyin": "zhongyuanhaikong",
+    "abbr": "zyhk",
+    "codeNum": "601919",
+    "aliases": [
+      "cosco",
+      "海控"
+    ]
+  },
+  {
+    "name": "五粮液",
+    "code": "000858.SZ",
+    "industry": "白酒",
+    "date": "2026-06-27",
+    "file": "reports/五粮液.html",
+    "summary": "五粮液仍是高端白酒核心资产，现金极强、品牌定价权仍在，分红提供一定现金回报；但2025口径下经营下滑明显，202...",
+    "pinyin": "wuliangye",
+    "abbr": "wly",
+    "codeNum": "000858",
+    "aliases": [
+      "五粮液股份"
+    ]
+  },
+  {
+    "name": "同仁堂",
+    "code": "600085.SH",
+    "industry": "中药",
+    "date": "2026-06-27",
+    "file": "reports/同仁堂.html",
+    "summary": "同仁堂适合长期跟踪，但当前更像“稳健现金流 + 品牌恢复等待”的标的，而不是高成长标的。若投资，关注点应该放在工...",
+    "pinyin": "tongrentang",
+    "abbr": "trt",
+    "codeNum": "600085",
+    "aliases": [
+      "北京同仁堂"
+    ]
+  },
+  {
+    "name": "宁德时代",
+    "code": "300750.SZ",
+    "industry": "动力电池",
+    "date": "2026-06-27",
+    "file": "reports/宁德时代.html",
+    "summary": "宁德时代是中国制造业中少数具备全球竞争力、强技术、强客户和强现金流的龙头。2025年报和2026Q1数据证明公司...",
+    "pinyin": "ningdeshidai",
+    "abbr": "ndsd",
+    "codeNum": "300750",
+    "aliases": [
+      "catl",
+      "宁王"
+    ]
+  },
+  {
+    "name": "安琪酵母",
+    "code": "600298.SH",
+    "industry": "食品配料",
+    "date": "2026-06-27",
+    "file": "reports/安琪酵母.html",
+    "summary": "安琪酵母是一家有全球竞争力的食品发酵制造龙头，主业清晰、海外收入占比高、酵母及深加工产品利润质量好；但它仍有制造...",
+    "pinyin": "anqijiaomu",
+    "abbr": "aqjm",
+    "codeNum": "600298",
+    "aliases": [
+      "酵母"
+    ]
+  },
+  {
+    "name": "山西汾酒",
+    "code": "600809.SH",
+    "industry": "白酒",
+    "date": "2026-06-27",
+    "file": "reports/山西汾酒.html",
+    "summary": "山西汾酒是清香型白酒龙头，主品牌强、省外扩张有数据支撑、现金和分红基础较好；但行业调整期已经反映在2026Q1表...",
+    "pinyin": "shanxifenjiu",
+    "abbr": "sxfj",
+    "codeNum": "600809",
+    "aliases": [
+      "汾酒"
+    ]
+  },
+  {
+    "name": "甘李药业",
+    "code": "603087.SH",
+    "industry": "生物医药",
+    "date": "2026-06-27",
+    "file": "reports/甘李药业.html",
+    "summary": "甘李药业是一家高毛利、低负债、处于集采后修复阶段的胰岛素生物药公司。它有清晰产品壁垒和慢病需求底盘，但也有政策价...",
+    "pinyin": "ganliyaoye",
+    "abbr": "glyy",
+    "codeNum": "603087",
+    "aliases": [
+      "胰岛素"
+    ]
+  },
+  {
+    "name": "腾讯控股",
+    "code": "0700.HK",
+    "industry": "互联网平台",
+    "date": "2026-06-27",
+    "file": "reports/腾讯控股.html",
+    "summary": "腾讯控股是高质量、强现金流、估值不高的互联网平台龙头。当前市场主要担心成长放缓、AI资本开支和监管边界，但从20...",
+    "pinyin": "tengxunkonggu",
+    "abbr": "txkg",
+    "codeNum": "0700",
+    "aliases": [
+      "tencent",
+      "腾讯"
+    ]
+  },
+  {
+    "name": "长江电力",
+    "code": "600900.SH",
+    "industry": "水电",
+    "date": "2026-06-27",
+    "file": "reports/长江电力.html",
+    "summary": "长江电力是A股中稀缺的高质量公用事业现金流资产，适合以股息率和长期现金流视角研究，而不是按高成长股框架研究。公司...",
+    "pinyin": "changjiangdianli",
+    "abbr": "cjdl",
+    "codeNum": "600900",
+    "aliases": [
+      "三峡",
+      "长电"
+    ]
+  },
+  {
+    "name": "中国核电",
+    "code": "601985.SH",
+    "industry": "核电",
+    "date": "2026-06-14",
+    "file": "reports/中国核电.html",
+    "summary": "中国核电最新研究报告已同步，可进入报告页查看完整结论。",
+    "pinyin": "zhongguohedian",
+    "abbr": "zghd",
+    "codeNum": "601985",
+    "aliases": [
+      "cnnp",
+      "核电"
+    ]
   },
   {
     "name": "比亚迪",
     "code": "002594.SZ",
-    "industry": "新能源汽车",
-    "date": "2026-06-11",
+    "industry": "新能源车",
+    "date": "2026-06-14",
     "file": "reports/比亚迪.html",
-    "summary": "新能源车全球销冠 · 垂直一体化 · 成长型制造业龙头",
+    "summary": "比亚迪是全球最大的新能源车企，垂直一体化+规模优势+技术积累构筑了深厚护城河。但2025年首次出现利润下滑（-1...",
     "pinyin": "biyadi",
     "abbr": "byd",
     "codeNum": "002594",
-    "aliases": ["byd", "比亚迪股份"]
-  },
-  {
-    "name": "贵州茅台",
-    "code": "600519.SH",
-    "industry": "白酒",
-    "date": "2026-06-11",
-    "file": "reports/贵州茅台.html",
-    "summary": "A股价值投资标杆 · 超强品牌护城河 · 稳定现金流",
-    "pinyin": "guizhoumaotai",
-    "abbr": "gzmt",
-    "codeNum": "600519",
-    "aliases": ["moutai", "茅台", "maotai"]
+    "aliases": [
+      "byd",
+      "比亚迪股份"
+    ]
   },
   {
     "name": "中国广核",
@@ -53,23 +196,14 @@
     "industry": "核电",
     "date": "2026-06-12",
     "file": "reports/中国广核.html",
-    "summary": "核电运营龙头 · 稳定现金流 · 高股息红利标的",
+    "summary": "偏低",
     "pinyin": "zhongguoguanghe",
-    "abbr": "zggd",
+    "abbr": "zggh",
     "codeNum": "003816",
-    "aliases": ["cgn", "中广核"]
-  },
-  {
-    "name": "中国核电",
-    "code": "601985.SH",
-    "industry": "核电",
-    "date": "2026-06-12",
-    "file": "reports/中国核电.html",
-    "summary": "核电双雄之一 · 成长性优于同行 · 能源转型核心标的",
-    "pinyin": "zhongguohedian",
-    "abbr": "zghd",
-    "codeNum": "601985",
-    "aliases": ["cnnp", "核电"]
+    "aliases": [
+      "cgn",
+      "广核"
+    ]
   },
   {
     "name": "中芯国际",
@@ -77,11 +211,14 @@
     "industry": "半导体",
     "date": "2026-06-12",
     "file": "reports/中芯国际.html",
-    "summary": "国内晶圆代工龙头 · 国产替代核心 · 先进制程突破",
+    "summary": "高估",
     "pinyin": "zhongxinguoji",
     "abbr": "zxgj",
     "codeNum": "688981",
-    "aliases": ["smic", "中芯"]
+    "aliases": [
+      "smic",
+      "中芯"
+    ]
   },
   {
     "name": "寒武纪",
@@ -89,11 +226,13 @@
     "industry": "AI芯片",
     "date": "2026-06-12",
     "file": "reports/寒武纪.html",
-    "summary": "国产AI芯片龙头 · 算力核心标的 · 高研发投入",
+    "summary": "高估",
     "pinyin": "hanwuji",
     "abbr": "hwj",
     "codeNum": "688256",
-    "aliases": ["camabrian"]
+    "aliases": [
+      "cambricon"
+    ]
   },
   {
     "name": "片仔癀",
@@ -101,11 +240,13 @@
     "industry": "中药",
     "date": "2026-06-12",
     "file": "reports/片仔癀.html",
-    "summary": "国家绝密配方 · 中药龙头 · 高毛利消费品属性",
+    "summary": "偏高",
     "pinyin": "pianzihuang",
     "abbr": "pzh",
     "codeNum": "600436",
-    "aliases": ["片仔癀药业"]
+    "aliases": [
+      "片仔癀药业"
+    ]
   },
   {
     "name": "牧原股份",
@@ -113,11 +254,14 @@
     "industry": "生猪养殖",
     "date": "2026-06-12",
     "file": "reports/牧原股份.html",
-    "summary": "生猪养殖龙头 · 自繁自养模式 · 成本优势突出",
+    "summary": "牧原股份是全球最大的生猪养殖企业（年出栏7,200万头），具备行业最低的完全成本（14-15元/公斤）。2025...",
     "pinyin": "muyuangufen",
     "abbr": "mygf",
     "codeNum": "002714",
-    "aliases": ["牧原", "muyuan"]
+    "aliases": [
+      "牧原",
+      "muyuan"
+    ]
   },
   {
     "name": "迈瑞医疗",
@@ -125,10 +269,60 @@
     "industry": "医疗器械",
     "date": "2026-06-12",
     "file": "reports/迈瑞医疗.html",
-    "summary": "国产医疗器械龙头 · 国际化布局 · 研发驱动增长",
+    "summary": "低估。估值已充分反映短期利空，一旦业绩触底回升，估值修复空间巨大。 六、投资逻辑6.1 投资亮点国产医疗器械绝对...",
     "pinyin": "mairuiyiliao",
-    "abbr": "myry",
+    "abbr": "mryl",
     "codeNum": "300760",
-    "aliases": ["mindray", "迈瑞"]
+    "aliases": [
+      "mindray",
+      "迈瑞"
+    ]
+  },
+  {
+    "name": "中信证券",
+    "code": "600030.SH",
+    "industry": "证券",
+    "date": "2026-06-11",
+    "file": "reports/中信证券.html",
+    "summary": "低估",
+    "pinyin": "zhongxinzhengquan",
+    "abbr": "zxzq",
+    "codeNum": "600030",
+    "aliases": [
+      "citic",
+      "citics",
+      "中信"
+    ]
+  },
+  {
+    "name": "中国中免",
+    "code": "601888.SH",
+    "industry": "免税零售",
+    "date": "2026-06-10",
+    "file": "reports/中国中免.html",
+    "summary": "中国中免最新研究报告已同步，可进入报告页查看完整结论。",
+    "pinyin": "zhongguozhongmian",
+    "abbr": "zgzm",
+    "codeNum": "601888",
+    "aliases": [
+      "cdfg",
+      "中免",
+      "cdf"
+    ]
+  },
+  {
+    "name": "贵州茅台",
+    "code": "600519.SH",
+    "industry": "白酒",
+    "date": "2026-06-10",
+    "file": "reports/贵州茅台.html",
+    "summary": "贵州茅台最新研究报告已同步，可进入报告页查看完整结论。",
+    "pinyin": "guizhoumaotai",
+    "abbr": "gzmt",
+    "codeNum": "600519",
+    "aliases": [
+      "moutai",
+      "茅台"
+    ]
   }
 ]
