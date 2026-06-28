@@ -55,25 +55,36 @@ body{background:#fff;padding:0;}
 }
 
 :root{--font-scale:1}
-.font-tools{position:fixed;top:14px;right:16px;display:flex;gap:6px;z-index:1200;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);padding:6px;border-radius:999px;box-shadow:0 6px 18px rgba(0,0,0,.08);border:1px solid rgba(0,0,0,.08)}
-.font-btn{border:none;background:#eef3fa;color:#1a5276;padding:6px 10px;border-radius:999px;font-size:12px;font-weight:700;cursor:pointer;line-height:1}
+.side-tools{position:fixed;right:12px;top:50%;transform:translateY(-50%);display:flex;align-items:center;gap:10px;max-width:50px;overflow:hidden;z-index:1300;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);padding:8px;border-radius:18px;box-shadow:0 10px 28px rgba(0,0,0,.12);border:1px solid rgba(0,0,0,.08);transition:max-width .25s ease,padding .25s ease,box-shadow .25s ease}
+.side-tools.open{max-width:280px;padding:8px 10px 8px 8px;box-shadow:0 14px 34px rgba(0,0,0,.16)}
+.side-toggle{display:inline-flex;align-items:center;justify-content:center;gap:4px;width:34px;height:34px;flex:0 0 34px;border:none;border-radius:999px;background:#1a5276;color:#fff;cursor:pointer;font-weight:700;font-size:12px;line-height:1}
+.side-toggle .arrow{font-size:11px;transition:transform .22s ease}
+.side-tools.open .side-toggle .arrow{transform:rotate(180deg)}
+.side-panel{display:flex;align-items:center;gap:10px;white-space:nowrap;opacity:0;pointer-events:none;transform:translateX(8px);transition:opacity .2s ease,transform .2s ease}
+.side-tools.open .side-panel{opacity:1;pointer-events:auto;transform:translateX(0)}
+.side-label{font-size:12px;font-weight:700;color:#486581}
+.font-group{display:flex;gap:6px}
+.font-btn{border:none;background:#eef3fa;color:#1a5276;padding:7px 11px;border-radius:999px;font-size:12px;font-weight:700;cursor:pointer;line-height:1}
 .font-btn.active{background:#1a5276;color:#fff}
-body{font-size:calc(14px * var(--font-scale))}
-h1{font-size:calc(28px * var(--font-scale)) !important}
-h2{font-size:calc(20px * var(--font-scale)) !important}
-h3{font-size:calc(17px * var(--font-scale)) !important}
-h4{font-size:calc(15px * var(--font-scale)) !important}
-p,li,table th,table td{font-size:calc(14px * var(--font-scale)) !important}
-.subtitle{font-size:calc(14px * var(--font-scale)) !important}
-.tag{font-size:calc(12px * var(--font-scale)) !important}
+body{font-size:calc(15px * var(--font-scale))}
+h1{font-size:calc(30px * var(--font-scale)) !important}
+h2{font-size:calc(22px * var(--font-scale)) !important}
+h3{font-size:calc(18px * var(--font-scale)) !important}
+h4{font-size:calc(16px * var(--font-scale)) !important}
+p,li{font-size:calc(15px * var(--font-scale)) !important}
+table th,table td{font-size:calc(12.5px * var(--font-scale)) !important}
+.subtitle{font-size:calc(13.5px * var(--font-scale)) !important}
+.tag{font-size:calc(11px * var(--font-scale)) !important}
 .metric-item .value{font-size:calc(22px * var(--font-scale)) !important}
-.metric-item .label{font-size:calc(12px * var(--font-scale)) !important}
+.metric-item .label,.small{font-size:calc(11.5px * var(--font-scale)) !important}
 @media (max-width:768px){
-.font-tools{top:auto;bottom:14px;right:12px}
+.side-tools{right:8px;top:auto;bottom:20px;transform:none;max-width:46px}
+.side-tools.open{max-width:248px}
+.side-label{display:none}
 .font-btn{padding:7px 10px}
 }
 </style></head><body><div class="container">
-<div class="font-tools" id="fontTools"><button class="font-btn" data-scale="0.9">A-</button><button class="font-btn active" data-scale="1">A</button><button class="font-btn" data-scale="1.1">A+</button></div>
+<div class="side-tools" id="fontTools"><button class="side-toggle" id="fontToggle" type="button" aria-expanded="false" title="字体缩放"><span class="aa">A</span><span class="arrow">‹</span></button><div class="side-panel"><span class="side-label">字体</span><div class="font-group"><button class="font-btn" data-scale="0.88">A-</button><button class="font-btn active" data-scale="1">A</button><button class="font-btn" data-scale="1.18">A+</button><button class="font-btn" data-scale="1.34">A++</button></div></div></div>
 <div style="text-align:left;padding:10px 0 30px;border-bottom:1px solid #333;margin-bottom:25px;"><a href="../index.html" style="color:#1a5276;text-decoration:none;font-size:15px;">&larr; 返回首页</a></div>
 <h1>五粮液（000858.SZ）深度投资价值分析报告</h1>
 <div class="subtitle">
@@ -151,7 +162,7 @@ p,li,table th,table td{font-size:calc(14px * var(--font-scale)) !important}
 <h3>5.2 多模型交叉验证</h3>
 <table><tr><th>估值方法</th><th>测算结果</th><th>适用性</th><th>说明</th></tr><tr><td class="left">PE估值</td><td>TTM PE 22.5x；情景价45.4/58.4/74.7元</td><td class="left">核心方法</td><td class="left">高端白酒稳定盈利，PE可用；但2025口径大幅变化，必须用情景而非单点</td></tr><tr><td class="left">DCF自由现金流</td><td>54.8/88.2/123.0元</td><td class="left">核心交叉验证</td><td class="left">白酒现金流可预测性较好，但渠道周期和利润口径变化会影响假设</td></tr><tr><td class="left">股息/DDM</td><td>股息率3.52%；DDM 27.1/34.4/39.7元</td><td class="left">辅助</td><td class="left">高分红提高安全垫，但需确认分红持续性</td></tr><tr><td class="left">P/B</td><td>PB 2.22x</td><td class="left">辅助底线</td><td class="left">现金和品牌价值未完全反映在账面，但白酒估值不应以PB为主</td></tr><tr><td class="left">P/S</td><td>PS 6.14x</td><td class="left">辅助</td><td class="left">2025收入口径偏低时，P/S可观察市场给收入的定价，但不区分利润质量</td></tr></table>
 <h3>5.3 综合评级</h3>
-<div class="highlight-box"><p><strong>综合评级：<span style="color:#1976d2;font-size:20px;">合理偏谨慎</span></strong> —— 当前价格接近TTM PE情景上沿，最新年度股息率和现金资产提供一定安全垫，但不足以单独证明低估。核心矛盾仍是2025利润中枢变化和渠道压力：若2026修复持续，估值有向上解释空间；若修复失败，应进一步下修判断。</p></div>
+<div class="highlight-box"><p><strong>综合评级：<span style="color:#e67e22;font-size:20px;">合理偏高</span></strong> —— 当前价格接近TTM PE情景上沿，最新年度股息率和现金资产提供一定安全垫，但不足以单独证明低估。核心矛盾仍是2025利润中枢变化和渠道压力：若2026修复持续，估值有向上解释空间；若修复失败，应进一步下修判断。</p></div>
 <h3>5.4 情景假设</h3>
 <p><b>悲观情景：</b>2026修复失败、利润中枢低位、市场只给14倍TTM PE，对应约45.4元。<b>中性情景：</b>利润逐步恢复、渠道库存改善、市场给18倍TTM PE，对应约58.4元。<b>乐观情景：</b>批价回稳、分红维持、消费修复，市场给23倍TTM PE，对应约74.7元。</p>
 
@@ -187,7 +198,7 @@ p,li,table th,table td{font-size:calc(14px * var(--font-scale)) !important}
 
 <h2>八、总结与投资建议</h2>
 <h3>8.1 最终结论</h3>
-<div class="highlight-box"><p><b>最终判断：</b>五粮液仍是高端白酒核心资产，现金极强、品牌定价权仍在，分红提供一定现金回报；但2025口径下经营下滑明显，2026Q1修复还需要后续季度验证。当前更像“合理估值下的修复观察型”而不是无风险低估资产。</p><p><strong>评级：<span style="color:#1976d2;font-size:20px;">合理偏谨慎</span></strong> —— 可以重点跟踪，若批价、库存、合同负债和利润修复同步改善，吸引力会提升；若只有现金回报但经营继续承压，则不应提高估值判断。</p></div>
+<div class="highlight-box"><p><b>最终判断：</b>五粮液仍是高端白酒核心资产，现金极强、品牌定价权仍在，分红提供一定现金回报；但2025口径下经营下滑明显，2026Q1修复还需要后续季度验证。当前更像“合理估值下的修复观察型”而不是无风险低估资产。</p><p><strong>评级：<span style="color:#e67e22;font-size:20px;">合理偏高</span></strong> —— 可以重点跟踪，若批价、库存、合同负债和利润修复同步改善，吸引力会提升；若只有现金回报但经营继续承压，则不应提高估值判断。</p></div>
 <h3>8.2 决策框架</h3>
 <p>投资五粮液要同时问四个问题：第一，普五批价是否稳定；第二，渠道库存是否下降；第三，2026利润修复是否持续；第四，现金分红是否不伤害现金安全垫。四个问题至少满足三个，才适合提高仓位；如果只满足“现金回报尚可”，仍要谨慎。</p>
 <h3>8.3 数据校验清单</h3>
@@ -236,6 +247,8 @@ window.addEventListener("resize", initTables);
 (function(){
   var KEY = "stock-font-scale";
   var root = document.documentElement;
+  var tools = document.getElementById("fontTools");
+  var toggle = document.getElementById("fontToggle");
   function apply(scale){
     root.style.setProperty("--font-scale", scale);
     var buttons = document.querySelectorAll(".font-btn");
@@ -243,16 +256,29 @@ window.addEventListener("resize", initTables);
       buttons[i].classList.toggle("active", buttons[i].getAttribute("data-scale") === String(scale));
     }
   }
+  function setOpen(open){
+    if(!tools) return;
+    tools.classList.toggle("open", !!open);
+    if(toggle) toggle.setAttribute("aria-expanded", open ? "true" : "false");
+  }
   var saved = localStorage.getItem(KEY) || "1";
   apply(saved);
-  var tools = document.getElementById("fontTools");
   if(tools){
     tools.addEventListener("click", function(e){
+      var toggleBtn = e.target.closest("#fontToggle");
+      if(toggleBtn){
+        e.preventDefault();
+        setOpen(!tools.classList.contains("open"));
+        return;
+      }
       var btn = e.target.closest(".font-btn");
       if(!btn) return;
       var scale = btn.getAttribute("data-scale") || "1";
       localStorage.setItem(KEY, scale);
       apply(scale);
+    });
+    document.addEventListener("click", function(e){
+      if(!tools.contains(e.target)) setOpen(false);
     });
   }
 })();
