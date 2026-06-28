@@ -72,26 +72,37 @@ body{background:#fff;padding:0;}
 }
 
 :root{--font-scale:1}
-.font-tools{position:fixed;top:14px;right:16px;display:flex;gap:6px;z-index:1200;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);padding:6px;border-radius:999px;box-shadow:0 6px 18px rgba(0,0,0,.08);border:1px solid rgba(0,0,0,.08)}
-.font-btn{border:none;background:#eef3fa;color:#1a5276;padding:6px 10px;border-radius:999px;font-size:12px;font-weight:700;cursor:pointer;line-height:1}
+.side-tools{position:fixed;right:12px;top:50%;transform:translateY(-50%);display:flex;align-items:center;gap:10px;max-width:50px;overflow:hidden;z-index:1300;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);padding:8px;border-radius:18px;box-shadow:0 10px 28px rgba(0,0,0,.12);border:1px solid rgba(0,0,0,.08);transition:max-width .25s ease,padding .25s ease,box-shadow .25s ease}
+.side-tools.open{max-width:280px;padding:8px 10px 8px 8px;box-shadow:0 14px 34px rgba(0,0,0,.16)}
+.side-toggle{display:inline-flex;align-items:center;justify-content:center;gap:4px;width:34px;height:34px;flex:0 0 34px;border:none;border-radius:999px;background:#1a5276;color:#fff;cursor:pointer;font-weight:700;font-size:12px;line-height:1}
+.side-toggle .arrow{font-size:11px;transition:transform .22s ease}
+.side-tools.open .side-toggle .arrow{transform:rotate(180deg)}
+.side-panel{display:flex;align-items:center;gap:10px;white-space:nowrap;opacity:0;pointer-events:none;transform:translateX(8px);transition:opacity .2s ease,transform .2s ease}
+.side-tools.open .side-panel{opacity:1;pointer-events:auto;transform:translateX(0)}
+.side-label{font-size:12px;font-weight:700;color:#486581}
+.font-group{display:flex;gap:6px}
+.font-btn{border:none;background:#eef3fa;color:#1a5276;padding:7px 11px;border-radius:999px;font-size:12px;font-weight:700;cursor:pointer;line-height:1}
 .font-btn.active{background:#1a5276;color:#fff}
-body{font-size:calc(14px * var(--font-scale))}
-h1{font-size:calc(28px * var(--font-scale)) !important}
-h2{font-size:calc(20px * var(--font-scale)) !important}
-h3{font-size:calc(17px * var(--font-scale)) !important}
-h4{font-size:calc(15px * var(--font-scale)) !important}
-p,li,table th,table td{font-size:calc(14px * var(--font-scale)) !important}
-.subtitle{font-size:calc(14px * var(--font-scale)) !important}
-.tag{font-size:calc(12px * var(--font-scale)) !important}
+body{font-size:calc(15px * var(--font-scale))}
+h1{font-size:calc(30px * var(--font-scale)) !important}
+h2{font-size:calc(22px * var(--font-scale)) !important}
+h3{font-size:calc(18px * var(--font-scale)) !important}
+h4{font-size:calc(16px * var(--font-scale)) !important}
+p,li{font-size:calc(15px * var(--font-scale)) !important}
+table th,table td{font-size:calc(12.5px * var(--font-scale)) !important}
+.subtitle{font-size:calc(13.5px * var(--font-scale)) !important}
+.tag{font-size:calc(11px * var(--font-scale)) !important}
 .metric-item .value{font-size:calc(22px * var(--font-scale)) !important}
-.metric-item .label{font-size:calc(12px * var(--font-scale)) !important}
+.metric-item .label,.small{font-size:calc(11.5px * var(--font-scale)) !important}
 @media (max-width:768px){
-.font-tools{top:auto;bottom:14px;right:12px}
+.side-tools{right:8px;top:auto;bottom:20px;transform:none;max-width:46px}
+.side-tools.open{max-width:248px}
+.side-label{display:none}
 .font-btn{padding:7px 10px}
 }
 </style>
 </head><body><div class="container">
-<div class="font-tools" id="fontTools"><button class="font-btn" data-scale="0.9">A-</button><button class="font-btn active" data-scale="1">A</button><button class="font-btn" data-scale="1.1">A+</button></div>
+<div class="side-tools" id="fontTools"><button class="side-toggle" id="fontToggle" type="button" aria-expanded="false" title="字体缩放"><span class="aa">A</span><span class="arrow">‹</span></button><div class="side-panel"><span class="side-label">字体</span><div class="font-group"><button class="font-btn" data-scale="0.88">A-</button><button class="font-btn active" data-scale="1">A</button><button class="font-btn" data-scale="1.18">A+</button><button class="font-btn" data-scale="1.34">A++</button></div></div></div>
 <div style="text-align:left;padding:10px 0 30px;border-bottom:1px solid #333;margin-bottom:25px;"><a href="../index.html" style="color:#1a5276;text-decoration:none;font-size:15px;">&larr; 返回首页</a></div>
 
 <h1>中芯国际（688981.SH）深度投资价值分析报告</h1>
@@ -524,6 +535,8 @@ window.addEventListener("resize", initTables);
 (function(){
   var KEY = "stock-font-scale";
   var root = document.documentElement;
+  var tools = document.getElementById("fontTools");
+  var toggle = document.getElementById("fontToggle");
   function apply(scale){
     root.style.setProperty("--font-scale", scale);
     var buttons = document.querySelectorAll(".font-btn");
@@ -531,16 +544,29 @@ window.addEventListener("resize", initTables);
       buttons[i].classList.toggle("active", buttons[i].getAttribute("data-scale") === String(scale));
     }
   }
+  function setOpen(open){
+    if(!tools) return;
+    tools.classList.toggle("open", !!open);
+    if(toggle) toggle.setAttribute("aria-expanded", open ? "true" : "false");
+  }
   var saved = localStorage.getItem(KEY) || "1";
   apply(saved);
-  var tools = document.getElementById("fontTools");
   if(tools){
     tools.addEventListener("click", function(e){
+      var toggleBtn = e.target.closest("#fontToggle");
+      if(toggleBtn){
+        e.preventDefault();
+        setOpen(!tools.classList.contains("open"));
+        return;
+      }
       var btn = e.target.closest(".font-btn");
       if(!btn) return;
       var scale = btn.getAttribute("data-scale") || "1";
       localStorage.setItem(KEY, scale);
       apply(scale);
+    });
+    document.addEventListener("click", function(e){
+      if(!tools.contains(e.target)) setOpen(false);
     });
   }
 })();
