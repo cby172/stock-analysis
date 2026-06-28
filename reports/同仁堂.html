@@ -65,25 +65,36 @@ body{background:#fff;padding:0;}
 }
 
 :root{--font-scale:1}
-.font-tools{position:fixed;top:14px;right:16px;display:flex;gap:6px;z-index:1200;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);padding:6px;border-radius:999px;box-shadow:0 6px 18px rgba(0,0,0,.08);border:1px solid rgba(0,0,0,.08)}
-.font-btn{border:none;background:#eef3fa;color:#1a5276;padding:6px 10px;border-radius:999px;font-size:12px;font-weight:700;cursor:pointer;line-height:1}
+.side-tools{position:fixed;right:12px;top:50%;transform:translateY(-50%);display:flex;align-items:center;gap:10px;max-width:50px;overflow:hidden;z-index:1300;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);padding:8px;border-radius:18px;box-shadow:0 10px 28px rgba(0,0,0,.12);border:1px solid rgba(0,0,0,.08);transition:max-width .25s ease,padding .25s ease,box-shadow .25s ease}
+.side-tools.open{max-width:280px;padding:8px 10px 8px 8px;box-shadow:0 14px 34px rgba(0,0,0,.16)}
+.side-toggle{display:inline-flex;align-items:center;justify-content:center;gap:4px;width:34px;height:34px;flex:0 0 34px;border:none;border-radius:999px;background:#1a5276;color:#fff;cursor:pointer;font-weight:700;font-size:12px;line-height:1}
+.side-toggle .arrow{font-size:11px;transition:transform .22s ease}
+.side-tools.open .side-toggle .arrow{transform:rotate(180deg)}
+.side-panel{display:flex;align-items:center;gap:10px;white-space:nowrap;opacity:0;pointer-events:none;transform:translateX(8px);transition:opacity .2s ease,transform .2s ease}
+.side-tools.open .side-panel{opacity:1;pointer-events:auto;transform:translateX(0)}
+.side-label{font-size:12px;font-weight:700;color:#486581}
+.font-group{display:flex;gap:6px}
+.font-btn{border:none;background:#eef3fa;color:#1a5276;padding:7px 11px;border-radius:999px;font-size:12px;font-weight:700;cursor:pointer;line-height:1}
 .font-btn.active{background:#1a5276;color:#fff}
-body{font-size:calc(14px * var(--font-scale))}
-h1{font-size:calc(28px * var(--font-scale)) !important}
-h2{font-size:calc(20px * var(--font-scale)) !important}
-h3{font-size:calc(17px * var(--font-scale)) !important}
-h4{font-size:calc(15px * var(--font-scale)) !important}
-p,li,table th,table td{font-size:calc(14px * var(--font-scale)) !important}
-.subtitle{font-size:calc(14px * var(--font-scale)) !important}
-.tag{font-size:calc(12px * var(--font-scale)) !important}
+body{font-size:calc(15px * var(--font-scale))}
+h1{font-size:calc(30px * var(--font-scale)) !important}
+h2{font-size:calc(22px * var(--font-scale)) !important}
+h3{font-size:calc(18px * var(--font-scale)) !important}
+h4{font-size:calc(16px * var(--font-scale)) !important}
+p,li{font-size:calc(15px * var(--font-scale)) !important}
+table th,table td{font-size:calc(12.5px * var(--font-scale)) !important}
+.subtitle{font-size:calc(13.5px * var(--font-scale)) !important}
+.tag{font-size:calc(11px * var(--font-scale)) !important}
 .metric-item .value{font-size:calc(22px * var(--font-scale)) !important}
-.metric-item .label{font-size:calc(12px * var(--font-scale)) !important}
+.metric-item .label,.small{font-size:calc(11.5px * var(--font-scale)) !important}
 @media (max-width:768px){
-.font-tools{top:auto;bottom:14px;right:12px}
+.side-tools{right:8px;top:auto;bottom:20px;transform:none;max-width:46px}
+.side-tools.open{max-width:248px}
+.side-label{display:none}
 .font-btn{padding:7px 10px}
 }
 </style></head><body><div class="container">
-<div class="font-tools" id="fontTools"><button class="font-btn" data-scale="0.9">A-</button><button class="font-btn active" data-scale="1">A</button><button class="font-btn" data-scale="1.1">A+</button></div>
+<div class="side-tools" id="fontTools"><button class="side-toggle" id="fontToggle" type="button" aria-expanded="false" title="字体缩放"><span class="aa">A</span><span class="arrow">‹</span></button><div class="side-panel"><span class="side-label">字体</span><div class="font-group"><button class="font-btn" data-scale="0.88">A-</button><button class="font-btn active" data-scale="1">A</button><button class="font-btn" data-scale="1.18">A+</button><button class="font-btn" data-scale="1.34">A++</button></div></div></div>
 <div style="text-align:left;padding:10px 0 30px;border-bottom:1px solid #333;margin-bottom:25px;"><a href="../index.html" style="color:#1a5276;text-decoration:none;font-size:15px;">&larr; 返回首页</a></div>
 <h1>同仁堂（600085.SH）深度投资价值分析报告</h1>
 <div class="subtitle">
@@ -194,7 +205,7 @@ p,li,table th,table td{font-size:calc(14px * var(--font-scale)) !important}
 <table><tr><th>估值方法</th><th>测算价值/倍数</th><th>适用性</th><th>结论</th></tr><tr><td>PE情景估值</td><td>15.7 / 19.7 / 23.6元</td><td>适合稳定盈利的产品型中药老字号，但当前利润下滑，PE要用TTM自算口径</td><td>当前价高于20x情景，低于30x情景</td></tr><tr><td>DCF自由现金流</td><td>9.1 / 15.1 / 21.9元</td><td>用近三年平均自由现金流正常化，避免2024低现金流或2025高现金流单年扰动</td><td>当前价接近基准偏上</td></tr><tr><td>DDM股息折现</td><td>7.7元</td><td>按10派5元、8.5%必要回报率、2%长期增长粗算，仅反映分红底</td><td>只能做下限，不能代表经营价值</td></tr><tr><td>P/S辅助</td><td>1.84x</td><td>商业零售占比高，收入质量差异大，P/S只能辅助观察收入底盘</td><td>不作为主估值</td></tr><tr><td>PB辅助</td><td>2.29x</td><td>资产不是核心价值来源，但现金、存货和品牌经营共同构成安全垫</td><td>用于观察下行保护</td></tr></table>
 <h3>5.4 估值综合评级</h3>
 <div class="highlight-box">
-<p><strong>综合评级：<span style="color:#1976d2;font-size:20px;">合理偏谨慎</span></strong> —— 当前价格相对DCF基准不算特别便宜，相对PE高情景也没有明显泡沫。真正的买点不只是估值倍数下降，而是看到2026年后收入、工业毛利率、费用效率和库存周转出现同步改善。</p>
+<p><strong>综合评级：<span style="color:#e67e22;font-size:20px;">合理偏高</span></strong> —— 当前价格相对DCF基准不算特别便宜，相对PE高情景也没有明显泡沫。真正的买点不只是估值倍数下降，而是看到2026年后收入、工业毛利率、费用效率和库存周转出现同步改善。</p>
 </div>
 <h3>5.5 情景假设拆解</h3>
 <p><b>悲观情景：</b>若2026年收入继续下滑、工业毛利率继续下降、ROE低于9%，那么当前28倍左右TTM PE并不便宜，股价更多依赖分红和品牌防御。<b>中性情景：</b>若收入企稳、利润小幅恢复、经营现金流继续好于净利润，则当前估值基本合理。<b>乐观情景：</b>若医药工业重回增长、销售费用率下降、库存周转改善，PE可以重新向品牌消费医药的较高区间靠近。</p>
@@ -255,7 +266,7 @@ p,li,table th,table td{font-size:calc(14px * var(--font-scale)) !important}
 <h3>8.1 最终结论</h3>
 <div class="highlight-box">
 <p><b>最终判断：</b>同仁堂适合长期跟踪，但当前更像“稳健现金流 + 品牌恢复等待”的标的，而不是高成长标的。若投资，关注点应该放在工业毛利率、库存周转、费用效率、经营现金流和分红稳定性；若这些指标连续两个季度改善，估值吸引力会明显提高。</p>
-<p><strong>评级：<span style="color:#1976d2;font-size:20px;">合理偏谨慎</span></strong> —— 不追高，不因动态PE低就误判低估；等待经营拐点或更高安全边际。</p>
+<p><strong>评级：<span style="color:#e67e22;font-size:20px;">合理偏高</span></strong> —— 不追高，不因动态PE低就误判低估；等待经营拐点或更高安全边际。</p>
 </div>
 <h3>8.2 阅读本报告后的决策框架</h3>
 <table><tr><th>投资目的</th><th>主要观察项</th><th>积极信号</th><th>风险信号</th></tr><tr><td>如果只想买防御</td><td>重点看股息率、现金、负债率、经营现金流</td><td>股息率继续提升且经营现金流稳定</td><td>利润继续下滑导致分红不可持续</td></tr><tr><td>如果想买成长修复</td><td>重点看收入增速、工业毛利率、销售费用率</td><td>连续两个季度收入和利润同比改善</td><td>费用下降但收入不改善，说明只是收缩</td></tr><tr><td>如果想买品牌护城河</td><td>重点看核心品种、价格稳定、库存周转</td><td>提价或高毛利产品占比提升且库存不恶化</td><td>品牌强但动销弱，护城河不能兑现</td></tr><tr><td>如果担心价值陷阱</td><td>重点看ROE、ROIC、资产周转</td><td>ROE回升到10%-12%以上</td><td>ROE长期下行，估值只能给防御型折价</td></tr><tr><td>如果做组合配置</td><td>把同仁堂放在消费医药防御仓，而非进攻仓</td><td>与高成长医药或创新药形成互补</td><td>把它误当高成长股导致预期错配</td></tr></table>
@@ -318,6 +329,8 @@ window.addEventListener("resize", initTables);
 (function(){
   var KEY = "stock-font-scale";
   var root = document.documentElement;
+  var tools = document.getElementById("fontTools");
+  var toggle = document.getElementById("fontToggle");
   function apply(scale){
     root.style.setProperty("--font-scale", scale);
     var buttons = document.querySelectorAll(".font-btn");
@@ -325,16 +338,29 @@ window.addEventListener("resize", initTables);
       buttons[i].classList.toggle("active", buttons[i].getAttribute("data-scale") === String(scale));
     }
   }
+  function setOpen(open){
+    if(!tools) return;
+    tools.classList.toggle("open", !!open);
+    if(toggle) toggle.setAttribute("aria-expanded", open ? "true" : "false");
+  }
   var saved = localStorage.getItem(KEY) || "1";
   apply(saved);
-  var tools = document.getElementById("fontTools");
   if(tools){
     tools.addEventListener("click", function(e){
+      var toggleBtn = e.target.closest("#fontToggle");
+      if(toggleBtn){
+        e.preventDefault();
+        setOpen(!tools.classList.contains("open"));
+        return;
+      }
       var btn = e.target.closest(".font-btn");
       if(!btn) return;
       var scale = btn.getAttribute("data-scale") || "1";
       localStorage.setItem(KEY, scale);
       apply(scale);
+    });
+    document.addEventListener("click", function(e){
+      if(!tools.contains(e.target)) setOpen(false);
     });
   }
 })();
