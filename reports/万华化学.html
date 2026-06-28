@@ -61,25 +61,36 @@ body{background:#fff;padding:0;}
 }
 
 :root{--font-scale:1}
-.font-tools{position:fixed;top:14px;right:16px;display:flex;gap:6px;z-index:1200;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);padding:6px;border-radius:999px;box-shadow:0 6px 18px rgba(0,0,0,.08);border:1px solid rgba(0,0,0,.08)}
-.font-btn{border:none;background:#eef3fa;color:#1a5276;padding:6px 10px;border-radius:999px;font-size:12px;font-weight:700;cursor:pointer;line-height:1}
+.side-tools{position:fixed;right:12px;top:50%;transform:translateY(-50%);display:flex;align-items:center;gap:10px;max-width:50px;overflow:hidden;z-index:1300;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);padding:8px;border-radius:18px;box-shadow:0 10px 28px rgba(0,0,0,.12);border:1px solid rgba(0,0,0,.08);transition:max-width .25s ease,padding .25s ease,box-shadow .25s ease}
+.side-tools.open{max-width:280px;padding:8px 10px 8px 8px;box-shadow:0 14px 34px rgba(0,0,0,.16)}
+.side-toggle{display:inline-flex;align-items:center;justify-content:center;gap:4px;width:34px;height:34px;flex:0 0 34px;border:none;border-radius:999px;background:#1a5276;color:#fff;cursor:pointer;font-weight:700;font-size:12px;line-height:1}
+.side-toggle .arrow{font-size:11px;transition:transform .22s ease}
+.side-tools.open .side-toggle .arrow{transform:rotate(180deg)}
+.side-panel{display:flex;align-items:center;gap:10px;white-space:nowrap;opacity:0;pointer-events:none;transform:translateX(8px);transition:opacity .2s ease,transform .2s ease}
+.side-tools.open .side-panel{opacity:1;pointer-events:auto;transform:translateX(0)}
+.side-label{font-size:12px;font-weight:700;color:#486581}
+.font-group{display:flex;gap:6px}
+.font-btn{border:none;background:#eef3fa;color:#1a5276;padding:7px 11px;border-radius:999px;font-size:12px;font-weight:700;cursor:pointer;line-height:1}
 .font-btn.active{background:#1a5276;color:#fff}
-body{font-size:calc(14px * var(--font-scale))}
-h1{font-size:calc(28px * var(--font-scale)) !important}
-h2{font-size:calc(20px * var(--font-scale)) !important}
-h3{font-size:calc(17px * var(--font-scale)) !important}
-h4{font-size:calc(15px * var(--font-scale)) !important}
-p,li,table th,table td{font-size:calc(14px * var(--font-scale)) !important}
-.subtitle{font-size:calc(14px * var(--font-scale)) !important}
-.tag{font-size:calc(12px * var(--font-scale)) !important}
+body{font-size:calc(15px * var(--font-scale))}
+h1{font-size:calc(30px * var(--font-scale)) !important}
+h2{font-size:calc(22px * var(--font-scale)) !important}
+h3{font-size:calc(18px * var(--font-scale)) !important}
+h4{font-size:calc(16px * var(--font-scale)) !important}
+p,li{font-size:calc(15px * var(--font-scale)) !important}
+table th,table td{font-size:calc(12.5px * var(--font-scale)) !important}
+.subtitle{font-size:calc(13.5px * var(--font-scale)) !important}
+.tag{font-size:calc(11px * var(--font-scale)) !important}
 .metric-item .value{font-size:calc(22px * var(--font-scale)) !important}
-.metric-item .label{font-size:calc(12px * var(--font-scale)) !important}
+.metric-item .label,.small{font-size:calc(11.5px * var(--font-scale)) !important}
 @media (max-width:768px){
-.font-tools{top:auto;bottom:14px;right:12px}
+.side-tools{right:8px;top:auto;bottom:20px;transform:none;max-width:46px}
+.side-tools.open{max-width:248px}
+.side-label{display:none}
 .font-btn{padding:7px 10px}
 }
 </style></head><body><div class="container">
-<div class="font-tools" id="fontTools"><button class="font-btn" data-scale="0.9">A-</button><button class="font-btn active" data-scale="1">A</button><button class="font-btn" data-scale="1.1">A+</button></div>
+<div class="side-tools" id="fontTools"><button class="side-toggle" id="fontToggle" type="button" aria-expanded="false" title="字体缩放"><span class="aa">A</span><span class="arrow">‹</span></button><div class="side-panel"><span class="side-label">字体</span><div class="font-group"><button class="font-btn" data-scale="0.88">A-</button><button class="font-btn active" data-scale="1">A</button><button class="font-btn" data-scale="1.18">A+</button><button class="font-btn" data-scale="1.34">A++</button></div></div></div>
 <div style="text-align:left;padding:10px 0 30px;border-bottom:1px solid #333;margin-bottom:25px;"><a href="../index.html" style="color:#1a5276;text-decoration:none;font-size:15px;">&larr; 返回首页</a></div>
 <h1>万华化学（600309）深度投资价值分析报告</h1>
 <div class="subtitle">
@@ -161,12 +172,12 @@ p,li,table th,table td{font-size:calc(14px * var(--font-scale)) !important}
 </div>
 <p>万华是周期性、重资产、资本开支较高的化工龙头，不能机械用PE做唯一估值。PE可以看，但必须用<strong>周期归一化利润</strong>修正；PB要结合ROE看资产回报；DCF要承认自由现金流受资本开支扰动。</p>
 <h3>5.2 历史PE/PB观察</h3>
-<table><tr><th>年份</th><th>年末价</th><th>EPS</th><th>BPS</th><th>PE</th><th>PB</th><th>PB状态</th></tr><tr><td>2016</td><td>3.20</td><td>1.42</td><td>6.85</td><td>2.3x</td><td>0.47x</td><td><span class="val-meter val-green"></span>偏低</td></tr><tr><td>2017</td><td>23.62</td><td>4.09</td><td>9.98</td><td>5.8x</td><td>2.37x</td><td><span class="val-meter val-blue"></span>正常</td></tr><tr><td>2018</td><td>15.17</td><td>4.96</td><td>12.36</td><td>3.1x</td><td>1.23x</td><td><span class="val-meter val-green"></span>偏低</td></tr><tr><td>2019</td><td>45.35</td><td>3.23</td><td>13.49</td><td>14.0x</td><td>3.36x</td><td><span class="val-meter val-red"></span>偏高</td></tr><tr><td>2020</td><td>81.52</td><td>3.20</td><td>15.54</td><td>25.5x</td><td>5.25x</td><td><span class="val-meter val-red"></span>偏高</td></tr><tr><td>2021</td><td>92.78</td><td>7.85</td><td>21.82</td><td>11.8x</td><td>4.25x</td><td><span class="val-meter val-red"></span>偏高</td></tr><tr><td>2022</td><td>86.93</td><td>5.17</td><td>24.47</td><td>16.8x</td><td>3.55x</td><td><span class="val-meter val-red"></span>偏高</td></tr><tr><td>2023</td><td>72.70</td><td>5.36</td><td>28.24</td><td>13.6x</td><td>2.57x</td><td><span class="val-meter val-blue"></span>正常</td></tr><tr><td>2024</td><td>69.37</td><td>4.15</td><td>30.14</td><td>16.7x</td><td>2.30x</td><td><span class="val-meter val-blue"></span>正常</td></tr><tr><td>2025</td><td>75.43</td><td>3.99</td><td>34.60</td><td>18.9x</td><td>2.18x</td><td><span class="val-meter val-blue"></span>正常</td></tr><tr><td>当前</td><td><strong>71.79</strong></td><td><strong>4.20</strong></td><td><strong>34.60</strong></td><td><strong>17.1x</strong></td><td><strong>2.09x</strong></td><td><strong><span class="val-meter val-blue"></span>合理偏谨慎</strong></td></tr></table>
+<table><tr><th>年份</th><th>年末价</th><th>EPS</th><th>BPS</th><th>PE</th><th>PB</th><th>PB状态</th></tr><tr><td>2016</td><td>3.20</td><td>1.42</td><td>6.85</td><td>2.3x</td><td>0.47x</td><td><span class="val-meter val-green"></span>偏低</td></tr><tr><td>2017</td><td>23.62</td><td>4.09</td><td>9.98</td><td>5.8x</td><td>2.37x</td><td><span class="val-meter val-blue"></span>正常</td></tr><tr><td>2018</td><td>15.17</td><td>4.96</td><td>12.36</td><td>3.1x</td><td>1.23x</td><td><span class="val-meter val-green"></span>偏低</td></tr><tr><td>2019</td><td>45.35</td><td>3.23</td><td>13.49</td><td>14.0x</td><td>3.36x</td><td><span class="val-meter val-red"></span>偏高</td></tr><tr><td>2020</td><td>81.52</td><td>3.20</td><td>15.54</td><td>25.5x</td><td>5.25x</td><td><span class="val-meter val-red"></span>偏高</td></tr><tr><td>2021</td><td>92.78</td><td>7.85</td><td>21.82</td><td>11.8x</td><td>4.25x</td><td><span class="val-meter val-red"></span>偏高</td></tr><tr><td>2022</td><td>86.93</td><td>5.17</td><td>24.47</td><td>16.8x</td><td>3.55x</td><td><span class="val-meter val-red"></span>偏高</td></tr><tr><td>2023</td><td>72.70</td><td>5.36</td><td>28.24</td><td>13.6x</td><td>2.57x</td><td><span class="val-meter val-blue"></span>正常</td></tr><tr><td>2024</td><td>69.37</td><td>4.15</td><td>30.14</td><td>16.7x</td><td>2.30x</td><td><span class="val-meter val-blue"></span>正常</td></tr><tr><td>2025</td><td>75.43</td><td>3.99</td><td>34.60</td><td>18.9x</td><td>2.18x</td><td><span class="val-meter val-blue"></span>正常</td></tr><tr><td>当前</td><td><strong>71.79</strong></td><td><strong>4.20</strong></td><td><strong>34.60</strong></td><td><strong>17.1x</strong></td><td><strong>2.09x</strong></td><td><strong><span class="val-meter val-blue"></span>合理偏高</strong></td></tr></table>
 <h3>5.3 多模型交叉验证</h3>
 <table><tr><th>估值方法</th><th>测算价值/倍数</th><th>适用性</th><th>结论</th></tr><tr><td>周期归一化PE</td><td>63.8 / 79.8 / 95.7元</td><td>用近5年平均利润平滑化工周期，避免利润高点/低点误判</td><td>当前接近中枢偏上，不算明显低估</td></tr><tr><td>PB-ROE估值</td><td>62.3 / 76.1 / 93.4元</td><td>重资产化工龙头适合用PB结合ROE观察资产回报</td><td>当前PB约2.09x，处于合理区间</td></tr><tr><td>DCF自由现金流</td><td>6.5 / 8.4 / 11.2元</td><td>扩张期FCF波动大，只能做交叉验证</td><td>当前对中性DCF不便宜</td></tr><tr><td>股息率辅助</td><td>2.79%</td><td>按近年每股现金分红粗略观察防御性，非主估值方法</td><td>分红有支撑但不是高股息资产</td></tr><tr><td>动态PE</td><td>15.1x</td><td>行情接口口径仅作参考；本报告用TTM利润复核</td><td>自算TTM PE约17.1x，二者量级一致</td></tr></table>
 <h3>5.4 估值综合评级</h3>
 <div class="highlight-box">
-<p><strong>综合评级：<span style="color:#1976d2;font-size:20px;">合理偏谨慎</span></strong> —— 当前约17.1倍TTM PE、2.09倍PB，并不算泡沫；但考虑石化业务低毛利、资本开支压力和化工周期，当前也不能简单定义为低估。更合理的判断是：价格处于可跟踪区间，真正买点取决于MDI价差、新材料毛利率和自由现金流改善。</p>
+<p><strong>综合评级：<span style="color:#e67e22;font-size:20px;">合理偏高</span></strong> —— 当前约17.1倍TTM PE、2.09倍PB，并不算泡沫；但考虑石化业务低毛利、资本开支压力和化工周期，当前也不能简单定义为低估。更合理的判断是：价格处于可跟踪区间，真正买点取决于MDI价差、新材料毛利率和自由现金流改善。</p>
 </div>
 <h3>5.5 情景假设</h3>
 <p><strong>悲观情景：</strong>石化系列毛利率继续低位、聚氨酯价差收窄、资本开支维持高位，则合理估值应更多参考PB下沿，安全边际不足。<strong>中性情景：</strong>聚氨酯稳定、石化小幅修复、新材料稳步爬坡，则当前估值合理。<strong>乐观情景：</strong>MDI/TDI价差扩张、石化拖累下降、新材料毛利率提升、自由现金流转正，则估值可向PB 2.5x以上或周期归一化PE高情景靠近。</p>
@@ -205,7 +216,7 @@ p,li,table th,table td{font-size:calc(14px * var(--font-scale)) !important}
 <h3>8.1 最终结论</h3>
 <div class="highlight-box green">
 <p><strong>最终判断：</strong>万华化学是A股少数具备全球竞争力的制造业龙头，核心价值在聚氨酯技术壁垒、一体化成本和全球客户基础；但它仍是强周期、重资产、资本开支驱动的化工公司。投资它不能用消费股逻辑，也不能只看低PE。</p>
-<p><strong>评级：<span style="color:#1976d2;font-size:20px;">合理偏谨慎</span></strong> —— 当前估值不贵但安全边际不算极厚。更好的加仓信号是：聚氨酯价差修复、石化毛利率改善、新材料毛利率上行、资本开支下降带来自由现金流转正。</p>
+<p><strong>评级：<span style="color:#e67e22;font-size:20px;">合理偏高</span></strong> —— 当前估值不贵但安全边际不算极厚。更好的加仓信号是：聚氨酯价差修复、石化毛利率改善、新材料毛利率上行、资本开支下降带来自由现金流转正。</p>
 </div>
 <h3>8.2 操作与跟踪框架</h3>
 <ul>
@@ -253,6 +264,8 @@ window.addEventListener("resize", initTables);
 (function(){
   var KEY = "stock-font-scale";
   var root = document.documentElement;
+  var tools = document.getElementById("fontTools");
+  var toggle = document.getElementById("fontToggle");
   function apply(scale){
     root.style.setProperty("--font-scale", scale);
     var buttons = document.querySelectorAll(".font-btn");
@@ -260,16 +273,29 @@ window.addEventListener("resize", initTables);
       buttons[i].classList.toggle("active", buttons[i].getAttribute("data-scale") === String(scale));
     }
   }
+  function setOpen(open){
+    if(!tools) return;
+    tools.classList.toggle("open", !!open);
+    if(toggle) toggle.setAttribute("aria-expanded", open ? "true" : "false");
+  }
   var saved = localStorage.getItem(KEY) || "1";
   apply(saved);
-  var tools = document.getElementById("fontTools");
   if(tools){
     tools.addEventListener("click", function(e){
+      var toggleBtn = e.target.closest("#fontToggle");
+      if(toggleBtn){
+        e.preventDefault();
+        setOpen(!tools.classList.contains("open"));
+        return;
+      }
       var btn = e.target.closest(".font-btn");
       if(!btn) return;
       var scale = btn.getAttribute("data-scale") || "1";
       localStorage.setItem(KEY, scale);
       apply(scale);
+    });
+    document.addEventListener("click", function(e){
+      if(!tools.contains(e.target)) setOpen(false);
     });
   }
 })();
