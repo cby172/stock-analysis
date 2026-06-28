@@ -14,7 +14,15 @@
 body{font-family:"Microsoft YaHei","PingFang SC","Helvetica Neue",sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;transition:background .4s ease,color .4s ease}
 body::before{content:"";position:fixed;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 50% 0%,var(--bg-glow) 0%,var(--bg) 60%);z-index:-1;transition:background .4s ease}
 .theme-bar{position:fixed;top:16px;right:20px;display:flex;gap:8px;z-index:100}
-.font-bar{position:fixed;top:16px;right:132px;display:flex;gap:6px;z-index:101;background:rgba(255,255,255,.88);backdrop-filter:blur(8px);padding:6px;border-radius:999px;border:1px solid var(--border);box-shadow:0 6px 18px rgba(0,0,0,.06)}
+.side-tools{position:fixed;right:12px;top:50%;transform:translateY(-50%);display:flex;align-items:center;gap:10px;max-width:50px;overflow:hidden;z-index:101;background:var(--bg-card);backdrop-filter:blur(10px);padding:8px;border-radius:18px;border:1px solid var(--border);box-shadow:0 10px 28px rgba(0,0,0,.10);transition:max-width .25s ease,padding .25s ease,box-shadow .25s ease}
+.side-tools.open{max-width:280px;padding:8px 10px 8px 8px;box-shadow:0 14px 34px rgba(0,0,0,.14)}
+.side-toggle{display:inline-flex;align-items:center;justify-content:center;gap:4px;width:34px;height:34px;flex:0 0 34px;border:none;border-radius:999px;background:var(--accent);color:#fff;cursor:pointer;font-weight:700;font-size:12px;line-height:1}
+.side-toggle .arrow{font-size:11px;transition:transform .22s ease}
+.side-tools.open .side-toggle .arrow{transform:rotate(180deg)}
+.side-panel{display:flex;align-items:center;gap:10px;white-space:nowrap;opacity:0;pointer-events:none;transform:translateX(8px);transition:opacity .2s ease,transform .2s ease}
+.side-tools.open .side-panel{opacity:1;pointer-events:auto;transform:translateX(0)}
+.side-label{font-size:12px;font-weight:700;color:var(--text-dim)}
+.font-group{display:flex;gap:6px}
 .font-btn{border:none;background:var(--badge-code-bg);color:var(--accent);padding:6px 10px;border-radius:999px;font-size:12px;font-weight:700;cursor:pointer;line-height:1}
 .font-btn.active{background:var(--accent);color:#fff}
 .theme-dot{display:inline-block;width:22px;height:22px;border-radius:50%;cursor:pointer;border:2px solid rgba(128,128,128,.4);transition:all .25s ease}
@@ -115,7 +123,7 @@ mark{background:var(--mark-bg);color:var(--mark-text);border-radius:2px;padding:
 /* Footer */
 .footer{text-align:center;padding:16px;color:var(--text-faint);font-size:11px}
 
-@media(max-width:600px){.header{padding:40px 16px 8px}.header h1{font-size:calc(22px * var(--font-scale))}.tabs{flex-wrap:wrap}.tab{padding:5px 12px;font-size:calc(11px * var(--font-scale))}.grid{grid-template-columns:1fr}.font-bar{top:auto;bottom:14px;left:12px;right:auto}.theme-bar{top:8px;right:10px;gap:6px}.theme-dot{width:18px;height:18px}.research-wrap table{font-size:calc(12px * var(--font-scale));min-width:960px}.research-wrap th,.research-wrap td{padding:6px 8px;white-space:nowrap}.roadmap-hero{padding:18px 16px}.roadmap-title{font-size:calc(18px * var(--font-scale))}.roadmap-desc{min-height:auto}}
+@media(max-width:600px){.header{padding:40px 16px 8px}.header h1{font-size:calc(22px * var(--font-scale))}.tabs{flex-wrap:wrap}.tab{padding:5px 12px;font-size:calc(11px * var(--font-scale))}.grid{grid-template-columns:1fr}.side-tools{right:8px;top:auto;bottom:20px;transform:none;max-width:46px}.side-tools.open{max-width:248px}.side-label{display:none}.theme-bar{top:8px;right:10px;gap:6px}.theme-dot{width:18px;height:18px}.research-wrap table{font-size:calc(12px * var(--font-scale));min-width:960px}.research-wrap th,.research-wrap td{padding:6px 8px;white-space:nowrap}.roadmap-hero{padding:18px 16px}.roadmap-title{font-size:calc(18px * var(--font-scale))}.roadmap-desc{min-height:auto}}
 .sortable{cursor:pointer;user-select:none;position:relative;white-space:nowrap;padding-right:22px!important}
 .sortable:hover{background:rgba(255,255,255,0.08)}
 .sort-arrow{display:inline-block;font-size:11px;margin-left:3px;opacity:.4;transition:opacity .2s}
@@ -125,10 +133,19 @@ mark{background:var(--mark-bg);color:var(--mark-text);border-radius:2px;padding:
 </head>
 <body>
 
-<div class="font-bar" id="fontBar">
-  <button class="font-btn" data-scale="0.9">A-</button>
-  <button class="font-btn active" data-scale="1">A</button>
-  <button class="font-btn" data-scale="1.1">A+</button>
+<div class="side-tools" id="fontTools">
+  <button class="side-toggle" id="fontToggle" type="button" aria-expanded="false" title="字体缩放">
+    <span class="aa">A</span><span class="arrow">‹</span>
+  </button>
+  <div class="side-panel">
+    <span class="side-label">字体</span>
+    <div class="font-group">
+      <button class="font-btn" data-scale="0.88">A-</button>
+      <button class="font-btn active" data-scale="1">A</button>
+      <button class="font-btn" data-scale="1.18">A+</button>
+      <button class="font-btn" data-scale="1.34">A++</button>
+    </div>
+  </div>
 </div>
 
 <div class="theme-bar" id="themeBar">
@@ -213,21 +230,21 @@ mark{background:var(--mark-bg);color:var(--mark-text);border-radius:2px;padding:
       <tbody>
         <tr><td><a href="reports/中芯国际.html">中芯国际</a></td><td>688981.SH</td><td>半导体</td><td>204.5x</td><td>6.8x</td><td>3.4%</td><td><span class="sig sig-高估" title="高估">高估</span></td><td class="judge-cell" title="中芯国际是中国半导体制造的战略基石企业，在中国大陆晶圆代工领域具有不可替代的地位。经营现金流强劲（200亿+/年），产能持续扩张，国产替代逻辑长期成立。但当前PB 6.8x、EV/EBITDA约45.8x、ROE仅3.4%——估值已远远脱离基本面。">经营现金流强劲（200亿+/年）</td></tr>
         <tr><td><a href="reports/寒武纪.html">寒武纪</a></td><td>688256.SH</td><td>AI芯片</td><td>244.5x</td><td>42.9x</td><td>-</td><td><span class="sig sig-高估" title="高估">高估</span></td><td class="judge-cell" title="寒武纪是中国AI芯片领域的稀缺标的和国产替代先锋，2025年营收暴增453%至65亿、首次盈利20.6亿，验证了产品和商业模式的可行性。国产AI芯片替代的大趋势确定性强，公司技术和产品处于国内领先水平。">公司技术和产品处于国内领先水平</td></tr>
-        <tr><td><a href="reports/万华化学.html">万华化学</a></td><td>600309.SH</td><td>化工</td><td>17.1x</td><td>2.09x</td><td>12.4%</td><td><span class="sig sig-偏高" title="合理偏谨慎">正常偏高</span></td><td class="judge-cell" title="万华化学是A股少数具备全球竞争力的制造业龙头，核心价值在聚氨酯技术壁垒、一体化成本和全球客户基础；但它仍是强周期、重资产、资本开支驱动的化工公司。投资它不能用消费股逻辑，也不能只看低PE。">A股少数具备全球竞争力的制造业龙头</td></tr>
-        <tr><td><a href="reports/中远海控.html">中远海控</a></td><td>601919.SH</td><td>航运</td><td>8.2x</td><td>0.90x</td><td>-</td><td><span class="sig sig-偏高" title="合理偏谨慎">正常偏高</span></td><td class="judge-cell" title="中远海控是全球航运核心资产，但不是稳定成长股。它的价值来自全球网络、船队码头资产、现金流和周期弹性；它的风险也来自同一个地方：运价和供需周期。">全球航运核心资产，但不是稳定成长股</td></tr>
-        <tr><td><a href="reports/五粮液.html">五粮液</a></td><td>000858.SZ</td><td>白酒</td><td>22.5x</td><td>2.22x</td><td>-</td><td><span class="sig sig-偏高" title="合理偏谨慎">正常偏高</span></td><td class="judge-cell" title="五粮液仍是高端白酒核心资产，现金极强、品牌定价权仍在，分红提供一定现金回报；但2025口径下经营下滑明显，2026Q1修复还需要后续季度验证。当前更像“合理估值下的修复观察型”而不是无风险低估资产。">更像“合理估值下的修复观察型”而不是无风险低估资产</td></tr>
-        <tr><td><a href="reports/同仁堂.html">同仁堂</a></td><td>600085.SH</td><td>中药</td><td>28.5x</td><td>2.29x</td><td>8.9%</td><td><span class="sig sig-偏高" title="合理偏谨慎">正常偏高</span></td><td class="judge-cell" title="同仁堂的用户不是单一“老年消费”标签，而是由基础用药、家庭健康决策、滋补礼品、经典名药、年轻线上尝试和境外需求共同构成。真正能支撑估值的，是高信任、高毛利、价格体系稳定的经典品类；线上年轻化和境外业务有想象空间，但目前缺少足够披露数据，不能提前当成主要估值来源。">用户不是单一“老年消费”标签</td></tr>
-        <tr><td><a href="reports/宁德时代.html">宁德时代</a></td><td>300750.SZ</td><td>动力电池</td><td>22.3x</td><td>5.39x</td><td>-</td><td><span class="sig sig-偏高" title="合理偏谨慎">正常偏高</span></td><td class="judge-cell" title="宁德时代是中国制造业中少数具备全球竞争力、强技术、强客户和强现金流的龙头。2025年报和2026Q1数据证明公司仍在增长，并且现金流质量明显改善。但电池行业强周期、强资本开支、强客户议价的特征决定了估值不能无脑给高倍数。">估值偏谨慎，等待更好价格</td></tr>
-        <tr><td><a href="reports/安琪酵母.html">安琪酵母</a></td><td>600298.SH</td><td>食品配料</td><td>19.1x</td><td>2.55x</td><td>13.5%</td><td><span class="sig sig-偏高" title="合理偏谨慎">正常偏高</span></td><td class="judge-cell" title="收入增长之外，更重要的是毛利增长和费用效率。酵母主业毛利率高，是利润质量来源；食品原料和制糖业务如果只是扩大收入但不贡献利润，估值应打折。2026Q1收入和利润继续双位数增长，是积极信号。">更重要的是毛利增长和费用效率</td></tr>
-        <tr><td><a href="reports/山西汾酒.html">山西汾酒</a></td><td>600809.SH</td><td>白酒</td><td>12.0x</td><td>2.93x</td><td>-</td><td><span class="sig sig-偏高" title="合理偏谨慎">正常偏高</span></td><td class="judge-cell" title="山西汾酒是清香型白酒龙头，主品牌强、省外扩张有数据支撑、现金和分红基础较好；但行业调整期已经反映在2026Q1表现和经营现金流上，投资不能只看静态低估值。">投资不能只看静态低估值</td></tr>
-        <tr><td><a href="reports/片仔癀.html">片仔癀</a></td><td>600436.SH</td><td>中药</td><td>33.5x</td><td>5.0x</td><td>14.8%</td><td><span class="sig sig-偏高" title="偏高">正常偏高</span></td><td class="judge-cell" title="片仔癀是A股最稀缺的品牌中药标的之一——&quot;国家绝密级配方&quot;的垄断地位赋予其极强的护城河和定价权。过去十年公司实现了营收和利润的高增长，ROE长期维持在15-28%，是中国中药行业的标杆企业。">ROE长期维持在15-28%</td></tr>
-        <tr><td><a href="reports/甘李药业.html">甘李药业</a></td><td>603087.SH</td><td>生物医药</td><td>31.4x</td><td>2.86x</td><td>-</td><td><span class="sig sig-偏高" title="合理偏谨慎">正常偏高</span></td><td class="judge-cell" title="甘李药业是一家高毛利、低负债、处于集采后修复阶段的胰岛素生物药公司。它有清晰产品壁垒和慢病需求底盘，但也有政策价格、产品集中、现金流和新管线验证压力。">一家高毛利、低负债、处于集采后修复阶段的胰岛素生物药公司</td></tr>
-        <tr><td><a href="reports/长江电力.html">长江电力</a></td><td>600900.SH</td><td>水电</td><td>18.1x</td><td>2.86x</td><td>-</td><td><span class="sig sig-偏高" title="合理偏谨慎">正常偏高</span></td><td class="judge-cell" title="长江电力是A股中稀缺的高质量公用事业现金流资产，适合以股息率和长期现金流视角研究，而不是按高成长股框架研究。公司最强的是资产稀缺、现金流强、分红稳定；最大问题是当前估值不便宜，安全边际取决于投资者要求的股息率和利率环境。">安全边际取决于投资者要求的股息率和利率环境</td></tr>
+        <tr><td><a href="reports/万华化学.html">万华化学</a></td><td>600309.SH</td><td>化工</td><td>17.1x</td><td>2.09x</td><td>12.4%</td><td><span class="sig sig-偏高" title="合理偏高">正常偏高</span></td><td class="judge-cell" title="万华化学是A股少数具备全球竞争力的制造业龙头，核心价值在聚氨酯技术壁垒、一体化成本和全球客户基础；但它仍是强周期、重资产、资本开支驱动的化工公司。投资它不能用消费股逻辑，也不能只看低PE。">A股少数具备全球竞争力的制造业龙头</td></tr>
+        <tr><td><a href="reports/中远海控.html">中远海控</a></td><td>601919.SH</td><td>航运</td><td>8.2x</td><td>0.90x</td><td>-</td><td><span class="sig sig-偏高" title="合理偏高">正常偏高</span></td><td class="judge-cell" title="中远海控是全球航运核心资产，但不是稳定成长股。它的价值来自全球网络、船队码头资产、现金流和周期弹性；它的风险也来自同一个地方：运价和供需周期。">全球航运核心资产，但不是稳定成长股</td></tr>
+        <tr><td><a href="reports/五粮液.html">五粮液</a></td><td>000858.SZ</td><td>白酒</td><td>22.5x</td><td>2.22x</td><td>-</td><td><span class="sig sig-偏高" title="合理偏高">正常偏高</span></td><td class="judge-cell" title="五粮液仍是高端白酒核心资产，现金极强、品牌定价权仍在，分红提供一定现金回报；但2025口径下经营下滑明显，2026Q1修复还需要后续季度验证。当前更像“合理估值下的修复观察型”而不是无风险低估资产。">更像“合理估值下的修复观察型”而不是无风险低估资产</td></tr>
+        <tr><td><a href="reports/同仁堂.html">同仁堂</a></td><td>600085.SH</td><td>中药</td><td>28.5x</td><td>2.29x</td><td>8.9%</td><td><span class="sig sig-偏高" title="合理偏高">正常偏高</span></td><td class="judge-cell" title="同仁堂的用户不是单一“老年消费”标签，而是由基础用药、家庭健康决策、滋补礼品、经典名药、年轻线上尝试和境外需求共同构成。真正能支撑估值的，是高信任、高毛利、价格体系稳定的经典品类；线上年轻化和境外业务有想象空间，但目前缺少足够披露数据，不能提前当成主要估值来源。">用户不是单一“老年消费”标签</td></tr>
+        <tr><td><a href="reports/宁德时代.html">宁德时代</a></td><td>300750.SZ</td><td>动力电池</td><td>22.3x</td><td>5.39x</td><td>-</td><td><span class="sig sig-偏高" title="合理偏高">正常偏高</span></td><td class="judge-cell" title="宁德时代是中国制造业中少数具备全球竞争力、强技术、强客户和强现金流的龙头。2025年报和2026Q1数据证明公司仍在增长，并且现金流质量明显改善。但电池行业强周期、强资本开支、强客户议价的特征决定了估值不能无脑给高倍数。">估值偏谨慎，等待更好价格</td></tr>
+        <tr><td><a href="reports/安琪酵母.html">安琪酵母</a></td><td>600298.SH</td><td>食品配料</td><td>19.1x</td><td>2.55x</td><td>13.5%</td><td><span class="sig sig-偏高" title="合理偏高">正常偏高</span></td><td class="judge-cell" title="收入增长之外，更重要的是毛利增长和费用效率。酵母主业毛利率高，是利润质量来源；食品原料和制糖业务如果只是扩大收入但不贡献利润，估值应打折。2026Q1收入和利润继续双位数增长，是积极信号。">更重要的是毛利增长和费用效率</td></tr>
+        <tr><td><a href="reports/山西汾酒.html">山西汾酒</a></td><td>600809.SH</td><td>白酒</td><td>12.0x</td><td>2.93x</td><td>-</td><td><span class="sig sig-偏高" title="合理偏高">正常偏高</span></td><td class="judge-cell" title="山西汾酒是清香型白酒龙头，主品牌强、省外扩张有数据支撑、现金和分红基础较好；但行业调整期已经反映在2026Q1表现和经营现金流上，投资不能只看静态低估值。">投资不能只看静态低估值</td></tr>
+        <tr><td><a href="reports/片仔癀.html">片仔癀</a></td><td>600436.SH</td><td>中药</td><td>33.5x</td><td>5.0x</td><td>14.8%</td><td><span class="sig sig-偏高" title="合理偏高">正常偏高</span></td><td class="judge-cell" title="片仔癀是A股最稀缺的品牌中药标的之一——&quot;国家绝密级配方&quot;的垄断地位赋予其极强的护城河和定价权。过去十年公司实现了营收和利润的高增长，ROE长期维持在15-28%，是中国中药行业的标杆企业。">ROE长期维持在15-28%</td></tr>
+        <tr><td><a href="reports/甘李药业.html">甘李药业</a></td><td>603087.SH</td><td>生物医药</td><td>31.4x</td><td>2.86x</td><td>-</td><td><span class="sig sig-偏高" title="合理偏高">正常偏高</span></td><td class="judge-cell" title="甘李药业是一家高毛利、低负债、处于集采后修复阶段的胰岛素生物药公司。它有清晰产品壁垒和慢病需求底盘，但也有政策价格、产品集中、现金流和新管线验证压力。">一家高毛利、低负债、处于集采后修复阶段的胰岛素生物药公司</td></tr>
+        <tr><td><a href="reports/长江电力.html">长江电力</a></td><td>600900.SH</td><td>水电</td><td>18.1x</td><td>2.86x</td><td>-</td><td><span class="sig sig-偏高" title="合理偏高">正常偏高</span></td><td class="judge-cell" title="长江电力是A股中稀缺的高质量公用事业现金流资产，适合以股息率和长期现金流视角研究，而不是按高成长股框架研究。公司最强的是资产稀缺、现金流强、分红稳定；最大问题是当前估值不便宜，安全边际取决于投资者要求的股息率和利率环境。">安全边际取决于投资者要求的股息率和利率环境</td></tr>
         <tr><td><a href="reports/牧原股份.html">牧原股份</a></td><td>002714.SZ</td><td>生猪养殖</td><td>12.1x</td><td>2.5x</td><td>20.6%</td><td><span class="sig sig-正常" title="估值合理但不算便宜。">正常</span></td><td class="judge-cell" title="牧原股份是全球最大的生猪养殖企业（年出栏7,200万头），具备行业最低的完全成本（14-15元/公斤）。2025年是公司发展的重要转折点——自由现金流首次大幅转正至228亿，负债率从62%降至54%，标志着从&quot;高速扩张期&quot;进入&quot;收获期&quot;。">估值合理但不算便宜</td></tr>
         <tr><td><a href="reports/中国中免.html">中国中免</a></td><td>601888.SH</td><td>免税零售</td><td>33.5x</td><td>1.9x</td><td>-</td><td><span class="sig sig-偏低" title="当前股价58.05元，PE 33.5倍处于历史中位偏低位置。PS 2.2倍处于历史低位，反映市场对业绩继续下滑的悲观预期。对于免税行业而言，2.2倍PS具备一定性价比，但前提是业绩能触底回升。核心不确定性在于：当前业绩下滑是周期性的还是结构性的？如果是周期性的（消费回暖即可修复），则当前估值有吸引力；如果是结构性的（出境游分流、消费习惯改变），则估值还需进一步消化。">正常偏低</span></td><td class="judge-cell" title="当前股价58.05元，PE 33.5倍处于历史中位偏低位置。PS 2.2倍处于历史低位，反映市场对业绩继续下滑的悲观预期。对于免税行业而言，2.2倍PS具备一定性价比，但前提是业绩能触底回升。核心不确定性在于：当前业绩下滑是周期性的还是结构性的？如果是周期性的（消费回暖即可修复），则当前估值有吸引力；如果是结构性的（出境游分流、消费习惯改变），则估值还需进一步消化。">PS 2.2倍处于历史低位</td></tr>
         <tr><td><a href="reports/中国人保.html">中国人保</a></td><td>601319.SH</td><td>保险</td><td>7.2x</td><td>0.96x</td><td>16.1%</td><td><span class="sig sig-偏低" title="合理偏低">正常偏低</span></td><td class="judge-cell" title="中国人保是一家以财险为核心的中央金融保险平台，资产负债表稳、ROE仍有韧性、PB估值不高；但它不是高成长公司，利润受投资收益、利率和赔付周期影响明显。适合把它当作“金融保险低估值 + 财险龙头 + 利率/权益修复弹性”的稳健型标的跟踪。">资产负债表稳、ROE仍有韧性、PB估值不高</td></tr>
-        <tr><td><a href="reports/中国广核.html">中国广核</a></td><td>003816.SZ</td><td>核电</td><td>22.5x</td><td>1.8x</td><td>9.1%</td><td><span class="sig sig-偏低" title="偏低">正常偏低</span></td><td class="judge-cell" title="中国广核是中国核电行业的双寡头龙头之一，拥有核电站运营的天然垄断壁垒。经营现金流极为充沛（300亿+/年，净利润的3倍），在国家双碳目标和能源安全战略下增长路径明确。当前PE 22.5x处于历史偏低分位，具备较好的安全边际。">PE 22.5x处于历史偏低分位</td></tr>
-        <tr><td><a href="reports/中国核电.html">中国核电</a></td><td>601985.SH</td><td>核电</td><td>20.3x</td><td>-</td><td>8.2%</td><td><span class="sig sig-偏低" title="合理偏低">正常偏低</span></td><td class="judge-cell" title="中国核电（601985）是中国A股中最具确定性的&quot;长期生息资产&quot;。公司集&quot;高壁垒（核电牌照垄断）+ 高确定性（装机翻倍路径清晰）+ 高现金流（OCF/NP≈4x）+ 政策红利（双碳加持）&quot;四大优势于一身。 当前20.3倍PE看似不便宜，但考虑到核电折旧扭曲了账面利润（OCF是NP的4倍），以及未来10年装机翻倍带来的增量空间，9.19元的股价具备中长期配置价值。PB1.61x处于历史中低区间，提供了一定的安全边际。">PB1.61x处于历史中低区间，提供了一定的安全边际</td></tr>
+        <tr><td><a href="reports/中国广核.html">中国广核</a></td><td>003816.SZ</td><td>核电</td><td>22.5x</td><td>1.8x</td><td>9.1%</td><td><span class="sig sig-偏低" title="合理偏低">正常偏低</span></td><td class="judge-cell" title="中国广核是中国核电行业的双寡头龙头之一，拥有核电站运营的天然垄断壁垒。经营现金流极为充沛（300亿+/年，净利润的3倍），在国家双碳目标和能源安全战略下增长路径明确。当前PE 22.5x处于历史偏低分位，具备较好的安全边际。">PE 22.5x处于历史偏低分位</td></tr>
+        <tr><td><a href="reports/中国核电.html">中国核电</a></td><td>601985.SH</td><td>核电</td><td>20.3x</td><td>-</td><td>8.2%</td><td><span class="sig sig-偏低" title="当前股价9.19元处于合理估值区间偏下沿。PB估值显示处于合理偏低，现金流视角看明显低估，但PE视角偏高。综合多种方法，9.19元具备中长期配置价值，但短期缺乏明显安全边际。">正常偏低</span></td><td class="judge-cell" title="中国核电（601985）是中国A股中最具确定性的&quot;长期生息资产&quot;。公司集&quot;高壁垒（核电牌照垄断）+ 高确定性（装机翻倍路径清晰）+ 高现金流（OCF/NP≈4x）+ 政策红利（双碳加持）&quot;四大优势于一身。 当前20.3倍PE看似不便宜，但考虑到核电折旧扭曲了账面利润（OCF是NP的4倍），以及未来10年装机翻倍带来的增量空间，9.19元的股价具备中长期配置价值。PB1.61x处于历史中低区间，提供了一定的安全边际。">PB估值显示处于合理偏低</td></tr>
         <tr><td><a href="reports/比亚迪.html">比亚迪</a></td><td>002594.SZ</td><td>新能源车</td><td>9.8x</td><td>3.1x</td><td>15.3%</td><td><span class="sig sig-偏低" title="当前估值偏低，有安全边际，但并非极度低估。利润下行趋势下PE可能被动抬升，投资者需明确自己的核心假设：① 利润底部在250亿还是200亿？② 价格战何时缓和？③ 海外/储能能否提供新增长？">正常偏低</span></td><td class="judge-cell" title="比亚迪是全球最大的新能源车企，垂直一体化+规模优势+技术积累构筑了深厚护城河。但2025年首次出现利润下滑（-19%），营收增速骤降至+3.5%，自由现金流巨亏-1,384亿——公司正经历从&quot;高增长期&quot;到&quot;成熟期&quot;的转型阵痛。">有安全边际，但并非极度低估</td></tr>
         <tr><td><a href="reports/腾讯控股.html">腾讯控股</a></td><td>0700.HK</td><td>互联网平台</td><td>12.2x</td><td>2.94x</td><td>-</td><td><span class="sig sig-偏低" title="合理偏低">正常偏低</span></td><td class="judge-cell" title="腾讯控股是高质量、强现金流、估值不高的互联网平台龙头。当前市场主要担心成长放缓、AI资本开支和监管边界，但从2025年和2026Q1数据看，核心利润和现金流仍有韧性，分部毛利率改善是最重要的正面信号。">核心利润和现金流仍有韧性</td></tr>
         <tr><td><a href="reports/贵州茅台.html">贵州茅台</a></td><td>600519.SH</td><td>白酒</td><td>19.4x</td><td>7.5x</td><td>-</td><td><span class="sig sig-偏低" title="当前股价1275.88元处于近五年估值底部区域。以PE/股息率角度看，估值已经反映了较多的悲观预期（消费走弱、增速放缓等）。若以25倍PE（对应约2060元）为合理估值中枢，当前价格有一定安全边际。但需注意短期内业绩增速放缓可能压制估值修复节奏。">正常偏低</span></td><td class="judge-cell" title="当前股价1275.88元处于近五年估值底部区域。以PE/股息率角度看，估值已经反映了较多的悲观预期（消费走弱、增速放缓等）。若以25倍PE（对应约2060元）为合理估值中枢，当前价格有一定安全边际。但需注意短期内业绩增速放缓可能压制估值修复节奏。">价格有一定安全边际</td></tr>
@@ -316,21 +333,36 @@ mark{background:var(--mark-bg);color:var(--mark-text);border-radius:2px;padding:
 // ===== Font Scale =====
 (function(){
   var KEY='stock-font-scale';
+  var tools=document.getElementById('fontTools');
+  var toggle=document.getElementById('fontToggle');
   function apply(scale){
     document.documentElement.style.setProperty('--font-scale', scale);
     var btns=document.querySelectorAll('.font-btn');
     for(var i=0;i<btns.length;i++)btns[i].classList.toggle('active',btns[i].getAttribute('data-scale')===String(scale));
   }
+  function setOpen(open){
+    if(!tools) return;
+    tools.classList.toggle('open', !!open);
+    if(toggle) toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
   var saved=localStorage.getItem(KEY)||'1';
   apply(saved);
-  var bar=document.getElementById('fontBar');
-  if(bar){
-    bar.addEventListener('click',function(e){
+  if(tools){
+    tools.addEventListener('click',function(e){
+      var t=e.target.closest('#fontToggle');
+      if(t){
+        e.preventDefault();
+        setOpen(!tools.classList.contains('open'));
+        return;
+      }
       var btn=e.target.closest('.font-btn');
       if(!btn)return;
       var scale=btn.getAttribute('data-scale')||'1';
       localStorage.setItem(KEY,scale);
       apply(scale);
+    });
+    document.addEventListener('click',function(e){
+      if(!tools.contains(e.target)) setOpen(false);
     });
   }
 })();
