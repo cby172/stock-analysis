@@ -28,8 +28,30 @@ tr:nth-child(even) td{background:#fff9f7;}
 .red{color:#c0392b;font-weight:bold;background:transparent;} .green{color:#2e7d32;font-weight:bold;background:transparent;}
 .muted{color:#888;} ul{font-size:14px;margin:6px 0 8px 22px;} li{margin:3px 0;} .small{font-size:12px;color:#777;}
 
-@media (max-width:768px){body{padding:8px;}.container{padding:20px 14px;}h1{font-size:20px;letter-spacing:1px;}h2{font-size:17px;margin:24px 0 12px;}h3{font-size:15px;}h4{font-size:14px;}table{font-size:10.5px;width:100%;border-collapse:collapse;}div.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:18px 0;}table th,table td{padding:8px 14px;white-space:normal;word-break:break-word;}p{text-indent:1em;font-size:14px;}.highlight-box{padding:12px 14px;}.metric-grid{gap:8px;}.metric-item{min-width:44%;padding:10px;}.metric-item .value{font-size:18px;}.subtitle{font-size:12px;}.tag{font-size:10px;padding:2px 8px;}ul,ol{padding-left:20px;}}
-@media print{body{background:#fff;padding:0;}.container{box-shadow:none;padding:30px;}}
+@media (max-width:768px){
+body{padding:8px;}
+.container{padding:20px 14px;}
+h1{font-size:20px;letter-spacing:1px;}
+h2{font-size:17px;margin:24px 0 12px;}
+h3{font-size:15px;}
+h4{font-size:14px;}
+table{font-size:10.5px;width:auto;min-width:100%;border-collapse:collapse;}
+div.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:18px 0;}
+div.table-wrap table{width:auto;min-width:100%;}
+table th,table td{padding:8px 14px;white-space:nowrap;word-break:keep-all;}
+p{text-indent:1em;font-size:14px;}
+.highlight-box{padding:12px 14px;}
+.metric-grid{gap:8px;}
+.metric-item{min-width:44%;padding:10px;}
+.metric-item .value{font-size:18px;}
+.subtitle{font-size:12px;}
+.tag{font-size:10px;padding:2px 8px;}
+ul,ol{padding-left:20px;}
+}
+@media print{
+body{background:#fff;padding:0;}
+.container{box-shadow:none;padding:30px;}
+}
 </style></head><body><div class="container">
 <div style="text-align:left;padding:10px 0 30px;border-bottom:1px solid #333;margin-bottom:25px;"><a href="../index.html" style="color:#1a5276;text-decoration:none;font-size:15px;">&larr; 返回首页</a></div>
 <h1>山西汾酒（600809.SH）深度投资价值分析报告</h1>
@@ -163,12 +185,12 @@ tr:nth-child(even) td{background:#fff9f7;}
 (function(){
 var tables = document.querySelectorAll("table");
 for(var i=0;i<tables.length;i++){
-var t = tables[i];
-if(t.parentNode && t.parentNode.className==="table-wrap") continue;
-var wrap = document.createElement("div");
-wrap.className = "table-wrap";
-t.parentNode.insertBefore(wrap, t);
-wrap.appendChild(t);
+  var table = tables[i];
+  if(table.parentNode && table.parentNode.className==="table-wrap") continue;
+  var wrap = document.createElement("div");
+  wrap.className = "table-wrap";
+  table.parentNode.insertBefore(wrap, table);
+  wrap.appendChild(table);
 }
 })();
 </script>
