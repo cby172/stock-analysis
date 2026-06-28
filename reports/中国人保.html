@@ -40,10 +40,12 @@ h1{font-size:20px;letter-spacing:1px;}
 h2{font-size:17px;margin:24px 0 12px;}
 h3{font-size:15px;}
 h4{font-size:14px;}
-table{font-size:10.5px;width:auto;min-width:100%;border-collapse:collapse;}
-div.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:18px 0;}
-div.table-wrap table{width:auto;min-width:100%;}
-table th,table td{padding:8px 14px;white-space:nowrap;word-break:keep-all;}
+table{font-size:10.5px;border-collapse:collapse;}
+div.table-wrap{display:block;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;max-width:100%;margin:18px 0;}
+div.table-wrap table{display:table !important;table-layout:auto !important;border-collapse:collapse;}
+div.table-wrap table.wide-table{width:max-content !important;min-width:100% !important;max-width:none !important;}
+div.table-wrap table.narrow-table{width:100% !important;min-width:100% !important;max-width:100% !important;}
+table th,table td,table th *,table td *{padding:8px 14px;white-space:nowrap !important;word-break:keep-all !important;overflow-wrap:normal !important;line-break:auto !important;writing-mode:horizontal-tb !important;text-orientation:mixed !important;transform:none !important;}
 p{text-indent:1em;font-size:14px;}
 .highlight-box{padding:12px 14px;}
 .metric-grid{gap:8px;}
@@ -57,7 +59,27 @@ ul,ol{padding-left:20px;}
 body{background:#fff;padding:0;}
 .container{box-shadow:none;padding:30px;}
 }
+
+:root{--font-scale:1}
+.font-tools{position:fixed;top:14px;right:16px;display:flex;gap:6px;z-index:1200;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);padding:6px;border-radius:999px;box-shadow:0 6px 18px rgba(0,0,0,.08);border:1px solid rgba(0,0,0,.08)}
+.font-btn{border:none;background:#eef3fa;color:#1a5276;padding:6px 10px;border-radius:999px;font-size:12px;font-weight:700;cursor:pointer;line-height:1}
+.font-btn.active{background:#1a5276;color:#fff}
+body{font-size:calc(14px * var(--font-scale))}
+h1{font-size:calc(28px * var(--font-scale)) !important}
+h2{font-size:calc(20px * var(--font-scale)) !important}
+h3{font-size:calc(17px * var(--font-scale)) !important}
+h4{font-size:calc(15px * var(--font-scale)) !important}
+p,li,table th,table td{font-size:calc(14px * var(--font-scale)) !important}
+.subtitle{font-size:calc(14px * var(--font-scale)) !important}
+.tag{font-size:calc(12px * var(--font-scale)) !important}
+.metric-item .value{font-size:calc(22px * var(--font-scale)) !important}
+.metric-item .label{font-size:calc(12px * var(--font-scale)) !important}
+@media (max-width:768px){
+.font-tools{top:auto;bottom:14px;right:12px}
+.font-btn{padding:7px 10px}
+}
 </style></head><body><div class="container">
+<div class="font-tools" id="fontTools"><button class="font-btn" data-scale="0.9">A-</button><button class="font-btn active" data-scale="1">A</button><button class="font-btn" data-scale="1.1">A+</button></div>
 <div style="text-align:left;padding:10px 0 30px;border-bottom:1px solid #333;margin-bottom:25px;"><a href="../index.html" style="color:#1a5276;text-decoration:none;font-size:15px;">&larr; 返回首页</a></div>
 <h1>中国人保（601319）深度投资价值分析报告</h1>
 <div class="subtitle">
@@ -196,15 +218,60 @@ body{background:#fff;padding:0;}
 <p>本报告原始数据已保存至本文件夹 Excel：股价数据、利润表、资产负债表、现金流量表、财务指标与经营分析。关键数据经校验：2025营业总收入6,690.4亿、已赚保费5,707.2亿、归母净利466.5亿、总资产20,276.8亿、总市值3,055.9亿，未发现全0报表、异常EPS/BPS或模板变量泄露。</p>
 </div><script>
 (function(){
-var tables = document.querySelectorAll("table");
-for(var i=0;i<tables.length;i++){
-  var table = tables[i];
-  if(table.parentNode && table.parentNode.className==="table-wrap") continue;
-  var wrap = document.createElement("div");
-  wrap.className = "table-wrap";
-  table.parentNode.insertBefore(wrap, table);
-  wrap.appendChild(table);
+function classifyTable(table){
+  if(!table || !table.parentNode) return;
+  var wrap = table.parentNode;
+  var firstRow = table.rows && table.rows.length ? table.rows[0] : null;
+  var colCount = firstRow ? firstRow.cells.length : 0;
+  table.classList.remove("wide-table", "narrow-table");
+  var naturalWidth = table.scrollWidth || 0;
+  var wrapWidth = wrap.clientWidth || window.innerWidth || 0;
+  if(colCount >= 5 || naturalWidth > wrapWidth + 24){
+    table.classList.add("wide-table");
+  }else{
+    table.classList.add("narrow-table");
+  }
 }
+function initTables(){
+  var tables = document.querySelectorAll("table");
+  for(var i=0;i<tables.length;i++){
+    var table = tables[i];
+    if(!(table.parentNode && table.parentNode.className==="table-wrap")){
+      var wrap = document.createElement("div");
+      wrap.className = "table-wrap";
+      table.parentNode.insertBefore(wrap, table);
+      wrap.appendChild(table);
+    }
+    classifyTable(table);
+  }
+}
+initTables();
+window.addEventListener("resize", initTables);
+})();
+</script>
+<script>
+(function(){
+  var KEY = "stock-font-scale";
+  var root = document.documentElement;
+  function apply(scale){
+    root.style.setProperty("--font-scale", scale);
+    var buttons = document.querySelectorAll(".font-btn");
+    for(var i=0;i<buttons.length;i++){
+      buttons[i].classList.toggle("active", buttons[i].getAttribute("data-scale") === String(scale));
+    }
+  }
+  var saved = localStorage.getItem(KEY) || "1";
+  apply(saved);
+  var tools = document.getElementById("fontTools");
+  if(tools){
+    tools.addEventListener("click", function(e){
+      var btn = e.target.closest(".font-btn");
+      if(!btn) return;
+      var scale = btn.getAttribute("data-scale") || "1";
+      localStorage.setItem(KEY, scale);
+      apply(scale);
+    });
+  }
 })();
 </script>
 </body></html>
