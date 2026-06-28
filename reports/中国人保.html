@@ -61,25 +61,36 @@ body{background:#fff;padding:0;}
 }
 
 :root{--font-scale:1}
-.font-tools{position:fixed;top:14px;right:16px;display:flex;gap:6px;z-index:1200;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);padding:6px;border-radius:999px;box-shadow:0 6px 18px rgba(0,0,0,.08);border:1px solid rgba(0,0,0,.08)}
-.font-btn{border:none;background:#eef3fa;color:#1a5276;padding:6px 10px;border-radius:999px;font-size:12px;font-weight:700;cursor:pointer;line-height:1}
+.side-tools{position:fixed;right:12px;top:50%;transform:translateY(-50%);display:flex;align-items:center;gap:10px;max-width:50px;overflow:hidden;z-index:1300;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);padding:8px;border-radius:18px;box-shadow:0 10px 28px rgba(0,0,0,.12);border:1px solid rgba(0,0,0,.08);transition:max-width .25s ease,padding .25s ease,box-shadow .25s ease}
+.side-tools.open{max-width:280px;padding:8px 10px 8px 8px;box-shadow:0 14px 34px rgba(0,0,0,.16)}
+.side-toggle{display:inline-flex;align-items:center;justify-content:center;gap:4px;width:34px;height:34px;flex:0 0 34px;border:none;border-radius:999px;background:#1a5276;color:#fff;cursor:pointer;font-weight:700;font-size:12px;line-height:1}
+.side-toggle .arrow{font-size:11px;transition:transform .22s ease}
+.side-tools.open .side-toggle .arrow{transform:rotate(180deg)}
+.side-panel{display:flex;align-items:center;gap:10px;white-space:nowrap;opacity:0;pointer-events:none;transform:translateX(8px);transition:opacity .2s ease,transform .2s ease}
+.side-tools.open .side-panel{opacity:1;pointer-events:auto;transform:translateX(0)}
+.side-label{font-size:12px;font-weight:700;color:#486581}
+.font-group{display:flex;gap:6px}
+.font-btn{border:none;background:#eef3fa;color:#1a5276;padding:7px 11px;border-radius:999px;font-size:12px;font-weight:700;cursor:pointer;line-height:1}
 .font-btn.active{background:#1a5276;color:#fff}
-body{font-size:calc(14px * var(--font-scale))}
-h1{font-size:calc(28px * var(--font-scale)) !important}
-h2{font-size:calc(20px * var(--font-scale)) !important}
-h3{font-size:calc(17px * var(--font-scale)) !important}
-h4{font-size:calc(15px * var(--font-scale)) !important}
-p,li,table th,table td{font-size:calc(14px * var(--font-scale)) !important}
-.subtitle{font-size:calc(14px * var(--font-scale)) !important}
-.tag{font-size:calc(12px * var(--font-scale)) !important}
+body{font-size:calc(15px * var(--font-scale))}
+h1{font-size:calc(30px * var(--font-scale)) !important}
+h2{font-size:calc(22px * var(--font-scale)) !important}
+h3{font-size:calc(18px * var(--font-scale)) !important}
+h4{font-size:calc(16px * var(--font-scale)) !important}
+p,li{font-size:calc(15px * var(--font-scale)) !important}
+table th,table td{font-size:calc(12.5px * var(--font-scale)) !important}
+.subtitle{font-size:calc(13.5px * var(--font-scale)) !important}
+.tag{font-size:calc(11px * var(--font-scale)) !important}
 .metric-item .value{font-size:calc(22px * var(--font-scale)) !important}
-.metric-item .label{font-size:calc(12px * var(--font-scale)) !important}
+.metric-item .label,.small{font-size:calc(11.5px * var(--font-scale)) !important}
 @media (max-width:768px){
-.font-tools{top:auto;bottom:14px;right:12px}
+.side-tools{right:8px;top:auto;bottom:20px;transform:none;max-width:46px}
+.side-tools.open{max-width:248px}
+.side-label{display:none}
 .font-btn{padding:7px 10px}
 }
 </style></head><body><div class="container">
-<div class="font-tools" id="fontTools"><button class="font-btn" data-scale="0.9">A-</button><button class="font-btn active" data-scale="1">A</button><button class="font-btn" data-scale="1.1">A+</button></div>
+<div class="side-tools" id="fontTools"><button class="side-toggle" id="fontToggle" type="button" aria-expanded="false" title="字体缩放"><span class="aa">A</span><span class="arrow">‹</span></button><div class="side-panel"><span class="side-label">字体</span><div class="font-group"><button class="font-btn" data-scale="0.88">A-</button><button class="font-btn active" data-scale="1">A</button><button class="font-btn" data-scale="1.18">A+</button><button class="font-btn" data-scale="1.34">A++</button></div></div></div>
 <div style="text-align:left;padding:10px 0 30px;border-bottom:1px solid #333;margin-bottom:25px;"><a href="../index.html" style="color:#1a5276;text-decoration:none;font-size:15px;">&larr; 返回首页</a></div>
 <h1>中国人保（601319）深度投资价值分析报告</h1>
 <div class="subtitle">
@@ -166,7 +177,7 @@ p,li,table th,table td{font-size:calc(14px * var(--font-scale)) !important}
 <table><tr><th>估值方法</th><th>测算价值/倍数</th><th>适用性</th><th>结论</th></tr><tr><td>P/B-ROE核心估值</td><td>5.60 / 7.00 / 8.40元</td><td>保险公司资产负债表驱动，PB应与ROE、偿付能力、投资收益匹配</td><td>当前PB 0.96x，低于按ROE/10%粗算的合理PB 1.61x</td></tr><tr><td>ROE合理PB校验</td><td>9.10元/股</td><td>用ROE/股东要求回报率粗估合理PB，适合金融公司交叉验证</td><td>当前价低于该锚，但需考虑利率下行和投资波动折价</td></tr><tr><td>PE辅助</td><td>6.74 / 8.67 / 10.60元</td><td>利润受投资收益和准备金波动影响，PE只能辅助</td><td>自算TTM PE约7.2x，低位但不是唯一买入理由</td></tr><tr><td>P/已赚保费辅助</td><td>0.54x</td><td>用于观察市值相对承保规模，不直接代表盈利质量</td><td>规模便宜，但必须结合综合成本率和投资端</td></tr><tr><td>股息率辅助</td><td>2.10%</td><td>按最新10派1.45元预案测算，需看分红实施和资本充足</td><td>派息率约13.8%，股息支撑一般</td></tr><tr><td>P/EV</td><td>未硬算</td><td>保险公司常用，但当前结构化数据中没有集团内含价值口径</td><td>避免用不完整寿险EV替代集团估值，后续若取得年报EV可补充</td></tr></table>
 <h3>5.4 估值综合评级</h3>
 <div class="highlight-box">
-<p><strong>综合评级：<span style="color:#1976d2;font-size:20px;">合理偏低</span></strong> —— 当前PB约0.96倍，ROE约16.1%，从P/B-ROE角度看并不贵；但考虑长端利率偏低、2026Q1利润同比下滑、投资端波动和偿付能力下降，暂不直接给“明显低估”。如果财险综合成本率保持优秀、投资收益率稳定、BPS继续增长，估值可向低估修复。</p>
+<p><strong>综合评级：<span style="color:#2e7d32;font-size:20px;">合理偏低</span></strong> —— 当前PB约0.96倍，ROE约16.1%，从P/B-ROE角度看并不贵；但考虑长端利率偏低、2026Q1利润同比下滑、投资端波动和偿付能力下降，暂不直接给“明显低估”。如果财险综合成本率保持优秀、投资收益率稳定、BPS继续增长，估值可向低估修复。</p>
 </div>
 <h3>5.5 情景假设</h3>
 <p><strong>悲观情景：</strong>权益市场下跌、长端利率继续下行、灾害赔付上升，ROE回落到10%以下，则合理PB可能低于1倍。<strong>中性情景：</strong>财险承保盈利稳定、投资收益率维持、ROE在12%-15%，当前估值合理偏低。<strong>乐观情景：</strong>综合成本率持续改善、寿险NBV修复、资本市场回暖，ROE维持15%以上，则PB可向1.1-1.2倍甚至更高修复。</p>
@@ -205,7 +216,7 @@ p,li,table th,table td{font-size:calc(14px * var(--font-scale)) !important}
 <h3>8.1 最终结论</h3>
 <div class="highlight-box green">
 <p><strong>最终判断：</strong>中国人保是一家以财险为核心的中央金融保险平台，资产负债表稳、ROE仍有韧性、PB估值不高；但它不是高成长公司，利润受投资收益、利率和赔付周期影响明显。适合把它当作“金融保险低估值 + 财险龙头 + 利率/权益修复弹性”的稳健型标的跟踪。</p>
-<p><strong>评级：<span style="color:#1976d2;font-size:20px;">合理偏低</span></strong> —— 当前价格有一定安全边际，但需要等待财险综合成本率、投资收益率和BPS增长继续验证。如果ROE保持15%左右且PB仍低于1倍，吸引力会增强；如果ROE下滑到10%以下，则PB折价可能合理。</p>
+<p><strong>评级：<span style="color:#2e7d32;font-size:20px;">合理偏低</span></strong> —— 当前价格有一定安全边际，但需要等待财险综合成本率、投资收益率和BPS增长继续验证。如果ROE保持15%左右且PB仍低于1倍，吸引力会增强；如果ROE下滑到10%以下，则PB折价可能合理。</p>
 </div>
 <h3>8.2 操作与跟踪框架</h3>
 <ul>
@@ -253,6 +264,8 @@ window.addEventListener("resize", initTables);
 (function(){
   var KEY = "stock-font-scale";
   var root = document.documentElement;
+  var tools = document.getElementById("fontTools");
+  var toggle = document.getElementById("fontToggle");
   function apply(scale){
     root.style.setProperty("--font-scale", scale);
     var buttons = document.querySelectorAll(".font-btn");
@@ -260,16 +273,29 @@ window.addEventListener("resize", initTables);
       buttons[i].classList.toggle("active", buttons[i].getAttribute("data-scale") === String(scale));
     }
   }
+  function setOpen(open){
+    if(!tools) return;
+    tools.classList.toggle("open", !!open);
+    if(toggle) toggle.setAttribute("aria-expanded", open ? "true" : "false");
+  }
   var saved = localStorage.getItem(KEY) || "1";
   apply(saved);
-  var tools = document.getElementById("fontTools");
   if(tools){
     tools.addEventListener("click", function(e){
+      var toggleBtn = e.target.closest("#fontToggle");
+      if(toggleBtn){
+        e.preventDefault();
+        setOpen(!tools.classList.contains("open"));
+        return;
+      }
       var btn = e.target.closest(".font-btn");
       if(!btn) return;
       var scale = btn.getAttribute("data-scale") || "1";
       localStorage.setItem(KEY, scale);
       apply(scale);
+    });
+    document.addEventListener("click", function(e){
+      if(!tools.contains(e.target)) setOpen(false);
     });
   }
 })();
